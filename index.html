@@ -1,410 +1,203 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fr">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Rosas Behoundja | Portfolio</title>
-    <link rel="stylesheet" href="styles.css">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    <!-- Font Awesome for icons -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-    <!-- Favicons -->
+    <title>Rosas Behoundja</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'custom-blue': '#1e40af',
+                        'custom-blue-light': '#3b82f6',
+                        'custom-blue-dark': '#1e3a8a'
+                    },
+                    fontFamily: {
+                        'serif': ['Georgia', 'Times New Roman', 'serif'],
+                    },
+                    typography: {
+                        DEFAULT: {
+                            css: {
+                                'line-height': '1.8',
+                                'text-align': 'justify',
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    </script>
     <link rel="apple-touch-icon" sizes="180x180" href="media/favicon_io/apple-touch-icon.png">
     <link rel="icon" type="image/png" sizes="32x32" href="media/favicon_io/favicon-32x32.png">
     <link rel="icon" type="image/png" sizes="16x16" href="media/favicon_io/favicon-16x16.png">
-    <link rel="manifest" href="/site.webmanifest">
+    <link rel="manifest" href="media/favicon_io/site.webmanifest">
 </head>
-<body>
-    <!-- Header with sticky navigation -->
-    <header id="home">
-        <div class="container">
-            <h1 class="logo">Rosas Behoundja</h1>
-            <div class="hamburger-menu">
-                <div class="hamburger-icon" id="hamburger-icon">
-                    <span></span>
-                    <span></span>
-                    <span></span>
+<body class="bg-gray-50 font-serif text-gray-900 leading-relaxed">
+    <!-- Header with navigation -->
+    <header class="bg-white shadow-sm border-b border-gray-200 py-6">
+        <nav class="container mx-auto px-6">
+            <div class="flex justify-between items-center">
+                <h1 class="text-2xl font-bold text-custom-blue tracking-wide">Rosas Behoundja</h1>
+                <div class="flex space-x-6 text-sm font-medium">
+                    <a href="https://github.com/rosasbehoundja" target="_blank" class="text-custom-blue hover:text-custom-blue-dark transition-colors duration-200">GitHub</a>
+                    <a href="https://www.linkedin.com/in/rosasbehoundja" target="_blank" class="text-custom-blue hover:text-custom-blue-dark transition-colors duration-200">LinkedIn</a>
+                    <a href="mailto:perrierosas@gmail.com" class="text-custom-blue hover:text-custom-blue-dark transition-colors duration-200">Contact</a>
                 </div>
             </div>
-            <div class="header-right" id="header-right">
-                <nav>
-                    <ul class="menu">
-                        <li><a href="#about">About me</a></li>
-                        <li><a href="#projects">Projects</a></li>
-                        <li><a href="#contact">Contact</a></li>
-                        <li>
-                            <div class="theme-toggle" id="theme-toggle" title="Toggle dark/light mode">
-                                <i id="theme-icon" class="fas fa-moon"></i>
-                            </div>
-                        </li>
-                    </ul>
-                </nav>
-                <!--<div class="contact-icons">
-                    <a href="mailto:perrierosas@gmail.com" class="contact-icon" title="Email">
-                        <i class="fas fa-envelope"></i>
-                    </a>
-                    <a href="https://github.com/rosasbehoundja" target="_blank" class="contact-icon" title="GitHub">
-                        <i class="fab fa-github"></i>
-                    </a>
-                    <a href="https://www.linkedin.com/in/rosasbehoundja" target="_blank" class="contact-icon" title="LinkedIn">
-                        <i class="fab fa-linkedin"></i>
-                    </a>
-                </div>-->
-            </div>
-        </div>
+        </nav>
     </header>
 
-    <!-- About Section (Updated) -->
-    <section id="about" class="section">
-        <div class="container">
-            <div class="about-content">
-                <div class="profile-image">
-                    <img src="media/ros1.jpg" alt="Rosas Behoundja">
-                </div>
-                <div class="bio">
-                    <p>Hi, I'm Rosas Behoundja, an Artificial Intelligence enthusiast with a deep passion for solving real-world challenges using cutting-edge AI techniques. I specialize in AI research, machine learning, and optimization. My goal is to develop innovative solutions that improve the quality of life in Africa and beyond.</p>
-                    
-                    <h4>My areas of interest include:</h4>
-                    <ul class="research-interests">
-                        <li><strong>Deep Learning</strong> – Building and training neural networks to solve complex problems.</li>
-                        <li><strong>Machine Learning</strong> – Exploring algorithms that help machines learn from data and make predictions.</li>
-                        <li><strong>Optimization Algorithms</strong> – Developing techniques to find the most efficient solutions to complex problems.</li>
-                        <li><strong>Ethical AI</strong> – Ensuring fairness, transparency, and accountability in AI applications.</li>
-                    </ul>
-                    
-                    <p>Currently, I am deeply involved in exploring <strong>Genetic Algorithms and Deep Learning</strong> and their application in solving problems.</p>
-                    
-                    <p>Feel free to contact me at my email: <strong><a href="mailto:perrierosas@gmail.com" title="Email">perrierosas@gmail.com</a></strong> or connect with me on LinkedIn.</p>
-                </div>
-            </div>
-        </div>
-    </section>
+    <!-- Main content -->
+    <main class="container mx-auto px-6 py-16 max-w-4xl bg-white shadow-sm rounded-lg mx-auto mt-8">
+        <!-- Academic Header -->
+        <header class="text-center mb-16 border-b border-gray-100 pb-12">
+            <img src="media/ros1.jpg" alt="Rosas Behoundja" class="w-36 h-36 mx-auto rounded-full object-cover mb-8 shadow-lg ring-4 ring-gray-100">
+            <h1 class="text-4xl md:text-5xl font-bold text-gray-900 mb-4 tracking-tight">Rosas Behoundja</h1>
+            <p class="text-xl text-gray-600 font-light mb-2">Étudiant en Intelligence Artificielle | Machine Learning Engineer</p>
+            <p class="text-base text-gray-500 italic">Institut de Formation et de Recherche en Informatique (IFRI)</p>
+        </header>
 
-    <!-- Education Section -->
-    <section id="education" class="section">
-        <div class="container">
-            <h2 class="section-title">Education</h2>
-            <div class="education-container">
-                <div class="education-item">
-                    <div class="education-details">
-                        <div class="education-logo">
-                            <a href="https://ifri-uac.bj/" target="_blank">
-                                <img src="media/logoifri.png" alt="IFRI Logo">
-                            </a>
-                        </div>
-                        <h3>Bachelor degree in Artificial Intelligence</h3>
-                        <p class="institution">Institut de Formation et de Recherche en Informatique (UAC), Benin</p>
-                        <p class="period">2023–2026 (in progress)</p>
-                    </div>
-                </div>
-                <div class="education-item">
-                    <div class="education-details">
-                        <h3>Scientific Baccalaureate</h3>
-                        <p class="institution">Collège Catholique St Jean-Paul II de Djougou, Benin</p>
-                        <p class="period">2022</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
+        <!-- Biography Content -->
+        <article class="prose prose-lg lg:prose-xl max-w-none text-justify leading-relaxed space-y-6">
+            
+            <p class="text-lg mb-8 first-letter:text-6xl first-letter:font-bold first-letter:mr-3 first-letter:float-left first-letter:text-custom-blue first-letter:leading-none">
+                Je suis étudiant en deuxième année de licence en intelligence artificielle à l'<a href="http://www.ifri-uac.bj/" target="_blank" class="text-custom-blue hover:text-custom-blue-dark no-underline border-b border-custom-blue border-dotted transition-colors duration-200">IFRI</a>, où je contribue à des projets d'apprentissage automatique, d'optimisation, d'ordonnancement et de planification.
+            </p>
 
-    <!-- Projects Section -->
-    <section id="projects" class="section">
-        <div class="container">
-            <h2 class="section-title">Recent Projects</h2>
-            <div class="projects-grid">
-                <!-- Project 1 -->
-                <div class="project-card">
-                    <div class="project-icon">
-                        <i class="fas fa-puzzle-piece"></i>
-                    </div>
-                    <h3>Sokoban Game</h3>
-                    <p>Implementation of the Sokoban puzzle game using AI algorithms like DFS, BFS, and A* to automatically solve levels.</p>
-                    <div class="project-technologies">
-                        <span class="tech-tag">Python</span>
-                        <span class="tech-tag">CLI</span>
-                        <span class="tech-tag">Heuristics</span>
-                    </div>
-                    <a href="https://github.com/rosasbehoundja/sokoban-game" class="project-link">View on GitHub</a>
-                </div>
-                
-                <div class="project-card">
-                    <div class="project-icon">
-                        <i class="fas fa-users"></i>
-                    </div>
-                    <h3>PIL1_2324_2</h3>
-                    <p>Social network site built with Django, allowing users to connect with recommandation system.</p>
-                    <div class="project-technologies">
-                        <span class="tech-tag">Python</span>
-                        <span class="tech-tag">Django</span>
-                        <span class="tech-tag">SQL</span>
-                        <span class="tech-tag">HTML/CSS</span>
-                        <span class="tech-tag">JavaScript</span>
-                    </div>
-                    <a href="https://github.com/rosasbehoundja/PIL1_2324_2" class="project-link">View on GitHub</a>
+            <p class="mb-6 text-gray-700">
+                De juin 2025 à août 2025, j'ai effectué un stage chez <a href="https://etihuku.com/" target="_blank" class="text-custom-blue hover:text-custom-blue-dark no-underline border-b border-custom-blue border-dotted transition-colors duration-200">eTihuku</a>, une startup technologique sud-africaine spécialisée dans le développement de solutions d'intelligence artificielle et de données, en tant qu'ingénieur en apprentissage automatique. Jetez un œil :) <a href="https://intelligence.etihuku.com/home" target="_blank" class="text-custom-blue hover:text-custom-blue-dark no-underline border-b border-custom-blue border-dotted transition-colors duration-200">Intelligence Platform</a>.
+            </p>
+
+            <h2 class="text-3xl font-semibold text-custom-blue mt-16 mb-8 border-l-4 border-custom-blue pl-4">Mes Projets</h2>
+
+            <p class="mb-6 text-gray-700">
+                Pendant mon temps libre, je travaille sur des projets plutôt intéressants, haha.
+            </p>
+
+            <div class="space-y-6 ml-6">
+                <div class="border-l-2 border-gray-200 pl-6">
+                    <p class="mb-4 text-gray-700">
+                        <strong>Fluxy</strong> : une application qui automatise l'extraction de données bancaires pour la comptabilité. Le projet est encore en développement, mais il mérite d'être mentionné.
+                    </p>
                 </div>
 
-                <div class="project-card">
-                    <div class="project-icon">
-                        <i class="fas fa-brain"></i>
-                    </div>
-                    <h3>MLScratch</h3>
-                    <p>Implementation of machine learning algorithms (regression, SVM, decision trees) built from scratch using Python.</p>
-                    <div class="project-technologies">
-                        <span class="tech-tag">Python</span>
-                        <span class="tech-tag">NumPy</span>
-                        <span class="tech-tag">ML</span>
-                    </div>
-                    <a href="https://github.com/rosasbehoundja/MLScratch" class="project-link">View on GitHub</a>
+                <div class="border-l-2 border-gray-200 pl-6">
+                    <p class="mb-4 text-gray-700">
+                        <strong>Opti'Plan</strong> : un projet de recherche appliquée en intelligence artificielle et optimisation visant à créer de nouveaux modèles d'optimisation pour la planification automatique des soutenances dans les universités du Bénin.
+                    </p>
                 </div>
 
-                <div class="project-card">
-                    <div class="project-icon">
-                        <i class="fas fa-shield-alt"></i>
-                    </div>
-                    <h3>Cryptojacking Detection</h3>
-                    <p>Network activity classification to detect cryptojacking attacks, developed during the IndabaX Benin 2024 hackathon.</p>
-                    <div class="project-technologies">
-                        <span class="tech-tag">Python</span>
-                        <span class="tech-tag">XGBoost</span>
-                        <span class="tech-tag">Scikit-learn</span>
-                    </div>
-                    <a href="https://github.com/rosasbehoundja/Cryptojacking_Detection" class="project-link">View on GitHub</a>
-                </div>
-                
-                <div class="project-card">
-                    <div class="project-icon">
-                        <i class="fas fa-terminal"></i>
-                    </div>
-                    <h3>PicTerminal Group 5</h3>
-                    <p>Command-line image processing application built in C++ as part of a university project.</p>
-                    <div class="project-technologies">
-                        <span class="tech-tag">C++</span>
-                        <span class="tech-tag">CLI</span>
-                    </div>
-                    <a href="https://github.com/rosasbehoundja/PicTerminal_Groupe5" class="project-link">View on GitHub</a>
+                <div class="border-l-2 border-gray-200 pl-6">
+                    <p class="mb-4 text-gray-700">
+                        <a href="https://github.com/rosasbehoundja/NNScratch" target="_blank" class="text-custom-blue hover:text-custom-blue-dark no-underline border-b border-custom-blue border-dotted transition-colors duration-200">NNScratch</a> et <a href="https://github.com/rosasbehoundja/MLScratch" target="_blank" class="text-custom-blue hover:text-custom-blue-dark no-underline border-b border-custom-blue border-dotted transition-colors duration-200">MLScratch</a> : deux projets personnels qui me permettent de réimplémenter des algorithmes d'apprentissage automatique et d'apprentissage profond pour faciliter ma compréhension.
+                    </p>
                 </div>
 
-                <div class="project-card">
-                    <div class="project-icon">
-                        <i class="far fa-smile"></i>
-                    </div>
-                    <h3>Sentiment Analysis in Python</h3>
-                    <p>A web application using Streamlit to perform sentiment analysis on user-input text. Implements natural language processing techniques to classify emotions.</p>
-                    <div class="project-technologies">
-                        <span class="tech-tag">Python</span>
-                        <span class="tech-tag">NLP</span>
-                        <span class="tech-tag">Streamlit</span>
-                    </div>
-                    <a href="https://github.com/rosasbehoundja/Sentiment_analysis_Python" class="project-link">View on GitHub</a>
+                <div class="border-l-2 border-gray-200 pl-6">
+                    <p class="mb-4 text-gray-700">
+                        <a href="https://github.com/IFRI-AI-Classes/ifri_mini_ml_lib" target="_blank" class="text-custom-blue hover:text-custom-blue-dark no-underline border-b border-custom-blue border-dotted transition-colors duration-200">ifri-mini-ml-lib</a> : une bibliothèque d'apprentissage automatique à des fins pédagogiques développée avec le professeur <a href="https://ratheil.info/index.php" target="_blank" class="text-custom-blue hover:text-custom-blue-dark no-underline border-b border-custom-blue border-dotted transition-colors duration-200">Ratheil Houndji</a>. J'ai principalement travaillé sur le module de règles d'association, ainsi que sur la structuration et le déploiement du projet.
+                    </p>
                 </div>
-                
-                <div class="project-card">
-                    <div class="project-icon">
-                        <i class="fas fa-chart-line"></i>
-                    </div>
-                    <h3>Titanic Classification</h3>
-                    <p>A machine learning model that predicts passenger survival on the Titanic using a Flask-based web interface and scikit-learn.</p>
-                    <div class="project-technologies">
-                        <span class="tech-tag">Python</span>
-                        <span class="tech-tag">Flask</span>
-                        <span class="tech-tag">Scikit-learn</span>
-                    </div>
-                    <a href="https://github.com/rosasbehoundja/Titanic-Classification" class="project-link">View on GitHub</a>
-                </div>                                
-            </div>
-        </div>
-    </section>
 
-    <!-- Skills Section -->
-    <section id="skills" class="section">
-        <div class="container">
-            <h2 class="section-title">Skills</h2>
-            <div class="skills-container">
-                <div class="skill-tag">Python</div>
-                <div class="skill-tag">Artificial Intelligence</div>
-                <div class="skill-tag">Machine Learning</div>
-                <div class="skill-tag">Deep Learning</div>
-                <div class="skill-tag">Metaheuristics</div>
-                <div class="skill-tag">C++</div>
-                <div class="skill-tag">Numpy</div>
-                <div class="skill-tag">Pandas</div>
-                <div class="skill-tag">Data Analysis</div>
-                <div class="skill-tag">Data Visualisation</div>
-                <div class="skill-tag">Scikit-learn</div>
-                <div class="skill-tag">Linux</div>
-                <div class="skill-tag">Flask</div>
-                <div class="skill-tag">FastAPI</div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Achievements Section -->
-    <section id="achievements" class="section">
-        <div class="container">
-            <h2 class="section-title">Achievements</h2>
-            <div class="achievements-timeline">
-                <div class="achievement-item">
-                    <div class="achievement-icon">
-                        <img src="media/zindi_africa_logo.jpeg" alt="Zindi Logo" class="achievement-logo">
-                    </div>
-                    <div class="achievement-content">
-                        <h3>Winner – IndabaX Hackathon 2024</h3>
-                        <p>Cryptojacking detection</p>
-                        <a href="https://zindi.africa/users/Rosas_Behoundja/competitions/certificate" class="certificate-link" target="_blank">View Certificate</a>
-                    </div>
-                </div>
-                <div class="achievement-item">
-                    <div class="achievement-icon">
-                        <img src="media/dnsathon.png" alt="DNSathon Logo" class="achievement-logo">
-                    </div>
-                    <div class="achievement-content">
-                        <h3>DNSathon 2024</h3>
-                        <p>AI for DNS anomaly detection</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Volunteering Section -->
-    <section id="volunteering" class="section">
-        <div class="container">
-            <h2 class="section-title">Volunteering</h2>
-            <div class="volunteering-container">
-                <div class="volunteering-item">
-                    <h3><a href="https://www.friare.org/" class="highlighted-link" target="_blank">FRIARE</a></h3>
-                    <p class="organization"><strong>Fondation Ratheil pour une Intelligence Artificielle Responsable et Efficiente</strong></p>
-                    <p class="period">February 2025 - Present</p>
-                    <p class="description">Supporting research, awareness and education in AI in Africa.</p>
+                <div class="border-l-2 border-gray-200 pl-6">
+                    <p class="mb-4 text-gray-700">
+                        Sur mon <a href="https://github.com/rosasbehoundja" target="_blank" class="text-custom-blue hover:text-custom-blue-dark no-underline border-b border-custom-blue border-dotted transition-colors duration-200">compte Github</a>, vous trouverez d'autres mini-projets sur lesquels j'ai également travaillé (analyse des émotions, classification, régression, sokoban, etc.).
+                    </p>
                 </div>
             </div>
 
-            <div class="volunteering-container">
-                <div class="volunteering-item">
-                    <h3><a href="https://github.com/Classmate-Mentoring-Program" class="highlighted-link" target="_blank">CMP</a></h3>
-                    <p class="organization"><strong>Classmate Mentoring Program</strong></p>
-                    <p class="period">January 2025 - Present</p>
-                    <p class="description">An initiative to promote peer-to-peer learning and mentorship among AI students.</p>
-                </div>
-            </div>
-        </div>
-    </section>
+            <p class="text-center text-gray-600 mb-8">Rassurez-vous, de belles choses arrivent.</p>
 
-    <!-- Contact Section -->
-    <section id="contact" class="section">
-        <div class="container">
-            <h2 class="section-title">Contact</h2>
-            <div class="contact-container">
-                <p class="contact-intro">Feel free to reach out to me through any of the following channels:</p>
-                
-                <div class="contact-methods">
-                    <a href="mailto:perrierosas@gmail.com" class="contact-method" target="_blank">
-                        <div class="contact-icon">
-                            <i class="fas fa-envelope"></i>
-                        </div>
-                        <div class="contact-info">
-                            <h3>Email</h3>
-                        </div>
-                    </a>
-                    
-                    <a href="https://github.com/rosasbehoundja" class="contact-method" target="_blank">
-                        <div class="contact-icon">
-                            <i class="fab fa-github"></i>
-                        </div>
-                        <div class="contact-info">
-                            <h3>GitHub</h3>
-                        </div>
-                    </a>
-                    
-                    <a href="https://www.linkedin.com/in/rosasbehoundja" class="contact-method" target="_blank">
-                        <div class="contact-icon">
-                            <i class="fab fa-linkedin"></i>
-                        </div>
-                        <div class="contact-info">
-                            <h3>LinkedIn</h3>
-                        </div>
-                    </a>
+            <h2 class="text-3xl font-semibold text-custom-blue mt-16 mb-8 border-l-4 border-custom-blue pl-4">Engagement</h2>
+
+            <p class="mb-6 text-gray-700">
+                Quand mon ordinateur tombe en panne, je deviens soudainement contributeur pour des organisations dont les valeurs et les objectifs correspondent aux miens.
+            </p>
+
+            <div class="space-y-6 ml-6">
+                <div class="border-l-2 border-gray-200 pl-6">
+                    <p class="mb-4 text-gray-700">
+                        À la <a href="https://www.friare.org/" target="_blank" class="text-custom-blue hover:text-custom-blue-dark no-underline border-b border-custom-blue border-dotted transition-colors duration-200">FRIARE</a> (Fondation Ratheil pour une Intelligence Artificielle Responsable et Efficiente), je contribue à la promotion d'une intelligence artificielle responsable et efficace en Afrique, dans le but de contribuer à la construction d'un avenir durable pour les générations futures.
+                    </p>
+                </div>
+
+                <div class="border-l-2 border-gray-200 pl-6">
+                    <p class="mb-4 text-gray-700">
+                        Dans <a href="https://www.linkedin.com/company/the-lab-benin" target="_blank" class="text-custom-blue hover:text-custom-blue-dark no-underline border-b border-custom-blue border-dotted transition-colors duration-200">The LAB</a>, mes collègues et moi allons déconstruire les mythes, sensibiliser et susciter des vocations au sein des communautés pour un avenir meilleur autour de l'intelligence artificielle.
+                    </p>
+                </div>
+
+                <div class="border-l-2 border-gray-200 pl-6">
+                    <p class="mb-4 text-gray-700">
+                        <a href="https://github.com/IFRI-Future-of-AI" target="_blank" class="text-custom-blue hover:text-custom-blue-dark no-underline border-b border-custom-blue border-dotted transition-colors duration-200">Future of AI</a>, la communauté étudiante en intelligence artificielle de mon école. À travers diverses activités, comme notre club de lecture, le programme Neural Night et nos discussions, nous nous soutenons mutuellement et imaginons des initiatives qui, nous l'espérons, contribueront à l'avancement de la recherche et de l'innovation dans le domaine de l'IA.
+                    </p>
                 </div>
             </div>
-        </div>
-    </section>
+
+            <p class="text-center text-gray-600 italic mb-8">C'est tout pour le travail.</p>
+
+            <h2 class="text-3xl font-semibold text-custom-blue mt-16 mb-8 border-l-4 border-custom-blue pl-4">Un peu plus sur moi</h2>
+
+            <p class="mb-6 text-gray-700">
+                Je suis aussi un grand aventurier et un amoureux d'art et de culture. J'aime la nature et sa beauté, et j'adore immortaliser les couchers et levers de soleil.
+            </p>
+
+            <p class="mb-6 text-gray-700">
+                Oh, j'oubliais ! La musique ! J'adore :) Bon Iver, Benson Boone, Adèle, Orelsan, BigFlo et Oli, et pour mon continent, Conex et Don, Toofan.
+            </p>
+
+            <p class="mb-8 text-gray-700">
+                On me décrit comme une personne sociable et gentille ! Mais ne vous y trompez pas, haha, je plaisante beaucoup.
+            </p>
+
+            <div class="text-center bg-gray-50 p-8 border-l-4 border-custom-blue rounded-r-lg">
+                <p class="text-lg text-gray-700 mb-4">
+                    Merci d'être resté jusqu'à la fin.
+                </p>
+                <p class="text-gray-600">
+                    Écoutez de la musique :) ou visitez ma galerie.
+                </p>
+            </div>
+
+        </article>
+    </main>
 
     <!-- Footer -->
-    <footer>
-        <div class="container">
-            <p>&copy; Rosas Behoundja - 2025</p>
-            <a href="#about" class="back-to-top">Back to top</a>
+    <footer class="border-t border-gray-200 py-12 bg-gray-50">
+        <div class="container mx-auto px-6 max-w-4xl">
+            <div class="text-center">
+                <h3 class="text-2xl font-bold text-custom-blue mb-4">Contacts</h3>
+                <div class="flex justify-center space-x-8 mb-8">
+                    <a href="https://github.com/rosasbehoundja" target="_blank" class="flex flex-col items-center text-custom-blue hover:text-custom-blue-dark transition-colors duration-300">
+                        <svg class="w-8 h-8 mb-2" fill="currentColor" viewBox="0 0 24 24">
+                            <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
+                        </svg>
+                        <span>GitHub</span>
+                    </a>
+                    
+                    <a href="https://www.linkedin.com/in/rosasbehoundja" target="_blank" class="flex flex-col items-center text-custom-blue hover:text-custom-blue-dark transition-colors duration-300">
+                        <svg class="w-8 h-8 mb-2" fill="currentColor" viewBox="0 0 24 24">
+                            <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
+                        </svg>
+                        <span>LinkedIn</span>
+                    </a>
+                    
+                    <a href="mailto:perrierosas@gmail.com" class="flex flex-col items-center text-custom-blue hover:text-custom-blue-dark transition-colors duration-300">
+                        <svg class="w-8 h-8 mb-2" fill="currentColor" viewBox="0 0 24 24">
+                            <path d="M24 5.457v13.909c0 .904-.732 1.636-1.636 1.636h-3.819V11.73L12 16.64l-6.545-4.91v9.273H1.636A1.636 1.636 0 0 1 0 19.366V5.457c0-.904.732-1.636 1.636-1.636h.911l9.453 7.094 9.453-7.094h.911c.904 0 1.636.732 1.636 1.636z"/>
+                        </svg>
+                        <span>Email</span>
+                    </a>
+                </div>
+                
+                <div class="border-t border-gray-300 pt-8">
+                    <p class="text-gray-600">&copy; 2025 Rosas Behoundja.</p>
+                </div>
+            </div>
         </div>
     </footer>
 
-    <!-- Theme Switching Script -->
-    <script>
-        // Wait for DOM to be fully loaded
-        document.addEventListener('DOMContentLoaded', () => {
-            const themeToggle = document.getElementById('theme-toggle');
-            const themeIcon = document.getElementById('theme-icon');
-            const hamburgerIcon = document.getElementById('hamburger-icon');
-            const headerRight = document.getElementById('header-right');
-            
-            // Check for saved theme preference or use default
-            const savedTheme = localStorage.getItem('theme') || 'light';
-            document.body.setAttribute('data-theme', savedTheme);
-            
-            // Update icon based on current theme
-            updateThemeIcon(savedTheme);
-            
-            // Toggle theme when button is clicked
-            themeToggle.addEventListener('click', () => {
-                const currentTheme = document.body.getAttribute('data-theme');
-                const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
-                
-                // Apply theme to body
-                document.body.setAttribute('data-theme', newTheme);
-                
-                // Save preference to localStorage
-                localStorage.setItem('theme', newTheme);
-                
-                // Update icon
-                updateThemeIcon(newTheme);
-            });
-            
-            // Function to update the theme icon
-            function updateThemeIcon(theme) {
-                if (theme === 'dark') {
-                    themeIcon.classList.remove('fa-moon');
-                    themeIcon.classList.add('fa-sun');
-                } else {
-                    themeIcon.classList.remove('fa-sun');
-                    themeIcon.classList.add('fa-moon');
-                }
-            }
-            
-            // Hamburger menu toggle
-            hamburgerIcon.addEventListener('click', () => {
-                hamburgerIcon.classList.toggle('active');
-                headerRight.classList.toggle('active');
-                
-                // Prevent scrolling when menu is open
-                if (headerRight.classList.contains('active')) {
-                    document.body.style.overflow = 'hidden';
-                } else {
-                    document.body.style.overflow = '';
-                }
-            });
-            
-            // Close menu when clicking on a link
-            const menuLinks = document.querySelectorAll('.menu a');
-            menuLinks.forEach(link => {
-                link.addEventListener('click', () => {
-                    hamburgerIcon.classList.remove('active');
-                    headerRight.classList.remove('active');
-                    document.body.style.overflow = '';
-                });
-            });
-        });
-    </script>
 </body>
 </html>
