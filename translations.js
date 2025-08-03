@@ -8,6 +8,7 @@ const translations = {
         // Navigation
         'nav-projects': 'Projets',
         'nav-engagement': 'Engagement',
+        'nav-blog': 'Blog',
         'nav-about': 'À propos',
         
         // Main content
@@ -52,6 +53,7 @@ const translations = {
         // Navigation
         'nav-projects': 'Projects',
         'nav-engagement': 'Engagement',
+        'nav-blog': 'Blog',
         'nav-about': 'About',
         
         // Main content
