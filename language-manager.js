@@ -2,7 +2,7 @@
 
 class LanguageManager {
     constructor() {
-        this.currentLang = localStorage.getItem('preferred-language') || 'fr';
+        this.currentLang = localStorage.getItem('preferred-language') || 'en';
         this.translations = translations; // From translations.js
         this.init();
     }
