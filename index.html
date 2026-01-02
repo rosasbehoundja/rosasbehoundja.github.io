@@ -1,37 +1,37 @@
 <!DOCTYPE html>
-<html lang="fr">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     
     <!-- Primary Meta Tags -->
     <title>Rosas Behoundja</title>
-    <meta name="title" content="Rosas Behoundja - Étudiant en IA">
-    <meta name="description" content="Rosas Behoundja, étudiant en Intelligence Artificielle à l'IFRI (Université d'Abomey-Calavi), spécialisé en optimisation et apprentissage automatique.">
-    <meta name="keywords" content="Rosas Behoundja, Intelligence Artificielle, Machine Learning, IFRI, Bénin, Optimisation, Métaheuristiques">
+    <meta name="title" content="Rosas Behoundja - AI Student">
+    <meta name="description" content="Rosas Behoundja, Artificial Intelligence student at IFRI (University of Abomey-Calavi), specialized in optimization and machine learning.">
+    <meta name="keywords" content="Rosas Behoundja, Artificial Intelligence, Machine Learning, IFRI, Benin, Optimization, Metaheuristics">
     <meta name="author" content="Rosas Behoundja">
     <meta name="robots" content="index, follow">
-    <meta name="language" content="French">
+    <meta name="language" content="English">
 
     <!-- Open Graph / Facebook -->
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://rosasbehoundja.github.io/">
-    <meta property="og:title" content="Rosas Behoundja - Étudiant en IA">
-    <meta property="og:description" content="Rosas Behoundja, étudiant en Intelligence Artificielle à l'IFRI, spécialisé en optimisation et apprentissage automatique.">
+    <meta property="og:title" content="Rosas Behoundja - AI Student">
+    <meta property="og:description" content="Rosas Behoundja, Artificial Intelligence student at IFRI, specialized in optimization and machine learning.">
     <meta property="og:image" content="https://rosasbehoundja.github.io/media/me.jpeg">
-    <meta property="og:locale" content="fr_FR">
+    <meta property="og:locale" content="en_US">
     <meta property="og:site_name" content="Rosas Behoundja">
     
     <!-- Twitter -->
     <meta property="twitter:card" content="summary_large_image">
     <meta property="twitter:url" content="https://rosasbehoundja.github.io/">
-    <meta property="twitter:title" content="Rosas Behoundja - Étudiant en IA">
-    <meta property="twitter:description" content="Étudiant en Intelligence Artificielle, spécialisé en optimisation et apprentissage automatique.">
+    <meta property="twitter:title" content="Rosas Behoundja - AI Student">
+    <meta property="twitter:description" content="Artificial Intelligence student, specialized in optimization and machine learning.">
     <meta property="twitter:image" content="https://rosasbehoundja.github.io/media/me.jpeg">
 
     <!-- Additional Meta Tags -->
-    <meta name="theme-color" content="#ffffff">
-    <meta name="msapplication-TileColor" content="#ffffff">
+    <meta name="theme-color" content="#2c3e7b">
+    <meta name="msapplication-TileColor" content="#2c3e7b">
 
     <!-- Canonical URL -->
     <link rel="canonical" href="https://rosasbehoundja.github.io/">
@@ -55,13 +55,13 @@
         "name": "Rosas Behoundja",
         "givenName": "Rosas",
         "familyName": "Behoundja",
-        "jobTitle": "Étudiant en Intelligence Artificielle",
+        "jobTitle": "Artificial Intelligence Student",
         "affiliation": {
             "@type": "EducationalOrganization",
             "name": "Institut de Formation et de Recherche en Informatique (IFRI)",
             "parentOrganization": {
                 "@type": "CollegeOrUniversity",
-                "name": "Université d'Abomey-Calavi"
+                "name": "University of Abomey-Calavi"
             }
         },
         "email": "perrierosas@gmail.com",
@@ -104,7 +104,7 @@
             border-radius: 50%;
             object-fit: cover;
             margin-bottom: 2rem;
-            border: 3px solid #e5e5e5;
+            border: 3px solid #2c3e7b;
         }
 
         h1 {
@@ -112,6 +112,7 @@
             font-weight: 600;
             margin-bottom: 1.5rem;
             letter-spacing: 0.02em;
+            color: #2c3e7b;
         }
 
         .bio {
@@ -129,15 +130,15 @@
             display: inline-block;
             margin-bottom: 2rem;
             padding: 0.75rem 1.5rem;
-            border: 1px solid #1a1a1a;
-            color: #1a1a1a;
+            border: 1px solid #2c3e7b;
+            color: #2c3e7b;
             text-decoration: none;
             font-size: 1rem;
             transition: all 0.3s ease;
         }
 
         .cv-link:hover {
-            background-color: #1a1a1a;
+            background-color: #2c3e7b;
             color: #ffffff;
         }
 
@@ -159,12 +160,31 @@
         }
 
         .social-links a:hover {
-            color: #555;
+            color: #2c3e7b;
         }
 
         .social-links svg {
             width: 20px;
             height: 20px;
+        }
+
+        .lang-toggle {
+            position: fixed;
+            top: 1.5rem;
+            right: 1.5rem;
+            padding: 0.5rem 1rem;
+            border: 1px solid #2c3e7b;
+            background-color: #ffffff;
+            color: #2c3e7b;
+            font-family: 'EB Garamond', Georgia, serif;
+            font-size: 0.95rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .lang-toggle:hover {
+            background-color: #2c3e7b;
+            color: #ffffff;
         }
 
         @media (max-width: 600px) {
@@ -188,26 +208,35 @@
             .social-links {
                 gap: 1.5rem;
             }
+
+            .lang-toggle {
+                top: 1rem;
+                right: 1rem;
+                padding: 0.4rem 0.8rem;
+                font-size: 0.85rem;
+            }
         }
     </style>
 </head>
 <body>
+    <button class="lang-toggle" id="langToggle" aria-label="Translate to French">FR</button>
+
     <main class="container">
-        <img src="media/me.jpeg" alt="Photo de Rosas Behoundja" class="profile-photo">
+        <img src="media/me.jpeg" alt="Photo of Rosas Behoundja" class="profile-photo">
 
         <h1>Rosas Behoundja</h1>
 
         <div class="bio">
             <p>
-                Je suis étudiant en troisième année de licence en Informatique avec une spécialisation en Intelligence Artificielle. J'étudie à l'Institut de Formation et de Recherche en Informatique (IFRI) de l'Université d'Abomey-Calavi au Bénin. Je m'intéresse à tout ce qui touche à l'optimisation (en particulier les métaheuristiques) et à l'apprentissage automatique.
+                I am a third-year undergraduate student in <strong>Computer Science with a specialization in Artificial Intelligence</strong>. I study at the Institut de Formation et de Recherche en Informatique (IFRI) at the University of Abomey-Calavi in Benin. I am interested in everything related to <strong>optimization</strong> (especially metaheuristics) and <strong>machine learning</strong>.
             </p>
             <p>
-                Mon objectif est de construire des systèmes capables de résoudre des problèmes concrets au Bénin et en Afrique, quel que soit le domaine.
+                My goal is to build systems capable of solving real-world problems in Benin and Africa, regardless of the domain.
             </p>
         </div>
 
-        <a href="https://drive.google.com/file/d/1xSWLRmzlYIrPSggMxbLiv4KeTNA4jzH_/view?usp=sharing" target="_blank" rel="noopener noreferrer" class="cv-link">
-            Voir mon CV
+        <a href="https://drive.google.com/file/d/1xSWLRmzlYIrPSggMxbLiv4KeTNA4jzH_/view?usp=sharing" target="_blank" rel="noopener noreferrer" class="cv-link" id="cvLink">
+            View my CV
         </a>
 
         <nav class="social-links">
@@ -232,5 +261,40 @@
         </nav>
     </main>
 
+    <script>
+        const translations = {
+            fr: {
+                bio1: "Je suis étudiant en troisième année de licence en Informatique avec une spécialisation en Intelligence Artificielle. J'étudie à l'Institut de Formation et de Recherche en Informatique (IFRI) de l'Université d'Abomey-Calavi au Bénin. Je m'intéresse à tout ce qui touche à l'optimisation (en particulier les métaheuristiques) et à l'apprentissage automatique.",
+                bio2: "Mon objectif est de construire des systèmes capables de résoudre des problèmes concrets au Bénin et en Afrique, quel que soit le domaine.",
+                cv: "Voir mon CV",
+                toggleBtn: "EN",
+                toggleLabel: "Translate to English"
+            },
+            en: {
+                bio1: "I am a third-year undergraduate student in Computer Science with a specialization in Artificial Intelligence. I study at the Institut de Formation et de Recherche en Informatique (IFRI) at the University of Abomey-Calavi in Benin. I am interested in everything related to optimization (especially metaheuristics) and machine learning.",
+                bio2: "My goal is to build systems capable of solving real-world problems in Benin and Africa, regardless of the domain.",
+                cv: "View my CV",
+                toggleBtn: "FR",
+                toggleLabel: "Translate to French"
+            }
+        };
+
+        let currentLang = 'en';
+        const langToggle = document.getElementById('langToggle');
+        const bioP = document.querySelectorAll('.bio p');
+        const cvLink = document.getElementById('cvLink');
+
+        langToggle.addEventListener('click', () => {
+            currentLang = currentLang === 'fr' ? 'en' : 'fr';
+            const t = translations[currentLang];
+
+            bioP[0].textContent = t.bio1;
+            bioP[1].textContent = t.bio2;
+            cvLink.textContent = t.cv;
+            langToggle.textContent = t.toggleBtn;
+            langToggle.setAttribute('aria-label', t.toggleLabel);
+            document.documentElement.lang = currentLang;
+        });
+    </script>
 </body>
 </html>
