@@ -37,10 +37,10 @@
     <!-- Canonical URL -->
     <link rel="canonical" href="https://rosasbehoundja.github.io/">
     
-    <!-- Google Fonts - Police académique -->
+    <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
 
     <!-- Favicons -->
     <link rel="apple-touch-icon" sizes="180x180" href="media/favicon_io/apple-touch-icon.png">
@@ -82,11 +82,12 @@
         }
 
         body {
-            font-family: 'EB Garamond', Georgia, 'Times New Roman', serif;
-            background-color: #ffffff;
-            color: #1a1a1a;
+            font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+            background-color: #fff;
+            color: #000;
             min-height: 100vh;
             display: flex;
+            flex-direction: column;
             justify-content: center;
             align-items: center;
             padding: 2rem;
@@ -117,10 +118,12 @@
         }
 
         .bio {
-            font-size: 1.125rem;
+            font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+            font-size: 17px;
             text-align: justify;
             margin-bottom: 2rem;
-            color: #333;
+            color: #000;
+            line-height: 1.7;
         }
 
         .bio p {
@@ -132,6 +135,7 @@
             margin-bottom: 2rem;
             padding: 0.75rem 1.5rem;
             border: 1px solid #2c3e7b;
+            border-radius: 8px;
             color: #2c3e7b;
             text-decoration: none;
             font-size: 1rem;
@@ -151,22 +155,40 @@
         }
 
         .social-links a {
-            color: #1a1a1a;
+            color: #000;
             text-decoration: none;
             font-size: 1rem;
-            transition: color 0.3s ease;
+            transition: opacity 0.3s ease;
             display: flex;
             align-items: center;
             gap: 0.5rem;
         }
 
         .social-links a:hover {
-            color: #2c3e7b;
+            opacity: 0.7;
         }
 
         .social-links svg {
             width: 20px;
             height: 20px;
+        }
+
+        .social-links .github-icon {
+            fill: #181717;
+        }
+
+        .social-links .linkedin-icon {
+            fill: #0A66C2;
+        }
+
+        footer {
+            margin-top: 3rem;
+            padding-top: 1.5rem;
+            border-top: 1px solid #ddd;
+            text-align: center;
+            font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+            font-size: 0.9rem;
+            color: #000;
         }
 
         .lang-toggle {
@@ -175,6 +197,7 @@
             right: 1.5rem;
             padding: 0.5rem 1rem;
             border: 1px solid #2c3e7b;
+            border-radius: 8px;
             background-color: #ffffff;
             color: #2c3e7b;
             font-family: 'EB Garamond', Georgia, serif;
@@ -229,7 +252,7 @@
 
         <div class="bio">
             <p>
-                Third-year undergraduate student in <strong>Computer Science with a specialization in Artificial Intelligence</strong> studying at the Institut de Formation et de Recherche en Informatique (IFRI) at the University of Abomey-Calavi in Benin. My interests lie in research in optimization and machine learning. I enjoy building tools and participating in tech projects capable of solving real-world problems in Benin and across Africa, regardless of the field.
+                Hi ! I'm Rosas, currently a third-year undergraduate student in Computer Science with a specialization in Artificial Intelligence studying at the Institut de Formation et de Recherche en Informatique (IFRI) at the University of Abomey-Calavi in Benin. My interests lie in research in optimization and machine learning. I enjoy building tools and participating in tech projects capable of solving real-world problems in Benin and across Africa, regardless of the field.
             </p>
             <p>
                 My ambition is to conduct scientific research and to be able to propose solutions to the challenges we face.
@@ -242,37 +265,45 @@
 
         <nav class="social-links">
             <a href="https://github.com/rosasbehoundja" target="_blank" rel="noopener noreferrer">
-                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
+                <svg class="github-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
                     <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
                 </svg>
                 GitHub
             </a>
             <a href="https://linkedin.com/in/rosasbehoundja" target="_blank" rel="noopener noreferrer">
-                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
+                <svg class="linkedin-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
                     <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/>
                 </svg>
                 LinkedIn
             </a>
             <a href="mailto:perrierosas@gmail.com">
-                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
-                    <path d="M0 3v18h24v-18h-24zm21.518 2l-9.518 7.713-9.518-7.713h19.036zm-19.518 14v-11.817l10 8.104 10-8.104v11.817h-20z"/>
+                <svg class="email-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48" width="20" height="20">
+                    <path fill="#4caf50" d="M45,16.2l-5,2.75l-5,4.75L35,40h7c1.657,0,3-1.343,3-3V16.2z"/>
+                    <path fill="#1e88e5" d="M3,16.2l3.614,1.71L13,23.7V40H6c-1.657,0-3-1.343-3-3V16.2z"/>
+                    <polygon fill="#e53935" points="35,11.2 24,19.45 13,11.2 12,17 13,23.7 24,31.95 35,23.7 36,17"/>
+                    <path fill="#c62828" d="M3,12.298V16.2l10,7.5V11.2L9.876,8.859C9.132,8.301,8.228,8,7.298,8h0C4.924,8,3,9.924,3,12.298z"/>
+                    <path fill="#fbc02d" d="M45,12.298V16.2l-10,7.5V11.2l3.124-2.341C38.868,8.301,39.772,8,40.702,8h0 C43.076,8,45,9.924,45,12.298z"/>
                 </svg>
                 Email
             </a>
         </nav>
+
+        <footer>
+            &copy; 2026 Rosas Behoundja
+        </footer>
     </main>
 
     <script>
         const translations = {
             fr: {
-                bio1: "Etudiant en troisième année de licence en Informatique avec une spécialisation en Intelligence Artificielle à l'Institut de Formation et de Recherche en Informatique (IFRI) de l'Université d'Abomey-Calavi au Bénin. Je m'intéresse à la recherche en optimisation et en apprentissage automatique. J'aime créer des outils et participer à des projets technologiques capables de résoudre des problèmes concrets au Bénin et à travers l'Afrique, quel que soit le domaine.",
+                bio1: "Salut ! Je suis Rosas, actuellement étudiant en troisième année de licence en Informatique avec une spécialisation en Intelligence Artificielle à l'Institut de Formation et de Recherche en Informatique (IFRI) de l'Université d'Abomey-Calavi au Bénin. Je m'intéresse à la recherche en optimisation et en apprentissage automatique. J'aime créer des outils et participer à des projets technologiques capables de résoudre des problèmes concrets au Bénin et à travers l'Afrique, quelque soit le domaine.",
                 bio2: "Mon ambition est de mener des recherches scientifiques et de pouvoir proposer des solutions aux défis auxquels nous sommes confrontés.",
                 cv: "Voir mon CV",
                 toggleBtn: "EN",
                 toggleLabel: "Translate to English"
             },
             en: {
-                bio1: "Third-year undergraduate student in Computer Science with a specialization in Artificial Intelligence studying at the Institut de Formation et de Recherche en Informatique (IFRI) at the University of Abomey-Calavi in Benin. My interests lie in research in optimization and machine learning. I enjoy building tools and participating in tech projects capable of solving real-world problems in Benin and across Africa, regardless of the field.",
+                bio1: "Hi ! I'm Rosas, currently a third-year undergraduate student in Computer Science with a specialization in Artificial Intelligence studying at the Institut de Formation et de Recherche en Informatique (IFRI) at the University of Abomey-Calavi in Benin. My interests lie in research in optimization and machine learning. I enjoy building tools and participating in tech projects capable of solving real-world problems in Benin and across Africa, regardless of the field.",
                 bio2: "My ambition is to conduct scientific research and to be able to propose solutions to the challenges we face.",
                 cv: "View my CV",
                 toggleBtn: "FR",
