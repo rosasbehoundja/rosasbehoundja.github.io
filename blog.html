@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Primary Meta Tags -->
+    <title>Blog - Rosas Behoundja</title>
+    <meta name="title" content="Blog - Rosas Behoundja">
+    <meta name="description" content="Articles and thoughts on Artificial Intelligence, Machine Learning, Optimization, and more by Rosas Behoundja.">
+    <meta name="keywords" content="Blog, AI, Machine Learning, Optimization, Tutorials, Rosas Behoundja">
+    <meta name="author" content="Rosas Behoundja">
+    <meta name="robots" content="index, follow">
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://rosasbehoundja.github.io/blog.html">
+    <meta property="og:title" content="Blog - Rosas Behoundja">
+    <meta property="og:description" content="Articles and thoughts on AI, Machine Learning, and Optimization.">
+    <meta property="og:image" content="https://rosasbehoundja.github.io/media/me.jpeg">
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://rosasbehoundja.github.io/blog.html">
+    <meta property="twitter:title" content="Blog - Rosas Behoundja">
+    <meta property="twitter:description" content="Articles and thoughts on AI, Machine Learning, and Optimization.">
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Jost:ital,wght@0,100..900;1,100..900&family=Source+Code+Pro:ital,wght@0,200..900;1,200..900&family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+
+    <!-- Favicons -->
+    <link rel="apple-touch-icon" sizes="180x180" href="media/favicon_io/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="media/favicon_io/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="media/favicon_io/favicon-16x16.png">
+    <link rel="manifest" href="media/favicon_io/site.webmanifest">
+
+    <!-- Stylesheets -->
+    <link rel="stylesheet" href="css/base.css">
+    <link rel="stylesheet" href="css/articles.css">
+</head>
+<body class="blog-page">
+
+    <nav class="main-nav" id="mainNav">
+        <a href="index.html">About</a>
+        <a href="blog.html" class="active">Blog</a>
+    </nav>
+
+    <main class="blog-container">
+        <header class="blog-header">
+            <h1>Blog</h1>
+            <p class="blog-description">Thoughts, tutorials, and explorations in AI, machine Learning, optimization, and beyond.</p>
+        </header>
+
+        <section class="articles-list">
+            <!-- Article Card 1 -->
+            <!--<article class="article-card">
+                <div class="article-meta">
+                    <time datetime="2026-01-04">January 4, 2026</time>
+                    <span class="article-tag">Tutorial</span>
+                </div>
+                <h2><a href="articles/introduction-neural-networks.html">Introduction to Neural Networks: From Theory to Practice</a></h2>
+                <p class="article-excerpt">A comprehensive guide to understanding neural networks, covering the mathematical foundations, architecture design, and a hands-on implementation in Python.</p>
+                <a href="articles/introduction-neural-networks.html" class="read-more">Read more →</a>
+            </article> -->
+
+            <!-- Article Card 2 -->
+            <!--<article class="article-card">
+                <div class="article-meta">
+                    <time datetime="2025-12-15">December 15, 2025</time>
+                    <span class="article-tag">Research</span>
+                </div>
+                <h2><a href="articles/metaheuristics-optimization.html">Metaheuristics for Optimization: A Deep Dive into Genetic Algorithms</a></h2>
+                <p class="article-excerpt">Exploring the world of metaheuristic optimization with a focus on genetic algorithms. Includes mathematical formulations and Python implementations.</p>
+                <a href="articles/metaheuristics-optimization.html" class="read-more">Read more →</a>
+            </article>-->
+
+            <!-- Article Card 3 -->
+            <!--<article class="article-card">
+                <div class="article-meta">
+                    <time datetime="2025-11-20">November 20, 2025</time>
+                    <span class="article-tag">Opinion</span>
+                </div>
+                <h2><a href="articles/ai-africa-future.html">The Future of AI in Africa: Challenges and Opportunities</a></h2>
+                <p class="article-excerpt">Reflections on the current state of AI development in Africa, the unique challenges we face, and the immense opportunities that lie ahead for the continent.</p>
+                <a href="articles/ai-africa-future.html" class="read-more">Read more →</a>
+            </article>-->
+
+            <!-- Article Card 4 - Recap 2025 -->
+            <article class="article-card">
+                <div class="article-meta">
+                    <time datetime="2025-12-31">December 31, 2025</time>
+                    <span class="article-tag">Personal</span>
+                </div>
+                <h2><a href="articles/recap-2025.html">Recap 2025: A year of growth and learning</a></h2>
+                <p class="article-excerpt">Looking back at my journey through 2025.</p>
+                <a href="articles/recap-2025.html" class="read-more">Read more →</a>
+            </article>
+        </section>
+    </main>
+
+    <footer class="blog-footer">
+        &copy; 2026 Rosas Behoundja
+    </footer>
+
+    <script>
+        // Show/hide nav on scroll
+        let lastScroll = 0;
+        window.addEventListener('scroll', function() {
+            const nav = document.getElementById('mainNav');
+            const currentScroll = window.scrollY;
+
+            if (currentScroll > 100 && currentScroll > lastScroll) {
+                nav.classList.add('hidden');
+            } else {
+                nav.classList.remove('hidden');
+            }
+            lastScroll = currentScroll;
+        });
+    </script>
+</body>
+</html>
+

@@ -1,0 +1,432 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Introduction to Neural Networks - Rosas Behoundja</title>
+    <meta name="description" content="A comprehensive guide to understanding neural networks, covering the mathematical foundations, architecture design, and a hands-on implementation in Python.">
+    <meta name="author" content="Rosas Behoundja">
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Jost:ital,wght@0,100..900;1,100..900&family=Source+Code+Pro:ital,wght@0,200..900;1,200..900&display=swap" rel="stylesheet">
+
+    <!-- KaTeX for Math -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css">
+    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"></script>
+    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js"></script>
+
+    <!-- Prism.js for Syntax Highlighting -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-tomorrow.min.css">
+    <script defer src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+    <script defer src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-python.min.js"></script>
+
+    <!-- Favicons -->
+    <link rel="apple-touch-icon" sizes="180x180" href="../media/favicon_io/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="../media/favicon_io/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="../media/favicon_io/favicon-16x16.png">
+
+    <!-- Stylesheets -->
+    <link rel="stylesheet" href="../css/base.css">
+    <link rel="stylesheet" href="../css/articles.css">
+</head>
+<body class="article-page">
+
+    <!-- Reading Progress Bar -->
+    <div class="reading-progress"></div>
+
+    <nav class="main-nav" id="mainNav">
+        <a href="../index.html">About</a>
+        <a href="../blog.html">Blog</a>
+    </nav>
+
+    <main class="article-container">
+        <!-- Back Link -->
+        <a href="../blog.html" class="back-link">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <line x1="19" y1="12" x2="5" y2="12"></line>
+                <polyline points="12 19 5 12 12 5"></polyline>
+            </svg>
+            Back to Blog
+        </a>
+
+        <!-- Article Header -->
+        <header class="article-header">
+            <h1>Introduction to Neural Networks: From Theory to Practice</h1>
+            <div class="article-info">
+                <span class="author">Rosas Behoundja</span>
+                <span class="separator">•</span>
+                <time datetime="2026-01-04">January 4, 2026</time>
+                <span class="separator">•</span>
+                <span class="reading-time">8 min read</span>
+            </div>
+        </header>
+
+        <!-- Table of Contents -->
+        <nav class="toc">
+            <h4>Table of Contents</h4>
+            <ul></ul>
+        </nav>
+
+        <!-- Article Content -->
+        <article class="article-content">
+            <p>
+                Neural networks have revolutionized the field of artificial intelligence, enabling machines to learn complex patterns from data. In this article, we'll explore the fundamental concepts behind neural networks, dive into the mathematics, and implement a simple neural network from scratch in Python.
+            </p>
+
+            <h2 id="what-are-neural-networks">What Are Neural Networks?</h2>
+
+            <p>
+                A neural network is a computational model inspired by the biological neural networks in our brains. It consists of interconnected nodes (neurons) organized in layers that process information through weighted connections.
+            </p>
+
+            <div class="note">
+                Neural networks are particularly powerful because they can learn to approximate any continuous function, a property known as the <strong>Universal Approximation Theorem</strong>.
+            </div>
+
+            <p>
+                The basic architecture of a neural network includes:
+            </p>
+
+            <ul>
+                <li><strong>Input Layer:</strong> Receives the raw data</li>
+                <li><strong>Hidden Layers:</strong> Process and transform the data</li>
+                <li><strong>Output Layer:</strong> Produces the final prediction</li>
+            </ul>
+
+            <figure>
+                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/46/Colored_neural_network.svg/560px-Colored_neural_network.svg.png" alt="Neural Network Architecture">
+                <figcaption>Figure 1: A simple feedforward neural network with one hidden layer</figcaption>
+            </figure>
+
+            <h2 id="mathematical-foundations">Mathematical Foundations</h2>
+
+            <p>
+                Understanding the mathematics behind neural networks is crucial for implementing them effectively. Let's explore the key concepts.
+            </p>
+
+            <h3 id="forward-propagation">Forward Propagation</h3>
+
+            <p>
+                In forward propagation, the input signal passes through the network layer by layer. For a single neuron, the output is computed as:
+            </p>
+
+            <div class="math-block">
+                $$y = \sigma\left(\sum_{i=1}^{n} w_i x_i + b\right)$$
+            </div>
+
+            <p>
+                Where:
+            </p>
+
+            <dl>
+                <dt>x<sub>i</sub></dt>
+                <dd>Input values</dd>
+                <dt>w<sub>i</sub></dt>
+                <dd>Weight parameters</dd>
+                <dt>b</dt>
+                <dd>Bias term</dd>
+                <dt>σ</dt>
+                <dd>Activation function</dd>
+            </dl>
+
+            <h3 id="activation-functions">Activation Functions</h3>
+
+            <p>
+                Activation functions introduce non-linearity into the network. Common choices include:
+            </p>
+
+            <table>
+                <thead>
+                    <tr>
+                        <th>Function</th>
+                        <th>Formula</th>
+                        <th>Range</th>
+                        <th>Use Case</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Sigmoid</td>
+                        <td>1 / (1 + e<sup>-x</sup>)</td>
+                        <td>(0, 1)</td>
+                        <td>Binary classification</td>
+                    </tr>
+                    <tr>
+                        <td>ReLU</td>
+                        <td>max(0, x)</td>
+                        <td>[0, ∞)</td>
+                        <td>Hidden layers</td>
+                    </tr>
+                    <tr>
+                        <td>Tanh</td>
+                        <td>(e<sup>x</sup> - e<sup>-x</sup>) / (e<sup>x</sup> + e<sup>-x</sup>)</td>
+                        <td>(-1, 1)</td>
+                        <td>Hidden layers</td>
+                    </tr>
+                    <tr>
+                        <td>Softmax</td>
+                        <td>e<sup>x<sub>i</sub></sup> / Σe<sup>x<sub>j</sub></sup></td>
+                        <td>(0, 1)</td>
+                        <td>Multi-class output</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <h3 id="backpropagation">Backpropagation</h3>
+
+            <p>
+                Backpropagation is the algorithm used to train neural networks by computing gradients of the loss function with respect to the weights. It uses the chain rule of calculus:
+            </p>
+
+            <div class="math-block">
+                $$\frac{\partial L}{\partial w} = \frac{\partial L}{\partial y} \cdot \frac{\partial y}{\partial z} \cdot \frac{\partial z}{\partial w}$$
+            </div>
+
+            <div class="tip">
+                The gradient tells us in which direction we should adjust the weights to minimize the loss function. We use gradient descent to iteratively update the weights.
+            </div>
+
+            <h2 id="implementation">Python Implementation</h2>
+
+            <p>
+                Let's implement a simple neural network from scratch using NumPy. We'll create a network that can learn the XOR function.
+            </p>
+
+            <h3 id="setup">Setting Up</h3>
+
+            <p>
+                First, let's import the necessary libraries and define our activation functions:
+            </p>
+
+            <div class="code-block">
+                <div class="code-header">
+                    <span class="code-language">Python</span>
+                    <button class="copy-btn" onclick="copyCode(this)">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+                            <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+                        </svg>
+                        Copy
+                    </button>
+                </div>
+                <pre><code class="language-python">import numpy as np
+
+# Activation functions
+def sigmoid(x):
+    """Sigmoid activation function"""
+    return 1 / (1 + np.exp(-x))
+
+def sigmoid_derivative(x):
+    """Derivative of sigmoid for backpropagation"""
+    return x * (1 - x)
+
+def relu(x):
+    """ReLU activation function"""
+    return np.maximum(0, x)
+
+def relu_derivative(x):
+    """Derivative of ReLU"""
+    return np.where(x > 0, 1, 0)</code></pre>
+            </div>
+
+            <h3 id="neural-network-class">Neural Network Class</h3>
+
+            <p>
+                Now let's define our neural network class with forward and backward propagation:
+            </p>
+
+            <div class="code-block">
+                <div class="code-header">
+                    <span class="code-language">Python</span>
+                    <button class="copy-btn" onclick="copyCode(this)">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+                            <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+                        </svg>
+                        Copy
+                    </button>
+                </div>
+                <pre><code class="language-python">class NeuralNetwork:
+    def __init__(self, layers):
+        """
+        Initialize neural network with given architecture.
+
+        Args:
+            layers: List of integers representing neurons per layer
+        """
+        self.layers = layers
+        self.weights = []
+        self.biases = []
+
+        # Initialize weights and biases
+        for i in range(len(layers) - 1):
+            w = np.random.randn(layers[i], layers[i+1]) * 0.5
+            b = np.zeros((1, layers[i+1]))
+            self.weights.append(w)
+            self.biases.append(b)
+
+    def forward(self, X):
+        """Forward propagation through the network"""
+        self.activations = [X]
+
+        for i in range(len(self.weights)):
+            z = np.dot(self.activations[-1], self.weights[i]) + self.biases[i]
+            a = sigmoid(z)
+            self.activations.append(a)
+
+        return self.activations[-1]
+
+    def backward(self, X, y, learning_rate=0.1):
+        """Backpropagation to update weights"""
+        m = X.shape[0]
+
+        # Output layer error
+        delta = (self.activations[-1] - y) * sigmoid_derivative(self.activations[-1])
+
+        # Backpropagate through layers
+        for i in range(len(self.weights) - 1, -1, -1):
+            self.weights[i] -= learning_rate * np.dot(self.activations[i].T, delta) / m
+            self.biases[i] -= learning_rate * np.sum(delta, axis=0, keepdims=True) / m
+
+            if i > 0:
+                delta = np.dot(delta, self.weights[i].T) * sigmoid_derivative(self.activations[i])
+
+    def train(self, X, y, epochs=10000, learning_rate=0.5):
+        """Train the neural network"""
+        for epoch in range(epochs):
+            output = self.forward(X)
+            self.backward(X, y, learning_rate)
+
+            if epoch % 1000 == 0:
+                loss = np.mean((y - output) ** 2)
+                print(f"Epoch {epoch}, Loss: {loss:.6f}")</code></pre>
+            </div>
+
+            <h3 id="training">Training on XOR</h3>
+
+            <p>
+                Let's train our network on the XOR problem:
+            </p>
+
+            <div class="code-block">
+                <div class="code-header">
+                    <span class="code-language">Python</span>
+                    <button class="copy-btn" onclick="copyCode(this)">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+                            <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+                        </svg>
+                        Copy
+                    </button>
+                </div>
+                <pre><code class="language-python"># XOR dataset
+X = np.array([[0, 0], [0, 1], [1, 0], [1, 1]])
+y = np.array([[0], [1], [1], [0]])
+
+# Create and train the network
+nn = NeuralNetwork([2, 4, 1])  # 2 inputs, 4 hidden neurons, 1 output
+nn.train(X, y, epochs=10000, learning_rate=0.5)
+
+# Test predictions
+print("\nPredictions:")
+for i in range(len(X)):
+    pred = nn.forward(X[i:i+1])
+    print(f"Input: {X[i]} => Output: {pred[0][0]:.4f} (Expected: {y[i][0]})")</code></pre>
+            </div>
+
+            <div class="warning">
+                This implementation is for educational purposes. For production use, consider using frameworks like PyTorch or TensorFlow that provide optimized implementations and GPU support.
+            </div>
+
+            <h2 id="conclusion">Conclusion</h2>
+
+            <p>
+                Neural networks are powerful tools for learning patterns from data. In this article, we covered:
+            </p>
+
+            <ol>
+                <li>The basic architecture of neural networks</li>
+                <li>Mathematical foundations including forward propagation and backpropagation</li>
+                <li>Common activation functions and their properties</li>
+                <li>A complete Python implementation from scratch</li>
+            </ol>
+
+            <blockquote>
+                "The key to artificial intelligence has always been the representation."
+                <cite>Jeff Hawkins</cite>
+            </blockquote>
+
+            <p>
+                In future articles, we'll explore more advanced architectures like <abbr title="Convolutional Neural Networks">CNNs</abbr> and <abbr title="Recurrent Neural Networks">RNNs</abbr>, as well as techniques for training deeper networks.
+            </p>
+
+            <hr>
+
+            <p>
+                <strong>References:</strong>
+            </p>
+            <ul>
+                <li>Goodfellow, I., Bengio, Y., & Courville, A. (2016). Deep Learning. MIT Press.</li>
+                <li>Nielsen, M. (2015). Neural Networks and Deep Learning. Determination Press.</li>
+            </ul>
+        </article>
+
+        <!-- Article Footer -->
+        <footer class="article-footer">
+            <div class="article-tags">
+                <span>Neural Networks</span>
+                <span>Machine Learning</span>
+                <span>Python</span>
+                <span>Tutorial</span>
+            </div>
+
+            <div class="share-buttons">
+                <a href="#" class="share-btn twitter">Share on Twitter</a>
+                <a href="#" class="share-btn linkedin">Share on LinkedIn</a>
+                <button class="share-btn copy-link">Copy Link</button>
+            </div>
+
+            <nav class="article-nav">
+                <a href="metaheuristics-optimization.html" class="next-article">
+                    <span class="nav-label">Next Article</span>
+                    <span class="nav-title">Metaheuristics for Optimization →</span>
+                </a>
+            </nav>
+        </footer>
+    </main>
+
+    <footer class="blog-footer">
+        &copy; 2026 Rosas Behoundja
+    </footer>
+
+    <script src="../js/articles.js"></script>
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            if (typeof renderMathInElement !== 'undefined') {
+                renderMathInElement(document.body, {
+                    delimiters: [
+                        {left: "$$", right: "$$", display: true},
+                        {left: "$", right: "$", display: false}
+                    ]
+                });
+            }
+        });
+
+        let lastScroll = 0;
+        window.addEventListener('scroll', function() {
+            const nav = document.getElementById('mainNav');
+            const currentScroll = window.scrollY;
+            if (currentScroll > 100 && currentScroll > lastScroll) {
+                nav.classList.add('hidden');
+            } else {
+                nav.classList.remove('hidden');
+            }
+            lastScroll = currentScroll;
+        });
+    </script>
+</body>
+</html>
+

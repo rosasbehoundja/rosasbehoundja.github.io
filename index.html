@@ -44,11 +44,15 @@
     <link href="https://fonts.googleapis.com/css2?family=Jost:ital,wght@0,100..900;1,100..900&family=Source+Code+Pro:ital,wght@0,200..900;1,200..900&family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
 
+
     <!-- Favicons -->
     <link rel="apple-touch-icon" sizes="180x180" href="media/favicon_io/apple-touch-icon.png">
     <link rel="icon" type="image/png" sizes="32x32" href="media/favicon_io/favicon-32x32.png">
     <link rel="icon" type="image/png" sizes="16x16" href="media/favicon_io/favicon-16x16.png">
     <link rel="manifest" href="media/favicon_io/site.webmanifest">
+
+    <!-- Stylesheet -->
+    <link rel="stylesheet" href="css/base.css">
     
     <!-- Structured Data - JSON-LD -->
     <script type="application/ld+json">
@@ -75,177 +79,13 @@
         ]
     }
     </script>
-    
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        body {
-            font-family: 'Jost', 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
-            background-color: #fff;
-            color: #000;
-            min-height: 100vh;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            padding: 2rem;
-            line-height: 1.8;
-        }
-
-        .container {
-            max-width: 700px;
-            width: 100%;
-            text-align: center;
-        }
-
-        .profile-photo {
-            width: 180px;
-            height: 180px;
-            border-radius: 50%;
-            object-fit: cover;
-            margin-bottom: 2rem;
-            border: 3px solid #2c3e7b;
-        }
-
-        h1 {
-            font-size: 2rem;
-            font-weight: 600;
-            margin-bottom: 1.5rem;
-            letter-spacing: 0.02em;
-            color: #2c3e7b;
-        }
-
-        .bio {
-            font-family: 'Jost', 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
-            font-size: 17px;
-            text-align: justify;
-            margin-bottom: 2rem;
-            color: #000;
-            line-height: 1.7;
-        }
-
-        .bio p {
-            margin-bottom: 1rem;
-        }
-
-        .cv-link {
-            display: inline-block;
-            margin-bottom: 2rem;
-            padding: 0.75rem 1.5rem;
-            border: 1px solid #2c3e7b;
-            border-radius: 8px;
-            color: #2c3e7b;
-            text-decoration: none;
-            font-size: 1rem;
-            transition: all 0.3s ease;
-        }
-
-        .cv-link:hover {
-            background-color: #2c3e7b;
-            color: #ffffff;
-        }
-
-        .social-links {
-            display: flex;
-            justify-content: center;
-            gap: 2rem;
-            flex-wrap: wrap;
-        }
-
-        .social-links a {
-            color: #000;
-            text-decoration: none;
-            font-size: 1rem;
-            transition: opacity 0.3s ease;
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
-        }
-
-        .social-links a:hover {
-            opacity: 0.7;
-        }
-
-        .social-links svg {
-            width: 20px;
-            height: 20px;
-        }
-
-        .social-links .github-icon {
-            fill: #181717;
-        }
-
-        .social-links .linkedin-icon {
-            fill: #0A66C2;
-        }
-
-        footer {
-            margin-top: 3rem;
-            padding-top: 1.5rem;
-            border-top: 1px solid #ddd;
-            text-align: center;
-            font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
-            font-size: 0.9rem;
-            color: #000;
-        }
-
-        .lang-toggle {
-            position: fixed;
-            top: 1.5rem;
-            right: 1.5rem;
-            padding: 0.5rem 1rem;
-            border: 1px solid #2c3e7b;
-            border-radius: 8px;
-            background-color: #ffffff;
-            color: #2c3e7b;
-            font-family: 'Jost', 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
-            font-size: 0.95rem;
-            cursor: pointer;
-            transition: all 0.3s ease;
-        }
-
-        .lang-toggle:hover {
-            background-color: #2c3e7b;
-            color: #ffffff;
-        }
-
-        @media (max-width: 600px) {
-            body {
-                padding: 1.5rem;
-            }
-
-            .profile-photo {
-                width: 150px;
-                height: 150px;
-            }
-
-            h1 {
-                font-size: 1.5rem;
-            }
-
-            .bio {
-                font-size: 1rem;
-            }
-
-            .social-links {
-                gap: 1.5rem;
-            }
-
-            .lang-toggle {
-                top: 1rem;
-                right: 1rem;
-                padding: 0.4rem 0.8rem;
-                font-size: 0.85rem;
-            }
-        }
-    </style>
 </head>
 <body>
-    <button class="lang-toggle" id="langToggle" aria-label="Translate to French">FR</button>
+
+    <nav class="main-nav hidden" id="mainNav">
+        <a href="index.html">About</a>
+        <a href="blog.html">Blog</a>
+    </nav>
 
     <main class="container">
         <img src="media/me.jpeg" alt="Photo of Rosas Behoundja" class="profile-photo">
@@ -254,7 +94,7 @@
 
         <div class="bio">
             <p>
-                Hi ! I'm Rosas, currently a third-year undergraduate student in Computer Science with a specialization in Artificial Intelligence studying at the Institut de Formation et de Recherche en Informatique (IFRI) at the University of Abomey-Calavi in Benin. My interests lie in research in optimization and machine learning. I enjoy building tools and participating in tech projects capable of solving real-world problems in Benin and across Africa, regardless of the field.
+                Hi ! I'm Rosas, currently a third-year undergraduate student in Computer Science with a specialization in Artificial Intelligence studying at the Institut de Formation et de Recherche en Informatique (<a href="https://www.ifri-uac.bj/" target="_blank">IFRI</a>) at the University of Abomey-Calavi in Benin. My interests lie in research in optimization and machine learning. I enjoy building tools and participating in tech projects capable of solving real-world problems in Benin and across Africa, regardless of the field.
             </p>
             <p>
                 My ambition is to conduct scientific research and to be able to propose solutions to the challenges we face.
@@ -296,38 +136,13 @@
     </main>
 
     <script>
-        const translations = {
-            fr: {
-                bio1: "Salut ! Je suis Rosas, actuellement étudiant en troisième année de licence en Informatique avec une spécialisation en Intelligence Artificielle à l'Institut de Formation et de Recherche en Informatique (IFRI) de l'Université d'Abomey-Calavi au Bénin. Je m'intéresse à la recherche en optimisation et en apprentissage automatique. J'aime créer des outils et participer à des projets technologiques capables de résoudre des problèmes concrets au Bénin et à travers l'Afrique, quelque soit le domaine.",
-                bio2: "Mon ambition est de mener des recherches scientifiques et de pouvoir proposer des solutions aux défis auxquels nous sommes confrontés.",
-                cv: "Voir mon CV",
-                toggleBtn: "EN",
-                toggleLabel: "Translate to English"
-            },
-            en: {
-                bio1: "Hi ! I'm Rosas, currently a third-year undergraduate student in Computer Science with a specialization in Artificial Intelligence studying at the Institut de Formation et de Recherche en Informatique (IFRI) at the University of Abomey-Calavi in Benin. My interests lie in research in optimization and machine learning. I enjoy building tools and participating in tech projects capable of solving real-world problems in Benin and across Africa, regardless of the field.",
-                bio2: "My ambition is to conduct scientific research and to be able to propose solutions to the challenges we face.",
-                cv: "View my CV",
-                toggleBtn: "FR",
-                toggleLabel: "Translate to French"
+        window.addEventListener('scroll', function() {
+            const nav = document.getElementById('mainNav');
+            if (window.scrollY > 50) {
+                nav.classList.add('hidden');
+            } else {
+                nav.classList.remove('hidden');
             }
-        };
-
-        let currentLang = 'en';
-        const langToggle = document.getElementById('langToggle');
-        const bioP = document.querySelectorAll('.bio p');
-        const cvLink = document.getElementById('cvLink');
-
-        langToggle.addEventListener('click', () => {
-            currentLang = currentLang === 'fr' ? 'en' : 'fr';
-            const t = translations[currentLang];
-
-            bioP[0].textContent = t.bio1;
-            bioP[1].textContent = t.bio2;
-            cvLink.textContent = t.cv;
-            langToggle.textContent = t.toggleBtn;
-            langToggle.setAttribute('aria-label', t.toggleLabel);
-            document.documentElement.lang = currentLang;
         });
     </script>
 </body>
