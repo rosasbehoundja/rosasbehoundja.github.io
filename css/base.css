@@ -47,6 +47,7 @@ h1 {
 
 h1, h2, h3 {
     font-family: 'Jost', 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+    color: #2c3e7b;
 }
 
 .bio {
@@ -120,26 +121,6 @@ footer {
     font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
     font-size: 0.9rem;
     color: #000;
-}
-
-.lang-toggle {
-    position: fixed;
-    top: 1.5rem;
-    right: 1.5rem;
-    padding: 0.5rem 1rem;
-    border: 1px solid #2c3e7b;
-    border-radius: 8px;
-    background-color: #ffffff;
-    color: #2c3e7b;
-    font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
-    font-size: 0.95rem;
-    cursor: pointer;
-    transition: all 0.3s ease;
-}
-
-.lang-toggle:hover {
-    background-color: #2c3e7b;
-    color: #ffffff;
 }
 
 .main-nav {
