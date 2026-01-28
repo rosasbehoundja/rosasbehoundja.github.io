@@ -26,11 +26,6 @@
 
     <div class="reading-progress"></div>
 
-    <!--<nav class="main-nav" id="mainNav">
-        <a href="../index.html">About</a>
-        <a href="../blog.html">Blog</a>
-    </nav>-->
-
     <main class="article-container">
         <a href="../blog.html" class="back-link">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
@@ -333,18 +328,5 @@
     </footer>
 
     <script src="../js/articles.js"></script>
-    <script>
-        let lastScroll = 0;
-        window.addEventListener('scroll', function() {
-            const nav = document.getElementById('mainNav');
-            const currentScroll = window.scrollY;
-            if (currentScroll > 100 && currentScroll > lastScroll) {
-                nav.classList.add('hidden');
-            } else {
-                nav.classList.remove('hidden');
-            }
-            lastScroll = currentScroll;
-        });
-    </script>
 </body>
 </html>
