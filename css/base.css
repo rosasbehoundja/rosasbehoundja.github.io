@@ -166,10 +166,6 @@ footer {
     opacity: 0.8;
 }
 
-.main-nav.hidden {
-    opacity: 0;
-    visibility: hidden;
-}
 
 @media (max-width: 600px) {
     body {
