@@ -1,0 +1,457 @@
+\documentclass[10pt, letterpaper]{article}
+
+% Packages:
+\usepackage[
+    ignoreheadfoot, % set margins without considering header and footer
+    top=2 cm, % seperation between body and page edge from the top
+    bottom=2 cm, % seperation between body and page edge from the bottom
+    left=2 cm, % seperation between body and page edge from the left
+    right=2 cm, % seperation between body and page edge from the right
+    footskip=1.0 cm, % seperation between body and footer
+    % showframe % for debugging
+]{geometry} % for adjusting page geometry
+\usepackage{titlesec} % for customizing section titles
+\usepackage{tabularx} % for making tables with fixed width columns
+\usepackage{array} % tabularx requires this
+\usepackage[dvipsnames]{xcolor} % for coloring text
+\definecolor{primaryColor}{RGB}{37, 99, 235} % modern blue color
+\usepackage{enumitem} % for customizing lists
+\usepackage{fontawesome5} % for using icons
+\usepackage{amsmath} % for math
+\usepackage[
+    pdftitle={Rosas Behoundja's CV},
+    pdfauthor={Rosas Behoundja},
+    pdfcreator={LaTeX with RenderCV},
+    colorlinks=true,
+    urlcolor=primaryColor
+]{hyperref} % for links, metadata and bookmarks
+\usepackage[pscoord]{eso-pic} % for floating text on the page
+\usepackage{calc} % for calculating lengths
+\usepackage{bookmark} % for bookmarks
+\usepackage{lastpage} % for getting the total number of pages
+\usepackage{changepage} % for one column entries (adjustwidth environment)
+\usepackage{paracol} % for two and three column entries
+\usepackage{ifthen} % for conditional statements
+\usepackage{needspace} % for avoiding page brake right after the section title
+\usepackage{iftex} % check if engine is pdflatex, xetex or luatex
+
+% Ensure that generate pdf is machine readable/ATS parsable:
+\ifPDFTeX
+    \input{glyphtounicode}
+    \pdfgentounicode=1
+    \usepackage[T1]{fontenc}
+    \usepackage[utf8]{inputenc}
+    % Modern sans-serif font
+    \usepackage[sfdefault]{inter}
+\else
+    % For XeLaTeX/LuaLaTeX
+    \usepackage{fontspec}
+    \setmainfont{Inter}[
+        UprightFont = *-Regular,
+        BoldFont = *-Bold,
+        ItalicFont = *-Italic,
+    ]
+\fi
+
+
+
+% Some settings:
+\AtBeginEnvironment{adjustwidth}{\partopsep0pt} % remove space before adjustwidth environment
+\pagestyle{empty} % no header or footer
+\setcounter{secnumdepth}{0} % no section numbering
+\setlength{\parindent}{0pt} % no indentation
+\setlength{\topskip}{0pt} % no top skip
+\setlength{\columnsep}{0cm} % set column seperation
+\makeatletter
+\let\ps@customFooterStyle\ps@plain % Copy the plain style to customFooterStyle
+\patchcmd{\ps@customFooterStyle}{\thepage}{
+    \color{gray}\textit{\small Rosas Behoundja - Page \thepage{} of \pageref*{LastPage}}
+}{}{} % replace number by desired string
+\makeatother
+\pagestyle{customFooterStyle}
+
+\titleformat{\section}{\needspace{4\baselineskip}\bfseries\large}{}{0pt}{}[\vspace{1pt}\titlerule]
+
+\titlespacing{\section}{
+    % left space:
+    -1pt
+}{
+    % top space:
+    0.3 cm
+}{
+    % bottom space:
+    0.2 cm
+} % section title spacing
+
+\renewcommand\labelitemi{$\circ$} % custom bullet points
+\newenvironment{highlights}{
+    \begin{itemize}[
+        topsep=0.10 cm,
+        parsep=0.10 cm,
+        partopsep=0pt,
+        itemsep=0pt,
+        leftmargin=0.4 cm + 10pt
+    ]
+}{
+    \end{itemize}
+} % new environment for highlights
+
+\newenvironment{highlightsforbulletentries}{
+    \begin{itemize}[
+        topsep=0.10 cm,
+        parsep=0.10 cm,
+        partopsep=0pt,
+        itemsep=0pt,
+        leftmargin=10pt
+    ]
+}{
+    \end{itemize}
+} % new environment for highlights for bullet entries
+
+
+\newenvironment{onecolentry}{
+    \begin{adjustwidth}{
+        0.2 cm + 0.00001 cm
+    }{
+        0.2 cm + 0.00001 cm
+    }
+}{
+    \end{adjustwidth}
+} % new environment for one column entries
+
+\newenvironment{twocolentry}[2][]{
+    \onecolentry
+    \def\secondColumn{#2}
+    \setcolumnwidth{\fill, 4.5 cm}
+    \begin{paracol}{2}
+}{
+    \switchcolumn \raggedleft \secondColumn
+    \end{paracol}
+    \endonecolentry
+} % new environment for two column entries
+
+\newenvironment{header}{
+    \setlength{\topsep}{0pt}\par\kern\topsep\centering\linespread{1.5}
+}{
+    \par\kern\topsep
+} % new environment for the header
+
+
+% save the original href command in a new command:
+\let\hrefWithoutArrow\href
+
+% new command for external links:
+\renewcommand{\href}[2]{\hrefWithoutArrow{#1}{\ifthenelse{\equal{#2}{}}{ }{#2 }\raisebox{.15ex}{\footnotesize \faExternalLink*}}}
+
+
+\begin{document}
+    \newcommand{\AND}{\unskip
+        \cleaders\copy\ANDbox\hskip\wd\ANDbox
+        \ignorespaces
+    }
+    \newsavebox\ANDbox
+    \sbox\ANDbox{}
+
+    \begin{header}
+        \textbf{\fontsize{24 pt}{24 pt}\selectfont Rosas Behoundja}
+
+        \vspace{0.3 cm}
+
+        \normalsize
+        \mbox{{\color{blue}\footnotesize\faMapMarker*}\hspace*{0.13cm}Cotonou, Bénin}%
+        \kern 0.25 cm%
+        \AND%
+        \kern 0.25 cm%
+        \mbox{\hrefWithoutArrow{mailto:perrierosas@gmail.com}{\color{blue}{\footnotesize\faEnvelope[regular]}\hspace*{0.13cm}perrierosas@gmail.com}}%
+        \AND%
+        \kern 0.25 cm%
+        \mbox{\hrefWithoutArrow{https://rosasbehoundja.github.io/}{\color{blue}{\footnotesize\faLink}\hspace*{0.13cm}rosasbehoundja.github.io}}%
+        \kern 0.25 cm%
+        \AND%
+        \kern 0.25 cm%
+        \mbox{\hrefWithoutArrow{https://linkedin.com/in/rosasbehoundja}{\color{blue}{\footnotesize\faLinkedinIn}\hspace*{0.13cm}rosasbehoundja}}%
+        \kern 0.25 cm%
+        \AND%
+        \kern 0.25 cm%
+        \mbox{\hrefWithoutArrow{https://github.com/rosasbehoundja}{\color{blue}{\footnotesize\faGithub}\hspace*{0.13cm}rosasbehoundja}}%
+    \end{header}
+
+    \vspace{0.3 cm - 0.3 cm}
+
+    \vspace{0.3 cm}
+
+
+
+        \begin{onecolentry}
+            Third-year undergraduate student in computer science with specialization in Artificial Intelligence. My interests lie in research in optimization and machine learning. I enjoy building tools and participating in tech projects capable of solving real-world problems in Benin and across Africa, regardless of the field.
+        \end{onecolentry}
+
+        \vspace{0.2 cm}
+
+
+    \section{Education}
+
+        \begin{twocolentry}{
+
+
+        \textit{Nov 2023 - Present}}
+            \textbf{IFRI, University of Abomey-Calavi, Bénin}
+
+            \textit{Bachelor of Science in Artificial Intelligence}
+        \end{twocolentry}
+
+
+    \section{Experience}
+
+         \begin{twocolentry}{
+        \textit{Cotonou, Bénin}
+
+        \textit{June 2025 – Jan 2026}}
+            \textbf{Software Engineer}
+
+            \textit{IFRI \& Tekbot Robotics}
+        \end{twocolentry}
+
+        \vspace{0.10 cm}
+        \begin{onecolentry}
+            \begin{highlights}
+                \item Implemented autonomous navigation algorithms in ROS2/Gazebo for simulated obstacle avoidance.
+                \item Deployed a custom-trained YOLOv5n model on an NVIDIA Jetson Nano, accelerating real-time inference via ONNX-to-TensorRT conversion and pyCUDA for a robotic waste sorting system.
+                \item Programmed robotic arm motion planning and manipulation using MoveIt (ROS) to autonomously grasp and sort waste items identified by the live vision system.
+                \item Achieved 2nd (silver medal) place among 09 teams in the final challenge.
+            \end{highlights}
+        \end{onecolentry}
+
+        \vspace{0.2 cm}
+
+        \begin{twocolentry}{
+        \textit{Johannesburg, S.A}
+
+        \textit{June 2025 – Aug 2025}}
+            \textbf{Machine Learning Engineer Intern}
+
+            \textit{eTihuku}
+        \end{twocolentry}
+
+        \vspace{0.10 cm}
+        \begin{onecolentry}
+            \begin{highlights}
+                \item Developed Sentimaster a ETL platform for multilingual semantic analysis aggregating feedback from X, Hellopeter, and Google Maps with Whisper transcription, fine-tuned RoBERTa sentiment classification, BERTopic topic modeling, and Airflow orchestration.
+            \end{highlights}
+        \end{onecolentry}
+
+        \vspace{0.2 cm}
+
+    \section{Projects}
+
+        \begin{twocolentry}{\textit{\href{https://ifri-ai-classes.github.io/MPVRP-CC/}{Link}}}
+            \textbf{MPVRP-CC}
+        \end{twocolentry}
+
+        \vspace{0.10 cm}
+        \begin{onecolentry}
+            \begin{highlights}
+                \item Proposed a variant of the multi-product vehicle routing problem with production changeover costs, modeling distribution with cleaning constraints between compartments.
+                \item Led technical coordination, developed API, website, and contributed to MILP formulation.
+            \end{highlights}
+        \end{onecolentry}
+
+        \vspace{0.2 cm}
+
+        \begin{onecolentry}
+            \textbf{AI-PigStack}
+        \end{onecolentry}
+
+        \vspace{0.10 cm}
+        \begin{onecolentry}
+            \begin{highlights}
+                \item Built an autonomous IoT optimization system for pig farms integrating multi-objective predictive models for growth prediction and early disease detection using environmental sensors and edge computing.
+            \end{highlights}
+        \end{onecolentry}
+
+        \vspace{0.2 cm}
+
+        \begin{twocolentry}{\textit{\href{https://github.com/rosasbehoundja/tiny-language-model}{Link}}}
+            \textbf{tiny-language-model}
+        \end{twocolentry}
+
+        \vspace{0.10 cm}
+        \begin{onecolentry}
+            \begin{highlights}
+                \item Implemented from scratch a 37M parameter GPT-style autoregressive language model (12 layers, decoder-only transformer) trained on the LeCarnet corpus (French) using PyTorch.
+            \end{highlights}
+        \end{onecolentry}
+
+        \vspace{0.2 cm}
+
+        \begin{onecolentry}
+            \textbf{Opti'plan}
+        \end{onecolentry}
+
+        \vspace{0.10 cm}
+        \begin{onecolentry}
+            \begin{highlights}
+                \item Built automated thesis defense scheduling system using constraint programming (OR-Tools) and greedy heuristics with backtracking, reducing planning time from 2-3 days to under 5 minutes.
+            \end{highlights}
+        \end{onecolentry}
+
+        \vspace{0.2 cm}
+
+        \begin{twocolentry}{\textit{\href{https://github.com/orgs/BuildFluxy/repositories}{Link}}}
+            \textbf{Fluxy}
+        \end{twocolentry}
+
+        \vspace{0.10 cm}
+        \begin{onecolentry}
+            \begin{highlights}
+                \item Built web application for automatic bank transaction extraction from PDF/image statements via Gemini Vision OCR, achieving 90\% reduction in manual entry time with less than 2\% error rate.
+            \end{highlights}
+        \end{onecolentry}
+
+        \vspace{0.2 cm}
+
+        \begin{twocolentry}{\textit{\href{https://github.com/IFRI-AI-Classes/ifri_mini_ml_lib}{Link}}}
+            \textbf{ifri-mini-ml-lib}
+        \end{twocolentry}
+
+        \vspace{0.10 cm}
+        \begin{onecolentry}
+            \begin{highlights}
+                \item Contributed to educational Python library reimplementing ML algorithms from scratch. Built association rules module (Apriori, Eclat, FP-Growth), coordinated 10+ contributors, and deployed to PyPI with CI/CD.
+            \end{highlights}
+        \end{onecolentry}
+
+        \vspace{0.2 cm}
+
+        \begin{twocolentry}{\textit{\href{https://github.com/rosasbehoundja/covid-vaccine-gdp-analysis}{Link}}}
+            \textbf{COVID-Vaccine-GDP Analysis}
+        \end{twocolentry}
+
+        \vspace{0.10 cm}
+        \begin{onecolentry}
+            \begin{highlights}
+                \item Empirical study of the relationship between COVID-19 vaccination rates and economic indicators (GDP) over the 2020-2023 period.
+                \item Complete ETL pipeline in R: multinational data extraction (Our World in Data, World Bank), cleaning, merging, and statistical analysis.
+                \item Investigation of correlations between vaccination coverage and post-pandemic economic performance.
+            \end{highlights}
+        \end{onecolentry}
+
+
+            \section{Extracurricular activities}
+
+
+ \begin{samepage}
+            \begin{twocolentry}{
+                June 2025 - Present
+            }
+                \textbf{THE LAB}
+
+                \vspace{0.10 cm}
+            A laboratory of ideas and actions aimed at deconstructing myths, raising awareness and inspiring vocations within communities for a better future around artificial intelligence in Bénin.
+            \end{twocolentry}
+        \end{samepage}
+
+        \vspace{0.20 cm}
+
+        \begin{samepage}
+            \begin{twocolentry}{
+                March 2025 - Present
+            }
+                \textbf{FRIARE AFRICA}
+
+                \vspace{0.10 cm}
+
+                Participate in awareness initiatives on AI ethics, transparency, inclusion, and privacy throughout African communities.
+            \end{twocolentry}
+        \end{samepage}
+
+
+            \section{Hackathons \& conferences}
+
+    \begin{onecolentry}
+        \textbf{Benin Workshop in Artificial Intelligence 2025}
+    \end{onecolentry}
+
+        \vspace{0.10 cm}
+        \begin{onecolentry}
+            \begin{highlights}
+                \item Annual workshop hosted by IFRI at the University of Abomey-Calavi, bringing together students, researchers, and professionals to promote AI research, innovation, and collaboration in Africa.
+                \item Delivered a presentation on optimization algorithms: ``Evolutionary Algorithms: Principles, Variants and Applications''.
+            \end{highlights}
+        \end{onecolentry}
+
+        \vspace{0.10cm}
+
+       \begin{twocolentry}{\textit{\href{https://les-mentats-luxdev-hackaton-ia-2025.vercel.app/}{Link}}}
+            \textbf{Le Foncier intelligent - ASIN \& LuxDev Bénin}
+        \end{twocolentry}
+
+        \vspace{0.10 cm}
+        \begin{onecolentry}
+            \begin{highlights}
+                \item Built land analysis solution in 72h (LuxDev hackathon) combining multimodal OCR for topographic sketch extraction, geocoding, and land use analysis through satellite imagery cross-referencing.
+            \end{highlights}
+        \end{onecolentry}
+
+        \vspace{0.10 cm}
+
+    \begin{onecolentry}
+        \textbf{Association for Constraint Programming Summer School 2025}
+    \end{onecolentry}
+
+        \vspace{0.10 cm}
+        \begin{onecolentry}
+            \begin{highlights}
+                \item Constraints programming courses on optimization fundamentals, modeling, and search strategies.
+            \end{highlights}
+        \end{onecolentry}
+
+        \vspace{0.10 cm}
+
+        \begin{twocolentry}{\textit{\href{https://zindi.africa/users/Rosas_Behoundja/competitions/certificate}{Certificate}}}
+            \textbf{IndabaX Benin Republic 2024}
+        \end{twocolentry}
+
+        \vspace{0.10 cm}
+        \begin{onecolentry}
+            \begin{highlights}
+                \item 1st Prize: Built an
+XGBoost cryptojacking detection model (F1-score: 0.97).
+            \end{highlights}
+        \end{onecolentry}
+        \vspace{0.10 cm}
+
+    \section{Technologies}
+
+        \begin{onecolentry}
+            \textbf{Languages:} Python, C++, SQL, R
+        \end{onecolentry}
+
+        \vspace{0.1 cm}
+
+        \begin{onecolentry}
+            \textbf{AI :} Machine learning, Deep learning, NLP, Constraints programming, and Optimization, Robotics, Computer Vision.
+        \end{onecolentry}
+
+        \vspace{0.1 cm}
+
+        \begin{onecolentry}
+            \textbf{Analytical Skills :} data preprocessing, visualization, statistical modeling.\end{onecolentry}
+
+        \vspace{0.1 cm}
+
+        \begin{onecolentry}
+            \textbf{Other :} Teamwork, leadership, communication, problem solving, critical thinking.
+        \end{onecolentry}
+
+
+          \section{Interests}
+
+
+         \begin{highlights}
+                \item Language learning (english and portuguese)
+                \item Walking and traveling.
+         \end{highlights}
+
+\end{document}
+
