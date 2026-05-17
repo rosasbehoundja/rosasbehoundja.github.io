@@ -1,10 +1,5 @@
 /* Experience page: clean list layout with low-contrast accents */
 
-body.experience p,
-body.experience div {
-    font-size: 1.05rem;
-}
-
 .experience-section {
     margin-block: calc(var(--spacing) * 1.5);
 }

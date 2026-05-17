@@ -43,6 +43,11 @@ body {
     margin: 0 auto;
 }
 
+body p,
+body div {
+    font-size: 1.05rem;
+}
+
 header,
 main,
 footer {
