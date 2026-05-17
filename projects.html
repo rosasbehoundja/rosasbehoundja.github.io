@@ -18,7 +18,7 @@
     <meta property="og:url" content="https://rosasbehoundja.github.io/projects.html">
     <meta property="og:title" content="Projects - Rosas Behoundja">
     <meta property="og:description" content="Projects by Rosas Behoundja: AI, Machine Learning, Operations Research, NLP, and more.">
-    <meta property="og:image" content="https://rosasbehoundja.github.io/media/me.jpeg">
+<!--    <meta property="og:image" content="https://rosasbehoundja.github.io/media/me.jpeg">-->
     <meta property="og:locale" content="en_US">
     <meta property="og:site_name" content="Rosas Behoundja">
 
@@ -27,7 +27,7 @@
     <meta property="twitter:url" content="https://rosasbehoundja.github.io/projects.html">
     <meta property="twitter:title" content="Projects - Rosas Behoundja">
     <meta property="twitter:description" content="Projects by Rosas Behoundja: AI, Machine Learning, Operations Research, NLP, and more.">
-    <meta property="twitter:image" content="https://rosasbehoundja.github.io/media/me.jpeg">
+<!--    <meta property="twitter:image" content="https://rosasbehoundja.github.io/media/me.jpeg">-->
 
     <!-- Canonical URL -->
     <link rel="canonical" href="https://rosasbehoundja.github.io/projects.html">
@@ -68,121 +68,135 @@
 
         <hr>
 
-        <div class="project collaborative">
-            <h3>MPVRP-CC</h3>
-            <p>
-                Proposal for a variant of the multi-product vehicle routing problem with production changeover costs. This problem models the distribution of several products while taking into account cleaning constraints between compartments.
-            </p>
-            <p>
-                Personal contribution: Technical coordination of the project, development of the API, website, and contribution to other aspects.
-            </p>
-            <p class="keywords">Combinatorial optimization, MILP, Operations research</p>
-            <p class="link"><a href="https://ifri-ai-classes.github.io/MPVRP-CC/" target="_blank" rel="noopener noreferrer">View project →</a></p>
-        </div>
+        <div class="projects-grid">
+            <div class="card collaborative">
+                <img class="card-image" src="media/projts/mpvrpcc.png" alt="MPVRP-CC project">
+                <div class="card-content">
+                    <h3 class="card-title"><span class="dot green"></span> MPVRP-CC</h3>
+                    <p class="card-description">
+                        Proposal for a variant of the multi-product vehicle routing problem with production changeover costs. This problem models the distribution of several products while taking into account cleaning constraints between compartments.
+                    </p>
+                    <p class="card-keywords">Combinatorial optimization, MILP, Operations research</p>
+                    <p class="card-link"><a href="https://ifri-ai-classes.github.io/MPVRP-CC/" target="_blank" rel="noopener noreferrer">View project →</a></p>
+                </div>
+            </div>
 
-        <hr>
+            <div class="card individual">
+                <img class="card-image" src="media/projts/tech-trends-monitoring.png" alt="tech-trends-monitor project">
+                <div class="card-content">
+                    <h3 class="card-title"><span class="dot blue"></span> tech-trends-monitor</h3>
+                    <p class="card-description">
+                        Automated RSS monitoring system tracking news about AI Coding Agents and delivering email digests every 3 days. The pipeline downloads RSS feeds, filters articles, and sends formatted digests via GitHub Actions — fully automated.
+                    </p>
+                    <p class="card-keywords">Automation, RSS, GitHub Actions, Python, AI Agents, Tech Watch</p>
+                    <p class="card-link"><a href="https://github.com/rosasbehoundja/tech-trends-monitor" target="_blank" rel="noopener noreferrer">View project →</a></p>
+                </div>
+            </div>
 
-        <div class="project individual">
-            <h3>tech-trends-monitor</h3>
-            <p>
-                Automated RSS monitoring system tracking news about AI Coding Agents and delivering email digests every 3 days. The pipeline downloads RSS feeds from configured sources, extracts and filters articles by keyword and recency, then sends a formatted email digest via GitHub Actions — fully automated, no manual intervention required.
-            </p>
-            <p class="keywords">Automation, RSS, GitHub Actions, Python, AI Agents, Tech Watch</p>
-            <p class="link"><a href="https://github.com/rosasbehoundja/tech-trends-monitor" target="_blank" rel="noopener noreferrer">View project →</a></p>
-        </div>
+            <div class="card individual">
+                <img class="card-image" src="media/projts/cartographie-automatisee.jpg" alt="cartographie-immobiliere-automatisee project">
+                <div class="card-content">
+                    <h3 class="card-title"><span class="dot blue"></span> cartographie-immobiliere-automatisee</h3>
+                    <p class="card-description">
+                        Automated pipeline for building a qualified database of company executives from Parisian streets. Chains four APIs for address normalization, cadastral parcels, company data, and LinkedIn profile matching.
+                    </p>
+                    <p class="card-keywords">Data Engineering, ETL Pipeline, Web Scraping, Geospatial, Python, API Integration</p>
+                    <p class="card-link"><a href="https://github.com/rosasbehoundja/cartographie-immobiliere-automatisee" target="_blank" rel="noopener noreferrer">View project →</a></p>
+                </div>
+            </div>
 
-        <hr>
+            <div class="card collaborative">
+                <img class="card-image" src="media/projts/pigstack.webp" alt="AI-PigStack project">
+                <div class="card-content">
+                    <h3 class="card-title"><span class="dot green"></span> AI-PigStack</h3>
+                    <p class="card-description">
+                        Autonomous optimization IoT system for fattening pig farms integrating multi-objective predictive models. Proof-of-concept phase completed with environmental sensors, ML pipeline for growth prediction and early disease detection.
+                    </p>
+                    <p class="card-keywords">Smart farming, IoT, Edge computing, Embedded systems</p>
+                </div>
+            </div>
 
-        <div class="project individual">
-            <h3>cartographie-immobiliere-automatisee</h3>
-            <p>
-                Automated pipeline for building a qualified database of company executives from a list of Parisian streets. The system chains four APIs: BAN (address normalization), Pappers Immobilier (cadastral parcels), Pappers (company data and legal representatives), and SerpAPI (LinkedIn profile matching via Google Search). Output is an enriched CSV with executive details filtered to SMEs (≤20 employees).
-            </p>
-            <p class="keywords">Data Engineering, ETL Pipeline, Web Scraping, Geospatial, Python, API Integration</p>
-            <p class="link"><a href="https://github.com/rosasbehoundja/cartographie-immobiliere-automatisee" target="_blank" rel="noopener noreferrer">View project →</a></p>
-        </div>
+            <div class="card individual">
+                <img class="card-image" src="media/projts/tinyllm.png" alt="tiny-language-model project">
+                <div class="card-content">
+                    <h3 class="card-title"><span class="dot blue"></span> tiny-language-model</h3>
+                    <p class="card-description">
+                        From-scratch implementation of an autoregressive language model following GPT architecture (decoder-only transformer). 37M parameter model with 12 layers, trained on the LeCarnet corpus using PyTorch.
+                    </p>
+                    <p class="card-keywords">Transformer architecture, GPT, PyTorch, Deep learning, NLP</p>
+                    <p class="card-link"><a href="https://github.com/rosasbehoundja/tiny-language-model" target="_blank" rel="noopener noreferrer">View project →</a></p>
+                </div>
+            </div>
 
-        <hr>
+            <div class="card individual">
+                <img class="card-image" src="media/projts/sentimaster.png" alt="Sentimaster project">
+                <div class="card-content">
+                    <h3 class="card-title"><span class="dot blue"></span> Sentimaster</h3>
+                    <p class="card-description">
+                        ETL platform for multilingual semantic analysis of user feedback from X, Hellopeter, and Google Maps. Complete pipeline with API extraction, transcription, sentiment classification, topic modeling, and emotion detection. Airflow orchestration.
+                    </p>
+                    <p class="card-keywords">Sentiment analysis, BERTopic, Hugging Face, Data engineering, ETL pipeline</p>
+                </div>
+            </div>
 
-        <div class="project collaborative">
-            <h3>AI-PigStack</h3>
-            <p>
-                Autonomous optimization IoT system for fattening pig farms integrating multi-objective predictive models. Proof-of-concept phase completed with environmental sensors, ML pipeline for growth prediction and early disease detection.
-            </p>
-            <p class="keywords">Smart farming, IoT, Edge computing, Embedded systems</p>
-        </div>
+            <div class="card collaborative">
+                <img class="card-image" src="media/projts/thesis-defense.webp" alt="Opti'plan project">
+                <div class="card-content">
+                    <h3 class="card-title"><span class="dot green"></span> Opti'plan</h3>
+                    <p class="card-description">
+                        Optimization system for automated scheduling of thesis defenses at University of Abomey-Calavi. Modeling as a constraint satisfaction problem with hard and soft constraints. Reduction of planning time from 2-3 days to under 5 minutes.
+                    </p>
+                    <p class="card-keywords">Constraint programming, CSP, Heuristics, OR-Tools, Decision support</p>
+                </div>
+            </div>
 
-        <hr>
+            <div class="card individual">
+                <img class="card-image" src="media/projts/fluxy.svg" alt="Fluxy project">
+                <div class="card-content">
+                    <h3 class="card-title"><span class="dot blue"></span> Fluxy</h3>
+                    <p class="card-description">
+                        Web application for automatic extraction of bank transactions from PDF/image statements via multimodal OCR (Gemini Vision API). Complex table parsing with 90% reduction in manual entry time.
+                    </p>
+                    <p class="card-keywords">Gemini OCR, Computer Vision, RPA, FinTech, Fullstack Web</p>
+                    <p class="card-link"><a href="https://github.com/orgs/BuildFluxy/repositories" target="_blank" rel="noopener noreferrer">View project →</a></p>
+                </div>
+            </div>
 
-        <div class="project individual">
-            <h3>tiny-language-model</h3>
-            <p>
-                From-scratch implementation of an autoregressive language model following GPT architecture (decoder-only transformer). 37M parameter model with 12 layers, trained on the LeCarnet corpus (French) using PyTorch. In-depth exploration of attention mechanisms, positional encoding, and scaling laws.
-            </p>
-            <p class="keywords">Transformer architecture, GPT, PyTorch, Deep learning, NLP</p>
-            <p class="link"><a href="https://github.com/rosasbehoundja/tiny-language-model" target="_blank" rel="noopener noreferrer">View project →</a></p>
-        </div>
+            <div class="card collaborative">
+                <img class="card-image" src="media/projts/ifri-mini-ml-lib.svg" alt="ifri-mini-ml-lib project">
+                <div class="card-content">
+                    <h3 class="card-title"><span class="dot green"></span> ifri-mini-ml-lib</h3>
+                    <p class="card-description">
+                        Educational Python library reimplementing foundational ML algorithms from scratch, following the scikit-learn API. Personal contribution: implementation of association rules module with optimizations and PyPI deployment.
+                    </p>
+                    <p class="card-keywords">Software engineering, Algorithms, Data mining, Association rules, CI/CD, Open source</p>
+                    <p class="card-link"><a href="https://github.com/IFRI-AI-Classes/ifri_mini_ml_lib" target="_blank" rel="noopener noreferrer">View project →</a></p>
+                </div>
+            </div>
 
-        <hr>
+            <div class="card collaborative">
+                <img class="card-image" src="media/projts/foncier-intelligent.webp" alt="Le Foncier intelligent project">
+                <div class="card-content">
+                    <h3 class="card-title"><span class="dot green"></span> Le Foncier intelligent</h3>
+                    <p class="card-description">
+                        Land analysis solution developed in 72h (LuxDev hackathon) combining multimodal OCR and geospatial data. Geometric data extraction from topographic sketches with satellite imagery cross-referencing.
+                    </p>
+                    <p class="card-keywords">Geospatial, Gemini OCR, Computer vision, Image classification, Web development</p>
+                    <p class="card-link"><a href="https://les-mentats-luxdev-hackaton-ia-2025.vercel.app/" target="_blank" rel="noopener noreferrer">View project →</a></p>
+                </div>
+            </div>
 
-        <div class="project individual">
-            <h3>Sentimaster</h3>
-            <p>
-                ETL platform for multilingual semantic analysis of user feedback aggregated from X, Hellopeter, and Google Maps. Complete pipeline: API extraction, transcription (Whisper), sentiment classification (fine-tuned RoBERTa), topic modeling (BERTopic), and emotion detection. Airflow orchestration with real-time dashboard.
-            </p>
-            <p class="keywords">Sentiment analysis, BERTopic, Hugging Face, Data engineering, ETL pipeline</p>
-        </div>
-
-        <hr>
-
-        <div class="project collaborative">
-            <h3>Opti'plan</h3>
-            <p>
-                Optimization system for automated scheduling of thesis defenses at University of Abomey-Calavi. Modeling as a constraint satisfaction problem with hard and soft constraints. Implementation of three approaches: CP model (OR-Tools) and two greedy heuristics with backtracking. Reduction of planning time from 2-3 days to under 5 minutes.
-            </p>
-            <p class="keywords">Constraint programming, CSP, Heuristics, OR-Tools, Decision support</p>
-        </div>
-
-        <hr>
-
-        <div class="project individual">
-            <h3>Fluxy</h3>
-            <p>
-                Web application for automatic extraction of bank transactions from PDF/image statements via multimodal OCR (Gemini Vision API). Complex table parsing, normalization of heterogeneous banking formats, and validation through business rules. 90% reduction in manual entry time with &lt;2% error rate over a 2-month pilot.
-            </p>
-            <p class="keywords">Gemini OCR, Computer Vision, Robotic Process Automation (RPA), FinTech, Fullstack Web</p>
-            <p class="link"><a href="https://github.com/orgs/BuildFluxy/repositories" target="_blank" rel="noopener noreferrer">View project →</a></p>
-        </div>
-
-        <hr>
-
-        <div class="project collaborative">
-            <h3>ifri-mini-ml-lib</h3>
-            <p>
-                Educational Python library reimplementing foundational ML algorithms from scratch, following the scikit-learn API. Personal contribution: implementation of association rules module (Apriori, Eclat, FP-Growth) with optimizations, development coordination (10+ contributors), and PyPI deployment with CI/CD.
-            </p>
-            <p class="keywords">Software engineering, Algorithms, Data mining, Association rules, CI/CD, Open source</p>
-            <p class="link"><a href="https://github.com/IFRI-AI-Classes/ifri_mini_ml_lib" target="_blank" rel="noopener noreferrer">View project →</a></p>
-        </div>
-
-        <hr>
-
-        <div class="project collaborative">
-            <h3>Le Foncier intelligent</h3>
-            <p>
-                Land analysis solution developed in 72h (LuxDev hackathon) combining multimodal OCR and geospatial data. Geometric data extraction from topographic sketches, geocoding, and land use analysis through cross-referencing with satellite imagery. Stack: Next.js, FastAPI, Leaflet.js.
-            </p>
-            <p class="keywords">Geospatial, Gemini OCR, Computer vision, Image classification, Web development</p>
-            <p class="link"><a href="https://les-mentats-luxdev-hackaton-ia-2025.vercel.app/" target="_blank" rel="noopener noreferrer">View project →</a></p>
-        </div>
-
-        <div class="project collaborative">
-            <h3>COVID-Vaccine-GDP Analysis</h3>
-            <p>
-                Data analysis project investigating the correlation between COVID-19 vaccination rates and GDP per capita across countries over the 2020-2023 period. Data cleaning, exploratory data analysis, and visualization using R. Findings indicate a positive correlation between higher GDP and vaccination coverage.
-            </p>
-            <p class="keywords">R, Data Analysis, Econometrics, ETL Pipeline, Data Cleaning, COVID-19 Vaccination</p>
-            <p class="link"><a href="https://github.com/rosasbehoundja/covid-vaccine-gdp-analysis" target="_blank" rel="noopener noreferrer">View project →</a></p>
+            <div class="card collaborative">
+                <img class="card-image" src="media/projts/covid19.png" alt="COVID-Vaccine-GDP Analysis project">
+                <div class="card-content">
+                    <h3 class="card-title"><span class="dot green"></span> COVID-Vaccine-GDP Analysis</h3>
+                    <p class="card-description">
+                        Data analysis project investigating the correlation between COVID-19 vaccination rates and GDP per capita across countries over the 2020-2023 period. Data cleaning and exploratory analysis using R.
+                    </p>
+                    <p class="card-keywords">R, Data Analysis, Econometrics, ETL Pipeline, Data Cleaning, COVID-19 Vaccination</p>
+                    <p class="card-link"><a href="https://github.com/rosasbehoundja/covid-vaccine-gdp-analysis" target="_blank" rel="noopener noreferrer">View project →</a></p>
+                </div>
+            </div>
         </div>
 
     </main>
