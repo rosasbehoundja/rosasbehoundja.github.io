@@ -1,0 +1,131 @@
+/* Experience page: clean list layout with low-contrast accents */
+
+body.experience p,
+body.experience div {
+    font-size: 1.05rem;
+}
+
+.experience-section {
+    margin-block: calc(var(--spacing) * 1.5);
+}
+
+.experience-section h3 {
+    margin-bottom: calc(var(--spacing) * 0.7);
+    padding-bottom: 0.45rem;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.12);
+}
+
+@media (prefers-color-scheme: dark) {
+    .experience-section h3 {
+        border-bottom-color: rgba(255, 255, 255, 0.16);
+    }
+}
+
+.experience-list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.experience-item {
+    display: grid;
+    grid-template-columns: 52px 1fr;
+    gap: 0.9rem;
+    align-items: start;
+    padding: 0.85rem 0;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+}
+
+.experience-item.text-only {
+    grid-template-columns: 1fr;
+}
+
+@media (prefers-color-scheme: dark) {
+    .experience-item {
+        border-bottom-color: rgba(255, 255, 255, 0.12);
+    }
+}
+
+.experience-logo,
+.logo-fallback {
+    width: 52px;
+    height: 52px;
+    border-radius: 10px;
+}
+
+.experience-logo {
+    object-fit: cover;
+    border: 1px solid rgba(0, 0, 0, 0.08);
+    background: #fff;
+}
+
+.logo-fallback {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.78rem;
+    font-weight: 700;
+    letter-spacing: 0.04em;
+    color: rgba(0, 0, 0, 0.7);
+    background: rgba(0, 0, 0, 0.05);
+    border: 1px solid rgba(0, 0, 0, 0.08);
+}
+
+.experience-content {
+    min-width: 0;
+}
+
+.experience-item.text-only .experience-content {
+    padding-inline-start: 0;
+}
+
+.experience-header {
+    display: flex;
+    justify-content: space-between;
+    gap: 0.8rem;
+    align-items: baseline;
+    flex-wrap: wrap;
+    margin-bottom: 0.2rem;
+}
+
+.experience-item h4 {
+    margin: 0;
+    font-size: 1.08rem;
+    color: inherit;
+}
+
+.duration {
+    opacity: 0.65;
+    font-size: 0.9rem;
+    white-space: nowrap;
+}
+
+.organization {
+    margin: 0.15rem 0 0.35rem;
+    font-weight: 500;
+    opacity: 0.85;
+}
+
+.experience-item p {
+    margin: 0.15rem 0;
+}
+
+/* Keep links visible but avoid heavy color usage */
+.experience-item a {
+    color: inherit;
+    text-decoration-color: rgba(26, 143, 227, 0.55);
+}
+
+@media screen and (max-width: 700px) {
+    .experience-item {
+        grid-template-columns: 44px 1fr;
+        gap: 0.75rem;
+    }
+
+    .experience-logo,
+    .logo-fallback {
+        width: 44px;
+        height: 44px;
+    }
+}
+
