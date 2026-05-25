@@ -1,15 +1,26 @@
-/* Font - Satoshi from Fontshare */
 @import url("https://api.fontshare.com/v2/css?f[]=satoshi@700,701,401,400&display=swap");
+@import url('https://fonts.googleapis.com/css2?family=Geist:wght@100..900&family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;700&display=swap');
 
 /* Settings */
+/*:root {*/
+/*    --color-dark: #1a1a1a;*/
+/*    --color-light: #fafafa;*/
+/*    --color-primary: #1a8fe3;*/
+/*    --spacing: 1.5rem;*/
+/*    --font-stack: "Geist", system-ui, -apple-system, BlinkMacSystemFont,*/
+/*        "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif,*/
+/*        "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";*/
+/*    --max-width: 1600px;*/
+/*}*/
+
 :root {
     --color-dark: #1a1a1a;
     --color-light: #fafafa;
     --color-primary: #1a8fe3;
-    --spacing: 1.5rem;
-    --font-stack: "Satoshi", system-ui, -apple-system, BlinkMacSystemFont,
-        "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif,
-        "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+    --spacing: 1.0rem;
+    --font-heading: "Geist", system-ui, sans-serif;
+    --font-body: "Inter", system-ui, sans-serif;
+    --font-mono: "JetBrains Mono", monospace;
     --max-width: 1600px;
 }
 
@@ -32,7 +43,7 @@ body {
     background: var(--color-light);
     color: var(--color-dark);
     padding: 5vw;
-    font-family: var(--font-stack);
+    font-family: var(--font-body);
     font-size: 1.25rem;
     line-height: 1.7;
     display: flex;
@@ -106,11 +117,12 @@ h2,
 h3,
 h4,
 h5 {
+    font-family: var(--font-heading);
     font-weight: 700;
-    line-height: 1.3;
+    letter-spacing: -0.04em;
+    line-height: 1.15;
     text-wrap: balance;
 }
-
 h1 {
     font-size: 3rem;
 }
@@ -201,6 +213,20 @@ nav p {
     row-gap: 0;
 }
 
+nav a {
+    position: relative;
+    text-decoration: none;
+    opacity: 0.72;
+    transition:
+        opacity 0.2s ease,
+        color 0.2s ease;
+}
+
+nav a:hover {
+    opacity: 1;
+    color: var(--color-primary);
+}
+
 @media screen and (min-width: 1000px) {
     nav p {
         flex-direction: column;
@@ -239,6 +265,7 @@ time {
 .highlight,
 .code,
 code {
+    font-family: var(--font-mono), serif;
     padding: 1px var(--spacing);
     background-color: rgba(0, 0, 0, 0.1);
     border-radius: 3px;
@@ -247,10 +274,17 @@ code {
 }
 
 @media (prefers-color-scheme: dark) {
-    .highlight,
-    .code,
-    code {
-        background-color: rgba(255, 255, 255, 0.1);
+    :root {
+        --color-dark: #f3f4f6;
+        --color-light: #0f1115;
+    }
+    body {
+        background: #0f1115;
+    }
+    code,
+    pre,
+    .highlight {
+        background: rgba(255, 255, 255, 0.06);
     }
 }
 
@@ -274,6 +308,7 @@ hr {
 /* Paragraph spacing */
 p {
     margin-bottom: var(--spacing);
+    max-width: 72ch;
 }
 
 
