@@ -40,7 +40,11 @@
 }
 
 body {
-    background: var(--color-light);
+    background-color: #fafafa;
+    background-image:
+        linear-gradient(rgba(0,0,0,0.03) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(0,0,0,0.03) 1px, transparent 1px);
+    background-size: 32px 32px;
     color: var(--color-dark);
     padding: 5vw;
     font-family: var(--font-body);
