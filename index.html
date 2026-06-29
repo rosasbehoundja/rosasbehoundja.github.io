@@ -1,156 +1,83 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="lang-en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <!-- Primary Meta Tags -->
-    <title>Rosas Behoundja</title>
-    <meta name="title" content="Rosas Behoundja - AI Student">
-    <meta name="description" content="Rosas Behoundja, Artificial Intelligence student at IFRI (University of Abomey-Calavi), specialized in optimization and machine learning.">
-    <meta name="keywords" content="Rosas Behoundja, Artificial Intelligence, Machine Learning, IFRI, Benin, Optimization, Metaheuristics">
-    <meta name="author" content="Rosas Behoundja">
-    <meta name="robots" content="index, follow">
-    <meta name="language" content="English">
-    <meta name="google-site-verification" content="7LE16gRwEbXNFjLQxXWDU3iZPV9r8dh1upcFCdOlqtM" />
-    <!-- Open Graph / Facebook -->
-    <meta property="og:type" content="website">
-    <meta property="og:url" content="https://rosasbehoundja.github.io/">
-    <meta property="og:title" content="Rosas Behoundja - AI Student">
-    <meta property="og:description" content="Rosas Behoundja, Artificial Intelligence student at IFRI, specialized in optimization and machine learning.">
-<!--    <meta property="og:image" content="https://rosasbehoundja.github.io/media/me.jpeg">-->
-    <meta property="og:locale" content="en_US">
-    <meta property="og:site_name" content="Rosas Behoundja">
+  <title>Rosas Behoundja</title>
 
-    <!-- Twitter -->
-    <meta property="twitter:card" content="summary_large_image">
-    <meta property="twitter:url" content="https://rosasbehoundja.github.io/">
-    <meta property="twitter:title" content="Rosas Behoundja - AI Student">
-    <meta property="twitter:description" content="Artificial Intelligence student, specialized in optimization and machine learning.">
-<!--    <meta property="twitter:image" content="https://rosasbehoundja.github.io/media/me.jpeg">-->
+  <meta name="author" content="Rosas Behoundja">
+  <meta name="robots" content="index, follow">
+  <meta name="language" content="English">
+  <meta name="google-site-verification" content="7LE16gRwEbXNFjLQxXWDU3iZPV9r8dh1upcFCdOlqtM"/>
 
-    <!-- Canonical URL -->
-    <link rel="canonical" href="https://rosasbehoundja.github.io/">
-
-<!--    &lt;!&ndash; Favicons &ndash;&gt;-->
-<!--    <link rel="apple-touch-icon" sizes="180x180" href="media/favicon_io/apple-touch-icon.png">-->
-<!--    <link rel="icon" type="image/png" sizes="32x32" href="media/favicon_io/favicon-32x32.png">-->
-<!--    <link rel="icon" type="image/png" sizes="16x16" href="media/favicon_io/favicon-16x16.png">-->
-<!--    <link rel="manifest" href="media/favicon_io/site.webmanifest">-->
-
-    <!-- Stylesheet -->
-    <link rel="stylesheet" href="css/base.css">
-
-    <!-- Structured Data - JSON-LD -->
-    <script type="application/ld+json">
-    {
-        "@context": "https://schema.org",
-        "@type": "Person",
-        "name": "Rosas Behoundja",
-        "givenName": "Rosas",
-        "familyName": "Behoundja",
-        "jobTitle": "Artificial Intelligence Student",
-        "affiliation": {
-            "@type": "EducationalOrganization",
-            "name": "Institut de Formation et de Recherche en Informatique (IFRI)",
-            "parentOrganization": {
-                "@type": "CollegeOrUniversity",
-                "name": "University of Abomey-Calavi"
-            }
-        },
-        "email": "perrierosas@gmail.com",
-        "url": "https://rosasbehoundja.github.io/",
-        "sameAs": [
-            "https://github.com/rosasbehoundja",
-            "https://linkedin.com/in/rosasbehoundja"
-        ]
-    }
-    </script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300..700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  
+  <link rel="stylesheet" href="css/style.css">
 </head>
-<body class="home">
+<body>
 
-    <header>
-        <a class="title" href="/">
-            <h1>Rosas Behoundja</h1>
-        </a>
-        <nav>
-            <p>
-                <a href="index.html">Home</a>
-                <a href="projects.html">Projects</a>
-                <a href="experience.html">Experience</a>
-                <a href="blog.html">Blog</a>
-            </p>
-        </nav>
+  <header>
+    <div class="profile-container">
+      <button class="lang-switch" id="langBtn" onclick="toggleLanguage()">🇫🇷 FR</button>
+      <div>
+        <h1>Rosas Behoundja<span class="accent">.</span></h1>
+        <p class="tagline fr-text">optimisation combinatoire & machine learning</p>
+        <p class="tagline en-text">combinatorial optimization & machine learning</p>
+      </div>
+    </div>
     </header>
 
-    <main>
-        <section class="hero">
-            <div class="hero-text">
-                <p>
-                    Hi! I'm <strong>Rosas</strong>, currently a third-year undergraduate student in Computer Science with a specialization in Artificial Intelligence studying at the Institute for Training and Research in Computer Science of the <i style="color: #1a8fe3">University of Abomey-Calavi</i> (<a href="https://www.uac.bj/" target=_blank">UAC</a>) in <a href="https://www.benin.bj/en">Benin 🇧🇯</a>.
-                </p>
+  <section>
+    <h2>
+      <span class="fr-text">à propos</span>
+      <span class="en-text">about</span>
+    </h2>
+    
+    <div class="fr-text">
+      <p>
+        Salut, moi c'est Rosas et j'ai <span class="age"></span> ans 🤓.
+      </p>
+      <p>
+        Je m'intéresse à la résolution des problèmes de planification et d'ordonnancement appliqués à l'<strong>industrie</strong> à l'aide de l'optimisation combinatoire et du machine learning.
+      </p>
+      <p>
+        Je poursuis actuellement un bachelor en Informatique, spécialité <strong>Intelligence Artificielle</strong>, à l'Université d'Abomey-Calavi au <a href="https://www.benin.bj/" target=_blank" rel="noopener noreferrer">Bénin</a> 🇧🇯.
+      </p>
+    </div>
 
-                <p>
-                    My interests lie in research in combinatorial optimization and machine learning. I enjoy building tools and participating in tech projects capable of solving real-world problems in Benin and across Africa.
-                </p>
+    <div class="en-text">
+      <p>
+        Hi, my name is Rosas and I am <span class="age"></span> years old 🤓.
+      </p>
+      <p>
+        I'm interested in solving <strong>industrial</strong> planning and scheduling problems using combinatorial optimization and machine learning.
+      </p>
+      <p>
+        I am currently pursuing a Bachelor's degree in Computer Science, specializing in <strong>Artificial Intelligence</strong> at the University of Abomey-Calavi in <a href="https://www.benin.bj/en" target=_blank" rel="noopener noreferrer">Bénin</a> 🇧🇯.
+      </p>
+    </div>
 
-                <p>
-                    My ambition is to conduct scientific research and propose meaningful solutions to the challenges we face.
-                </p>
-            </div>
+    <div class="social-links">
+      <a href="mailto:perrierosas@gmail.com" title="Email"><i class="fas fa-envelope"></i></a>
+      <a href="https://linkedin.com/in/rosasbehoundja" target="_blank" title="LinkedIn"><i class="fab fa-linkedin"></i></a>
+      <a href="https://github.com/rosasbehoundja" target="_blank" title="GitHub"><i class="fab fa-github"></i></a>
+      <a href="cv/Rosas_Behoundja_Resume.pdf" target="_blank" title="CV / Resume">
+        <i class="fas fa-file-pdf"></i> 
+        <span style="font-size: 0.95rem; font-family: inherit;">CV</span>
+      </a>
+    </div>
+  </section>
 
-            <div class="hero-visual">
-                <img src="media/me/bwai.jpg" alt="Rosas reading" class="hero-main">
-                <img src="media/me/porto.jpg" alt="Rosas in Porto-Novo nature" class="hero-secondary">
-            </div>
-        </section>
-        <div class="social-links">
-            <p>
-                <a href="cv/Rosas_Behoundja_Resume.pdf" target="_blank" rel="noopener noreferrer" aria-label="View my CV">
-                    <img class="social-icon" src="media/svgs/cv.svg" alt="" aria-hidden="true">
-                    Resume/CV
-                </a>
-                <a href="https://github.com/rosasbehoundja" target="_blank" rel="noopener noreferrer" aria-label="GitHub profile">
-                    <img class="social-icon" src="media/svgs/github.svg" alt="" aria-hidden="true">
-                    GitHub
-                </a>
-                <a href="https://linkedin.com/in/rosasbehoundja" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn profile">
-                    <img class="social-icon" src="media/svgs/linkedin.svg" alt="" aria-hidden="true">
-                    LinkedIn
-                </a>
-                <a href="mailto:perrierosas@gmail.com" aria-label="Send email">
-                    <img class="social-icon" src="media/svgs/gmail.svg" alt="" aria-hidden="true">
-                    Email
-                </a>
-            </p>
-        </div>
-        <!-- spacer and thin divider before News -->
-        <div style="height:0.75rem;"></div>
-        <hr style="border:0; border-top:1px solid #e6e6e6; margin:0 0 1rem 0;">
+  <footer class="credit">
+    <p class="fr-text">Inspiré par le site de <a href="https://www.leonlan.com/" target="_blank">Leon Lan</a></p>
+    <p class="en-text">Inspired by <a href="https://www.leonlan.com/" target="_blank">Leon Lan</a>'s website</p>
+  </footer>
 
-        <section class="news-section" aria-labelledby="news-heading">
-            <h2 id="news-heading">News</h2>
-            <ul class="news-list">
-                <li class="news-item">
-                    <div class="news-content"><time datetime="2026-03-31">Mar 31, 2026</time>&nbsp;&nbsp;&nbsp;I gave an interview for Kiff FM Benin as part of World Backup Day.</div>
-                </li>
-                <li class="news-item">
-                    <div class="news-content"><time datetime="2026-03-16">Mar 16, 2026</time>&nbsp;&nbsp;&nbsp;Start an Internship at the Research Lab of my school.</div>
-                </li>
-                <li class="news-item">
-                    <div class="news-content"><time datetime="2026-01-28">Jan 28, 2026</time>&nbsp;&nbsp;&nbsp;Share an article about the <a href="articles/trc-2025.html">Tekbot Robotics Challenge 2025</a>. </div>
-                </li>
-                <li class="news-item">
-                    <div class="news-content"><time datetime="2025-12-31">Dec 31, 2025</time>&nbsp;&nbsp;&nbsp;I publish a new <a href="articles/recap-2025.html">recap</a> of my recent work and highlights.</div>
-                </li>
-            </ul>
-        </section>
-    </main>
-
-    <footer>
-        <span>&copy; 2026 Rosas Behoundja</span>
-    </footer>
+  <script src="js/script.js"></script>
 
 </body>
 </html>
-
