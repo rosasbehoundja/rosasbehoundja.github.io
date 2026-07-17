@@ -1,12 +1,14 @@
 :root {
-  --primary-font: 'Space Grotesk', 'JetBrains Mono', 'Fira Code', 'SF Mono', monospace;
+  --font-display: 'Space Grotesk', sans-serif;
+  --font-body: 'Source Serif 4', Georgia, 'Times New Roman', serif;
+  --font-mono: 'JetBrains Mono', 'Fira Code', monospace;
   --accent-color: #d93e05;
-  --bg-color: #fdfdfd;
+  --bg-color: #ffffff;
   --text-dark: #1a1a1a;
   --text-medium: #333333;
   --text-muted: #666666;
   --text-light: #888888;
-  --border-color: #e0e0e0;
+  --border-color: #e6e6e6;
   --max-width: 680px;
 }
 html {
@@ -18,14 +20,14 @@ html {
   box-sizing: border-box;
 }
 body {
-  font-family: var(--primary-font);
+  font-family: var(--font-body);
   line-height: 1.7;
   color: var(--text-dark) !important;
   background: var(--bg-color) !important;
   max-width: var(--max-width);
   margin: 0 auto;
   padding: clamp(24px, 6vw, 64px) clamp(16px, 4vw, 24px);
-  font-size: clamp(16px, 1.8vw, 19px);
+  font-size: clamp(14px, 1.4vw, 16px);
 }
 header {
   margin-bottom: 48px;
@@ -45,8 +47,8 @@ header {
   padding: 4px 8px;
   border-radius: 4px;
   cursor: pointer;
-  font-family: inherit;
-  font-size: 0.85rem;
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
   align-self: flex-start;
   transition: all 0.2s;
 }
@@ -62,14 +64,17 @@ header {
   flex-shrink: 0;
 }
 h1 {
-  font-size: clamp(1.8rem, 4.5vw, 2.4rem);
+  font-family: var(--font-display);
+  font-size: clamp(1.5rem, 3.6vw, 1.9rem);
   font-weight: 700;
   letter-spacing: -0.02em;
   margin-bottom: 8px;
 }
 .tagline {
+  font-family: var(--font-display);
+  font-weight: 300;
   color: var(--text-muted);
-  font-size: 0.95rem;
+  font-size: 0.85rem;
 }
 .accent {
   color: var(--accent-color);
@@ -78,7 +83,8 @@ section {
   margin-bottom: 40px;
 }
 h2 {
-  font-size: 1.2rem;
+  font-family: var(--font-display);
+  font-size: 1.05rem;
   font-weight: 700;
   color: var(--accent-color);
   text-transform: lowercase;
@@ -107,11 +113,11 @@ a:hover {
   gap: 18px;
   flex-wrap: wrap;
   margin-top: 24px;
-  font-size: 1.3rem;
+  font-size: 1.1rem;
 }
 .credit {
   margin-top: 64px;
-  font-size: 0.85rem;
+  font-size: 0.75rem;
   color: var(--text-light);
   border-top: 1px dashed var(--border-color);
   padding-top: 16px;
@@ -135,10 +141,10 @@ a:hover {
   display: flex;
   gap: 24px;
   align-items: flex-start;
-  font-size: 0.95rem;
+  font-size: 0.85rem;
 }
 .news-date {
-  font-family: 'JetBrains Mono', 'Fira Code', monospace;
+  font-family: var(--font-mono);
   color: var(--text-muted);
   white-space: nowrap;
   min-width: 100px;
@@ -151,8 +157,8 @@ a:hover {
   align-items: center;
   gap: 16px;
   margin-top: 16px;
-  font-size: 0.85rem;
-  font-family: 'JetBrains Mono', 'Fira Code', monospace;
+  font-size: 0.75rem;
+  font-family: var(--font-mono);
 }
 .news-pagination button {
   background: none;
