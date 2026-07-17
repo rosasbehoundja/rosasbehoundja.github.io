@@ -24,11 +24,11 @@ Sous la précieuse guidance du Dr Ratheil Houndji, des doctorants, de l'équipe 
 
 Voici un aperçu succinct des tâches et projets menés à bien durant cette période :
 
-- **Modélisation Mathématique :** Proposition d'un modèle de programmation linéaire en nombres entiers (MILP) pour le problème de MPVRP axé sur les coûts de changement ([MPVRP-CC](https://ifri-ai-classes.github.io/MPVRP-CC/)) en utilisant le solveur [Gurobi](https://www.gurobi.com/).
-- **Programmation par Contraintes (CP) :** Initiation de la modélisation CP du problème susmentionné à l'aide de variables successeurs et de variables de séquences via les frameworks [MaxiCP](https://github.com/aia-uclouvain/maxicp) et [MiniCP](https://github.com/minicp/minicp).
-- **Veille et Formation :** Documentation sur l'optimisation combinatoire et la programmation par contraintes (un grand merci aux professeurs [Pierre Schaus](https://pschaus.github.io/) et [Pascal Van Hentenryck](https://sites.gatech.edu/pascal-van-hentenryck/) pour l'accès libre à leurs cours d'excellence sur YouTube).
-- **Supervision Académique :** Encadrement du projet pratique des étudiants de Licence 2 en Intelligence Artificielle pour le cours de Machine Learning du Dr Ratheil. Ce travail s'inscrit dans la continuité de la bibliothèque pédagogique [ifri-mini-ml-lib](https://github.com/IFRI-AI-Classes/ifri_mini_ml_lib/tree/dev), développée *from scratch*. Cette année, les contributions ont porté sur la documentation et l'implémentation de modules de réseaux de neurones, traitement du langage naturel (NLP) et détection d'anomalies.
-- **Projets Connexes :** Contribution technique sur diverses tâches et projets privés gérés par le laboratoire.
+- proposition d'un modèle de programmation linéaire en nombres entiers (MILP) pour le problème de MPVRP axé sur les coûts de changement ([MPVRP-CC](https://ifri-ai-classes.github.io/MPVRP-CC/)) en utilisant le solveur [Gurobi](https://www.gurobi.com/).
+- initiation de la modélisation CP du problème susmentionné à l'aide de variables successeurs et de variables de séquences via les frameworks [MaxiCP](https://github.com/aia-uclouvain/maxicp) et [MiniCP](https://github.com/minicp/minicp).
+- documentation sur l'optimisation combinatoire et la programmation par contraintes (un grand merci aux professeurs [Pierre Schaus](https://pschaus.github.io/) et [Pascal Van Hentenryck](https://sites.gatech.edu/pascal-van-hentenryck/) pour l'accès libre à leurs cours d'excellence sur YouTube).
+- encadrement du projet pratique des étudiants de Licence 2 en Intelligence Artificielle pour le cours de Machine Learning du Dr Ratheil. Ce travail s'inscrit dans la continuité de la bibliothèque pédagogique [ifri-mini-ml-lib](https://github.com/IFRI-AI-Classes/ifri_mini_ml_lib/tree/dev), développée *from scratch*. Cette année, les contributions ont porté sur la documentation et l'implémentation de modules de réseaux de neurones, traitement du langage naturel (NLP) et détection d'anomalies.
+- contribution technique sur diverses tâches et projets privés gérés par le laboratoire.
 
 📑 Retrouvez mon carnet de recherche complet et le résumé de mes travaux sur le MPVRP-CC directement sur ma page Notion dédiée : [Notion - MPVRP with Changeover Costs Workspace](https://rosasbehoundja.notion.site/multi-products-vrp-with-change-over-costs?pvs=74).
 

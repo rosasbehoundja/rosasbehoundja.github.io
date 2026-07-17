@@ -21,9 +21,9 @@ J'ai le privilège d'effectuer ce stage sous la supervision du [Dr. Ratheil HOUN
 
 Durant les trois prochains mois, mes travaux de recherche s'articuleront principalement autour de ces axes fondamentaux :
 
-- La formulation et la modélisation mathématique du problème d'une variante des problèmes de tournées de véhicules ([MPVRP-CC](https://ifri-ai-classes.github.io/MPVRP-CC/)).
-- L'exploration des [variables de séquences](https://arxiv.org/pdf/2510.09373) basées sur l'insertion en programmation par contraintes (CP) et leur application pour la modélisation efficace des problèmes de routing et de scheduling (ordonnancement).
-- La contribution aux divers projets et tâches parallèles qui me seront confiés au sein du laboratoire.
+- la formulation et la modélisation mathématique du problème d'une variante des problèmes de tournées de véhicules ([MPVRP-CC](https://ifri-ai-classes.github.io/MPVRP-CC/)).
+- l'exploration des [variables de séquences](https://arxiv.org/pdf/2510.09373) basées sur l'insertion en programmation par contraintes (CP) et leur application pour la modélisation efficace des problèmes de routing et de scheduling (ordonnancement).
+- la contribution aux divers projets et tâches parallèles qui me seront confiés au sein du laboratoire.
 
 *Hâte de débuter cette nouvelle expérience et de contribuer activement aux travaux du laboratoire !*
 
@@ -36,8 +36,8 @@ I have the privilege of undertaking this internship under the supervision of [Dr
 
 Over the next three months, my research work will focus primarily on these core tracks:
 
-- Formulation and mathematical modeling of a specific variant of Vehicle Routing Problems ([MPVRP-CC](https://ifri-ai-classes.github.io/MPVRP-CC/)).
-- Exploration of insertion-based [sequence variables](https://arxiv.org/pdf/2510.09373) in constraint programming (CP) and their use for modeling routing and scheduling problems.
-- Active contribution to parallel projects and technical tasks assigned by the lab team.
+- formulation and mathematical modeling of a specific variant of Vehicle Routing Problems ([MPVRP-CC](https://ifri-ai-classes.github.io/MPVRP-CC/)).
+- exploration of insertion-based [sequence variables](https://arxiv.org/pdf/2510.09373) in constraint programming (CP) and their use for modeling routing and scheduling problems.
+- active contribution to parallel projects and technical tasks assigned by the lab team.
 
 *Excited to start this journey and dive deep into academic research alongside the team!*

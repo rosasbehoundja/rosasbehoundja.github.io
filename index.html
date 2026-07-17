@@ -14,6 +14,8 @@
 </head>
 <body>
 
+  <canvas id="bg-network" aria-hidden="true"></canvas>
+
   <header>
     <div class="profile-container">
       <button class="lang-switch" id="langBtn" onclick="toggleLanguage()">🇫🇷 FR</button>
@@ -78,6 +80,14 @@
       <div class="news-item">
         <span class="news-date">07/2026</span>
         <span class="news-content">
+          <span class="fr-text">Mentor <a href="news/article.html?post=mentoring-noai-2026">bootcamp NOAI</a> Benin 2026.</span>
+          <span class="en-text">Mentor at the <a href="news/article.html?post=mentoring-noai-2026">NOAI Benin</a> 2026 bootcamp.</span>
+        </span>
+      </div>
+
+      <div class="news-item">
+        <span class="news-date">07/2026</span>
+        <span class="news-content">
           <span class="fr-text">Sélectionné pour le <a href="news/article.html?post=deep-learning-indaba-2026">Deep Learning Indaba</a> 2026!</span>
           <span class="en-text">Selected for <a href="news/article.html?post=deep-learning-indaba-2026">Deep Learning Indaba</a> 2026!</span>
         </span>
@@ -120,6 +130,7 @@
     <p class="en-text">Inspired by <a href="https://www.leonlan.com/" target="_blank">Leon Lan</a>'s website</p>
   </footer>
 
+  <script src="js/bg-network.js"></script>
   <script src="js/script.js"></script>
 
 </body>
