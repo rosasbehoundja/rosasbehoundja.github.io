@@ -1,6 +1,12 @@
+/* Fonts chargées directement ici (pas besoin de <link> dans le HTML) */
+@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&family=Outfit:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap');
+/* Pour basculer vers Bricolage Grotesque à la place d'Outfit : */
+@import url('https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,300..800&display=swap');
+/* puis remplace --font-body par 'Bricolage Grotesque', sans-serif; */
+
 :root {
   --font-display: 'Space Grotesk', sans-serif;
-  --font-body: 'Source Serif 4', Georgia, 'Times New Roman', serif;
+  --font-body: 'Bricolage Grotesque', 'Outfit', sans-serif;
   --font-mono: 'JetBrains Mono', 'Fira Code', monospace;
   --accent-color: #d93e05;
   --bg-color: #ffffff;
@@ -13,6 +19,7 @@
 }
 html {
   color-scheme: light;
+  font-size: 115%;
 }
 * {
   margin: 0;
@@ -27,7 +34,7 @@ body {
   max-width: var(--max-width);
   margin: 0 auto;
   padding: clamp(24px, 6vw, 64px) clamp(16px, 4vw, 24px);
-  font-size: clamp(14px, 1.4vw, 16px);
+  font-size: clamp(16px, 1.6vw, 18px);
 }
 header {
   margin-bottom: 48px;
@@ -65,7 +72,7 @@ header {
 }
 h1 {
   font-family: var(--font-display);
-  font-size: clamp(1.5rem, 3.6vw, 1.9rem);
+  font-size: clamp(1.7rem, 4vw, 2.1rem);
   font-weight: 700;
   letter-spacing: -0.02em;
   margin-bottom: 8px;
@@ -74,7 +81,7 @@ h1 {
   font-family: var(--font-display);
   font-weight: 300;
   color: var(--text-muted);
-  font-size: 0.85rem;
+  font-size: 0.95rem;
 }
 .accent {
   color: var(--accent-color);
@@ -84,7 +91,7 @@ section {
 }
 h2 {
   font-family: var(--font-display);
-  font-size: 1.05rem;
+  font-size: 1.15rem;
   font-weight: 700;
   color: var(--accent-color);
   text-transform: lowercase;
@@ -117,7 +124,7 @@ a:hover {
 }
 .credit {
   margin-top: 64px;
-  font-size: 0.75rem;
+  font-size: 0.8rem;
   color: var(--text-light);
   border-top: 1px dashed var(--border-color);
   padding-top: 16px;
@@ -141,7 +148,7 @@ a:hover {
   display: flex;
   gap: 24px;
   align-items: flex-start;
-  font-size: 0.85rem;
+  font-size: 0.92rem;
 }
 .news-date {
   font-family: var(--font-mono);
@@ -157,7 +164,7 @@ a:hover {
   align-items: center;
   gap: 16px;
   margin-top: 16px;
-  font-size: 0.75rem;
+  font-size: 0.8rem;
   font-family: var(--font-mono);
 }
 .news-pagination button {

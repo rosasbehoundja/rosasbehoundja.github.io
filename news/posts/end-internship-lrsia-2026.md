@@ -54,11 +54,11 @@ Under the guidance of Dr. Ratheil Houndji, the laboratory's PhD candidates, the 
 
 Here is a brief breakdown of the tracks and projects completed during this timeline:
 
-- **Mathematical Modeling:** Designed a Mixed-Integer Linear Programming (MILP) model for the MPVRP variant focusing on changeover costs ([MPVRP-CC](https://ifri-ai-classes.github.io/MPVRP-CC/)) using [Gurobi](https://www.gurobi.com/).
-- **Constraint Programming (CP):** Initiated CP modeling for the aforementioned routing problem utilizing successor and sequence variables within [MaxiCP](https://github.com/aia-uclouvain/maxicp) and [MiniCP](https://github.com/minicp/minicp).
-- **Self-Study & Literature Review:** Explored deep concepts in combinatorial optimization and CP (kudos to Dr. [Pierre Schaus](https://pschaus.github.io/) and [Pascal Van Hentenryck](https://sites.gatech.edu/pascal-van-hentenryck/) for providing elite, open-access courses on YouTube).
-- **Academic Mentorship:** Supervised the second-year AI undergraduate class project for Dr. Ratheil's Machine Learning course. This constitutes the expansion of [ifri-mini-ml-lib](https://github.com/IFRI-AI-Classes/ifri_mini_ml_lib/tree/dev), a pedagogical ML library written from scratch. This year's focus was on documentation and adding modules for neural networks, natural language processing, and anomaly detection.
-- **Parallel Tracks:** Supported development tasks on various private projects run by the laboratory.
+- designed a Mixed-Integer Linear Programming (MILP) model for the MPVRP variant focusing on changeover costs ([MPVRP-CC](https://ifri-ai-classes.github.io/MPVRP-CC/)) using [Gurobi](https://www.gurobi.com/).
+- initiated CP modeling for the aforementioned routing problem utilizing successor and sequence variables within [MaxiCP](https://github.com/aia-uclouvain/maxicp) and [MiniCP](https://github.com/minicp/minicp).
+- explored deep concepts in combinatorial optimization and CP (kudos to Prof. [Pierre Schaus](https://pschaus.github.io/) and Prof. [Pascal Van Hentenryck](https://sites.gatech.edu/pascal-van-hentenryck/) for providing elite, open-access courses on YouTube).
+- supervised the second-year AI undergraduate class project for Dr. Ratheil's Machine Learning course. This constitutes the expansion of [ifri-mini-ml-lib](https://github.com/IFRI-AI-Classes/ifri_mini_ml_lib/tree/dev), a pedagogical ML library written from scratch. This year's focus was on documentation and adding modules for neural networks, natural language processing, and anomaly detection.
+- supported development tasks on various private projects run by the laboratory.
 
 📑 Access my complete research notebook and the summary of my findings on MPVRP-CC on my dedicated Notion workspace: [Notion - MPVRP with Changeover Costs Workspace](https://rosasbehoundja.notion.site/multi-products-vrp-with-change-over-costs?pvs=74).
 
