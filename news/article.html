@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en" class="lang-en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rosas Behoundja</title>
+    <meta name="author" content="Rosas Behoundja">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300..700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="../css/article.css">
+
+    <!-- Parseur Markdown -->
+    <script src="https://cdn.jsdelivr.net/npm/marked@12.0.2/marked.min.js"></script>
+</head>
+<body>
+
+<header class="topbar">
+    <button class="lang-switch" id="langBtn" onclick="toggleLanguage()"> 🇫🇷 FR </button>
+</header>
+
+<main class="article" id="article-root">
+    <nav class="breadcrumb">
+        <a href="../index.html">Home</a>
+        <span>/</span>
+        <span id="breadcrumb-parent" style="display:none;">
+            <a id="breadcrumb-parent-link">
+                <span class="fr-text" id="breadcrumb-parent-fr"></span>
+                <span class="en-text" id="breadcrumb-parent-en"></span>
+            </a>
+            <span>/</span>
+        </span>
+        <span class="current fr-text" id="breadcrumb-fr"></span>
+        <span class="current en-text" id="breadcrumb-en"></span>
+    </nav>
+
+    <header class="article-header">
+        <time id="article-date">
+            <span class="fr-text" id="date-fr"></span>
+            <span class="en-text" id="date-en"></span>
+        </time>
+        <h1>
+            <span class="fr-text" id="title-fr"></span>
+            <span class="en-text" id="title-en"></span>
+        </h1>
+    </header>
+
+    <figure id="article-figure" style="display:none;">
+        <img id="article-image" alt="" style="width:100%;">
+        <figcaption>
+            <span class="fr-text" id="caption-fr"></span>
+            <span class="en-text" id="caption-en"></span>
+        </figcaption>
+    </figure>
+
+    <section>
+        <div class="fr-text" id="content-fr"></div>
+        <div class="en-text" id="content-en"></div>
+    </section>
+
+    <footer class="article-footer">
+        <a class="back-button" href="../index.html#news">
+            <i class="fas fa-arrow-left"></i>
+            <span class="fr-text">Retour aux actualités</span>
+            <span class="en-text">Back to News</span>
+        </a>
+    </footer>
+</main>
+
+<script src="../js/script.js"></script>
+<script src="../js/markdown-loader.js"></script>
+</body>
+</html>
