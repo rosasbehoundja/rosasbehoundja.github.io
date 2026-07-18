@@ -13,7 +13,7 @@ image_alt: Look back and smile
 <!--lang:fr-->
 Avant de commencer ce site, il s'est passé pas mal de choses que je voulais garder quelque part. Voici un petit résumé, en rétrospective :
 
-- **01/26 :** Notre équipe d'IFRI a été [vice-championne](https://www.linkedin.com/posts/rosasbehoundja_bwai2025-ifri-ai-ugcPost-7403676518570426368-Zzxc/?utm_source=social_share_send&utm_medium=member_desktop_web&rcm=ACoAAEefhQwB0dWQeEvUSqPWVFwIH8rp0aA86Xg) de la compétition du Tekbot Robotics Challenge 2025.
+- **01/26 :** Notre équipe d'IFRI a été [vice-championne](https://www.linkedin.com/posts/rosasbehoundja_trc2025-robotique-benintech-ugcPost-7422126411840139265-_-Lw/?utm_source=social_share_send&utm_medium=member_desktop_web&rcm=ACoAAEefhQwB0dWQeEvUSqPWVFwIH8rp0aA86Xg) de la compétition du Tekbot Robotics Challenge 2025.
 - **11/25 :** J'ai présenté le concept des algorithmes évolutionnaires au [Benin Workshop on Artificial Intelligence](https://www.linkedin.com/posts/rosasbehoundja_bwai2025-ifri-ai-ugcPost-7403676518570426368-Zzxc/?utm_source=social_share_send&utm_medium=member_desktop_web&rcm=ACoAAEefhQwB0dWQeEvUSqPWVFwIH8rp0aA86Xg) (BWAI) 2025 :)
 - **09/25 :** J'ai terminé mon stage à [eTihuku](https://www.etihuku.com/) :)
 - **08/25 :** J'ai participé à l'[Association for Constraint Programming Summer School 2025](https://www.linkedin.com/posts/rosasbehoundja_cp4sd-acpsummerschool2025-constraintprogramming-ugcPost-7370764328112766977-BvWS/?utm_source=social_share_send&utm_medium=member_desktop_web&rcm=ACoAAEefhQwB0dWQeEvUSqPWVFwIH8rp0aA86Xg) au Bénin :)!
