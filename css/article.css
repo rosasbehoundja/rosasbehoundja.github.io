@@ -8,7 +8,7 @@
   --font-display: 'Space Grotesk', sans-serif;
   --font-body: 'Bricolage Grotesque', 'Outfit', sans-serif;
   --font-mono: 'JetBrains Mono', 'Fira Code', monospace;
-  --accent-color: #d93e05;
+  --accent-color: #1a1de3;
   --bg-color: #ffffff;
   --text-dark: #1a1a1a;
   --text-medium: #333333;
@@ -16,7 +16,7 @@
   --text-light: #888888;
   --border-color: #e6e6e6;
   --code-bg: #f5f5f5;
-  --max-width: 680px;
+  --max-width: 820px;
 }
 * {
   margin: 0;
@@ -44,7 +44,7 @@ body {
   line-height: 1.7;
   max-width: var(--max-width);
   margin: auto;
-  padding: clamp(24px, 6vw, 64px) clamp(16px, 4vw, 24px);
+  padding: clamp(24px, 5vw, 56px) clamp(12px, 2vw, 20px);
   font-size: clamp(16px, 1.6vw, 18px);
 }
 .lang-fr .en-text { display: none; }
@@ -170,6 +170,13 @@ img {
   display: block;
   width: 100%;
   height: auto;
+  border-radius: 8px;
+}
+.article-image {
+  width: 70%;
+  max-width: 550px;
+  margin: 35px auto;
+  display: block;
   border-radius: 8px;
 }
 figure {
