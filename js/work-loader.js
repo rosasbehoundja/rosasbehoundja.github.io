@@ -32,7 +32,7 @@
 
   function warnIfFileProtocol() {
     if (window.location.protocol === "file:") {
-      console.warn("⚠️ Les navigateurs bloquent fetch() en protocole file:// (CORS). Lancez un serveur HTTP local (ex: 'python3 -m http.server 8000') pour tester le site en local.");
+      console.warn("⚠️ Lancez un serveur HTTP local (ex: 'python3 -m http.server 8000') pour tester le site en local.");
     }
   }
 

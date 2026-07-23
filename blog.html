@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Work — Rosas Behoundja</title>
+  <title>Blog — Rosas Behoundja</title>
   <meta name="author" content="Rosas Behoundja">
   <meta name="robots" content="index, follow">
   <meta name="language" content="English">
@@ -19,17 +19,13 @@
   <!-- Top Navigation Bar -->
   <nav class="border-b border-neutral-200 pb-4 mb-8">
     <div class="flex items-center justify-between">
-      <!-- Desktop nav links -->
       <div class="hidden sm:flex items-center gap-6 font-mono text-sm">
         <a href="index.html" class="text-neutral-600 hover:text-[#1a1de3] transition-colors">/ home</a>
-        <a href="work.html" class="text-[#1a1de3] font-semibold underline underline-offset-4">/ work</a>
-        <a href="blog.html" class="text-neutral-600 hover:text-[#1a1de3] transition-colors">/ blog</a>
+        <a href="work.html" class="text-neutral-600 hover:text-[#1a1de3] transition-colors">/ work</a>
+        <a href="blog.html" class="text-[#1a1de3] font-semibold underline underline-offset-4">/ blog</a>
       </div>
-
-      <!-- Mobile brand & Right controls -->
       <div class="flex items-center justify-between sm:justify-end w-full sm:w-auto gap-3">
         <span class="sm:hidden font-display font-bold text-neutral-900 text-lg">Rosas<span class="text-[#1a1de3]">.</span></span>
-        
         <div class="flex items-center gap-3">
           <button class="lang-switch text-xs font-mono border border-neutral-200 px-2.5 py-1 rounded hover:bg-neutral-100 hover:border-[#1a1de3] transition-all cursor-pointer" id="langBtn" onclick="toggleLanguage()">🇫🇷 FR</button>
           <button id="menuToggleBtn" class="sm:hidden text-neutral-700 hover:text-[#1a1de3] p-1 text-lg cursor-pointer" aria-label="Toggle menu" onclick="toggleMobileMenu()">
@@ -38,19 +34,19 @@
         </div>
       </div>
     </div>
-
-    <!-- Mobile Dropdown Menu -->
     <div id="mobileMenu" class="hidden sm:hidden flex-col gap-3 pt-4 border-t border-neutral-100 mt-3 font-mono text-sm">
       <a href="index.html" class="text-neutral-600 hover:text-[#1a1de3] py-1">/ home</a>
-      <a href="work.html" class="text-[#1a1de3] font-semibold py-1">/ work</a>
-      <a href="blog.html" class="text-neutral-600 hover:text-[#1a1de3] py-1">/ blog</a>
+      <a href="work.html" class="text-neutral-600 hover:text-[#1a1de3] py-1">/ work</a>
+      <a href="blog.html" class="text-[#1a1de3] font-semibold py-1">/ blog</a>
     </div>
   </nav>
 
   <main>
-    <section id="view-work" class="mb-10">
-      <div class="fr-text markdown-body" id="work-fr"></div>
-      <div class="en-text markdown-body" id="work-en"></div>
+    <section class="mb-10">
+      <h2 class="font-display text-xl font-bold text-[#1a1de3] lowercase mb-6 tracking-wide before:content-['#_'] before:opacity-50">blog</h2>
+
+      <div class="fr-text" id="blog-fr"></div>
+      <div class="en-text" id="blog-en"></div>
     </section>
   </main>
 
@@ -60,7 +56,7 @@
   </footer>
 
   <script src="js/script.js"></script>
-  <script src="js/work-loader.js"></script>
+  <script src="js/blog-loader.js"></script>
 
 </body>
 </html>

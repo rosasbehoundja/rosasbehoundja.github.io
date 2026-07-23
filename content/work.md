@@ -13,7 +13,7 @@
 ### Stagiaire Ingénieur Machine Learning, [eTihuku](https://www.etihuku.com/)
 *Afrique du Sud*
 
-- Travail sur SentiMaster, une plateforme d'IA qui collecte les retours clients depuis les réseaux sociaux et appels téléphoniques, traduit et analyse automatiquement les sentiments et thèmes sous-jacents, et aide les entreprises à prédire le taux d'attrition client.
+- Développement de SentiMaster, une plateforme d'IA qui collecte les retours clients depuis les réseaux sociaux et appels téléphoniques, traduit et analyse automatiquement les sentiments, les émotions et thèmes sous-jacents, et aide les entreprises à prédire le taux d'attrition client.
 
 <!--lang:en-->
 
@@ -30,4 +30,4 @@
 ### Machine Learning Engineer Intern, [eTihuku](https://www.etihuku.com/)
 *South Africa*
 
-- Worked on SentiMaster, an AI platform that collects customer feedback from social media and phone calls, automatically translates and analyzes hidden emotions and topics, and helps companies predict customer churn.
+- Worked on SentiMaster, an AI platform that collects customer feedback from social media and phone calls, automatically translates and analyzes hidden sentiments, emotions and topics, and helps companies predict customer churn.

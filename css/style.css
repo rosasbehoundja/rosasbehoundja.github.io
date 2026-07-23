@@ -53,7 +53,7 @@ h1, h2, h3, h4, .font-display {
 .lang-fr .en-text { display: none !important; }
 .lang-en .fr-text { display: none !important; }
 
-/* Links in news and general content */
+/* Links */
 a, .news-content a, .news-item a {
   color: var(--accent-color);
   text-decoration: none;
@@ -65,7 +65,7 @@ a:hover, .news-content a:hover, .news-item a:hover {
   text-decoration: underline;
 }
 
-/* Markdown & Rendered Content Styling */
+/* Markdown Rendered Content */
 .markdown-body p {
   margin-bottom: 1rem;
   color: var(--text-medium);
@@ -74,7 +74,7 @@ a:hover, .news-content a:hover, .news-item a:hover {
   margin-bottom: 0;
 }
 
-/* Headings in markdown / articles / sections: Space Grotesk, blue, lowercase, prefixed with # */
+/* Headings in markdown / articles / sections */
 .markdown-body h2, .markdown-body h3, section h2, section h3 {
   font-family: var(--font-display) !important;
   font-size: 1.15rem;
@@ -170,6 +170,44 @@ a:hover, .news-content a:hover, .news-item a:hover {
   border: none;
   border-top: 1px dashed var(--border-color);
   margin: 2.5rem 0;
+}
+
+/* ---- Work page: headings black, links stay blue ---- */
+#view-work .markdown-body h3 {
+  color: var(--text-dark) !important;
+  text-transform: none !important;
+}
+#view-work .markdown-body h3::before {
+  content: none !important;
+}
+
+/* ---- Blog page: entry list ---- */
+.blog-entry {
+  display: flex;
+  gap: 1.5rem;
+  align-items: baseline;
+  padding: 0.6rem 0;
+  font-size: 0.92rem;
+}
+.blog-date {
+  font-family: var(--font-mono);
+  color: var(--text-muted);
+  white-space: nowrap;
+  min-width: 90px;
+  font-size: 0.82rem;
+}
+.blog-title a {
+  color: var(--text-dark);
+  font-weight: 500;
+}
+.blog-title a:hover {
+  color: var(--accent-color);
+}
+@media (max-width: 520px) {
+  .blog-entry {
+    flex-direction: column;
+    gap: 0.15rem;
+  }
 }
 
 /* Gallery Grid */
