@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en" class="lang-en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Work — Rosas Behoundja</title>
+  <meta name="author" content="Rosas Behoundja">
+  <meta name="robots" content="index, follow">
+  <meta name="language" content="English">
+  <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <link rel="stylesheet" href="css/style.css">
+  <script src="https://cdn.jsdelivr.net/npm/marked@12.0.2/marked.min.js"></script>
+</head>
+<body class="max-w-[820px] mx-auto px-4 sm:px-6 py-6 sm:py-10 text-neutral-900 bg-white">
+
+  <canvas id="bg-network" aria-hidden="true"></canvas>
+
+  <!-- Top Navigation Bar -->
+  <nav class="border-b border-neutral-200 pb-4 mb-8">
+    <div class="flex items-center justify-between">
+      <!-- Desktop nav links -->
+      <div class="hidden sm:flex items-center gap-6 font-mono text-sm">
+        <a href="index.html" class="text-neutral-600 hover:text-[#1a1de3] transition-colors">/ home</a>
+        <a href="work.html" class="text-[#1a1de3] font-semibold underline underline-offset-4">/ work</a>
+      </div>
+
+      <!-- Mobile brand & Right controls -->
+      <div class="flex items-center justify-between sm:justify-end w-full sm:w-auto gap-3">
+        <span class="sm:hidden font-display font-bold text-neutral-900 text-lg">Rosas<span class="text-[#1a1de3]">.</span></span>
+        
+        <div class="flex items-center gap-3">
+          <button class="lang-switch text-xs font-mono border border-neutral-200 px-2.5 py-1 rounded hover:bg-neutral-100 hover:border-[#1a1de3] transition-all cursor-pointer" id="langBtn" onclick="toggleLanguage()">🇫🇷 FR</button>
+          <button id="menuToggleBtn" class="sm:hidden text-neutral-700 hover:text-[#1a1de3] p-1 text-lg cursor-pointer" aria-label="Toggle menu" onclick="toggleMobileMenu()">
+            <i class="fas fa-bars" id="menuIcon"></i>
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Mobile Dropdown Menu -->
+    <div id="mobileMenu" class="hidden sm:hidden flex-col gap-3 pt-4 border-t border-neutral-100 mt-3 font-mono text-sm">
+      <a href="index.html" class="text-neutral-600 hover:text-[#1a1de3] py-1">/ home</a>
+      <a href="work.html" class="text-[#1a1de3] font-semibold py-1">/ work</a>
+    </div>
+  </nav>
+
+  <main>
+    <section id="view-work" class="mb-10">
+      <div class="fr-text markdown-body" id="work-fr"></div>
+      <div class="en-text markdown-body" id="work-en"></div>
+    </section>
+  </main>
+
+  <footer class="mt-16 pt-4 text-xs text-neutral-400 border-t border-dashed border-neutral-200">
+    <p class="fr-text">Inspiré par le site de <a href="https://www.leonlan.com/" target="_blank" class="text-neutral-500 hover:text-[#1a1de3] underline">Leon Lan</a></p>
+    <p class="en-text">Inspired by <a href="https://www.leonlan.com/" target="_blank" class="text-neutral-500 hover:text-[#1a1de3] underline">Leon Lan</a>'s website</p>
+  </footer>
+
+  <script src="js/script.js"></script>
+  <script src="js/work-loader.js"></script>
+
+</body>
+</html>

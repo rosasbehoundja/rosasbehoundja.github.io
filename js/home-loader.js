@@ -4,11 +4,7 @@
  * Charge le contenu Markdown de la page d'accueil :
  *   - content/home.md   -> section "à propos / about"
  *   - content/news.md   -> liste des actualités (avec pagination)
- *
- * Même principe que news/markdown-loader.js : blocs <!--lang:fr-->
- * et <!--lang:en--> parsés avec marked.js.
- *
- * Nécessite marked.js chargé AVANT ce script (voir index.html).
+ *   - content/beyond.md -> section "et sinon / besides that"
  */
 
 (function () {
@@ -16,9 +12,21 @@
 
   const ITEMS_PER_PAGE = 5;
 
-  // ---- Helpers (repris du même format que markdown-loader.js) ----
+  function parseMd(text) {
+    if (!text) return "";
+    if (window.marked && typeof window.marked.parse === "function") return window.marked.parse(text);
+    if (typeof window.marked === "function") return window.marked(text);
+    return text;
+  }
+
+  function parseMdInline(text) {
+    if (!text) return "";
+    if (window.marked && typeof window.marked.parseInline === "function") return window.marked.parseInline(text);
+    return parseMd(text);
+  }
 
   function splitLangBlocks(body) {
+    if (!body) return { fr: "", en: "" };
     const frMatch = body.match(/<!--lang:fr-->([\s\S]*?)(?=<!--lang:en-->|$)/);
     const enMatch = body.match(/<!--lang:en-->([\s\S]*)/);
     return {
@@ -32,7 +40,12 @@
     if (el) el.innerHTML = html;
   }
 
-  // Découpe news.md en entrées, chacune démarrant par "### <header>"
+  function warnIfFileProtocol() {
+    if (window.location.protocol === "file:") {
+      console.warn("⚠️ Les navigateurs bloquent fetch() en protocole file:// (CORS). Lancez un serveur HTTP local (ex: 'python3 -m http.server 8000') pour tester le site en local.");
+    }
+  }
+
   function parseNewsEntries(raw) {
     const entries = [];
     const headerRegex = /^###[ \t]+(.+?)[ \t]*$/gm;
@@ -55,14 +68,14 @@
       if (!res.ok) throw new Error("404");
       const raw = await res.text();
       const { fr, en } = splitLangBlocks(raw);
-      setHTML("about-fr", window.marked.parse(fr));
-      setHTML("about-en", window.marked.parse(en));
+      setHTML("about-fr", parseMd(fr));
+      setHTML("about-en", parseMd(en));
     } catch (err) {
+      warnIfFileProtocol();
       console.error("Impossible de charger content/home.md", err);
     }
   }
 
-  // ---- Chargement + pagination des news ----
   let newsItems = [];
   let currentPage = 0;
 
@@ -76,11 +89,11 @@
     list.innerHTML = pageItems
       .map(
         (item) => `
-      <div class="news-item">
-        <span class="news-date">${item.header}</span>
-        <span class="news-content">
-          <span class="fr-text">${window.marked.parseInline(item.fr)}</span>
-          <span class="en-text">${window.marked.parseInline(item.en)}</span>
+      <div class="news-item flex flex-col sm:flex-row gap-1 sm:gap-6 items-start text-sm">
+        <span class="news-date font-mono text-neutral-500 whitespace-nowrap min-w-[100px]">${item.header}</span>
+        <span class="news-content text-neutral-700">
+          <span class="fr-text">${parseMdInline(item.fr)}</span>
+          <span class="en-text">${parseMdInline(item.en)}</span>
         </span>
       </div>`
       )
@@ -133,7 +146,6 @@
       const raw = await res.text();
       const entries = parseNewsEntries(raw);
 
-      // Sépare l'entrée spéciale "MORE" (phrase de lien sous la pagination)
       const moreEntry = entries.find((e) => e.header.toUpperCase() === "MORE");
       newsItems = entries.filter((e) => e.header.toUpperCase() !== "MORE");
 
@@ -144,36 +156,43 @@
         setHTML(
           "news-more",
           `
-          <p class="fr-text" style="margin-top: 20px; font-size: 0.9rem;">
-            ${window.marked.parseInline(moreEntry.fr)}
+          <p class="fr-text mt-5 text-sm text-neutral-600">
+            ${parseMdInline(moreEntry.fr)}
           </p>
-          <p class="en-text" style="margin-top: 20px; font-size: 0.9rem;">
-            ${window.marked.parseInline(moreEntry.en)}
+          <p class="en-text mt-5 text-sm text-neutral-600">
+            ${parseMdInline(moreEntry.en)}
           </p>`
         );
       }
     } catch (err) {
+      warnIfFileProtocol();
       console.error("Impossible de charger content/news.md", err);
     }
   }
 
-  // ---- Chargement section "et sinon / besides that" ----
   async function loadBeyond() {
     try {
       const res = await fetch("content/beyond.md");
       if (!res.ok) throw new Error("404");
       const raw = await res.text();
       const { fr, en } = splitLangBlocks(raw);
-      setHTML("beyond-fr", window.marked.parse(fr));
-      setHTML("beyond-en", window.marked.parse(en));
+      setHTML("beyond-fr", parseMd(fr));
+      setHTML("beyond-en", parseMd(en));
     } catch (err) {
+      warnIfFileProtocol();
       console.error("Impossible de charger content/beyond.md", err);
     }
   }
 
-  document.addEventListener("DOMContentLoaded", () => {
+  function init() {
     loadHome();
     loadNews();
     loadBeyond();
-  });
+  }
+
+  if (document.readyState === "loading") {
+    document.addEventListener("DOMContentLoaded", init);
+  } else {
+    init();
+  }
 })();
