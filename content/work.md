@@ -22,7 +22,7 @@
 
 <!--lang:en-->
 
-### Research Intern, @[LRSIA](https://github.com/LRSIA-Ratheil-Research-Team)
+### Research Intern, [LRSIA](https://github.com/LRSIA-Ratheil-Research-Team)
 *Benin*
 
 - Designed a MILP model for the MPVRP variant focusing on changeover costs ([MPVRP-CC](https://ifri-ai-classes.github.io/MPVRP-CC/)); initiated CP modeling of the problem using successor and sequence variables.
