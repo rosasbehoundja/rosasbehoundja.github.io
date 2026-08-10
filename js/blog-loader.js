@@ -1,111 +1,160 @@
 /**
- * blog-loader.js
- * ---------------------------------------------------------
- * Charge le contenu de content/blog.md et l'affiche
- * sous forme de liste (date — titre/lien) dans blog.html.
- *
- * Format attendu dans blog.md :
- *   ### MM/YYYY — [Titre du post](https://url-externe.com)
- *
- * Chaque entrée ### est parsée en une ligne date + lien.
+ * Bibliothèque du blog.
+ * Les ressources sont éditées dans content/blog-library.json.
  */
-
 (function () {
   "use strict";
 
-  function parseMdInline(text) {
-    if (!text) return "";
-    if (window.marked && typeof window.marked.parseInline === "function") return window.marked.parseInline(text);
-    if (window.marked && typeof window.marked.parse === "function") return window.marked.parse(text);
-    return text;
+  const state = { entries: [], tag: "all", type: "all", query: "" };
+  const $ = (selector) => document.querySelector(selector);
+
+  function escapeHTML(value) {
+    return String(value || "").replace(/[&<>'"]/g, (character) => ({
+      "&": "&amp;", "<": "&lt;", ">": "&gt;", "'": "&#39;", '"': "&quot;"
+    }[character]));
   }
 
-  function splitLangBlocks(body) {
-    if (!body) return { fr: "", en: "" };
-    const frMatch = body.match(/<!--lang:fr-->([\s\S]*?)(?=<!--lang:en-->|$)/);
-    const enMatch = body.match(/<!--lang:en-->([\s\S]*)/);
-    return {
-      fr: frMatch ? frMatch[1].trim() : "",
-      en: enMatch ? enMatch[1].trim() : "",
-    };
+  function language() {
+    return document.documentElement.classList.contains("lang-fr") ? "fr" : "en";
   }
 
-  function setHTML(id, html) {
-    const el = document.getElementById(id);
-    if (el) el.innerHTML = html;
+  function labelFor(entry, field) {
+    return entry[`${field}_${language()}`] || entry[`${field}_en`] || entry[field] || "";
   }
 
-  function warnIfFileProtocol() {
-    if (window.location.protocol === "file:") {
-      console.warn("⚠️ Lancez un serveur HTTP local (ex: 'python3 -m http.server 8000') pour tester le site en local.");
-    }
+  function tagsFor(entry) {
+    return entry[`tags_${language()}`] || entry.tags_en || entry.tags || [];
   }
 
-  /**
-   * Parse les entrées ### en objets { date, titleHtml }
-   * Format: ### MM/YYYY — [Titre](url)
-   */
-  function parseBlogEntries(md) {
-    const entries = [];
-    const headerRegex = /^###[ \t]+(.+?)[ \t]*$/gm;
-    const matches = [...md.matchAll(headerRegex)];
-
-    for (const match of matches) {
-      const raw = match[1].trim();
-      // Split on " — " or " - "
-      const sepIdx = raw.indexOf("—");
-      const sepIdx2 = sepIdx === -1 ? raw.indexOf(" - ") : -1;
-      let date, title;
-      if (sepIdx !== -1) {
-        date = raw.slice(0, sepIdx).trim();
-        title = raw.slice(sepIdx + 1).trim();
-      } else if (sepIdx2 !== -1) {
-        date = raw.slice(0, sepIdx2).trim();
-        title = raw.slice(sepIdx2 + 3).trim();
-      } else {
-        date = "";
-        title = raw;
-      }
-      entries.push({ date, titleHtml: parseMdInline(title) });
-    }
-    return entries;
+  function typeLabel(kind) {
+    if (language() === "fr") return kind === "own" ? "Mon article" : "Ressource externe";
+    return kind === "own" ? "My article" : "External resource";
   }
 
-  function buildBlogHTML(entries) {
-    if (!entries.length) return "<p style='color:var(--text-muted);font-size:0.9rem;'>Nothing here yet.</p>";
-    return entries.map((e) =>
-      `<div class="blog-entry">
-        <span class="blog-date">${e.date}</span>
-        <span class="blog-title">${e.titleHtml}</span>
-      </div>`
+  function formatDate(date) {
+    if (!date) return "";
+    return new Intl.DateTimeFormat(language() === "fr" ? "fr-FR" : "en-US", {
+      year: "numeric", month: "short", day: "numeric"
+    }).format(new Date(`${date}T00:00:00`));
+  }
+
+  function allTags() {
+    return [...new Set(state.entries.flatMap(tagsFor))]
+      .sort((a, b) => a.localeCompare(b, "fr"));
+  }
+
+  function filteredEntries() {
+    const query = state.query.toLocaleLowerCase();
+    return state.entries.filter((entry) => {
+      const searchable = [
+        labelFor(entry, "title"), labelFor(entry, "description"), entry.author,
+        entry.source, ...tagsFor(entry)
+      ].join(" ").toLocaleLowerCase();
+      return (state.type === "all" || entry.kind === state.type)
+        && (state.tag === "all" || tagsFor(entry).includes(state.tag))
+        && (!query || searchable.includes(query));
+    });
+  }
+
+  function renderTags() {
+    const tags = ["all", ...allTags()];
+    const label = (tag) => tag === "all"
+      ? (language() === "fr" ? "Tous les tags" : "All tags")
+      : tag;
+    $("#libraryTags").innerHTML = tags.map((tag) =>
+      `<button class="library-tag${state.tag === tag ? " is-active" : ""}" data-tag="${escapeHTML(tag)}" type="button">${escapeHTML(label(tag))}</button>`
     ).join("");
   }
 
-  async function loadBlog() {
+  function renderTypeOptions() {
+    const select = $("#libraryType");
+    const labels = language() === "fr"
+      ? { all: "Tous les types", own: "Mes articles", external: "Ressources externes" }
+      : { all: "All types", own: "My articles", external: "External resources" };
+    select.innerHTML = Object.entries(labels)
+      .map(([value, label]) => `<option value="${value}">${label}</option>`)
+      .join("");
+    select.value = state.type;
+  }
+
+  function renderCards() {
+    const entries = filteredEntries();
+    const grid = $("#libraryGrid");
+    const count = $("#libraryCount");
+    const empty = $("#libraryEmpty");
+    const countLabel = language() === "fr"
+      ? `${entries.length} ressource${entries.length > 1 ? "s" : ""}`
+      : `${entries.length} resource${entries.length === 1 ? "" : "s"}`;
+    count.textContent = countLabel;
+    empty.hidden = entries.length !== 0;
+
+    grid.innerHTML = entries.map((entry) => {
+      const external = /^https?:\/\//i.test(entry.url);
+      const linkAttrs = external ? ' target="_blank" rel="noopener noreferrer"' : "";
+      return `<article class="library-card">
+        <div class="library-card-meta">
+          <span class="library-kind">${escapeHTML(typeLabel(entry.kind))}</span>
+          <span>${entry.status === "draft" ? (language() === "fr" ? "Brouillon" : "Draft") : ""}</span>
+          <time datetime="${escapeHTML(entry.date)}">${escapeHTML(formatDate(entry.date))}</time>
+        </div>
+        <h3><a href="${escapeHTML(entry.url)}"${linkAttrs}>${escapeHTML(labelFor(entry, "title"))}<i class="fas fa-arrow-up-right-from-square" aria-hidden="true"></i></a></h3>
+        <p>${escapeHTML(labelFor(entry, "description"))}</p>
+        <div class="library-card-footer">
+          <span>${escapeHTML(entry.author || "")}${entry.source && entry.source !== entry.author ? ` · ${escapeHTML(entry.source)}` : ""}</span>
+          <div class="library-card-tags">${tagsFor(entry).map((tag) => `<button type="button" data-tag="${escapeHTML(tag)}">#${escapeHTML(tag)}</button>`).join("")}</div>
+        </div>
+      </article>`;
+    }).join("");
+  }
+
+  function render() {
+    const search = $("#librarySearch");
+    search.placeholder = language() === "fr" ? "Rechercher…" : "Search…";
+    search.setAttribute("aria-label", language() === "fr" ? "Rechercher dans la bibliothèque" : "Search the library");
+    renderTypeOptions();
+    renderTags();
+    renderCards();
+  }
+
+  function bindEvents() {
+    $("#librarySearch").addEventListener("input", (event) => {
+      state.query = event.target.value.trim();
+      renderCards();
+    });
+    $("#libraryType").addEventListener("change", (event) => {
+      state.type = event.target.value;
+      renderCards();
+    });
+    $("#libraryTags").addEventListener("click", (event) => {
+      const button = event.target.closest("button[data-tag]");
+      if (!button) return;
+      state.tag = button.dataset.tag;
+      render();
+    });
+    $("#libraryGrid").addEventListener("click", (event) => {
+      const button = event.target.closest("button[data-tag]");
+      if (!button) return;
+      state.tag = button.dataset.tag;
+      render();
+      $("#library").scrollIntoView({ behavior: "smooth", block: "start" });
+    });
+    const languageObserver = new MutationObserver(render);
+    languageObserver.observe(document.documentElement, { attributes: true, attributeFilter: ["class"] });
+  }
+
+  async function init() {
     try {
-      const res = await fetch("content/blog.md");
-      if (!res.ok) throw new Error("404");
-      const raw = await res.text();
-      const { fr, en } = splitLangBlocks(raw);
-
-      const frEntries = parseBlogEntries(fr);
-      const enEntries = parseBlogEntries(en);
-
-      setHTML("blog-fr", buildBlogHTML(frEntries));
-      setHTML("blog-en", buildBlogHTML(enEntries));
-    } catch (err) {
-      warnIfFileProtocol();
-      console.error("Impossible de charger content/blog.md", err);
+      const response = await fetch("content/blog-library.json");
+      if (!response.ok) throw new Error("catalogue introuvable");
+      state.entries = await response.json();
+      bindEvents();
+      render();
+    } catch (error) {
+      console.error("Impossible de charger la bibliothèque du blog", error);
+      $("#libraryEmpty").hidden = false;
     }
   }
 
-  function init() {
-    loadBlog();
-  }
-
-  if (document.readyState === "loading") {
-    document.addEventListener("DOMContentLoaded", init);
-  } else {
-    init();
-  }
+  if (document.readyState === "loading") document.addEventListener("DOMContentLoaded", init);
+  else init();
 })();

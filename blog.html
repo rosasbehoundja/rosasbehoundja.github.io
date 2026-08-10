@@ -14,8 +14,6 @@
 </head>
 <body class="max-w-[820px] mx-auto px-4 sm:px-6 py-6 sm:py-10 text-neutral-900 bg-white">
 
-  <canvas id="bg-network" aria-hidden="true"></canvas>
-
   <!-- Top Navigation Bar -->
   <nav class="border-b border-neutral-200 pb-4 mb-8">
     <div class="flex items-center justify-between">
@@ -42,17 +40,38 @@
   </nav>
 
   <main>
-    <section class="mb-10">
-      <h2 class="font-display text-xl font-bold text-[#1a1de3] lowercase mb-6 tracking-wide before:content-['#_'] before:opacity-50">blog</h2>
+    <section class="mb-10" id="library">
+      <h2 class="font-display text-xl font-bold text-[#1a1de3] lowercase mb-3 tracking-wide before:content-['#_'] before:opacity-50">blog</h2>
 
-      <div class="fr-text" id="blog-fr"></div>
-      <div class="en-text" id="blog-en"></div>
-    </section>
+      <p class="fr-text library-intro">Une bibliothèque personnelle de lectures, de ressources et de notes à retrouver.</p>
+      <p class="en-text library-intro">A personal library of readings, resources, and notes to revisit.</p>
 
-    <section class="mb-10">
-      <div class="map-widget flex items-center justify-center">
-        <script type='text/javascript' id='mapmyvisitors' src='https://mapmyvisitors.com/map.js?cl=325cdd&w=655&t=tt&d=MkolKjtuxtNKkBrfDx6dgohi7FoQlA-c29x46kuNorA&co=ffffff&ct=808080&cmo=3acc3a&cmn=ff5353'></script>
+      <div class="library-toolbar" aria-label="Blog filters">
+        <label class="library-search">
+          <span class="sr-only fr-text">Rechercher</span>
+          <span class="sr-only en-text">Search</span>
+          <i class="fas fa-magnifying-glass" aria-hidden="true"></i>
+          <input id="librarySearch" type="search" autocomplete="off" placeholder="Rechercher…" aria-label="Search the library">
+        </label>
+
+        <label class="library-select">
+          <span class="sr-only fr-text">Type</span>
+          <span class="sr-only en-text">Type</span>
+          <select id="libraryType" aria-label="Filter by type">
+            <option value="all">Tous les types</option>
+            <option value="own">Mes articles</option>
+            <option value="external">Ressources externes</option>
+          </select>
+        </label>
       </div>
+
+      <div class="library-tags" id="libraryTags" aria-label="Filter by tags"></div>
+      <p class="library-count" id="libraryCount" aria-live="polite"></p>
+      <div class="library-grid" id="libraryGrid"></div>
+      <p class="library-empty" id="libraryEmpty" hidden>
+        <span class="fr-text">Aucune ressource ne correspond à ces filtres.</span>
+        <span class="en-text">No resource matches these filters.</span>
+      </p>
     </section>
   </main>
 
