@@ -1,6 +1,6 @@
 <!--lang:fr-->
 
-### Stagiaire de recherche, [LRSIA](https://github.com/LRSIA-Ratheil-Research-Team)
+### Stagiaire de recherche, [LRSIA](https://uac-rrteam.github.io/)
 *Bénin*
 
 - Proposition d'un modèle MILP pour le problème de MPVRP axé sur les coûts de changement ([MPVRP-CC](https://ifri-ai-classes.github.io/MPVRP-CC/)) ; initiation de la modélisation CP du problème via variables successeurs et variables de séquences.
@@ -22,7 +22,7 @@
 
 <!--lang:en-->
 
-### Research Intern, [LRSIA](https://github.com/LRSIA-Ratheil-Research-Team)
+### Research Intern, [LRSIA](https://uac-rrteam.github.io/)
 *Benin*
 
 - Designed a MILP model for the MPVRP variant focusing on changeover costs ([MPVRP-CC](https://ifri-ai-classes.github.io/MPVRP-CC/)); initiated CP modeling of the problem using successor and sequence variables.

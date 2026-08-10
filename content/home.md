@@ -3,7 +3,7 @@ Salut 🤓 !
 
 Je travaille sur l'optimisation de problèmes de planification et d'ordonnancement pour l'**industrie** grâce à l'optimisation combinatoire et au machine learning. Je m'intéresse également au traitement automatique des langues et de la parole pour les langues à faibles ressources, notamment le **fon**.
 
-Je suis étudiant en licence d'Informatique, et j'ai la chance d'être encadré par le Dr. [Vinasétan Ratheil Houndji](https://ratheilh.github.io) à IFRI à l'Université d'Abomey-Calavi au [Bénin](https://www.benin.bj) 🇧🇯.
+Je suis étudiant en licence d'Informatique, et je suis encadré par le Dr. [Vinasétan Ratheil Houndji](https://ratheilh.github.io) à IFRI à l'Université d'Abomey-Calavi au [Bénin](https://www.benin.bj) 🇧🇯.
 
 Je suis toujours partant pour discuter recherche ou autre — n'hésite pas à me [dire bonjour](mailto:perrierosas@gmail.com) !
 

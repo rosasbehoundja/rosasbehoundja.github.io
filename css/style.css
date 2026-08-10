@@ -1,16 +1,16 @@
-@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Bricolage+Grotesque:opsz,wght@12..96,300..800&family=JetBrains+Mono:wght@400;500&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400..800&family=Manrope:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap');
 
 @theme {
-  --font-display: 'Space Grotesk', sans-serif;
-  --font-body: 'Bricolage Grotesque', sans-serif;
+  --font-display: 'Bricolage Grotesque', sans-serif;
+  --font-body: 'Manrope', sans-serif;
   --font-mono: 'JetBrains Mono', 'Fira Code', monospace;
   --color-accent: #1a1de3;
   --color-accent-hover: #1215b8;
 }
 
 :root {
-  --font-display: 'Space Grotesk', sans-serif;
-  --font-body: 'Bricolage Grotesque', sans-serif;
+  --font-display: 'Bricolage Grotesque', sans-serif;
+  --font-body: 'Manrope', sans-serif;
   --font-mono: 'JetBrains Mono', 'Fira Code', monospace;
   --accent-color: #1a1de3;
   --bg-color: #ffffff;
@@ -30,23 +30,18 @@ body {
   font-family: var(--font-body);
   background-color: var(--bg-color);
   color: var(--text-dark);
-  line-height: 1.7;
+  line-height: 1.6;
 }
 
-h1, h2, h3, h4, .font-display {
+h1, h2, h3, h4, h5, h6, .font-display {
   font-family: var(--font-display) !important;
+  color: var(--text-dark) !important;
+  font-weight: 700;
 }
 
-/* Background canvas */
-#bg-network {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100vw;
-  height: 100vh;
-  z-index: -1;
-  pointer-events: none;
-  display: block;
+.site-nav a,
+.site-nav .nav-links {
+  font-family: var(--font-display) !important;
 }
 
 /* Language switching */
@@ -79,8 +74,7 @@ a:hover, .news-content a:hover, .news-item a:hover {
   font-family: var(--font-display) !important;
   font-size: 1.15rem;
   font-weight: 700;
-  color: var(--accent-color) !important;
-  text-transform: lowercase !important;
+  color: var(--text-dark) !important;
   margin-top: 1.75rem;
   margin-bottom: 0.75rem;
   letter-spacing: 0.02em;
@@ -108,7 +102,7 @@ a:hover, .news-content a:hover, .news-item a:hover {
   margin-bottom: 0.35rem;
 }
 .markdown-body blockquote {
-  border-left: 4px solid var(--accent-color);
+  border-left: 4px solid var(--text-dark);
   padding: 0.5rem 0 0.5rem 1rem;
   margin: 1.25rem 0;
   color: var(--text-medium);
@@ -209,6 +203,43 @@ a:hover, .news-content a:hover, .news-item a:hover {
     gap: 0.15rem;
   }
 }
+
+/* ---- Blog library ---- */
+.library-intro { color: var(--text-muted); font-size: 0.95rem; margin-bottom: 1.25rem; }
+.library-toolbar { display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: 0.75rem; margin-bottom: 0.75rem; }
+.library-search, .library-select { display: flex; align-items: center; gap: 0.55rem; min-height: 2.55rem; padding: 0 0.8rem; border: 1px solid var(--border-color); border-radius: 0.45rem; background: rgba(255,255,255,0.55); color: var(--text-muted); }
+.library-search input, .library-select select { width: 100%; border: 0; outline: 0; background: transparent; color: var(--text-dark); font: inherit; font-size: 0.86rem; }
+.library-select select { min-width: 11rem; cursor: pointer; }
+.library-search:focus-within, .library-select:focus-within { border-color: var(--text-dark); box-shadow: 0 0 0 3px rgba(26,26,26,0.08); }
+.library-tags { display: flex; flex-wrap: wrap; gap: 0.45rem; margin: 0.8rem 0 1rem; }
+.library-tag, .library-card-tags button { border: 1px solid var(--border-color); border-radius: 999px; padding: 0.28rem 0.65rem; background: rgba(255,255,255,0.28); color: var(--text-muted); font: 0.74rem var(--font-mono); cursor: pointer; transition: background-color 0.2s, border-color 0.2s, color 0.2s; }
+.library-tag:hover, .library-tag.is-active, .library-card-tags button:hover { border-color: var(--text-dark); background: var(--text-dark); color: #fff; }
+.library-count { color: var(--text-light); font: 0.72rem var(--font-mono); margin-bottom: 0.75rem; }
+.library-grid { display: flex; flex-direction: column; }
+.library-card { display: flex; flex-direction: column; padding: 0.95rem 0; border-top: 1px solid var(--border-color); background: transparent; transition: background-color 0.2s ease; }
+.library-card:hover { background: rgba(255,255,255,0.34); }
+.library-card-meta, .library-card-footer { display: flex; align-items: center; justify-content: space-between; gap: 0.6rem; color: var(--text-light); font: 0.68rem var(--font-mono); }
+.library-kind { color: var(--text-dark); }
+.library-card h3 { margin: 0.65rem 0 0.45rem; font-size: 1.02rem; line-height: 1.25; }
+.library-card h3 a { color: var(--text-dark); }
+.library-card h3 a:hover { color: var(--accent-color); }
+.library-card h3 i { margin-left: 0.45rem; font-size: 0.72em; opacity: 0.65; }
+.library-card p { flex: 1; margin: 0 0 1rem; color: var(--text-medium); font-size: 0.84rem; line-height: 1.5; }
+.library-card-footer { align-items: flex-end; font-family: var(--font-body); font-size: 0.72rem; }
+.library-card-tags { display: flex; flex-wrap: wrap; justify-content: flex-end; gap: 0.25rem; }
+.library-card-tags button { border: 0; padding: 0; background: none; color: var(--text-dark); font-family: var(--font-mono); font-size: 0.68rem; }
+.library-empty { padding: 1.5rem 0; color: var(--text-muted); font-size: 0.9rem; }
+.blog-post-status { display: inline-block; margin-bottom: 0.5rem; color: var(--text-dark); font: 0.72rem var(--font-mono); text-transform: uppercase; letter-spacing: 0.08em; }
+.profile-socials .icon-email { color: #ea4335 !important; }
+.profile-socials .icon-linkedin { color: #0a66c2 !important; }
+.profile-socials .icon-github { color: #24292f !important; }
+.profile-socials .icon-cv { color: #d32f2f !important; }
+body [class*="text-[#1a1de3]"]:not(a) { color: var(--text-dark) !important; }
+#blog-post-root pre.code-block { position: relative; padding-top: 2.8rem; background: #1f2329; border: 1px solid #343b45; color: #f4f4f4; }
+#blog-post-root pre.code-block code { background: transparent; color: inherit; }
+.copy-code { position: absolute; top: 0.65rem; right: 0.7rem; border: 1px solid #596574; border-radius: 0.3rem; padding: 0.25rem 0.55rem; background: #2b323d; color: #dce4ee; font: 0.7rem var(--font-mono); cursor: pointer; }
+.copy-code:hover { border-color: #9bb8d5; color: #fff; }
+@media (max-width: 620px) { .library-toolbar { grid-template-columns: 1fr; } .library-select select { min-width: 0; } }
 
 /* Gallery Grid */
 .gallery {
