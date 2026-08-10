@@ -16,10 +16,10 @@
 <body class="max-w-[820px] mx-auto px-4 sm:px-6 py-6 sm:py-10 text-neutral-900 bg-white">
 
   <!-- Top Navigation Bar -->
-  <nav class="border-b border-neutral-200 pb-4 mb-8">
+  <nav class="site-nav border-b border-neutral-200 pb-4 mb-8">
     <div class="flex items-center justify-between">
       <!-- Desktop nav links -->
-      <div class="hidden sm:flex items-center gap-6 font-mono text-sm">
+      <div class="nav-links hidden sm:flex items-center gap-6 text-sm">
         <a href="index.html" class="text-[#1a1de3] font-semibold underline underline-offset-4">/ home</a>
         <a href="work.html" class="text-neutral-600 hover:text-[#1a1de3] transition-colors">/ work</a>
         <a href="blog.html" class="text-neutral-600 hover:text-[#1a1de3] transition-colors">/ blog</a>
@@ -27,7 +27,7 @@
 
       <!-- Mobile brand & Right controls -->
       <div class="flex items-center justify-between sm:justify-end w-full sm:w-auto gap-3">
-        <span class="sm:hidden font-display font-bold text-neutral-900 text-lg">Rosas<span class="text-[#1a1de3]">.</span></span>
+        <a href="index.html" class="sm:hidden font-display font-bold text-neutral-900 text-lg" aria-label="Rosas Behoundja — home">Rosas<span class="text-neutral-900">.</span></a>
         
         <div class="flex items-center gap-3">
           <button class="lang-switch text-xs font-mono border border-neutral-200 px-2.5 py-1 rounded hover:bg-neutral-100 hover:border-[#1a1de3] transition-all cursor-pointer" id="langBtn" onclick="toggleLanguage()">🇫🇷 FR</button>
@@ -39,7 +39,7 @@
     </div>
 
     <!-- Mobile Dropdown Menu -->
-    <div id="mobileMenu" class="hidden sm:hidden flex-col gap-3 pt-4 border-t border-neutral-100 mt-3 font-mono text-sm">
+    <div id="mobileMenu" class="nav-links hidden sm:hidden flex-col gap-3 pt-4 border-t border-neutral-100 mt-3 text-sm">
       <a href="index.html" class="text-[#1a1de3] font-semibold py-1">/ home</a>
       <a href="work.html" class="text-neutral-600 hover:text-[#1a1de3] py-1">/ work</a>
       <a href="blog.html" class="text-neutral-600 hover:text-[#1a1de3] py-1">/ blog</a>
@@ -47,9 +47,9 @@
   </nav>
 
   <!-- Profile Header Section -->
-  <header class="flex flex-col-reverse sm:flex-row items-start sm:items-center justify-between gap-6 mb-12">
+  <header class="flex flex-col-reverse sm:flex-row-reverse items-center justify-center gap-5 mb-12">
     <div class="flex flex-col gap-2">
-      <h1 class="font-display text-2xl sm:text-3xl font-bold tracking-tight text-neutral-900">Rosas Behoundja<span class="text-[#1a1de3]">.</span></h1>
+      <h1 class="font-display text-2xl sm:text-3xl font-bold tracking-tight text-neutral-900">Rosas Behoundja<span class="text-neutral-900">.</span></h1>
       <div class="inline-flex items-center gap-2 px-3 py-1 text-xs font-mono font-medium text-red-600 bg-red-50 border border-red-200 rounded-full w-fit">
         <span class="relative flex h-2 w-2">
           <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-red-400 opacity-75"></span>
@@ -58,17 +58,17 @@
         <span class="fr-text">actuellement à la recherche d'un stage</span>
         <span class="en-text">currently looking for an internship</span>
       </div>
-      <div class="flex items-center gap-4 flex-wrap mt-2 text-lg">
-        <a href="mailto:perrierosas@gmail.com" title="Email" class="text-[#1a1de3] hover:opacity-80 transition-opacity"><i class="fas fa-envelope"></i></a>
-        <a href="https://linkedin.com/in/rosasbehoundja" target="_blank" title="LinkedIn" class="text-[#1a1de3] hover:opacity-80 transition-opacity"><i class="fab fa-linkedin"></i></a>
-        <a href="https://github.com/rosasbehoundja" target="_blank" title="GitHub" class="text-[#1a1de3] hover:opacity-80 transition-opacity"><i class="fab fa-github"></i></a>
-        <a href="cv/Rosas_Behoundja_Resume.pdf" target="_blank" title="CV / Resume" class="text-[#1a1de3] hover:opacity-80 transition-opacity flex items-center gap-1">
+      <div class="profile-socials flex items-center gap-4 flex-wrap mt-2 text-lg">
+        <a href="mailto:perrierosas@gmail.com" title="Email" class="icon-email hover:opacity-80 transition-opacity"><i class="fas fa-envelope"></i></a>
+        <a href="https://linkedin.com/in/rosasbehoundja" target="_blank" title="LinkedIn" class="icon-linkedin hover:opacity-80 transition-opacity"><i class="fab fa-linkedin"></i></a>
+        <a href="https://github.com/rosasbehoundja" target="_blank" title="GitHub" class="icon-github hover:opacity-80 transition-opacity"><i class="fab fa-github"></i></a>
+        <a href="cv/Rosas_Behoundja_Resume.pdf" target="_blank" title="CV / Resume" class="icon-cv hover:opacity-80 transition-opacity flex items-center gap-1">
           <i class="fas fa-file-pdf"></i>
           <span class="text-sm font-sans font-medium">CV</span>
         </a>
       </div>
     </div>
-    <img class="w-28 h-28 sm:w-36 sm:h-36 rounded-lg object-cover flex-shrink-0" src="media/me/dli2.jpeg" alt="Rosas Behoundja">
+    <img class="w-28 h-28 sm:w-36 sm:h-36 rounded-full object-cover flex-shrink-0" src="media/me/dli2.jpeg" alt="Rosas Behoundja">
   </header>
 
   <section class="mb-10">

@@ -1,8 +1,9 @@
-// Fonction pour changer la langue du site
-function toggleLanguage() {
+const LANGUAGE_STORAGE_KEY = 'rosas-site-language';
+
+function applyLanguage(language, persist = true) {
   const html = document.documentElement;
   const btn = document.getElementById('langBtn');
-  if (html.classList.contains('lang-en')) {
+  if (language === 'fr') {
     html.classList.remove('lang-en');
     html.classList.add('lang-fr');
     if (btn) btn.textContent = '🇬🇧 EN';
@@ -11,6 +12,30 @@ function toggleLanguage() {
     html.classList.add('lang-en');
     if (btn) btn.textContent = '🇫🇷 FR';
   }
+  if (persist) {
+    try {
+      localStorage.setItem(LANGUAGE_STORAGE_KEY, language);
+    } catch (error) {
+      // Certains contextes privés peuvent bloquer localStorage.
+    }
+  }
+}
+
+// Fonction pour changer la langue du site
+function toggleLanguage() {
+  const nextLanguage = document.documentElement.classList.contains('lang-en') ? 'fr' : 'en';
+  applyLanguage(nextLanguage);
+}
+
+function initializeLanguage() {
+  let savedLanguage = 'en';
+  try {
+    const storedLanguage = localStorage.getItem(LANGUAGE_STORAGE_KEY);
+    if (storedLanguage === 'fr' || storedLanguage === 'en') savedLanguage = storedLanguage;
+  } catch (error) {
+    // La langue anglaise reste le comportement par défaut.
+  }
+  applyLanguage(savedLanguage, false);
 }
 
 // Fonction pour ouvrir/fermer le menu mobile (hamburger)
@@ -35,3 +60,5 @@ function toggleMobileMenu() {
     }
   }
 }
+
+initializeLanguage();
