@@ -1,11 +1,12 @@
 /**
- * Bibliothèque du blog.
- * Les ressources sont éditées dans content/blog-library.json.
+ * Recherche dans les fichiers Markdown des thématiques.
+ * La page du blog reste un index ; les résultats apparaissent après une recherche.
  */
 (function () {
   "use strict";
 
-  const state = { entries: [], tag: "all", type: "all", query: "" };
+  const THEME_SLUGS = ["vie", "quete-du-sens", "masters-phd", "recherche", "societe", "ia", "ia-et-societe", "my-writing"];
+  const state = { entries: [], tag: "all", query: "" };
   const $ = (selector) => document.querySelector(selector);
 
   function escapeHTML(value) {
@@ -23,12 +24,52 @@
   }
 
   function tagsFor(entry) {
-    return entry[`tags_${language()}`] || entry.tags_en || entry.tags || [];
+    return (entry[`tags_${language()}`] || entry.tags_en || entry.tags || []).slice(0, 2);
   }
 
   function typeLabel(kind) {
-    if (language() === "fr") return kind === "own" ? "Mon article" : "Ressource externe";
-    return kind === "own" ? "My article" : "External resource";
+    if (language() === "fr") return kind === "own" ? "Mon article" : "Lecture thématique";
+    return kind === "own" ? "My article" : "Themed reading";
+  }
+
+  function parseTheme(raw, slug) {
+    const match = raw.match(/^---\s*\n([\s\S]*?)\n---\s*\n([\s\S]*)$/);
+    if (!match) return [];
+    const meta = {};
+    match[1].split("\n").forEach((line) => {
+      const index = line.indexOf(":");
+      if (index !== -1) meta[line.slice(0, index).trim()] = line.slice(index + 1).trim();
+    });
+    const sections = {};
+    ["fr", "en"].forEach((lang) => {
+      const section = match[2].match(new RegExp(`<!--lang:${lang}-->([\\s\\S]*?)(?=<!--lang:${lang === "fr" ? "en" : ""}-->|$)`));
+      sections[lang] = section ? section[1] : "";
+    });
+    const entries = [];
+    const links = sections.fr.matchAll(/^-\s+\[([^\]]+)\]\(([^)]+)\)\s+—\s+(.+)$/gm);
+    const englishLinks = [...sections.en.matchAll(/^-\s+\[([^\]]+)\]\(([^)]+)\)\s+—\s+(.+)$/gm)];
+    [...links].forEach((link, index) => {
+      const en = englishLinks[index] || [];
+      entries.push({
+        id: `theme-${slug}-${index}`, kind: meta.kind || "external", url: link[2], author: "", source: meta.title_fr || slug,
+        title_fr: link[1], description_fr: link[3], title_en: en[1] || link[1], description_en: en[3] || link[3],
+        tags_fr: [meta.title_fr || slug], tags_en: [meta.title_en || slug]
+      });
+    });
+    return entries;
+  }
+
+  async function loadThemeEntries() {
+    const responses = await Promise.all(THEME_SLUGS.map(async (slug) => {
+      try {
+        const response = await fetch(`../content/blog/themes/${slug}.md`);
+        return response.ok ? parseTheme(await response.text(), slug) : [];
+      } catch (error) {
+        console.warn(`Thématique indisponible : ${slug}`, error);
+        return [];
+      }
+    }));
+    return responses.flat();
   }
 
   function formatDate(date) {
@@ -44,14 +85,14 @@
   }
 
   function filteredEntries() {
+    if (!state.query) return [];
     const query = state.query.toLocaleLowerCase();
     return state.entries.filter((entry) => {
       const searchable = [
         labelFor(entry, "title"), labelFor(entry, "description"), entry.author,
         entry.source, ...tagsFor(entry)
       ].join(" ").toLocaleLowerCase();
-      return (state.type === "all" || entry.kind === state.type)
-        && (state.tag === "all" || tagsFor(entry).includes(state.tag))
+      return (state.tag === "all" || tagsFor(entry).includes(state.tag))
         && (!query || searchable.includes(query));
     });
   }
@@ -66,17 +107,6 @@
     ).join("");
   }
 
-  function renderTypeOptions() {
-    const select = $("#libraryType");
-    const labels = language() === "fr"
-      ? { all: "Tous les types", own: "Mes articles", external: "Ressources externes" }
-      : { all: "All types", own: "My articles", external: "External resources" };
-    select.innerHTML = Object.entries(labels)
-      .map(([value, label]) => `<option value="${value}">${label}</option>`)
-      .join("");
-    select.value = state.type;
-  }
-
   function renderCards() {
     const entries = filteredEntries();
     const grid = $("#libraryGrid");
@@ -85,8 +115,8 @@
     const countLabel = language() === "fr"
       ? `${entries.length} ressource${entries.length > 1 ? "s" : ""}`
       : `${entries.length} resource${entries.length === 1 ? "" : "s"}`;
-    count.textContent = countLabel;
-    empty.hidden = entries.length !== 0;
+    count.textContent = state.query ? countLabel : "";
+    empty.hidden = !state.query || entries.length !== 0;
 
     grid.innerHTML = entries.map((entry) => {
       const external = /^https?:\/\//i.test(entry.url);
@@ -111,7 +141,8 @@
     const search = $("#librarySearch");
     search.placeholder = language() === "fr" ? "Rechercher…" : "Search…";
     search.setAttribute("aria-label", language() === "fr" ? "Rechercher dans la bibliothèque" : "Search the library");
-    renderTypeOptions();
+    const tags = $("#libraryTags");
+    tags.hidden = !state.query;
     renderTags();
     renderCards();
   }
@@ -119,10 +150,6 @@
   function bindEvents() {
     $("#librarySearch").addEventListener("input", (event) => {
       state.query = event.target.value.trim();
-      renderCards();
-    });
-    $("#libraryType").addEventListener("change", (event) => {
-      state.type = event.target.value;
       renderCards();
     });
     $("#libraryTags").addEventListener("click", (event) => {
@@ -143,11 +170,11 @@
   }
 
   async function init() {
+    bindEvents();
+    render();
     try {
-      const response = await fetch("content/blog-library.json");
-      if (!response.ok) throw new Error("catalogue introuvable");
-      state.entries = await response.json();
-      bindEvents();
+      const themeEntries = await loadThemeEntries();
+      state.entries = themeEntries;
       render();
     } catch (error) {
       console.error("Impossible de charger la bibliothèque du blog", error);

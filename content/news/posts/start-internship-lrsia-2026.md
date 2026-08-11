@@ -6,7 +6,7 @@ date_display_fr: Février 2026
 date_display_en: February 2026
 breadcrumb_fr: Stage de recherche LRSIA
 breadcrumb_en: Research Internship LRSIA
-image: ../media/news/lrsia-sans-fond.png
+image: ../../assets/media/news/lrsia-sans-fond.png
 image_alt: LRSIA Laboratory Logo
 image_caption_fr: Laboratoire de Recherche en Sciences Informatiques et Applications
 image_caption_en: Laboratory of Research in Computer Science and Applications

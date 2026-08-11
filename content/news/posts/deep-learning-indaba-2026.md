@@ -10,7 +10,7 @@ breadcrumb_en: Deep Learning Indaba 2026
 
 <!--lang:fr-->
 <figure style="margin-top: 10px; margin-bottom: 30px;">
-  <img src="../media/news/indaba-logo.png" alt="Deep Learning Indaba Logo" style="max-width: 240px; margin: 0 auto; display: block; background: transparent;">
+  <img src="../../assets/media/news/indaba-logo.png" alt="Deep Learning Indaba Logo" style="max-width: 240px; margin: 0 auto; display: block; background: transparent;">
 </figure>
 
 J'ai été sélectionné pour participer au [**Deep Learning Indaba 2026**](https://deeplearningindaba.com/2026/) !
@@ -24,7 +24,7 @@ Cette année, la grande rencontre annuelle se tiendra du **02 au 07 août 2026**
 Le thème retenu, **Sovereign Intelligence** (*L'intelligence souveraine*), met l'accent sur la capacité de l'Afrique à concevoir, gérer et orienter ses propres systèmes et données face à l'avènement mondial de l'AGI (Intelligence Artificielle Générale).
 
 <figure>
-  <img src="../media/news/deep-learning-indaba.jpg" alt="Deep Learning Indaba Community">
+  <img src="../../assets/media/news/deep-learning-indaba.jpg" alt="Deep Learning Indaba Community">
   <figcaption>La communauté panafricaine de l'IA en action</figcaption>
 </figure>
 
@@ -42,7 +42,7 @@ L'Indaba s'organise autour d'activités clés de haut niveau :
 
 <!--lang:en-->
 <figure style="margin-top: 10px; margin-bottom: 30px;">
-  <img src="../media/news/indaba-logo.png" alt="Deep Learning Indaba Logo" style="max-width: 240px; margin: 0 auto; display: block; background: transparent;">
+  <img src="../../assets/media/news/indaba-logo.png" alt="Deep Learning Indaba Logo" style="max-width: 240px; margin: 0 auto; display: block; background: transparent;">
 </figure>
 
 I have been selected to attend the [**Deep Learning Indaba 2026**](https://deeplearningindaba.com/2026/)!
@@ -56,7 +56,7 @@ This year, the flagship annual gathering will take place from **August 2nd to 7t
 This year's theme, **Sovereign Intelligence**, highlights Africa's capacity to build, manage, and guide its own systems and data in the wake of the global rise of AGI (Artificial General Intelligence).
 
 <figure>
-  <img src="../media/news/deep-learning-indaba.jpg" alt="Deep Learning Indaba Community">
+  <img src="../../assets/media/news/deep-learning-indaba.jpg" alt="Deep Learning Indaba Community">
   <figcaption>The pan-African AI community in action</figcaption>
 </figure>
 

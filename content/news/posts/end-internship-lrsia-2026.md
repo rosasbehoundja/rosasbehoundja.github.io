@@ -9,7 +9,7 @@ breadcrumb_en: Conclusion
 breadcrumb_parent_url: article.html?post=start-internship-lrsia-2026
 breadcrumb_parent_fr: Stage de recherche LRSIA
 breadcrumb_parent_en: Research Internship LRSIA
-image: ../media/news/end-intership.gif
+image: ../../assets/media/news/end-intership.gif
 image_alt: End of internship celebration
 image_caption_fr: Bilan de trois mois de recherche intensive
 image_caption_en: Review of three months of intensive research

@@ -2,9 +2,9 @@
  * home-loader.js
  * ---------------------------------------------------------
  * Charge le contenu Markdown de la page d'accueil :
- *   - content/home.md   -> section "à propos / about"
- *   - content/news.md   -> liste des actualités (avec pagination)
- *   - content/beyond.md -> section "et sinon / besides that"
+ *   - content/pages/home.md   -> section "à propos / about"
+ *   - content/pages/news.md   -> liste des actualités (avec pagination)
+ *   - content/pages/beyond.md -> section "et sinon / besides that"
  */
 
 (function () {
@@ -64,7 +64,7 @@
 
   async function loadHome() {
     try {
-      const res = await fetch("content/home.md");
+      const res = await fetch("content/pages/home.md");
       if (!res.ok) throw new Error("404");
       const raw = await res.text();
       const { fr, en } = splitLangBlocks(raw);
@@ -72,7 +72,7 @@
       setHTML("about-en", parseMd(en));
     } catch (err) {
       warnIfFileProtocol();
-      console.error("Impossible de charger content/home.md", err);
+      console.error("Impossible de charger content/pages/home.md", err);
     }
   }
 
@@ -141,7 +141,7 @@
 
   async function loadNews() {
     try {
-      const res = await fetch("content/news.md");
+      const res = await fetch("content/pages/news.md");
       if (!res.ok) throw new Error("404");
       const raw = await res.text();
       const entries = parseNewsEntries(raw);
@@ -166,13 +166,13 @@
       }
     } catch (err) {
       warnIfFileProtocol();
-      console.error("Impossible de charger content/news.md", err);
+      console.error("Impossible de charger content/pages/news.md", err);
     }
   }
 
   async function loadBeyond() {
     try {
-      const res = await fetch("content/beyond.md");
+      const res = await fetch("content/pages/beyond.md");
       if (!res.ok) throw new Error("404");
       const raw = await res.text();
       const { fr, en } = splitLangBlocks(raw);
@@ -180,7 +180,7 @@
       setHTML("beyond-en", parseMd(en));
     } catch (err) {
       warnIfFileProtocol();
-      console.error("Impossible de charger content/beyond.md", err);
+      console.error("Impossible de charger content/pages/beyond.md", err);
     }
   }
 

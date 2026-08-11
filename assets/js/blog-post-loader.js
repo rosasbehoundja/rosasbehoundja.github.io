@@ -40,7 +40,7 @@
     const post = getPostName();
     if (!post) return;
     try {
-      const response = await fetch(`../content/blog-posts/${post}.md`);
+      const response = await fetch(`../../content/blog/posts/${post}.md`);
       if (!response.ok) throw new Error("post not found");
       const { meta, body } = parseFrontmatter(await response.text());
       const content = splitLanguages(body);

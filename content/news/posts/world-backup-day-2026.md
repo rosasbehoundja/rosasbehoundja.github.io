@@ -6,7 +6,7 @@ date_display_fr: 31 mars 2026
 date_display_en: March 31, 2026
 breadcrumb_fr: World Backup Day 2026
 breadcrumb_en: World Backup Day 2026
-image: ../media/news/world-backup-day.jpeg
+image: ../../assets/media/news/world-backup-day.jpeg
 image_alt: World Backup Day
 image_caption_fr: Molly Sanders, Pinterest (https://fr.pinterest.com/pin/187884615697058438/)
 image_caption_en: Molly Sanders, Pinterest (https://fr.pinterest.com/pin/187884615697058438/)
@@ -45,7 +45,7 @@ La règle d'or reste la méthode 3-2-1 : 3 copies de vos données, sur 2 support
 ## Extrait audio
 
 <audio controls>
-  <source src="../media/news/audios/interview.mp3" type="audio/mpeg">
+  <source src="../../assets/media/news/audios/interview.mp3" type="audio/mpeg">
 </audio>
 
 *Ce fut une interview assez spontanée et j'ai omis de dire beaucoup de choses ou de bien formuler certaines d'entre elles. Mais ce fut un réel plaisir de partager cela avec les auditeurs de Kiff FM !*
@@ -91,7 +91,7 @@ The golden rule remains the 3-2-1 method: 3 copies of your data, on 2 different 
 The interview was in french :(. Sorry for english readers.
 
 <audio controls>
-  <source src="../media/news/audios/interview.mp3" type="audio/mpeg">
+  <source src="../../assets/media/news/audios/interview.mp3" type="audio/mpeg">
 </audio>
 
 *It was quite a spontaneous interview, and I missed sharing a lot of things or framing some points perfectly. However, it was a real pleasure to share this with the listeners of Kiff FM!*
