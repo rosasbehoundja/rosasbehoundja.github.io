@@ -6,8 +6,8 @@ description_en: Resources and reference points for understanding AI tools, roles
 ---
 <!--lang:fr-->
 
-*La collection sera enrichie au fil de mes lectures.*
+- [Trouver les biais des algorithmes](https://www.criticalracedigitalstudies.com/peoplesguide) - Un guide populaire sur l’IA, les algorithmes et la police
 
 <!--lang:en-->
 
-*This collection will grow as I continue reading.*
+- [Finding algorithms bias](https://www.criticalracedigitalstudies.com/peoplesguide) - A People's Guide to AI, Algorithms, and Policing
