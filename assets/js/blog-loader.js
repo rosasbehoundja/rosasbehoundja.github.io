@@ -5,7 +5,7 @@
 (function () {
   "use strict";
 
-  const THEME_SLUGS = ["vie", "quete-du-sens", "masters-phd", "recherche", "societe", "ia", "ia-et-societe", "my-writing"];
+  const THEME_SLUGS = ["my-writing", "afrique", "ecriture", "vie", "quete-du-sens", "masters-phd", "recherche", "societe", "ia", "ia-et-societe"];
   const state = { entries: [], tag: "all", query: "" };
   const $ = (selector) => document.querySelector(selector);
 
