@@ -41,10 +41,23 @@
 
   <main>
     <section class="mb-10" id="library">
-      <h2 class="font-display text-xl font-bold text-[#1a1de3] lowercase mb-3 tracking-wide before:content-['#_'] before:opacity-50">blog</h2>
-
       <p class="fr-text library-intro">Une bibliothèque personnelle de lectures, de ressources et de notes à retrouver.</p>
       <p class="en-text library-intro">A personal library of readings, resources, and notes to revisit.</p>
+
+      <div class="theme-index" aria-labelledby="themes-title">
+        <h3 id="themes-title" class="fr-text">Explorer par thématique</h3>
+        <h3 class="en-text">Explore by theme</h3>
+        <div class="theme-index-grid">
+          <a href="theme.html?theme=my-writing"><span class="fr-text">Mes rédactions</span><span class="en-text">My writing</span><i class="fas fa-arrow-up-right-from-square" aria-hidden="true"></i></a>
+          <a href="theme.html?theme=vie"><span class="fr-text">La vie</span><span class="en-text">Life</span><i class="fas fa-arrow-up-right-from-square" aria-hidden="true"></i></a>
+          <a href="theme.html?theme=quete-du-sens"><span class="fr-text">La quête du sens</span><span class="en-text">The search for meaning</span><i class="fas fa-arrow-up-right-from-square" aria-hidden="true"></i></a>
+          <a href="theme.html?theme=masters-phd"><span class="fr-text">Candidatures aux masters / PhD</span><span class="en-text">Master’s / PhD applications</span><i class="fas fa-arrow-up-right-from-square" aria-hidden="true"></i></a>
+          <a href="theme.html?theme=recherche"><span class="fr-text">La recherche</span><span class="en-text">Research</span><i class="fas fa-arrow-up-right-from-square" aria-hidden="true"></i></a>
+          <a href="theme.html?theme=societe"><span class="fr-text">La société</span><span class="en-text">Society</span><i class="fas fa-arrow-up-right-from-square" aria-hidden="true"></i></a>
+          <a href="theme.html?theme=ia"><span class="fr-text">L’intelligence artificielle</span><span class="en-text">Artificial intelligence</span><i class="fas fa-arrow-up-right-from-square" aria-hidden="true"></i></a>
+          <a href="theme.html?theme=ia-et-societe"><span class="fr-text">L’IA et la société</span><span class="en-text">AI and society</span><i class="fas fa-arrow-up-right-from-square" aria-hidden="true"></i></a>
+        </div>
+      </div>
 
       <div class="library-toolbar" aria-label="Blog filters">
         <label class="library-search">
@@ -54,15 +67,6 @@
           <input id="librarySearch" type="search" autocomplete="off" placeholder="Rechercher…" aria-label="Search the library">
         </label>
 
-        <label class="library-select">
-          <span class="sr-only fr-text">Type</span>
-          <span class="sr-only en-text">Type</span>
-          <select id="libraryType" aria-label="Filter by type">
-            <option value="all">Tous les types</option>
-            <option value="own">Mes articles</option>
-            <option value="external">Ressources externes</option>
-          </select>
-        </label>
       </div>
 
       <div class="library-tags" id="libraryTags" aria-label="Filter by tags"></div>
@@ -76,8 +80,7 @@
   </main>
 
   <footer class="mt-16 pt-4 text-xs text-neutral-400 border-t border-dashed border-neutral-200">
-    <p class="fr-text">Inspiré par le site de <a href="https://www.leonlan.com/" target="_blank" class="text-neutral-500 hover:text-[#1a1de3] underline">Leon Lan</a></p>
-    <p class="en-text">Inspired by <a href="https://www.leonlan.com/" target="_blank" class="text-neutral-500 hover:text-[#1a1de3] underline">Leon Lan</a>'s website</p>
+    <p>© Rosas Behoundja 2026</p>
   </footer>
 
   <script src="js/script.js"></script>
