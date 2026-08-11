@@ -1,8 +1,8 @@
 /**
  * markdown-loader.js
  * ---------------------------------------------------------
- * Charge un article rédigé en Markdown (news/posts/xxx.md)
- * et l'injecte dans le template générique news/article.html
+ * Charge un article rédigé en Markdown (content/news/posts/xxx.md)
+ * et l'injecte dans le template générique pages/news/article.html
  */
 
 (function () {
@@ -74,7 +74,7 @@
 
     let raw;
     try {
-      const res = await fetch(`posts/${post}.md`);
+      const res = await fetch(`../../content/news/posts/${post}.md`);
       if (!res.ok) throw new Error("404");
       raw = await res.text();
     } catch (err) {

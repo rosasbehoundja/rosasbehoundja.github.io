@@ -62,7 +62,7 @@
   async function loadThemeEntries() {
     const responses = await Promise.all(THEME_SLUGS.map(async (slug) => {
       try {
-        const response = await fetch(`content/blog-themes/${slug}.md`);
+        const response = await fetch(`../content/blog/themes/${slug}.md`);
         return response.ok ? parseTheme(await response.text(), slug) : [];
       } catch (error) {
         console.warn(`Thématique indisponible : ${slug}`, error);

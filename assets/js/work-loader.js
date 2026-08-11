@@ -1,7 +1,7 @@
 /**
  * work-loader.js
  * ---------------------------------------------------------
- * Charge le contenu Markdown de la page Work (content/work.md)
+ * Charge le contenu Markdown de la page Work (content/pages/work.md)
  * et injecte les versions FR et EN dans work.html.
  */
 
@@ -38,7 +38,7 @@
 
   async function loadWork() {
     try {
-      const res = await fetch("content/work.md");
+      const res = await fetch("../content/pages/work.md");
       if (!res.ok) throw new Error("404");
       const raw = await res.text();
       const { fr, en } = splitLangBlocks(raw);
@@ -47,7 +47,7 @@
       if (en) setHTML("work-en", parseMd(en));
     } catch (err) {
       warnIfFileProtocol();
-      console.error("Impossible de charger content/work.md", err);
+      console.error("Impossible de charger ../content/pages/work.md", err);
     }
   }
 

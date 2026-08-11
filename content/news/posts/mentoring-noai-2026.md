@@ -9,7 +9,7 @@ breadcrumb_en: NOAI Benin 2026
 ---
 
 <!--lang:fr-->
-![NOAI Benin](../../media/news/noai/noai_1.jpg)
+![NOAI Benin](../../assets/media/news/noai/noai_1.jpg)
 [NOAI Benin](https://www.gouv.bj/article/3565/le-benin-lance-olympiades-nationales-intelligence-arti%EF%AC%81cielle-selectionner-talents-representeront-pays-kazakhstan/)
 
 Le **National Olympiad in AI (NOAI)** est une compétition académique nationale destinée aux lycéens pour tester et développer leurs compétences en intelligence artificielle, notamment en programmation Python et en apprentissage automatique. Elle vise à repérer les jeunes talents scientifiques et à démocratiser la maîtrise des technologies de l'IA dès le secondaire. Enfin, cette olympiade sert de phase de sélection officielle pour composer l'équipe qui représentera le pays lors de la compétition mondiale (IOAI). 
@@ -33,14 +33,14 @@ Rosas.
 ## Galerie Photo:
 
 <div class="gallery">
-  <img src="../../media/news/noai/noai_2.jpg" alt="Photo de famille">
-  <img src="../../media/news/noai/noai_3.jpg" alt="Obed et moi">
-  <img src="../../media/news/noai/noai_4.jpeg" alt="Moi qui explique">
-  <img src="../../media/news/noai/noai_5.jpeg" alt="La classe en réflexion">
+  <img src="../../assets/media/news/noai/noai_2.jpg" alt="Photo de famille">
+  <img src="../../assets/media/news/noai/noai_3.jpg" alt="Obed et moi">
+  <img src="../../assets/media/news/noai/noai_4.jpeg" alt="Moi qui explique">
+  <img src="../../assets/media/news/noai/noai_5.jpeg" alt="La classe en réflexion">
 </div>
 
 <!--lang:en-->
-![NOAI Benin](../../media/news/noai/noai_1.jpg)
+![NOAI Benin](../../assets/media/news/noai/noai_1.jpg)
 [NOAI Benin](https://www.gouv.bj/article/3565/le-benin-lance-olympiades-nationales-intelligence-arti%EF%AC%81cielle-selectionner-talents-representeront-pays-kazakhstan/)
 
 The **National Olympiad in AI (NOAI)** is a national academic competition for high school students to test and develop their skills in artificial intelligence, particularly in Python programming and machine learning. It aims to spot young scientific talent and to democratize mastery of AI technologies as early as high school. Finally, this olympiad serves as the official selection phase to build the team that will represent the country at the global competition (IOAI).
@@ -64,8 +64,8 @@ Rosas.
 ## Photo Gallery:
 
 <div class="gallery">
-  <img src="../../media/news/noai/noai_2.jpg" alt="Family photo">
-  <img src="../../media/news/noai/noai_3.jpg" alt="Obed and I">
-  <img src="../../media/news/noai/noai_4.jpeg" alt="Explaining a challenge">
-  <img src="../../media/news/noai/noai_5.jpeg" alt="The class in reflection">
+  <img src="../../assets/media/news/noai/noai_2.jpg" alt="Family photo">
+  <img src="../../assets/media/news/noai/noai_3.jpg" alt="Obed and I">
+  <img src="../../assets/media/news/noai/noai_4.jpeg" alt="Explaining a challenge">
+  <img src="../../assets/media/news/noai/noai_5.jpeg" alt="The class in reflection">
 </div>

@@ -6,7 +6,7 @@ date_display_fr: Avant ce site
 date_display_en: Before this site
 breadcrumb_fr: Archives
 breadcrumb_en: Archives
-image: ../media/news/look-back-and-smile.jpg
+image: ../../assets/media/news/look-back-and-smile.jpg
 image_alt: Look back and smile
 ---
 

@@ -21,7 +21,7 @@
   async function init() {
     if (!safeTheme) return;
     try {
-      const response = await fetch(`content/blog-themes/${safeTheme}.md`);
+      const response = await fetch(`../content/blog/themes/${safeTheme}.md`);
       if (!response.ok) throw new Error("theme not found");
       const { meta, body } = parseFrontmatter(await response.text());
       const content = splitLanguages(body);
