@@ -1,8 +1,9 @@
 @import url('https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400..800&family=Manrope:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Geist:ital,wght@0,100..900;1,100..900&display=swap');
 
 @theme {
   --font-display: 'Bricolage Grotesque', sans-serif;
-  --font-body: 'Manrope', sans-serif;
+  --font-body: 'Geist', sans-serif;
   --font-mono: 'JetBrains Mono', 'Fira Code', monospace;
   --color-accent: #1a1de3;
   --color-accent-hover: #1215b8;
@@ -10,7 +11,7 @@
 
 :root {
   --font-display: 'Bricolage Grotesque', sans-serif;
-  --font-body: 'Manrope', sans-serif;
+  --font-body: 'Geist', sans-serif;
   --font-mono: 'JetBrains Mono', 'Fira Code', monospace;
   --accent-color: #1a1de3;
   --bg-color: #ffffff;

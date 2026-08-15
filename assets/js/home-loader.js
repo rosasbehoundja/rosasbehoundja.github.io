@@ -10,7 +10,7 @@
 (function () {
   "use strict";
 
-  const ITEMS_PER_PAGE = 5;
+  const ITEMS_PER_PAGE = 10;
 
   function parseMd(text) {
     if (!text) return "";
