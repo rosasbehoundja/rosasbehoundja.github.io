@@ -1,9 +1,9 @@
 @import url('https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400..800&family=Manrope:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Geist:ital,wght@0,100..900;1,100..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Google+Sans+Flex:opsz,wght@6..144,1..1000&display=swap');
 
 @theme {
   --font-display: 'Bricolage Grotesque', sans-serif;
-  --font-body: 'Geist', sans-serif;
+  --font-body: 'Google Sans Flex', sans-serif;
   --font-mono: 'JetBrains Mono', 'Fira Code', monospace;
   --color-accent: #1a1de3;
   --color-accent-hover: #1215b8;
@@ -11,7 +11,7 @@
 
 :root {
   --font-display: 'Bricolage Grotesque', sans-serif;
-  --font-body: 'Geist', sans-serif;
+  --font-body: 'Google Sans Flex', sans-serif;
   --font-mono: 'JetBrains Mono', 'Fira Code', monospace;
   --accent-color: #1a1de3;
   --bg-color: #ffffff;
@@ -252,11 +252,12 @@ a:hover, .news-content a:hover, .news-item a:hover {
 .profile-socials .icon-github { color: #24292f !important; }
 .profile-socials .icon-cv { color: #d32f2f !important; }
 body [class*="text-[#1a1de3]"]:not(a) { color: var(--text-dark) !important; }
-#blog-post-root pre.code-block { position: relative; padding-top: 2.8rem; background: #1f2329; border: 1px solid #343b45; color: #f4f4f4; }
-#blog-post-root pre.code-block code { background: transparent; color: inherit; }
+#blog-post-root pre.code-block { position: relative; padding: 2.35rem 0.85rem 0.85rem; background: #1f2329; border: 1px solid #343b45; color: #f4f4f4; font-size: 0.76rem; line-height: 1.5; }
+#blog-post-root pre.code-block code { background: transparent; color: inherit; font-size: inherit; }
 .copy-code { position: absolute; top: 0.65rem; right: 0.7rem; border: 1px solid #596574; border-radius: 0.3rem; padding: 0.25rem 0.55rem; background: #2b323d; color: #dce4ee; font: 0.7rem var(--font-mono); cursor: pointer; }
 .copy-code:hover { border-color: #9bb8d5; color: #fff; }
 @media (max-width: 620px) { .library-toolbar { grid-template-columns: 1fr; } .library-select select { min-width: 0; } .theme-index-grid { grid-template-columns: 1fr; } }
+@media (max-width: 520px) { #blog-post-root pre.code-block { padding: 2.2rem 0.7rem 0.7rem; font-size: 0.7rem; } }
 
 /* Gallery Grid */
 .gallery {

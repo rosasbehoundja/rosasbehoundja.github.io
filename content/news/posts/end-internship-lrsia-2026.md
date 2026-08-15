@@ -18,7 +18,7 @@ image_caption_en: Review of three months of intensive research
 <!--lang:fr-->
 Précédemment (voir l'article [Début de stage](article.html?post=start-internship-lrsia-2026)), je vous avais annoncé le début de mon stage au sein du Laboratoire de Recherche en Sciences Informatiques et Applications (LRSIA). Les trois mois se sont écoulés, et il est temps de dresser un bilan de cette aventure.
 
-Sous la précieuse guidance du Dr Ratheil Houndji, des doctorants, de l'équipe de coopération de l'IFRI et grâce à la bienveillance de mes collègues stagiaires, j'ai pu évoluer au sein d'un environnement chaleureux, dynamique et particulièrement constructif.
+Sous la guidance du Dr Ratheil Houndji, des doctorants, de l'équipe de coopération de l'IFRI et grâce à la bienveillance de mes collègues stagiaires, j'ai pu évoluer au sein d'un environnement chaleureux, dynamique et particulièrement constructif.
 
 ## Réalisations majeures
 

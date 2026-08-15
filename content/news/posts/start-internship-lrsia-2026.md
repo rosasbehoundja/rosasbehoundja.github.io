@@ -15,7 +15,7 @@ image_caption_en: Laboratory of Research in Computer Science and Applications
 <!--lang:fr-->
 Le **LRSIA** (Laboratoire de Recherche en Sciences Informatiques et Applications) est un centre de recherche académique situé à l'Université d'Abomey-Calavi ([UAC](https://www.uac.bj/)) au Bénin. Il est rattaché à l'[IFRI](https://ifri-uac.bj/) (Institut de Formation et de Recherche en Informatique), où je poursuis mon bachelor en Informatique, avec une spécialisation en Intelligence Artificielle.
 
-J'ai le privilège d'effectuer ce stage sous la supervision du [Dr. Ratheil HOUNDJI](https://ratheil.info/), enseignant-chercheur en Intelligence Artificielle et Maître de Conférences inscrit au CAMES.
+J'ai le privilège d'effectuer ce stage sous la supervision du [Dr. Ratheil HOUNDJI](https://ratheil.info/).
 
 ## Objectifs et axes de recherche
 
@@ -30,7 +30,7 @@ Durant les trois prochains mois, mes travaux de recherche s'articuleront princip
 <!--lang:en-->
 The **LRSIA** (Laboratory of Research in Computer Science and Applications) is an academic research center based at the University of Abomey-Calavi ([UAC](https://www.uac.bj/)) in Benin. It is affiliated with [IFRI](https://ifri-uac.bj/) (Institute of Training and Research in Computer Science), where I am pursuing my Bachelor's degree in Computer Science, specializing in Artificial Intelligence.
 
-I have the privilege of undertaking this internship under the supervision of [Dr. Ratheil HOUNDJI](https://ratheil.info/), Associate Professor in Artificial Intelligence and researcher accredited by CAMES.
+I have the privilege of undertaking this internship under the supervision of [Dr. Ratheil HOUNDJI](https://ratheil.info/).
 
 ## Research focus & Objectives
 
