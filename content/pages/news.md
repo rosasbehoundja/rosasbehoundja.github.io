@@ -43,8 +43,8 @@ Début de mon [stage de recherche](pages/news/article.html?post=start-internship
 <!--lang:en-->
 Started my [research internship](pages/news/article.html?post=start-internship-lrsia-2026) at LRSIA.
 
-### MORE
+### 02/2026
 <!--lang:fr-->
-Et avant tout ça ? [Un petit retour en arrière](pages/news/article.html?post=retrospective-2025) sur mon parcours.
+[Un petit retour en arrière](pages/news/article.html?post=retrospective-2025) sur mon parcours.
 <!--lang:en-->
-And before all that? [A quick look back](pages/news/article.html?post=retrospective-2025) at my journey.
+[A quick look back](pages/news/article.html?post=retrospective-2025) at my journey.
