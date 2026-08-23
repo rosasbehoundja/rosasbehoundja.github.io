@@ -2,6 +2,7 @@
 title: Modéliser un problème d’optimisation avec MiniZinc
 date: 2026-08-10
 status: draft
+description: Une introduction concise à la modélisation d'un problème d'affectation avec MiniZinc, des contraintes à la fonction objectif.
 ---
 
 ## Pourquoi MiniZinc ?
