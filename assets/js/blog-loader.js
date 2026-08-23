@@ -3,6 +3,7 @@
   "use strict";
 
   const POST_SLUGS = [
+    "2026-08-24-learning-cp",
     "2026-08-23-dli-return",
     "2026-08-23-reading-of-the-week-1",
     "2026-08-10-minizinc-modeling",

@@ -50,6 +50,8 @@
       document.querySelector("#post-title-fr").textContent = frPost.meta.title || "";
       document.querySelector("#post-title-en").textContent = enPost.meta.title || "";
       document.querySelector("#post-date").textContent = frPost.meta.date || enPost.meta.date || "";
+      document.querySelector("#post-status-fr").style.display = frPost.meta.status === "draft" ? "" : "none";
+      document.querySelector("#post-status-en").style.display = enPost.meta.status === "draft" ? "" : "none";
       document.querySelector("#post-content-fr").innerHTML = marked.parse(frPost.body);
       document.querySelector("#post-content-en").innerHTML = marked.parse(enPost.body);
       if (window.Prism) {
