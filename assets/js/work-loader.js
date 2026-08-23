@@ -1,7 +1,7 @@
 /**
  * work-loader.js
  * ---------------------------------------------------------
- * Charge le contenu Markdown de la page Work (content/pages/work.md)
+ * Charge le contenu Markdown de la page Work (content/pages/work/index.{fr,en}.md)
  * et injecte les versions FR et EN dans work.html.
  */
 
@@ -13,16 +13,6 @@
     if (window.marked && typeof window.marked.parse === "function") return window.marked.parse(text);
     if (typeof window.marked === "function") return window.marked(text);
     return text;
-  }
-
-  function splitLangBlocks(body) {
-    if (!body) return { fr: "", en: "" };
-    const frMatch = body.match(/<!--lang:fr-->([\s\S]*?)(?=<!--lang:en-->|$)/);
-    const enMatch = body.match(/<!--lang:en-->([\s\S]*)/);
-    return {
-      fr: frMatch ? frMatch[1].trim() : "",
-      en: enMatch ? enMatch[1].trim() : "",
-    };
   }
 
   function setHTML(id, html) {
@@ -38,16 +28,18 @@
 
   async function loadWork() {
     try {
-      const res = await fetch("../content/pages/work.md");
-      if (!res.ok) throw new Error("404");
-      const raw = await res.text();
-      const { fr, en } = splitLangBlocks(raw);
+      const [frResponse, enResponse] = await Promise.all([
+        fetch("../content/pages/work/index.fr.md"),
+        fetch("../content/pages/work/index.en.md"),
+      ]);
+      if (!frResponse.ok || !enResponse.ok) throw new Error("404");
+      const [fr, en] = await Promise.all([frResponse.text(), enResponse.text()]);
 
       if (fr) setHTML("work-fr", parseMd(fr));
       if (en) setHTML("work-en", parseMd(en));
     } catch (err) {
       warnIfFileProtocol();
-      console.error("Impossible de charger ../content/pages/work.md", err);
+      console.error("Impossible de charger ../content/pages/work", err);
     }
   }
 

@@ -1,7 +1,7 @@
 /**
  * markdown-loader.js
  * ---------------------------------------------------------
- * Charge un article rédigé en Markdown (content/news/posts/xxx.md)
+ * Charge un article rédigé dans content/news/posts/xxx/index.{fr,en}.md
  * et l'injecte dans le template générique pages/news/article.html
  */
 
@@ -18,6 +18,19 @@
   function getParam(name) {
     const params = new URLSearchParams(window.location.search);
     return params.get(name);
+  }
+
+  function resolvePost(requested) {
+    const legacyPosts = {
+      "mentoring-noai-2026": "2026-07-17-mentoring-noai",
+      "deep-learning-indaba-2026": "2026-07-03-deep-learning-indaba",
+      "end-internship-lrsia-2026": "2026-06-19-end-internship-lrsia",
+      "world-backup-day-2026": "2026-03-31-world-backup-day",
+      "start-internship-lrsia-2026": "2026-02-16-start-internship-lrsia",
+      "retrospective-2025": "2026-01-26-retrospective-2025",
+    };
+    const resolved = legacyPosts[requested] || requested;
+    return /^[a-z0-9-]+$/.test(resolved || "") ? resolved : "";
   }
 
   function parseFrontmatter(raw) {
@@ -37,16 +50,6 @@
     return { meta, body };
   }
 
-  function splitLangBlocks(body) {
-    if (!body) return { fr: "", en: "" };
-    const frMatch = body.match(/<!--lang:fr-->([\s\S]*?)(?=<!--lang:en-->|$)/);
-    const enMatch = body.match(/<!--lang:en-->([\s\S]*)/);
-    return {
-      fr: frMatch ? frMatch[1].trim() : "",
-      en: enMatch ? enMatch[1].trim() : "",
-    };
-  }
-
   function setText(id, value) {
     const el = document.getElementById(id);
     if (el && value) el.textContent = value;
@@ -64,7 +67,7 @@
   }
 
   async function loadArticle() {
-    const post = getParam("post");
+    const post = resolvePost(getParam("post"));
     const root = document.getElementById("article-root");
 
     if (!post) {
@@ -72,43 +75,50 @@
       return;
     }
 
-    let raw;
+    let localized;
     try {
-      const res = await fetch(`../../content/news/posts/${post}.md`);
-      if (!res.ok) throw new Error("404");
-      raw = await res.text();
+      const [frResponse, enResponse] = await Promise.all([
+        fetch(`../../content/news/posts/${post}/index.fr.md`),
+        fetch(`../../content/news/posts/${post}/index.en.md`),
+      ]);
+      if (!frResponse.ok || !enResponse.ok) throw new Error("404");
+      const [frRaw, enRaw] = await Promise.all([frResponse.text(), enResponse.text()]);
+      localized = { fr: parseFrontmatter(frRaw), en: parseFrontmatter(enRaw) };
     } catch (err) {
       warnIfFileProtocol();
       if (root) root.innerHTML = "<p>Impossible de charger cet article en protocole file://. Lancez un serveur local HTTP.</p>";
       return;
     }
 
-    const { meta, body } = parseFrontmatter(raw);
-    const { fr, en } = splitLangBlocks(body);
+    const fr = localized.fr.body;
+    const en = localized.en.body;
+    const frMeta = localized.fr.meta;
+    const enMeta = localized.en.meta;
+    const meta = { ...enMeta, ...frMeta };
 
-    if (meta.title_en) document.title = meta.title_en;
+    if (enMeta.title || frMeta.title) document.title = enMeta.title || frMeta.title;
 
     if (meta.date) {
       const timeEl = document.getElementById("article-date");
       if (timeEl) timeEl.setAttribute("datetime", meta.date);
     }
-    setText("date-fr", meta.date_display_fr);
-    setText("date-en", meta.date_display_en);
+    setText("date-fr", frMeta.date_display);
+    setText("date-en", enMeta.date_display);
 
-    setText("breadcrumb-fr", meta.breadcrumb_fr || meta.title_fr);
-    setText("breadcrumb-en", meta.breadcrumb_en || meta.title_en);
+    setText("breadcrumb-fr", frMeta.breadcrumb || frMeta.title);
+    setText("breadcrumb-en", enMeta.breadcrumb || enMeta.title);
 
     if (meta.breadcrumb_parent_url) {
       const parentWrap = document.getElementById("breadcrumb-parent");
       const parentLink = document.getElementById("breadcrumb-parent-link");
       if (parentLink) parentLink.setAttribute("href", meta.breadcrumb_parent_url);
-      setText("breadcrumb-parent-fr", meta.breadcrumb_parent_fr);
-      setText("breadcrumb-parent-en", meta.breadcrumb_parent_en);
+      setText("breadcrumb-parent-fr", frMeta.breadcrumb_parent);
+      setText("breadcrumb-parent-en", enMeta.breadcrumb_parent);
       if (parentWrap) parentWrap.style.display = "";
     }
 
-    setText("title-fr", meta.title_fr);
-    setText("title-en", meta.title_en);
+    setText("title-fr", frMeta.title);
+    setText("title-en", enMeta.title);
 
     if (meta.image) {
       const figure = document.getElementById("article-figure");
@@ -122,8 +132,8 @@
           img.style.margin = "0 auto";
         }
       }
-      setText("caption-fr", meta.image_caption_fr);
-      setText("caption-en", meta.image_caption_en);
+      setText("caption-fr", frMeta.image_caption);
+      setText("caption-en", enMeta.image_caption);
       if (figure) figure.style.display = "";
     }
 

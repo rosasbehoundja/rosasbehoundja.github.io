@@ -3,11 +3,6 @@
   const param = new URLSearchParams(window.location.search).get("theme");
   const safeTheme = /^[a-z0-9-]+$/.test(param || "") ? param : "";
 
-  function splitLanguages(body) {
-    const fr = body.match(/<!--lang:fr-->([\s\S]*?)(?=<!--lang:en-->|$)/);
-    const en = body.match(/<!--lang:en-->([\s\S]*)/);
-    return { fr: fr ? fr[1].trim() : "", en: en ? en[1].trim() : "" };
-  }
   function parseFrontmatter(raw) {
     const match = raw.match(/^---\s*\n([\s\S]*?)\n---\s*\n([\s\S]*)$/);
     if (!match) return { meta: {}, body: raw };
@@ -21,17 +16,22 @@
   async function init() {
     if (!safeTheme) return;
     try {
-      const response = await fetch(`../content/blog/themes/${safeTheme}.md`);
-      if (!response.ok) throw new Error("theme not found");
-      const { meta, body } = parseFrontmatter(await response.text());
-      const content = splitLanguages(body);
-      document.title = `${meta.title_en || meta.title_fr} — Rosas Behoundja`;
-      document.querySelector("#theme-title-fr").textContent = meta.title_fr || "";
-      document.querySelector("#theme-title-en").textContent = meta.title_en || "";
-      document.querySelector("#theme-description-fr").textContent = meta.description_fr || "";
-      document.querySelector("#theme-description-en").textContent = meta.description_en || "";
-      document.querySelector("#theme-content-fr").innerHTML = marked.parse(content.fr);
-      document.querySelector("#theme-content-en").innerHTML = marked.parse(content.en);
+      const [frResponse, enResponse] = await Promise.all([
+        fetch(`../content/blog/themes/${safeTheme}/index.fr.md`),
+        fetch(`../content/blog/themes/${safeTheme}/index.en.md`),
+      ]);
+      if (!frResponse.ok || !enResponse.ok) throw new Error("theme not found");
+      const [frTheme, enTheme] = await Promise.all([
+        frResponse.text().then(parseFrontmatter),
+        enResponse.text().then(parseFrontmatter),
+      ]);
+      document.title = `${enTheme.meta.title || frTheme.meta.title} — Rosas Behoundja`;
+      document.querySelector("#theme-title-fr").textContent = frTheme.meta.title || "";
+      document.querySelector("#theme-title-en").textContent = enTheme.meta.title || "";
+      document.querySelector("#theme-description-fr").textContent = frTheme.meta.description || "";
+      document.querySelector("#theme-description-en").textContent = enTheme.meta.description || "";
+      document.querySelector("#theme-content-fr").innerHTML = marked.parse(frTheme.body);
+      document.querySelector("#theme-content-en").innerHTML = marked.parse(enTheme.body);
     } catch (error) {
       document.querySelector("main").innerHTML = "<p>Impossible de charger cette thématique.</p>";
       console.error("Impossible de charger la thématique", error);

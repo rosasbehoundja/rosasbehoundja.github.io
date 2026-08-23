@@ -2,9 +2,9 @@
  * home-loader.js
  * ---------------------------------------------------------
  * Charge le contenu Markdown de la page d'accueil :
- *   - content/pages/home.md   -> section "à propos / about"
- *   - content/pages/news.md   -> liste des actualités (avec pagination)
- *   - content/pages/beyond.md -> section "et sinon / besides that"
+ *   - content/pages/home/index.{fr,en}.md   -> section "à propos / about"
+ *   - content/pages/news/index.{fr,en}.md   -> liste des actualités (avec pagination)
+ *   - content/pages/beyond/index.{fr,en}.md -> section "et sinon / besides that"
  */
 
 (function () {
@@ -25,14 +25,14 @@
     return parseMd(text);
   }
 
-  function splitLangBlocks(body) {
-    if (!body) return { fr: "", en: "" };
-    const frMatch = body.match(/<!--lang:fr-->([\s\S]*?)(?=<!--lang:en-->|$)/);
-    const enMatch = body.match(/<!--lang:en-->([\s\S]*)/);
-    return {
-      fr: frMatch ? frMatch[1].trim() : "",
-      en: enMatch ? enMatch[1].trim() : "",
-    };
+  async function fetchLocalized(basePath) {
+    const [frResponse, enResponse] = await Promise.all([
+      fetch(`${basePath}/index.fr.md`),
+      fetch(`${basePath}/index.en.md`),
+    ]);
+    if (!frResponse.ok || !enResponse.ok) throw new Error("404");
+    const [fr, en] = await Promise.all([frResponse.text(), enResponse.text()]);
+    return { fr: fr.trim(), en: en.trim() };
   }
 
   function setHTML(id, html) {
@@ -55,24 +55,19 @@
       const header = matches[i][1].trim();
       const start = matches[i].index + matches[i][0].length;
       const end = i + 1 < matches.length ? matches[i + 1].index : raw.length;
-      const block = raw.slice(start, end);
-      const { fr, en } = splitLangBlocks(block);
-      entries.push({ header, fr, en });
+      entries.push({ header, content: raw.slice(start, end).trim() });
     }
     return entries;
   }
 
   async function loadHome() {
     try {
-      const res = await fetch("content/pages/home.md");
-      if (!res.ok) throw new Error("404");
-      const raw = await res.text();
-      const { fr, en } = splitLangBlocks(raw);
+      const { fr, en } = await fetchLocalized("content/pages/home");
       setHTML("about-fr", parseMd(fr));
       setHTML("about-en", parseMd(en));
     } catch (err) {
       warnIfFileProtocol();
-      console.error("Impossible de charger content/pages/home.md", err);
+      console.error("Impossible de charger content/pages/home", err);
     }
   }
 
@@ -141,10 +136,14 @@
 
   async function loadNews() {
     try {
-      const res = await fetch("content/pages/news.md");
-      if (!res.ok) throw new Error("404");
-      const raw = await res.text();
-      const entries = parseNewsEntries(raw);
+      const localized = await fetchLocalized("content/pages/news");
+      const frEntries = parseNewsEntries(localized.fr);
+      const enEntries = parseNewsEntries(localized.en);
+      const entries = frEntries.map((entry, index) => ({
+        header: entry.header,
+        fr: entry.content,
+        en: enEntries[index]?.content || "",
+      }));
 
       const moreEntry = entries.find((e) => e.header.toUpperCase() === "MORE");
       newsItems = entries.filter((e) => e.header.toUpperCase() !== "MORE");
@@ -166,21 +165,18 @@
       }
     } catch (err) {
       warnIfFileProtocol();
-      console.error("Impossible de charger content/pages/news.md", err);
+      console.error("Impossible de charger content/pages/news", err);
     }
   }
 
   async function loadBeyond() {
     try {
-      const res = await fetch("content/pages/beyond.md");
-      if (!res.ok) throw new Error("404");
-      const raw = await res.text();
-      const { fr, en } = splitLangBlocks(raw);
+      const { fr, en } = await fetchLocalized("content/pages/beyond");
       setHTML("beyond-fr", parseMd(fr));
       setHTML("beyond-en", parseMd(en));
     } catch (err) {
       warnIfFileProtocol();
-      console.error("Impossible de charger content/pages/beyond.md", err);
+      console.error("Impossible de charger content/pages/beyond", err);
     }
   }
 

@@ -2,7 +2,10 @@
   "use strict";
 
   function getPostName() {
-    return new URLSearchParams(window.location.search).get("post");
+    const requested = new URLSearchParams(window.location.search).get("post");
+    if (requested === "minizinc-modeling") return "2026-08-10-minizinc-modeling";
+    if (requested === "2026-08-27-dli-return") return "2026-08-23-dli-return";
+    return /^[a-z0-9-]+$/.test(requested || "") ? requested : "";
   }
 
   function parseFrontmatter(raw) {
@@ -14,12 +17,6 @@
       if (index !== -1) meta[line.slice(0, index).trim()] = line.slice(index + 1).trim();
     });
     return { meta, body: match[2] };
-  }
-
-  function splitLanguages(body) {
-    const fr = body.match(/<!--lang:fr-->([\s\S]*?)(?=<!--lang:en-->|$)/);
-    const en = body.match(/<!--lang:en-->([\s\S]*)/);
-    return { fr: fr ? fr[1].trim() : "", en: en ? en[1].trim() : "" };
   }
 
   function renderMath(root, attempts = 0) {
@@ -40,16 +37,21 @@
     const post = getPostName();
     if (!post) return;
     try {
-      const response = await fetch(`../../content/blog/posts/${post}.md`);
-      if (!response.ok) throw new Error("post not found");
-      const { meta, body } = parseFrontmatter(await response.text());
-      const content = splitLanguages(body);
-      document.title = meta.title_en || document.title;
-      document.querySelector("#post-title-fr").textContent = meta.title_fr || "";
-      document.querySelector("#post-title-en").textContent = meta.title_en || "";
-      document.querySelector("#post-date").textContent = meta.date || "";
-      document.querySelector("#post-content-fr").innerHTML = marked.parse(content.fr);
-      document.querySelector("#post-content-en").innerHTML = marked.parse(content.en);
+      const [frResponse, enResponse] = await Promise.all([
+        fetch(`../../content/blog/posts/${post}/index.fr.md`),
+        fetch(`../../content/blog/posts/${post}/index.en.md`),
+      ]);
+      if (!frResponse.ok || !enResponse.ok) throw new Error("post not found");
+      const [frPost, enPost] = await Promise.all([
+        frResponse.text().then(parseFrontmatter),
+        enResponse.text().then(parseFrontmatter),
+      ]);
+      document.title = frPost.meta.title || enPost.meta.title || document.title;
+      document.querySelector("#post-title-fr").textContent = frPost.meta.title || "";
+      document.querySelector("#post-title-en").textContent = enPost.meta.title || "";
+      document.querySelector("#post-date").textContent = frPost.meta.date || enPost.meta.date || "";
+      document.querySelector("#post-content-fr").innerHTML = marked.parse(frPost.body);
+      document.querySelector("#post-content-en").innerHTML = marked.parse(enPost.body);
       if (window.Prism) {
         Prism.languages.minizinc = Prism.languages.extend("clike", {
           keyword: /\b(?:array|annotation|bool|constraint|enum|float|function|include|int|maximize|minimize|of|output|predicate|set|solve|string|var)\b/,
