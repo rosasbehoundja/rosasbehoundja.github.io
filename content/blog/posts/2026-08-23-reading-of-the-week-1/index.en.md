@@ -1,6 +1,7 @@
 ---
 title: Reading of the week #1
 date: 2026-08-23
+description: A selection of articles and resources on life, research, computer science, writing, and algorithmic bias.
 ---
 
 A few readings that caught my attention this week:

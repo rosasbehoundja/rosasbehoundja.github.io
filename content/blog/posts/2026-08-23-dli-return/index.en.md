@@ -1,6 +1,7 @@
 ---
 title: Looking back at Deep Learning Indaba 2026
 date: 2026-08-23
+description: A personal look back at Deep Learning Indaba 2026 in Lagos, through research, encounters, culture, and lessons from a memorable week.
 ---
 
 <img src="../../content/blog/posts/2026-08-23-dli-return/imgs/P1.jpeg" alt="Deep Learning Indaba 2026 in Lagos">

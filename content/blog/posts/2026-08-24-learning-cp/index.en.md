@@ -1,6 +1,7 @@
 ---
 title: Learning Constraint Programming
 date: 2026-08-24
+description: An introduction to constraint programming, with key definitions, learning resources, use cases, scaling limits, and approaches combining learning with search.
 ---
 
 Hi, dear reader!
@@ -92,6 +93,21 @@ programming:
   [YouTube playlists](https://www.youtube.com/@minicp-mooc/playlists).
 - MiniCP lectures by Professor Pierre Schaus:
   [YouTube playlist](https://www.youtube.com/playlist?list=PLq6RpCDkJMyqUQ4NWjFg2AxtYBhFeGj0R).
+- *Handbook of Constraint Programming* (Foundations of Artificial Intelligence),
+  edited by Francesca Rossi, Peter van Beek, and Toby Walsh:
+  [book](https://www.amazon.com/exec/obidos/ASIN/0444527265/acmorg-20).
+- Roman Barták's [Online Guide to Constraint Programming](https://kti.mff.cuni.cz/~bartak/constraints/).
+- *The CP-SAT Primer: Using and Understanding Google OR-Tools' CP-SAT Solver*
+  by Dominik Krupke:
+  [online book](https://d-krupke.github.io/cpsat-primer/intro.html).
+- *Principles of Constraint Programming* by Krzysztof R. Apt:
+  [book preview](https://books.google.bj/books/about/Principles_of_Constraint_Programming.html?hl=fr&id=1e7Ib04fZAcC&redir_esc=y)
+  — this was my 19th birthday gift, haha.
+- *Modern Constraint Programming, For People Who Know SAT* by Ciaran McCreesh:
+  [video](https://www.youtube.com/live/2mVMXOCSCKw?si=iTtFgpylsCu-dvyQ).
+- *Logic, Optimization, and Constraint Programming: A Fruitful Collaboration*
+  by John Hooker:
+  [video](https://www.youtube.com/live/TknN8fCQvRk?si=N7PWrsUO8N20RKCj).
 - Tools and modelling frameworks:
   [MiniCP](https://www.minicp.org/),
   [MaxiCP](https://github.com/aia-uclouvain/maxicp),

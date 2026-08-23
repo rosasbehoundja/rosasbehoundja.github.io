@@ -2,6 +2,7 @@
 title: Modeling an optimisation problem with MiniZinc
 date: 2026-08-10
 status: draft
+description: A concise introduction to modelling an assignment problem with MiniZinc, from constraints to the optimisation objective.
 ---
 
 ## Why MiniZinc?
