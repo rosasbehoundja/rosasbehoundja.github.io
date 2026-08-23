@@ -89,6 +89,20 @@ et [SINTEF](https://www.sintef.no/en/digital/departments/mathematics-and-cyberne
 Voici quelques-unes des meilleures ressources que j'ai trouvées pour apprendre
 la programmation par contraintes :
 
+- Outils et environnements de modélisation :
+  [MiniCP](https://www.minicp.org/),
+  [MaxiCP](https://github.com/aia-uclouvain/maxicp),
+  [MiniZinc](https://www.minizinc.org/),
+  [CPMpy](https://github.com/CPMpy/cpmpy),
+  [OR-Tools](https://github.com/google/or-tools) et
+  [OscaR/CP](https://github.com/pschaus/oscar).
+- Les variables de séquence en programmation par contraintes :
+  [vidéo](https://youtu.be/vVz9REklNfs?si=XlbkPtOt3EAJt8BX).
+- Les contraintes globales :
+  [Global Constraint Catalog](https://sofdem.github.io/gccat/) et
+  [Global Constraints in Constraint Programming](https://www.constraint-programming.com/people/regin/papers/globalCpaior.pdf).
+- Des problèmes pour s'entraîner :
+  [CSPLib](https://www.csplib.org/).
 - La chaîne officielle du MOOC MiniCP des professeurs Pascal Van Hentenryck et
   Pierre Schaus :
   [playlists YouTube](https://www.youtube.com/@minicp-mooc/playlists).
@@ -110,19 +124,6 @@ la programmation par contraintes :
 - *Logic, Optimization, and Constraint Programming: A Fruitful Collaboration*
   de John Hooker :
   [vidéo](https://www.youtube.com/live/TknN8fCQvRk?si=N7PWrsUO8N20RKCj).
-- Outils et environnements de modélisation :
-  [MiniCP](https://www.minicp.org/),
-  [MaxiCP](https://github.com/aia-uclouvain/maxicp),
-  [MiniZinc](https://www.minizinc.org/),
-  [CPMpy](https://github.com/CPMpy/cpmpy) et
-  [OscaR/CP](https://github.com/pschaus/oscar).
-- Les variables de séquence en programmation par contraintes :
-  [vidéo](https://youtu.be/vVz9REklNfs?si=XlbkPtOt3EAJt8BX).
-- Les contraintes globales :
-  [Global Constraint Catalog](https://sofdem.github.io/gccat/) et
-  [Global Constraints in Constraint Programming](https://www.constraint-programming.com/people/regin/papers/globalCpaior.pdf).
-- Des problèmes pour s'entraîner :
-  [CSPLib](https://www.csplib.org/).
 
 J'essaierai de maintenir cette liste à jour.
 

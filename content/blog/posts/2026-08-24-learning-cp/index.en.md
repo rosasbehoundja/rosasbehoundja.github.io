@@ -88,6 +88,20 @@ and [SINTEF](https://www.sintef.no/en/digital/departments/mathematics-and-cybern
 Here are some of the best resources I have found for learning constraint
 programming:
 
+- Tools and modelling frameworks:
+  [MiniCP](https://www.minicp.org/),
+  [MaxiCP](https://github.com/aia-uclouvain/maxicp),
+  [MiniZinc](https://www.minizinc.org/),
+  [CPMpy](https://github.com/CPMpy/cpmpy),
+  [OR-Tools](https://github.com/google/or-tools), and
+  [OscaR/CP](https://github.com/pschaus/oscar).
+- Sequence variables in constraint programming:
+  [video](https://youtu.be/vVz9REklNfs?si=XlbkPtOt3EAJt8BX).
+- Global constraints:
+  [Global Constraint Catalog](https://sofdem.github.io/gccat/) and
+  [Global Constraints in Constraint Programming](https://www.constraint-programming.com/people/regin/papers/globalCpaior.pdf).
+- Practice problems:
+  [CSPLib](https://www.csplib.org/).
 - The official MiniCP MOOC channel by Professors Pascal Van Hentenryck and
   Pierre Schaus:
   [YouTube playlists](https://www.youtube.com/@minicp-mooc/playlists).
@@ -108,19 +122,6 @@ programming:
 - *Logic, Optimization, and Constraint Programming: A Fruitful Collaboration*
   by John Hooker:
   [video](https://www.youtube.com/live/TknN8fCQvRk?si=N7PWrsUO8N20RKCj).
-- Tools and modelling frameworks:
-  [MiniCP](https://www.minicp.org/),
-  [MaxiCP](https://github.com/aia-uclouvain/maxicp),
-  [MiniZinc](https://www.minizinc.org/),
-  [CPMpy](https://github.com/CPMpy/cpmpy), and
-  [OscaR/CP](https://github.com/pschaus/oscar).
-- Sequence variables in constraint programming:
-  [video](https://youtu.be/vVz9REklNfs?si=XlbkPtOt3EAJt8BX).
-- Global constraints:
-  [Global Constraint Catalog](https://sofdem.github.io/gccat/) and
-  [Global Constraints in Constraint Programming](https://www.constraint-programming.com/people/regin/papers/globalCpaior.pdf).
-- Practice problems:
-  [CSPLib](https://www.csplib.org/).
 
 I will try to keep this list up to date.
 

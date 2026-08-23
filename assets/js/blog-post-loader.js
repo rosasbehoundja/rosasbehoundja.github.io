@@ -55,6 +55,18 @@
     setMeta('meta[name="twitter:description"]', description);
   }
 
+  function configureExternalLinks(root) {
+    root.querySelectorAll("a[href]").forEach((link) => {
+      const url = new URL(link.getAttribute("href"), window.location.href);
+      if (url.protocol === "http:" || url.protocol === "https:") {
+        if (url.origin !== window.location.origin) {
+          link.target = "_blank";
+          link.rel = "noopener noreferrer";
+        }
+      }
+    });
+  }
+
   function renderMath(root, attempts = 0) {
     if (window.renderMathInElement) {
       renderMathInElement(root, {
@@ -89,6 +101,8 @@
       document.querySelector("#post-status-en").style.display = enPost.meta.status === "draft" ? "" : "none";
       document.querySelector("#post-content-fr").innerHTML = marked.parse(frPost.body);
       document.querySelector("#post-content-en").innerHTML = marked.parse(enPost.body);
+      configureExternalLinks(document.querySelector("#post-content-fr"));
+      configureExternalLinks(document.querySelector("#post-content-en"));
       updateMetadata(frPost, enPost);
       new MutationObserver(() => updateMetadata(frPost, enPost)).observe(document.documentElement, {
         attributes: true,
