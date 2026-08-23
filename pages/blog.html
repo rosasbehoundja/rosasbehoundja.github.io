@@ -26,9 +26,6 @@
   <meta name="twitter:description" content="Articles on combinatorial optimisation, constraint programming, machine learning, research, and life.">
   <meta name="twitter:image" content="https://rosasbehoundja.github.io/assets/media/preview.jpg">
   <meta name="twitter:image:alt" content="Two cartoon starfish learning in front of a whiteboard covered with formulas and a constraint graph">
-  <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-  <link rel="stylesheet" href="../assets/css/style.css">
 </head>
 <body class="max-w-[820px] mx-auto px-4 sm:px-6 py-6 sm:py-10 text-neutral-900 bg-white">
 
@@ -43,8 +40,8 @@
       <div class="flex items-center justify-between sm:justify-end w-full sm:w-auto gap-3">
         <a href="../index.html" class="sm:hidden font-display font-bold text-neutral-900 text-lg" aria-label="Rosas Behoundja — home">Rosas<span class="text-neutral-900">.</span></a>
         <div class="flex items-center gap-3">
-          <button class="lang-switch text-xs font-mono border border-neutral-200 px-2.5 py-1 rounded hover:bg-neutral-100 hover:border-[#1a1de3] transition-all cursor-pointer" id="langBtn" onclick="toggleLanguage()">🇫🇷 FR</button>
-          <button id="menuToggleBtn" class="sm:hidden text-neutral-700 hover:text-[#1a1de3] p-1 text-lg cursor-pointer" aria-label="Toggle menu" onclick="toggleMobileMenu()">
+          <button class="lang-switch text-xs font-mono border border-neutral-200 px-2.5 py-1 rounded hover:bg-neutral-100 hover:border-[#1a1de3] transition-all cursor-pointer" id="langBtn">🇫🇷 FR</button>
+          <button id="menuToggleBtn" class="sm:hidden text-neutral-700 hover:text-[#1a1de3] p-1 text-lg cursor-pointer" aria-label="Toggle menu">
             <i class="fas fa-bars" id="menuIcon"></i>
           </button>
         </div>
@@ -67,8 +64,7 @@
     <p>© Rosas Behoundja 2026</p>
   </footer>
 
-  <script src="../assets/js/script.js"></script>
-  <script src="../assets/js/blog-loader.js"></script>
+  <script type="module" src="/src/blog.ts"></script>
 
 </body>
 </html>
