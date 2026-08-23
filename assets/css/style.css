@@ -181,7 +181,7 @@ a:hover, .news-content a:hover, .news-item a:hover {
   display: flex;
   gap: 1.5rem;
   align-items: baseline;
-  padding: 0.6rem 0;
+  padding: 0.4rem 0;
   font-size: 0.92rem;
 }
 .blog-date {
@@ -195,8 +195,19 @@ a:hover, .news-content a:hover, .news-item a:hover {
   color: var(--text-dark);
   font-weight: 500;
 }
+.blog-title {
+  margin: 0;
+  font-size: 0.92rem;
+  line-height: 1.4;
+}
 .blog-title a:hover {
   color: var(--accent-color);
+}
+.blog-draft {
+  margin-left: 0.45rem;
+  color: var(--text-light);
+  font: 0.65rem var(--font-mono);
+  text-transform: uppercase;
 }
 @media (max-width: 520px) {
   .blog-entry {
@@ -271,6 +282,7 @@ body [class*="text-[#1a1de3]"]:not(a) { color: var(--text-dark) !important; }
   object-fit: cover;
   width: 100%;
   border-radius: 0.5rem;
+  margin: 0;
 }
 @media (max-width: 700px) {
   .gallery {
