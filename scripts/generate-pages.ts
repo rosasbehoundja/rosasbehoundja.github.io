@@ -11,6 +11,7 @@ interface Document {
 }
 
 const root = process.cwd();
+const siteUrl = "https://rosasbehoundja.github.io";
 
 function parse(raw: string): Document {
   const match = raw.match(/^---\s*\n([\s\S]*?)\n---\s*\n?([\s\S]*)$/);
@@ -42,6 +43,39 @@ function renderBody(body: string, kind: Kind, slug: string): string {
     .replace(/(?:\.\.\/)?post\.html\?post=([a-z0-9-]+)/g, "/pages/blog/articles/$1/");
 }
 
+function absoluteImageUrl(path: string, kind: Kind, slug: string): string {
+  if (/^https?:\/\//i.test(path)) return path;
+  const normalized = path
+    .replace(/^\.\.\/\.\.\/content\//, "/contents/")
+    .replace(/^\.\.\/\.\.\/contents\//, "/contents/")
+    .replace(/^\.\.\/\.\.\/assets\//, "/assets/");
+  if (normalized.startsWith("/")) return `${siteUrl}${normalized}`;
+  if (normalized.startsWith("imgs/")) return `${siteUrl}/contents/${kind}/posts/${slug}/${normalized}`;
+  return `${siteUrl}/contents/${kind}/posts/${slug}/${normalized.replace(/^\.\//, "")}`;
+}
+
+function previewImage(kind: Kind, slug: string, fr: Document, en: Document): { url: string; alt: string } {
+  const frontmatterImage = en.meta.image || fr.meta.image;
+  if (frontmatterImage) {
+    return {
+      url: absoluteImageUrl(frontmatterImage, kind, slug),
+      alt: en.meta.image_alt || fr.meta.image_alt || en.meta.title || fr.meta.title || "Rosas Behoundja",
+    };
+  }
+
+  for (const document of [en, fr]) {
+    const firstImage = renderBody(document.body, kind, slug).match(/<img\b[^>]*\bsrc=["']([^"']+)["'][^>]*>/i);
+    if (!firstImage?.[1]) continue;
+    const alt = firstImage[0].match(/\balt=["']([^"']*)["']/i)?.[1] ?? document.meta.title ?? "";
+    return { url: absoluteImageUrl(firstImage[1], kind, slug), alt };
+  }
+
+  return {
+    url: `${siteUrl}/assets/media/preview.jpg`,
+    alt: "Two cartoon starfish learning in front of a whiteboard",
+  };
+}
+
 function articleTemplate(kind: Kind, slug: string, fr: Document, en: Document): string {
   const title = en.meta.title || fr.meta.title || "Rosas Behoundja";
   const description = en.meta.description || fr.meta.description || title;
@@ -49,6 +83,7 @@ function articleTemplate(kind: Kind, slug: string, fr: Document, en: Document): 
   const isBlog = kind === "blog";
   const dateFr = fr.meta.date_display || fr.meta.date || "";
   const dateEn = en.meta.date_display || en.meta.date || "";
+  const socialImage = previewImage(kind, slug, fr, en);
   const image = fr.meta.image || en.meta.image;
   const imagePath = image?.replace("../../assets/", "/assets/").replace("../../content/", "/contents/");
   const figure = imagePath ? `<figure class="my-6"><img src="${escape(imagePath)}" alt="${escape(fr.meta.image_alt || en.meta.image_alt)}" class="w-full sm:w-4/5 max-w-[550px] mx-auto rounded-lg"><figcaption class="mt-2 text-center italic text-neutral-500 text-xs"><span class="fr-text">${escape(fr.meta.image_caption)}</span><span class="en-text">${escape(en.meta.image_caption)}</span></figcaption></figure>` : "";
@@ -65,8 +100,8 @@ function articleTemplate(kind: Kind, slug: string, fr: Document, en: Document): 
   <title>${escape(title)} — Rosas Behoundja</title>
   <meta name="author" content="Rosas Behoundja"><meta name="robots" content="index, follow">
   <meta name="description" content="${escape(description)}"><link rel="canonical" href="${url}">
-  <meta property="og:title" content="${escape(title)}"><meta property="og:type" content="article"><meta property="og:url" content="${url}"><meta property="og:description" content="${escape(description)}"><meta property="og:site_name" content="Rosas Behoundja"><meta property="og:locale" content="en_GB"><meta property="og:locale:alternate" content="fr_FR"><meta property="og:image" content="https://rosasbehoundja.github.io/assets/media/preview.jpg"><meta property="article:published_time" content="${escape(en.meta.date || fr.meta.date)}">
-  <meta name="twitter:card" content="summary_large_image"><meta name="twitter:title" content="${escape(title)}"><meta name="twitter:description" content="${escape(description)}"><meta name="twitter:image" content="https://rosasbehoundja.github.io/assets/media/preview.jpg">
+  <meta property="og:title" content="${escape(title)}"><meta property="og:type" content="article"><meta property="og:url" content="${url}"><meta property="og:description" content="${escape(description)}"><meta property="og:site_name" content="Rosas Behoundja"><meta property="og:locale" content="en_GB"><meta property="og:locale:alternate" content="fr_FR"><meta property="og:image" content="${escape(socialImage.url)}"><meta property="og:image:alt" content="${escape(socialImage.alt)}"><meta property="article:published_time" content="${escape(en.meta.date || fr.meta.date)}">
+  <meta name="twitter:card" content="summary_large_image"><meta name="twitter:title" content="${escape(title)}"><meta name="twitter:description" content="${escape(description)}"><meta name="twitter:image" content="${escape(socialImage.url)}"><meta name="twitter:image:alt" content="${escape(socialImage.alt)}">
 </head>
 <body class="max-w-[820px] mx-auto px-4 sm:px-6 py-6 sm:py-10 text-neutral-900 bg-white">
   <nav class="site-nav border-b border-neutral-200 pb-4 mb-8"><div class="flex items-center justify-between"><div class="nav-links flex items-center gap-6 text-sm"><a href="/" class="sm:hidden">Rosas.</a><a href="/" class="hidden sm:inline">/ home</a><a href="/pages/work.html">/ work</a><a href="/pages/blog.html">/ blog</a></div><button class="lang-switch text-xs font-mono border border-neutral-200 px-2.5 py-1 rounded" id="langBtn">🇫🇷 FR</button></div></nav>

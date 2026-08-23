@@ -36,6 +36,8 @@ export default defineConfig({
       closeBundle() {
         const source = resolve(root, "contents");
         if (existsSync(source)) cpSync(source, resolve(root, "dist/contents"), { recursive: true });
+        const media = resolve(root, "assets/media");
+        if (existsSync(media)) cpSync(media, resolve(root, "dist/assets/media"), { recursive: true });
         for (const file of ["robots.txt", "sitemap.xml"]) {
           const path = resolve(root, file);
           if (existsSync(path)) cpSync(path, resolve(root, `dist/${file}`));
