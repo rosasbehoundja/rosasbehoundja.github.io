@@ -1,5 +1,11 @@
-.idea/
+node_modules/
+dist/
+.vite/
+pages/blog/articles/
+pages/news/articles/
+src/generated-content.ts
 
+.idea/
 .vscode/
-.agents/
 .codex/
+.agent/
