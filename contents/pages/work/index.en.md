@@ -1,4 +1,4 @@
-### Research Intern, [LRSIA](https://uac-rrteam.github.io/)
+### Research Intern, [LRSIA](https://uac-rrteam.github.io/en)
 *Benin*
 
 - Designed a MILP model for the MPVRP variant focusing on changeover costs ([MPVRP-CC](https://ifri-ai-classes.github.io/MPVRP-CC/)); initiated CP modeling of the problem using successor and sequence variables.

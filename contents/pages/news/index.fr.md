@@ -2,7 +2,7 @@
 
 ### 08/2026
 
-Je débute en septembre une **Research Engineering Fellowship** d'un an en GeoAI.
+Je débute en septembre un **fellowship en GeoAI** d'un an.
 
 ### 08/2026
 
