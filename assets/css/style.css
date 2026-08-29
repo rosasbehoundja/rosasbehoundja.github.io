@@ -15,14 +15,14 @@
   --font-body: 'Google Sans Flex', sans-serif;
   --font-mono: 'JetBrains Mono', 'Fira Code', monospace;
   --accent-color: #1a1de3;
-  --bg-color: #f7f7f5;
-  --surface-soft: #efefeb;
+  --bg-color: #fff;
+  --surface-soft: #fff;
   --surface-subtle: #f3f3ef;
-  --text-dark: #242424;
-  --text-medium: #3f3f3c;
+  --text-dark: #413e3e;
+  --text-medium: #515150;
   --text-muted: #666662;
   --text-light: #70706c;
-  --border-color: #deded8;
+  --border-color: #e6e6e6;
 }
 
 html {
