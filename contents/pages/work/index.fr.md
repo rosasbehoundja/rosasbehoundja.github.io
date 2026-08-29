@@ -1,4 +1,4 @@
-### Stagiaire de recherche, [LRSIA](https://uac-rrteam.github.io/)
+### Stagiaire de recherche, [LRSIA](https://uac-rrteam.github.io/fr)
 *Bénin*
 
 - Proposition d'un modèle MILP pour le problème de MPVRP axé sur les coûts de changement ([MPVRP-CC](https://ifri-ai-classes.github.io/MPVRP-CC/)) ; initiation de la modélisation CP du problème via variables successeurs et variables de séquences.

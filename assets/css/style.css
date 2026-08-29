@@ -15,11 +15,13 @@
   --font-body: 'Google Sans Flex', sans-serif;
   --font-mono: 'JetBrains Mono', 'Fira Code', monospace;
   --accent-color: #1a1de3;
-  --bg-color: #ffffff;
-  --text-dark: #1a1a1a;
-  --text-medium: #333333;
-  --text-muted: #666666;
-  --text-light: #888888;
+  --bg-color: #fff;
+  --surface-soft: #fff;
+  --surface-subtle: #f3f3ef;
+  --text-dark: #413e3e;
+  --text-medium: #515150;
+  --text-muted: #666662;
+  --text-light: #70706c;
   --border-color: #e6e6e6;
 }
 
@@ -109,11 +111,11 @@ a:hover, .news-content a:hover, .news-item a:hover {
   margin: 1.25rem 0;
   color: var(--text-medium);
   font-style: italic;
-  background-color: #fafafa;
+  background-color: var(--surface-subtle);
   border-radius: 0 0.375rem 0.375rem 0;
 }
 .markdown-body pre {
-  background-color: #f5f5f5;
+  background-color: var(--surface-soft);
   border: 1px solid var(--border-color);
   border-radius: 0.5rem;
   padding: 1rem;
@@ -125,7 +127,7 @@ a:hover, .news-content a:hover, .news-item a:hover {
 .markdown-body code {
   font-family: var(--font-mono);
   font-size: 0.88rem;
-  background-color: #f5f5f5;
+  background-color: var(--surface-soft);
   padding: 0.15rem 0.35rem;
   border-radius: 0.25rem;
 }
@@ -148,7 +150,7 @@ a:hover, .news-content a:hover, .news-item a:hover {
   font-size: 0.9rem;
 }
 .markdown-body th {
-  background-color: #f5f5f5;
+  background-color: var(--surface-soft);
   font-weight: 700;
   color: var(--text-dark);
   text-align: left;
@@ -160,7 +162,7 @@ a:hover, .news-content a:hover, .news-item a:hover {
   border: 1px solid var(--border-color);
 }
 .markdown-body tr:nth-child(even) {
-  background-color: #fcfcfc;
+  background-color: var(--surface-subtle);
 }
 .markdown-body hr {
   border: none;

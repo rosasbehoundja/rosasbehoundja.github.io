@@ -1,6 +1,6 @@
 Salut 🤓 !
 
-Je suis étudiant en licence d'informatique à l'IFRI de l'Université d'Abomey-Calavi, au [Bénin](https://www.benin.bj) 🇧🇯, et j'ai la chance d'être encadré par le Dr. [Vinasétan Ratheil Houndji](https://ratheilh.github.io).
+Je suis étudiant en licence d'informatique à l'IFRI de l'Université d'Abomey-Calavi, au [Bénin](https://www.benin.bj) 🇧🇯, et je suis encadré par le Dr. [Vinasétan Ratheil Houndji](https://ratheilh.github.io).
 
 Je joue sur plusieurs terrains — visiblement, n'en choisir qu'un aurait été trop simple. Je m'intéresse principalement à la résolution de problèmes industriels de planification et d'ordonnancement à l'aide de l'**optimisation combinatoire** et du **machine learning**, ainsi qu'au **traitement automatique de la parole et des langues** à faibles ressources, en particulier le fon.
 
