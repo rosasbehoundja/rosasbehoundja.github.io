@@ -1,10 +1,8 @@
 ---
 title: Reading of the week #1
 date: 2026-08-23
-description: A selection of articles and resources on life, research, computer science, writing, and algorithmic bias.
+description: Articles and resources that caught my attention this week.
 ---
-
-A few readings that caught my attention this week:
 
 - [What Do You Want?](https://calvinrosser.com/what-do-you-want/) — Calvin Rosser
 - [18 Life-Learnings from 18 Years of The Marginalian](https://www.themarginalian.org/2024/10/22/marginalian-18/) — Maria Popova

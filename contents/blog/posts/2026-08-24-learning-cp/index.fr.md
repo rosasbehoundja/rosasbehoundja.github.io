@@ -12,7 +12,8 @@ Il paraît que tu souhaites apprendre la programmation par contraintes. :)
 
 > **TL;DR :** Cet article présente la programmation par contraintes et propose
 > une liste de ressources pour l'apprendre. Passe directement aux
-> [ressources](#ressources) si tu veux aller à l'essentiel.
+> [ressources](https://github.com/rosasbehoundja/learning-constraint-programming)
+> si tu veux aller à l'essentiel.
 
 ## Qu'est-ce qu'un problème combinatoire ?
 
@@ -82,52 +83,10 @@ contraintes et la recherche pour trouver une ou plusieurs solutions.
 La programmation par contraintes peut donc servir aussi bien à résoudre des
 problèmes de satisfaction de contraintes que des problèmes d'optimisation.
 
-Pour d'autres définitions, consulte
-[Gurobi](https://www.gurobi.com/resources/faq/constraint-programming)
-et [SINTEF](https://www.sintef.no/en/digital/departments/mathematics-and-cybernetics/optimization/expertize/combinatorial-optimisation/).
-
-<h2 id="ressources">Ressources</h2>
-
-Voici quelques-unes des meilleures ressources que j'ai trouvées pour apprendre
-la programmation par contraintes :
-
-- Outils et environnements de modélisation :
-  [MiniCP](https://www.minicp.org/),
-  [MaxiCP](https://github.com/aia-uclouvain/maxicp),
-  [MiniZinc](https://www.minizinc.org/),
-  [CPMpy](https://github.com/CPMpy/cpmpy),
-  [OR-Tools](https://github.com/google/or-tools) et
-  [OscaR/CP](https://github.com/pschaus/oscar).
-- Les variables de séquence en programmation par contraintes :
-  [vidéo](https://youtu.be/vVz9REklNfs?si=XlbkPtOt3EAJt8BX).
-- Les contraintes globales :
-  [Global Constraint Catalog](https://sofdem.github.io/gccat/) et
-  [Global Constraints in Constraint Programming](https://www.constraint-programming.com/people/regin/papers/globalCpaior.pdf).
-- Des problèmes pour s'entraîner :
-  [CSPLib](https://www.csplib.org/).
-- La chaîne officielle du MOOC MiniCP des professeurs Pascal Van Hentenryck et
-  Pierre Schaus :
-  [playlists YouTube](https://www.youtube.com/@minicp-mooc/playlists).
-- Les cours sur MiniCP du professeur Pierre Schaus :
-  [playlist YouTube](https://www.youtube.com/playlist?list=PLq6RpCDkJMyqUQ4NWjFg2AxtYBhFeGj0R).
-- *Handbook of Constraint Programming* (Foundations of Artificial Intelligence),
-  sous la direction de Francesca Rossi, Peter van Beek et Toby Walsh :
-  [livre](https://www.amazon.com/exec/obidos/ASIN/0444527265/acmorg-20).
-- Le [guide en ligne sur la programmation par contraintes](https://kti.mff.cuni.cz/~bartak/constraints/)
-  de Roman Barták.
-- *The CP-SAT Primer: Using and Understanding Google OR-Tools' CP-SAT Solver*
-  de Dominik Krupke :
-  [livre en ligne](https://d-krupke.github.io/cpsat-primer/intro.html).
-- *Principles of Constraint Programming* de Krzysztof R. Apt :
-  [aperçu du livre](https://books.google.bj/books/about/Principles_of_Constraint_Programming.html?hl=fr&id=1e7Ib04fZAcC&redir_esc=y)
-  — c'était mon cadeau pour mes 19 ans, haha.
-- *Modern Constraint Programming, For People Who Know SAT* de Ciaran McCreesh :
-  [vidéo](https://www.youtube.com/live/2mVMXOCSCKw?si=iTtFgpylsCu-dvyQ).
-- *Logic, Optimization, and Constraint Programming: A Fruitful Collaboration*
-  de John Hooker :
-  [vidéo](https://www.youtube.com/live/TknN8fCQvRk?si=N7PWrsUO8N20RKCj).
-
-J'essaierai de maintenir cette liste à jour.
+Consulte :
+  * [IBMDecisionOptimization](https://ibmdecisionoptimization.github.io/docplex-doc/cp.html)
+  * [Gurobi](https://www.gurobi.com/resources/faq/constraint-programming)
+  * [SINTEF](https://www.sintef.no/en/digital/departments/mathematics-and-cybernetics/optimization/expertize/combinatorial-optimisation/).
 
 ## Quand utiliser la programmation par contraintes — et quand l'éviter
 
