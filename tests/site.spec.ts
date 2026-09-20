@@ -81,16 +81,16 @@ test("home portrait sits beside the introduction and stacks on mobile", async ({
   await page.goto("/");
   const image = page.locator(".en-text .home-portrait");
   const frame = page.locator(".en-text .portrait-frame");
-  const intro = page.locator(".en-text .intro-copy");
+  const intro = page.locator(".en-text .profile-identity");
   await expect(image).toBeVisible();
   expect(await image.evaluate(element => (element as HTMLImageElement).naturalWidth)).toBeGreaterThan(0);
   const desktopImage = await frame.boundingBox();
   const desktopIntro = await intro.boundingBox();
-  expect(desktopImage!.x).toBeGreaterThan(desktopIntro!.x + desktopIntro!.width);
+  expect(desktopIntro!.x).toBeGreaterThan(desktopImage!.x + desktopImage!.width);
   await page.setViewportSize({ width: 320, height: 780 });
   const mobileImage = await frame.boundingBox();
   const mobileIntro = await intro.boundingBox();
-  expect(mobileImage!.y).toBeGreaterThan(mobileIntro!.y + mobileIntro!.height);
+  expect(mobileIntro!.y).toBeGreaterThan(mobileImage!.y + mobileImage!.height);
   expect(await page.evaluate(() => document.documentElement.scrollWidth <= window.innerWidth)).toBe(true);
 });
 

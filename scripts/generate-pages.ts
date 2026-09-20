@@ -2,6 +2,8 @@ import { mkdirSync, readFileSync, readdirSync, writeFileSync } from "node:fs";
 import { dirname, resolve } from "node:path";
 import { marked } from "marked";
 import sharp from "sharp";
+import { faEnvelope, faFileArrowDown } from "@fortawesome/free-solid-svg-icons";
+import { faGithub, faLinkedinIn } from "@fortawesome/free-brands-svg-icons";
 import { escape, localized, page } from "./templates.ts";
 import type { Language } from "./templates.ts";
 import { parseFrontmatter } from "../src/content.ts";
@@ -12,6 +14,13 @@ interface Post { slug: string; kind: Kind; fr: Document; en: Document }
 const root = process.cwd();
 const siteUrl = "https://rosasbehoundja.github.io";
 const imageDimensions = new Map<string, { width: number; height: number }>();
+const profileIcons = { mail: faEnvelope, resume: faFileArrowDown, github: faGithub, linkedin: faLinkedinIn };
+
+function profileIcon(name: keyof typeof profileIcons): string {
+  const [width, height, , , paths] = profileIcons[name].icon;
+  const pathElements = (Array.isArray(paths) ? paths : [paths]).map(path => `<path fill="currentColor" d="${path}"></path>`).join("");
+  return `<svg viewBox="0 0 ${width} ${height}" aria-hidden="true" focusable="false">${pathElements}</svg>`;
+}
 function imageFiles(directory: string): string[] {
   return readdirSync(directory, { withFileTypes: true }).flatMap(entry => {
     const path = resolve(directory, entry.name);
@@ -52,6 +61,7 @@ function imageAttributes(html: string): string {
 
 function markdown(body: string, post?: Post): string {
   let html = marked.parse(body, { async: false });
+  html = html.replace(/<span data-profile-icon="(mail|resume|github|linkedin)"><\/span>/g, (_, name: keyof typeof profileIcons) => profileIcon(name));
   if (post) html = html.replace(/((?:src|href)=["'])imgs\//g, `$1/contents/${post.kind}/posts/${post.slug}/imgs/`);
   html = html.replaceAll('../../content/', '/contents/').replaceAll('../../contents/', '/contents/').replaceAll('../../assets/', '/assets/')
     .replace(/(?:\.\.\/)?article\.html\?post=([a-z0-9-]+)/g, "/pages/news/articles/$1/")
