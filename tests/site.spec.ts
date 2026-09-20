@@ -76,16 +76,21 @@ test("navigation labels do not start with a slash", async ({ page }) => {
   await expect(page.locator(".nav-links")).toHaveText("homenewsworkblog");
 });
 
-test("inline name reveals the portrait preview when clicked", async ({ page }) => {
-  await page.setViewportSize({ width: 320, height: 780 });
+test("home portrait sits beside the introduction and stacks on mobile", async ({ page }) => {
+  await page.setViewportSize({ width: 1280, height: 900 });
   await page.goto("/");
-  await expect(page.locator(".profile-header")).toHaveCount(0);
-  const name = page.locator(".en-text .bio-name");
-  await name.click();
-  await expect(page.locator(".en-text .bio-photo-preview")).toBeVisible();
-  const image = page.locator(".en-text .bio-photo-preview img");
-  await expect(image).toHaveAttribute("alt", "GPT said I look like this");
-  expect(await image.evaluate(element => getComputedStyle(element).aspectRatio)).toBe("1013 / 760");
+  const image = page.locator(".en-text .home-portrait");
+  const frame = page.locator(".en-text .portrait-frame");
+  const intro = page.locator(".en-text .intro-copy");
+  await expect(image).toBeVisible();
+  expect(await image.evaluate(element => (element as HTMLImageElement).naturalWidth)).toBeGreaterThan(0);
+  const desktopImage = await frame.boundingBox();
+  const desktopIntro = await intro.boundingBox();
+  expect(desktopImage!.x).toBeGreaterThan(desktopIntro!.x + desktopIntro!.width);
+  await page.setViewportSize({ width: 320, height: 780 });
+  const mobileImage = await frame.boundingBox();
+  const mobileIntro = await intro.boundingBox();
+  expect(mobileImage!.y).toBeGreaterThan(mobileIntro!.y + mobileIntro!.height);
   expect(await page.evaluate(() => document.documentElement.scrollWidth <= window.innerWidth)).toBe(true);
 });
 

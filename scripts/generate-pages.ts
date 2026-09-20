@@ -105,15 +105,49 @@ for (const post of [...blogPosts, ...newsPosts]) {
   write(`${path}index.html`.slice(1), page({ title: `${title} — Rosas Behoundja`, description: en.meta.description || fr.meta.description || title, path, active: kind === "blog" ? "blog" : "news", article: true, date: en.meta.date, image, body }));
 }
 
-function newsEntries(raw: string): Array<{ date: string; body: string }> {
-  const matches = [...raw.matchAll(/^###[ \t]+(.+?)[ \t]*$/gm)];
-  return matches.map((match, i) => ({ date: match[1]!, body: raw.slice(match.index! + match[0].length, matches[i + 1]?.index ?? raw.length).trim() }));
+function newsEntries(raw: string, lang: Language): Array<{ date: string; year: string; month: string; body: string }> {
+  const months = Array.from({ length: 12 }, (_, index) => new Intl.DateTimeFormat(lang, { month: "long", timeZone: "UTC" }).format(new Date(Date.UTC(2026, index, 1))).toLowerCase());
+  const shortMonths = lang === "en"
+    ? ["jan.", "feb.", "mar.", "apr.", "may", "june", "july", "aug.", "sept.", "oct.", "nov.", "dec."]
+    : ["janv.", "févr.", "mars", "avr.", "mai", "juin", "juil.", "août", "sept.", "oct.", "nov.", "déc."];
+  const matches = [...raw.matchAll(/^(#{2,3})[ \t]+(.+?)[ \t]*$/gm)];
+  let year = "";
+  return matches.flatMap((match, i) => {
+    const heading = match[2]!;
+    if (match[1] === "##") {
+      if (!/^\d{4}$/.test(heading)) throw new Error(`Invalid news year: ${heading} (${lang})`);
+      year = heading;
+      return [];
+    }
+    const body = raw.slice(match.index! + match[0].length, matches[i + 1]?.index ?? raw.length).trim();
+    if (heading.toUpperCase() === "MORE") return [{ date: heading, year, month: "", body }];
+    const month = months.findIndex((name, index) => name === heading.toLowerCase() || shortMonths[index] === heading.toLowerCase());
+    if (!year || month === -1) throw new Error(`News entries need a ## year and a ### month name: ${heading} (${lang})`);
+    return [{ date: shortMonths[month]!, year, month: String(month + 1).padStart(2, "0"), body }];
+  });
 }
 
-const news = (["fr", "en"] as const).map(lang => `<div class="${lang}-text" lang="${lang}">${newsEntries(source("pages/news", lang)).map(entry => entry.date.toUpperCase() === "MORE" ? `<div class="markdown-body">${markdown(entry.body)}</div>` : `<div class="news-item"><span class="news-date">${escape(entry.date)}</span><div class="news-content markdown-body">${markdown(entry.body)}</div></div>`).join("")}</div>`).join("");
+const news = (["fr", "en"] as const).map(lang => {
+  const years = new Map<string, ReturnType<typeof newsEntries>>();
+  const more: string[] = [];
+  for (const entry of newsEntries(source("pages/news", lang), lang)) {
+    if (entry.date.toUpperCase() === "MORE") {
+      more.push(`<div class="markdown-body">${markdown(entry.body)}</div>`);
+      continue;
+    }
+    const year = entry.year;
+    if (!years.has(year)) years.set(year, []);
+    years.get(year)!.push(entry);
+  }
+  const groups = [...years.entries()].sort(([a], [b]) => Number(b) - Number(a)).map(([year, entries]) => {
+    const headingId = `news-${year}-${lang}`;
+    const items = entries.map(entry => `<li class="news-item"><time class="news-date" datetime="${year}-${entry.month}">${escape(entry.date)}</time><div class="news-content markdown-body">${markdown(entry.body)}</div></li>`).join("");
+    return `<section class="news-year" aria-labelledby="${headingId}"><h2 id="${headingId}">${year}</h2><ul class="news-year-items" role="list">${items}</ul></section>`;
+  }).join("");
+  return `<div class="${lang}-text" lang="${lang}">${groups}${more.join("")}</div>`;
+}).join("");
 
 write("index.html", page({ title: "Rosas Behoundja", description: "Rosas Behoundja's personal website: research, projects, and writing on combinatorial optimisation, machine learning, and responsible AI.", path: "/", active: "home", body: `
-  <h1 class="sr-only">Rosas Behoundja</h1>
   <section>${bilingual("pages/home")}</section>` }));
 
 write("pages/news/index.html", page({ title: "News — Rosas Behoundja", description: "Recent activities and milestones from Rosas Behoundja.", path: "/pages/news/", active: "news", body: `<div id="news-list">${news}</div>` }));

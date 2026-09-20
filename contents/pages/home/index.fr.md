@@ -1,14 +1,19 @@
-Salut, camarade humain :>
+<div class="home-intro">
+<div class="intro-copy">
 
-<p>Je suis <span class="bio-portrait"><button class="bio-name" type="button" aria-label="Rosas — afficher un aperçu de la photo">Rosas</button><span class="bio-photo-preview" role="tooltip"><img src="/assets/media/rosas.jpg" alt="GPT a dit que je ressemblais à ceci"></span></span>.</p>
+Salut, camarade humain :> Je suis Rosas.
 
 Je termine actuellement ma licence en informatique à l'Université d'Abomey-Calavi, au [Bénin](https://www.benin.bj/en) 🇧🇯, sous la supervision du Dr [Vinasétan Ratheil Houndji](https://ratheilh.github.io). J'obtiendrai mon diplôme bientôt.
 
 Mes recherches actuelles portent sur la modélisation de problèmes de planification et de routage à l'aide de techniques d'optimisation combinatoire. [MPVRP-CC](https://ifri-ai-classes.github.io/MPVRP-CC/) est mon principal sujet d'étude en ce moment.
 
+</div>
+<span class="portrait-frame"><img class="home-portrait" src="/assets/media/rosas.jpg" alt="Rosas au bord de l’eau" loading="eager" fetchpriority="high"></span>
+</div>
+
 Pendant mon temps libre, j'aime explorer tout ce qui éveille ma curiosité.
 
-Je suis du genre à envoyer des e-mails spontanés aux personnes dont je lis et admire le travail. Mais si vous souhaitez me contacter, n'hésitez pas à le faire. Je serai ravi de répondre à vos questions et d'échanger sur tout sujet avec lequel je me sens à l'aise. Vous pouvez me joindre à [perrierosas [at] gmail.com](mailto:perrierosas@gmail.com).
+Je suis du genre à envoyer des e-mails spontanés aux personnes dont je lis et admire le travail. Mais si vous souhaitez me contacter, n'hésitez pas à le faire. Je serai ravi de répondre à vos questions et d'échanger sur tout sujet avec lequel je me sens à l'aise. Vous pouvez me joindre à [perrierosas [at] gmail [dot] com](mailto:perrierosas@gmail.com).
 
 Ce qui m'aide à rester [sain d'esprit](https://dictionary.cambridge.org/dictionary/english/sane) :
 
