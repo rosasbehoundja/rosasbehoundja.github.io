@@ -19,7 +19,7 @@
 
 Hello, fellow human :>
 
-I'm completing my bachelor's in computer science at University of Abomey-Calavi, in [Benin](https://www.benin.bj/en) 🇧🇯, working under the supervision of Dr. [Vinasétan Ratheil Houndji](https://ratheilh.github.io). I'll graduate this fall.
+I'm completing my bachelor's degree in computer science at the University of Abomey-Calavi in [Benin](https://www.benin.bj/en) 🇧🇯, under the supervision of Dr. [Vinasétan Ratheil Houndji](https://ratheilh.github.io/). I'll graduate this fall.
 
 My current research involves modeling planning and routing problems with combinatorial optimization techniques. [MPVRP-CC](https://ifri-ai-classes.github.io/MPVRP-CC/) is my focus at the moment.
 

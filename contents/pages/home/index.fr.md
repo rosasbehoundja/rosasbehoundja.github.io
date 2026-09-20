@@ -19,7 +19,7 @@
 
 Salut, camarade humain :>
 
-Je termine actuellement ma licence en informatique à l'Université d'Abomey-Calavi, au [Bénin](https://www.benin.bj/en) 🇧🇯, sous la supervision du Dr [Vinasétan Ratheil Houndji](https://ratheilh.github.io). J'obtiendrai mon diplôme bientôt.
+Je termine actuellement ma licence en informatique à l’Université d’Abomey-Calavi, au [Bénin](https://www.benin.bj/en) 🇧🇯, sous la supervision du Dr [Vinasétan Ratheil Houndji](https://ratheilh.github.io/). J’obtiendrai mon diplôme bientôt.
 
 Mes recherches actuelles portent sur la modélisation de problèmes de planification et de routage à l'aide de techniques d'optimisation combinatoire. [MPVRP-CC](https://ifri-ai-classes.github.io/MPVRP-CC/) est mon principal sujet d'étude en ce moment.
 
