@@ -5,7 +5,7 @@ date_display: Juin 2026
 breadcrumb: Conclusion
 breadcrumb_parent_url: /pages/news/articles/2026-02-16-start-internship-lrsia/
 breadcrumb_parent: Stage de recherche LRSIA
-image: ../../assets/media/news/end-intership.gif
+image: ../../assets/media/imgs/news/end-intership.gif
 image_alt: End of internship celebration
 image_caption: Bilan de trois mois de recherche intensive
 ---

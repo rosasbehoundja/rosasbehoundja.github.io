@@ -3,7 +3,7 @@ title: World Backup Day 2026
 date: 2026-03-31
 date_display: March 31, 2026
 breadcrumb: World Backup Day 2026
-image: ../../assets/media/news/world-backup-day.jpeg
+image: ../../assets/media/imgs/news/world-backup-day.jpeg
 image_alt: World Backup Day
 image_caption: Molly Sanders, Pinterest (https://fr.pinterest.com/pin/187884615697058438/)
 ---
@@ -42,7 +42,7 @@ The golden rule remains the 3-2-1 method: 3 copies of your data, on 2 different 
 The interview was in french :(. Sorry for english readers.
 
 <audio controls>
-  <source src="../../assets/media/news/audios/interview.mp3" type="audio/mpeg">
+  <source src="../../assets/media/imgs/news/audios/interview.mp3" type="audio/mpeg">
 </audio>
 
 *It was quite a spontaneous interview, and I missed sharing a lot of things or framing some points perfectly. However, it was a real pleasure to share this with the listeners of Kiff FM!*

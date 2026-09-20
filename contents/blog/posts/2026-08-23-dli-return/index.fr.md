@@ -21,7 +21,7 @@ Entre l'immersion linguistique — parler anglais 24 h/24 pendant sept jours —
   <img src="../../contents/blog/posts/2026-08-23-dli-return/imgs/P7.jpeg" alt="Session posters au Deep Learning Indaba 2026">
 </div>
 
-Durant les sessions posters, j'ai eu à présenter mon poster sur le **[Multi-Product Vehicle Routing Problem with Change-over Costs](../../assets/media/science/DLI2026_X_MPVRP-CC.pdf)**.
+Durant les sessions posters, j'ai eu à présenter mon poster sur le **[Multi-Product Vehicle Routing Problem with Change-over Costs](../../assets/media/pdfs/DLI2026_X_MPVRP-CC.pdf)**.
 
 J'ai reçu la visite d'Amini, de Kriterion.ai et de bien d'autres personnes qui m'ont fait des retours très instructifs. Cela m'a permis d'affiner ma propre vision du projet et de voir certains aspects que je n'avais pas remarqués.
 

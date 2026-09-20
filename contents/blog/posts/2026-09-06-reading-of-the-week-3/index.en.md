@@ -2,7 +2,7 @@
 title: Reading of the week #3
 date: 2026-09-06
 description: Articles and resources that I found interesting this week.
-preview_image: ../../assets/media/rotw/3.jpg
+preview_image: ../../assets/media/imgs/rotw/3.jpg
 preview_image_alt: Reading of the week #3 preview
 ---
 

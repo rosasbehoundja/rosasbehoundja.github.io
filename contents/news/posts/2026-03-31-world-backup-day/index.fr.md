@@ -3,7 +3,7 @@ title: World Backup Day 2026
 date: 2026-03-31
 date_display: 31 mars 2026
 breadcrumb: World Backup Day 2026
-image: ../../assets/media/news/world-backup-day.jpeg
+image: ../../assets/media/imgs/news/world-backup-day.jpeg
 image_alt: World Backup Day
 image_caption: Molly Sanders, Pinterest (https://fr.pinterest.com/pin/187884615697058438/)
 ---
@@ -40,7 +40,7 @@ La règle d'or reste la méthode 3-2-1 : 3 copies de vos données, sur 2 support
 ## Extrait audio
 
 <audio controls>
-  <source src="../../assets/media/news/audios/interview.mp3" type="audio/mpeg">
+  <source src="../../assets/media/imgs/news/audios/interview.mp3" type="audio/mpeg">
 </audio>
 
 *Ce fut une interview assez spontanée et j'ai omis de dire beaucoup de choses ou de bien formuler certaines d'entre elles. Mais ce fut un réel plaisir de partager cela avec les auditeurs de Kiff FM !*

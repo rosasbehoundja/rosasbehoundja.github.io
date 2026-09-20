@@ -3,7 +3,7 @@ title: Stage de recherche au LRSIA
 date: 2026-02-16
 date_display: Février 2026
 breadcrumb: Stage de recherche LRSIA
-image: ../../assets/media/news/lrsia-sans-fond.png
+image: ../../assets/media/imgs/news/lrsia-sans-fond.png
 image_alt: LRSIA Laboratory Logo
 image_caption: Laboratoire de Recherche en Sciences Informatiques et Applications
 ---

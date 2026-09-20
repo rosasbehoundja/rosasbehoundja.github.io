@@ -10,7 +10,7 @@ I attended [Deep Learning Indaba 2026](/pages/blog/articles/2026-08-23-dli-retur
 
 ### 08/2026
 
-I presented poster [GP-141](https://deeplearningindaba.com/2026/posters-2026/) on the [MPVRP-CC](/assets/media/science/DLI2026_X_MPVRP-CC.pdf) at Deep Learning Indaba 2026.
+I presented poster [GP-141](https://deeplearningindaba.com/2026/posters-2026/) on the [MPVRP-CC](/assets/media/pdfs/DLI2026_X_MPVRP-CC.pdf) at Deep Learning Indaba 2026.
 
 ### 07/2026
 

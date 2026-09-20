@@ -2,7 +2,7 @@
 title: Reading of the week #1
 date: 2026-08-23
 description: Articles and resources that caught my attention this week.
-preview_image: ../../assets/media/rotw/1.jpg
+preview_image: ../../assets/media/imgs/rotw/1.jpg
 preview_image_alt: Reading of the week #1 preview
 ---
 

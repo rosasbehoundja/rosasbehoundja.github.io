@@ -10,7 +10,7 @@ Your content in classic **Markdown** here...
 Simple image:
 
 ```md
-![Alternative text](../../assets/media/news/photo.jpg)
+![Alternative text](../../assets/media/imgs/news/photo.jpg)
 ```
 
 For a captioned image, video, audio clip, or gallery, HTML can be placed directly in this file. Language markers are no longer needed: this file contains only the English version.

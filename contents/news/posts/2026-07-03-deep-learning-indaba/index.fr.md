@@ -6,7 +6,7 @@ breadcrumb: Deep Learning Indaba 2026
 ---
 
 <figure style="margin-top: 10px; margin-bottom: 30px;">
-  <img src="../../assets/media/news/indaba-logo.png" alt="Deep Learning Indaba Logo" style="max-width: 240px; margin: 0 auto; display: block; background: transparent;">
+  <img src="../../assets/media/imgs/news/indaba-logo.png" alt="Deep Learning Indaba Logo" style="max-width: 240px; margin: 0 auto; display: block; background: transparent;">
 </figure>
 
 J'ai été sélectionné pour participer au [**Deep Learning Indaba 2026**](https://deeplearningindaba.com/2026/) !
@@ -20,7 +20,7 @@ Cette année, la grande rencontre annuelle se tiendra du **02 au 07 août 2026**
 Le thème retenu, **Sovereign Intelligence** (*L'intelligence souveraine*), met l'accent sur la capacité de l'Afrique à concevoir, gérer et orienter ses propres systèmes et données face à l'avènement mondial de l'AGI (Intelligence Artificielle Générale).
 
 <figure>
-  <img src="../../assets/media/news/deep-learning-indaba.jpg" alt="Deep Learning Indaba Community">
+  <img src="../../assets/media/imgs/news/deep-learning-indaba.jpg" alt="Deep Learning Indaba Community">
   <figcaption>La communauté panafricaine de l'IA en action</figcaption>
 </figure>
 

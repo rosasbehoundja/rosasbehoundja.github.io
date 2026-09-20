@@ -1,6 +1,6 @@
 Hello, fellow human :>
 
-<p>I'm <span class="bio-portrait"><button class="bio-name" type="button" aria-label="Rosas — show photo preview">Rosas</button><span class="bio-photo-preview" role="tooltip"><img src="/assets/media/me/looklikeme.jpg" alt="GPT said I look like this"></span></span>.</p>
+<p>I'm <span class="bio-portrait"><button class="bio-name" type="button" aria-label="Rosas — show photo preview">Rosas</button><span class="bio-photo-preview" role="tooltip"><img src="/assets/media/rosas.jpg" alt="GPT said I look like this"></span></span>.</p>
 
 I'm completing my bachelor's in computer science at University of Abomey-Calavi, in [Benin](https://www.benin.bj/en) 🇧🇯, working under the supervision of Dr. [Vinasétan Ratheil Houndji](https://ratheilh.github.io). I'll graduate this fall.
 

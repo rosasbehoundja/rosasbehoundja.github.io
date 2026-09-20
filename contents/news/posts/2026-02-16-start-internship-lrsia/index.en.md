@@ -3,7 +3,7 @@ title: Research Internship at LRSIA Laboratory
 date: 2026-02-16
 date_display: February 2026
 breadcrumb: Research Internship LRSIA
-image: ../../assets/media/news/lrsia-sans-fond.png
+image: ../../assets/media/imgs/news/lrsia-sans-fond.png
 image_alt: LRSIA Laboratory Logo
 image_caption: Laboratory of Research in Computer Science and Applications
 ---

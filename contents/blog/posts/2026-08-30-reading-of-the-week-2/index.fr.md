@@ -2,7 +2,7 @@
 title: Reading of the week #2
 date: 2026-08-30
 description: Articles et ressources qui ont retenu mon attention cette semaine.
-preview_image: ../../assets/media/rotw/2.jpg
+preview_image: ../../assets/media/imgs/rotw/2.jpg
 preview_image_alt: Aperçu de Reading of the week #2
 ---
 

@@ -10,7 +10,7 @@ J'ai participé au [Deep Learning Indaba 2026](/pages/blog/articles/2026-08-23-d
 
 ### 08/2026
 
-J'ai présenté le poster [GP-141](https://deeplearningindaba.com/2026/posters-2026/) sur le [MPVRP-CC](/assets/media/science/DLI2026_X_MPVRP-CC.pdf) au Deep Learning Indaba 2026.
+J'ai présenté le poster [GP-141](https://deeplearningindaba.com/2026/posters-2026/) sur le [MPVRP-CC](/assets/media/pdfs/DLI2026_X_MPVRP-CC.pdf) au Deep Learning Indaba 2026.
 
 ### 07/2026
 

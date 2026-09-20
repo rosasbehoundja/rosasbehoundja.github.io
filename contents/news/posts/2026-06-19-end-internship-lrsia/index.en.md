@@ -5,7 +5,7 @@ date_display: June 2026
 breadcrumb: Conclusion
 breadcrumb_parent_url: /pages/news/articles/2026-02-16-start-internship-lrsia/
 breadcrumb_parent: Research Internship LRSIA
-image: ../../assets/media/news/end-intership.gif
+image: ../../assets/media/imgs/news/end-intership.gif
 image_alt: End of internship celebration
 image_caption: Review of three months of intensive research
 ---

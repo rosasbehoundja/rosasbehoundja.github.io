@@ -2,7 +2,7 @@
 title: Reading of the week #4
 date: 2026-09-13
 description: Articles and resources that I found interesting this week.
-preview_image: ../../assets/media/rotw/4.jpg
+preview_image: ../../assets/media/imgs/rotw/4.jpg
 preview_image_alt: Reading of the week #4 preview
 ---
 

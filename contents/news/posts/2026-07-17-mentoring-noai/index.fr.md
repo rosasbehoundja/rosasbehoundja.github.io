@@ -5,7 +5,7 @@ date_display: Juillet 2026
 breadcrumb: NOAI Bénin 2026
 ---
 
-![NOAI Benin](../../assets/media/news/noai/noai_1.jpg)
+![NOAI Benin](../../assets/media/imgs/news/noai/noai_1.jpg)
 [NOAI Benin](https://www.gouv.bj/article/3565/le-benin-lance-olympiades-nationales-intelligence-arti%EF%AC%81cielle-selectionner-talents-representeront-pays-kazakhstan/)
 
 Le **National Olympiad in AI (NOAI)** est une compétition académique nationale destinée aux lycéens pour tester et développer leurs compétences en intelligence artificielle, notamment en programmation Python et en apprentissage automatique. Elle vise à repérer les jeunes talents scientifiques et à démocratiser la maîtrise des technologies de l'IA dès le secondaire. Enfin, cette olympiade sert de phase de sélection officielle pour composer l'équipe qui représentera le pays lors de la compétition mondiale (IOAI). 
@@ -29,8 +29,8 @@ Rosas.
 ## Galerie Photo:
 
 <div class="gallery">
-  <img src="../../assets/media/news/noai/noai_2.jpg" alt="Photo de famille">
-  <img src="../../assets/media/news/noai/noai_3.jpg" alt="Obed et moi">
-  <img src="../../assets/media/news/noai/noai_4.jpeg" alt="Moi qui explique">
-  <img src="../../assets/media/news/noai/noai_5.jpeg" alt="La classe en réflexion">
+  <img src="../../assets/media/imgs/news/noai/noai_2.jpg" alt="Photo de famille">
+  <img src="../../assets/media/imgs/news/noai/noai_3.jpg" alt="Obed et moi">
+  <img src="../../assets/media/imgs/news/noai/noai_4.jpeg" alt="Moi qui explique">
+  <img src="../../assets/media/imgs/news/noai/noai_5.jpeg" alt="La classe en réflexion">
 </div>

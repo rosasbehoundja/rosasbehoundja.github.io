@@ -2,7 +2,7 @@
 title: Reading of the week #2
 date: 2026-08-30
 description: Articles and resources that caught my attention this week.
-preview_image: ../../assets/media/rotw/2.jpg
+preview_image: ../../assets/media/imgs/rotw/2.jpg
 preview_image_alt: Reading of the week #2 preview
 ---
 
