@@ -167,7 +167,11 @@ write("pages/work.html", page({ title: "Work — Rosas Behoundja", description: 
 const blog = (["fr", "en"] as const).map(lang => `<div class="${lang}-text" lang="${lang}">${blogPosts.map(post => {
   const meta = post[lang].meta;
   const date = new Intl.DateTimeFormat(lang === "fr" ? "fr-FR" : "en-GB", { year: "numeric", month: "short", day: "2-digit", timeZone: "UTC" }).format(new Date(meta.date!));
-  return `<article class="blog-entry"><time class="blog-date" datetime="${meta.date}">${escape(date)}</time><h2 class="blog-title"><a href="/pages/blog/articles/${post.slug}/">${escape(meta.title)}</a>${meta.status === "draft" ? `<span class="blog-draft">${lang === "fr" ? "brouillon" : "draft"}</span>` : ""}</h2></article>`;
+  const other = lang === "en" ? post.fr.meta : post.en.meta;
+  const previewPath = meta.preview_image || other.preview_image || meta.image || other.image || markdown(post[lang].body, post).match(/<img\b[^>]*src="([^"]+)"[^>]*>/)?.[1] || "/assets/media/preview.jpg";
+  const previewAlt = meta.preview_image_alt || other.preview_image_alt || meta.image_alt || other.image_alt || meta.title!;
+  const previewUrl = imageUrl(previewPath, post).replace(siteUrl, "");
+  return `<article class="blog-entry"><a class="blog-thumb" href="/pages/blog/articles/${post.slug}/"><img src="${escape(previewUrl)}" alt="${escape(previewAlt)}" loading="lazy"></a><div class="blog-entry-content"><time class="blog-date" datetime="${meta.date}">${escape(date)}</time><h2 class="blog-title"><a href="/pages/blog/articles/${post.slug}/">${escape(meta.title)}</a>${meta.status === "draft" ? `<span class="blog-draft">${lang === "fr" ? "brouillon" : "draft"}</span>` : ""}</h2></div></article>`;
 }).join("")}</div>`).join("");
 write("pages/blog.html", page({ title: "Blog — Rosas Behoundja", description: "Articles by Rosas Behoundja on combinatorial optimisation, constraint programming, machine learning, research, and life.", path: "/pages/blog.html", active: "blog", body: `<h1 class="sr-only">Blog</h1><div id="blog-list">${blog}</div>` }));
 
