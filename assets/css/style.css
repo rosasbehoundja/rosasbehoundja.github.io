@@ -92,8 +92,15 @@ audio, video { width: 100%; max-width: 100%; }
 .blog-draft, .blog-post-status { display: inline-block; font: 0.7rem/1.5 var(--font-mono); color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.04em; }
 .blog-draft { margin-left: 0.6rem; }
 .blog-post-status { margin-bottom: 0.5rem; }
-#view-work .markdown-body h2 { padding-top: 1.75rem; border-top: 1px solid var(--border-color); }
-#view-work .markdown-body > h2:first-child { padding-top: 0; border-top: 0; }
+.resume-header { display: flex; align-items: center; justify-content: space-between; gap: 1.5rem; margin-bottom: 1.25rem; }
+.resume-header h1 { margin-bottom: 0.4rem; }
+.resume-header p { margin-bottom: 0; color: var(--text-muted); }
+.resume-download { display: inline-flex; align-items: center; justify-content: center; gap: 0.55rem; flex: none; min-height: 44px; padding: 0.55rem 0.9rem; border-radius: 999px; background: var(--accent-color); color: #fff; font: 600 0.85rem/1.4 var(--font-body); text-align: center; }
+.resume-download:hover { background: var(--accent-hover); color: #fff; }
+.resume-download svg { width: 1rem; height: 1rem; }
+.resume-viewer { display: block; width: 100%; height: min(75vh, 900px); min-height: 560px; border: 1px solid var(--border-color); border-radius: 0.5rem; background: var(--surface-subtle); }
+.resume-fallback { margin-top: 0.7rem; color: var(--text-muted); font-size: 0.85rem; }
+.resume-fallback a { text-decoration: underline; text-underline-offset: 0.15em; }
 .article-figure { max-width: 550px; margin: 2rem auto; }
 .article-figure img { width: 100%; height: auto; border-radius: 0.5rem; }
 pre { max-width: 100%; overflow-x: auto; border: 1px solid var(--border-color); border-radius: 0.5rem; padding: 1rem; margin: 1.5rem 0; background: var(--surface-subtle); line-height: 1.6; }
@@ -131,6 +138,8 @@ hr { border: 0; border-top: 1px solid var(--border-color); margin: 2.5rem 0; }
   .news-item { grid-template-columns: minmax(0, 1fr); gap: 0.1rem; padding: 0.4rem 0; }
   .gallery { grid-template-columns: minmax(0, 1fr); }
   .gallery img { height: auto; }
+  .resume-header { align-items: flex-start; flex-direction: column; }
+  .resume-viewer { height: 70vh; min-height: 450px; }
 }
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after { animation: none !important; transition: none !important; scroll-behavior: auto !important; }

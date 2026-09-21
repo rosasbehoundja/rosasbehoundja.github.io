@@ -58,7 +58,7 @@ test("all pages retain their main content and navigation without JavaScript", as
     await expect(page.locator('nav a[href="/pages/work.html"]')).toBeVisible();
     await expect(page.locator("#langBtn")).toBeHidden();
     if (route === "/") {
-      await expect(page.locator("main")).toContainText("bachelor's in computer science");
+      await expect(page.locator("main")).toContainText("bachelor's degree in computer science");
       await expect(page.locator("#news, #beyond, .section-title")).toHaveCount(0);
     }
     if (route === "/pages/news/") {
@@ -66,7 +66,11 @@ test("all pages retain their main content and navigation without JavaScript", as
       await expect(page.locator("main")).toContainText("first public talk");
     }
     if (route === "/pages/blog.html") await expect(page.locator(".en-text .blog-entry")).toHaveCount(routes.filter(path => path.startsWith("/pages/blog/articles/")).length);
-    if (route === "/pages/work.html") await expect(page.locator("main")).toContainText("Research Intern");
+    if (route === "/pages/work.html") {
+      await expect(page.getByRole("heading", { name: "My résumé" })).toBeVisible();
+      await expect(page.locator(".resume-viewer")).toHaveAttribute("src", "/assets/cv/Rosas_Behoundja_Resume.pdf");
+      await expect(page.getByRole("link", { name: "Download résumé" })).toHaveAttribute("download", "Rosas_Behoundja_Resume.pdf");
+    }
   }
   await context.close();
 });

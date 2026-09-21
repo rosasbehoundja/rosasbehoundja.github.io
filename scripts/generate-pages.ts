@@ -162,7 +162,24 @@ write("index.html", page({ title: "Rosas Behoundja", description: "Rosas Behound
 
 write("pages/news/index.html", page({ title: "News — Rosas Behoundja", description: "Recent activities and milestones from Rosas Behoundja.", path: "/pages/news/", active: "news", body: `<div id="news-list">${news}</div>` }));
 
-write("pages/work.html", page({ title: "Work — Rosas Behoundja", description: "Research, projects, and writing on combinatorial optimisation, machine learning, and responsible AI.", path: "/pages/work.html", active: "work", body: `<h1 class="sr-only">${localized("Travaux", "Work")}</h1><section id="view-work">${bilingual("pages/work").replace(/<h3>/g, "<h2>").replace(/<\/h3>/g, "</h2>")}</section>` }));
+const resumeUrl = "/assets/cv/Rosas_Behoundja_Resume.pdf";
+write("pages/work.html", page({
+  title: "Résumé — Rosas Behoundja",
+  description: "View and download Rosas Behoundja's résumé.",
+  path: "/pages/work.html",
+  active: "work",
+  body: `<section id="view-work" aria-labelledby="resume-title">
+    <header class="resume-header">
+      <div>
+        <h1 id="resume-title">${localized("Mon CV", "My résumé")}</h1>
+        <p>${localized("Consultez mon CV ci-dessous ou téléchargez-le au format PDF.", "View my résumé below or download the PDF.")}</p>
+      </div>
+      <a class="resume-download" href="${resumeUrl}" download="Rosas_Behoundja_Resume.pdf">${profileIcon("resume")}${localized("Télécharger le CV", "Download résumé")}</a>
+    </header>
+    <iframe class="resume-viewer" src="${resumeUrl}" title="Rosas Behoundja résumé PDF" loading="lazy"></iframe>
+    <p class="resume-fallback">${localized(`Si le document ne s'affiche pas, <a href="${resumeUrl}">ouvrez le PDF</a>.`, `If the document does not appear, <a href="${resumeUrl}">open the PDF</a>.`)}</p>
+  </section>`,
+}));
 
 const blog = (["fr", "en"] as const).map(lang => `<div class="${lang}-text" lang="${lang}">${blogPosts.map(post => {
   const meta = post[lang].meta;
