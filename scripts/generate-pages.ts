@@ -171,10 +171,8 @@ write("pages/work.html", page({
   body: `<section id="view-work" aria-labelledby="resume-title">
     <header class="resume-header">
       <div>
-        <h1 id="resume-title">${localized("Mon CV", "My résumé")}</h1>
         <p>${localized("Consultez mon CV ci-dessous ou téléchargez-le au format PDF.", "View my résumé below or download the PDF.")}</p>
       </div>
-      <a class="resume-download" href="${resumeUrl}" download="Rosas_Behoundja_Resume.pdf">${profileIcon("resume")}${localized("Télécharger le CV", "Download résumé")}</a>
     </header>
     <iframe class="resume-viewer" src="${resumeUrl}" title="Rosas Behoundja résumé PDF" loading="lazy"></iframe>
     <p class="resume-fallback">${localized(`Si le document ne s'affiche pas, <a href="${resumeUrl}">ouvrez le PDF</a>.`, `If the document does not appear, <a href="${resumeUrl}">open the PDF</a>.`)}</p>
