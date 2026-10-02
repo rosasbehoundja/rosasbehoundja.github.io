@@ -5,13 +5,6 @@
 
 # Rosas Behoundja
 
-<div class="profile-links" aria-label="Liens du profil">
-  <a class="profile-link-email" href="mailto:perrierosas@gmail.com" aria-label="Écrire à Rosas" title="E-mail"><span data-profile-icon="mail"></span></a>
-  <a class="profile-link-github" href="https://github.com/rosasbehoundja" aria-label="Rosas sur GitHub" title="GitHub"><span data-profile-icon="github"></span></a>
-  <a class="profile-link-linkedin" href="https://linkedin.com/in/rosasbehoundja" aria-label="Rosas sur LinkedIn" title="LinkedIn"><span data-profile-icon="linkedin"></span></a>
-  <a class="profile-link-resume" href="/assets/cv/Rosas_Behoundja_Resume.pdf" aria-label="Télécharger le CV" title="CV"><span data-profile-icon="resume"></span><span>CV</span></a>
-</div>
-
   </div>
 </header>
 

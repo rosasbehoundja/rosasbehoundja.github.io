@@ -55,10 +55,11 @@ test("all pages retain their main content and navigation without JavaScript", as
   for (const route of routes) {
     await page.goto(`http://127.0.0.1:4173${route}`);
     await expect(page.locator("main")).not.toBeEmpty();
-    await expect(page.locator('nav a[href="/pages/work.html"]')).toBeVisible();
+    await expect(page.locator('nav .nav-cv')).toHaveAttribute("href", "https://drive.google.com/file/d/1PuwNCgRNbc0qbkmHqzXKQxSUImPmjPZB/view?usp=sharing");
+    await expect(page.locator(".nav-social a")).toHaveCount(3);
     await expect(page.locator("#langBtn")).toBeHidden();
     if (route === "/") {
-      await expect(page.locator("main")).toContainText("bachelor's degree in computer science");
+      await expect(page.locator("main")).toContainText("final-year Computer Science student");
       await expect(page.locator("#news, #beyond, .section-title")).toHaveCount(0);
     }
     if (route === "/pages/news/") {
@@ -66,18 +67,13 @@ test("all pages retain their main content and navigation without JavaScript", as
       await expect(page.locator("main")).toContainText("first public talk");
     }
     if (route === "/pages/blog.html") await expect(page.locator(".en-text .blog-entry")).toHaveCount(routes.filter(path => path.startsWith("/pages/blog/articles/")).length);
-    if (route === "/pages/work.html") {
-      await expect(page.getByRole("heading", { name: "My résumé" })).toBeVisible();
-      await expect(page.locator(".resume-viewer")).toHaveAttribute("src", "/assets/cv/Rosas_Behoundja_Resume.pdf");
-      await expect(page.getByRole("link", { name: "Download résumé" })).toHaveAttribute("download", "Rosas_Behoundja_Resume.pdf");
-    }
   }
   await context.close();
 });
 
 test("navigation labels do not start with a slash", async ({ page }) => {
   await page.goto("/");
-  await expect(page.locator(".nav-links")).toHaveText("homenewsworkblog");
+  await expect(page.locator(".nav-links")).toHaveText("homenewsblog");
 });
 
 test("home portrait sits beside the introduction and stacks on mobile", async ({ page }) => {
@@ -148,7 +144,7 @@ test("article return link sits above the title and not in the footer", async ({ 
 test("layouts fit narrow and wide screens in both languages", async ({ page }) => {
   for (const width of [320, 390, 820, 1440]) {
     await page.setViewportSize({ width, height: 900 });
-    for (const route of ["/", "/pages/news/", "/pages/work.html", "/pages/blog.html", codeArticle, "/pages/blog/articles/2026-08-23-dli-return/"]) {
+    for (const route of ["/", "/pages/news/", "/pages/blog.html", codeArticle, "/pages/blog/articles/2026-08-23-dli-return/"]) {
       await page.goto(route);
       await page.evaluate(() => document.fonts.ready);
       for (let language = 0; language < 2; language++) {

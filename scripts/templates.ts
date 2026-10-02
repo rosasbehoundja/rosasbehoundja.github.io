@@ -1,5 +1,13 @@
 export type Language = "fr" | "en";
-export type Section = "home" | "news" | "work" | "blog";
+import { faEnvelope } from "@fortawesome/free-solid-svg-icons";
+import { faGithub, faLinkedinIn } from "@fortawesome/free-brands-svg-icons";
+
+export type Section = "home" | "news" | "blog";
+
+function icon(icon: typeof faEnvelope): string {
+  const [width, height, , , paths] = icon.icon;
+  return `<svg viewBox="0 0 ${width} ${height}" aria-hidden="true" focusable="false">${(Array.isArray(paths) ? paths : [paths]).map(path => `<path fill="currentColor" d="${path}"></path>`).join("")}</svg>`;
+}
 
 export function escape(value = ""): string {
   return value.replace(/[&<>'"]/g, character => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", "'": "&#39;", '"': "&quot;" })[character]!);
@@ -12,8 +20,14 @@ export function localized(fr: string, en: string): string {
 export function navigation(active: Section): string {
   return `<a class="skip-link" href="#main">${localized("Aller au contenu", "Skip to content")}</a>
   <nav class="site-nav" aria-label="Main">
-    <div class="nav-links">${(["home", "news", "work", "blog"] as const).map(section => `<a href="${section === "home" ? "/" : section === "news" ? "/pages/news/" : `/pages/${section}.html`}"${section === active ? ' aria-current="page"' : ""}>${section}</a>`).join("")}</div>
-    <button class="lang-switch" id="langBtn" type="button" hidden aria-label="Passer en français">FR</button>
+    <div class="nav-social" aria-label="Social links">
+      <a href="mailto:perrierosas@gmail.com" aria-label="Email Rosas" title="Email">${icon(faEnvelope)}</a>
+      <a href="https://github.com/rosasbehoundja" aria-label="Rosas on GitHub" title="GitHub">${icon(faGithub)}</a>
+      <a href="https://www.linkedin.com/in/rosasbehoundja/" aria-label="Rosas on LinkedIn" title="LinkedIn">${icon(faLinkedinIn)}</a>
+    </div>
+    <div class="nav-right"><div class="nav-links">${(["home", "news", "blog"] as const).map(section => `<a href="${section === "home" ? "/" : section === "news" ? "/pages/news/" : `/pages/${section}.html`}"${section === active ? ' aria-current="page"' : ""}>${section}</a>`).join("")}</div>
+    <a class="nav-cv" href="https://drive.google.com/file/d/1PuwNCgRNbc0qbkmHqzXKQxSUImPmjPZB/view?usp=sharing">CV</a>
+    <button class="lang-switch" id="langBtn" type="button" hidden aria-label="Passer en français">FR</button></div>
   </nav>`;
 }
 

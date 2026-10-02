@@ -6,9 +6,8 @@ breadcrumb: NOAI Bénin 2026
 ---
 
 ![NOAI Benin](../../assets/media/imgs/news/noai/noai_1.jpg)
-[NOAI Benin](https://www.gouv.bj/article/3565/le-benin-lance-olympiades-nationales-intelligence-arti%EF%AC%81cielle-selectionner-talents-representeront-pays-kazakhstan/)
 
-Le **National Olympiad in AI (NOAI)** est une compétition académique nationale destinée aux lycéens pour tester et développer leurs compétences en intelligence artificielle, notamment en programmation Python et en apprentissage automatique. Elle vise à repérer les jeunes talents scientifiques et à démocratiser la maîtrise des technologies de l'IA dès le secondaire. Enfin, cette olympiade sert de phase de sélection officielle pour composer l'équipe qui représentera le pays lors de la compétition mondiale (IOAI). 
+The The **National Olympiad in AI ([NOAI](https://www.gouv.bj/article/3565/le-benin-lance-olympiades-nationales-intelligence-arti%EF%AC%81cielle-selectionner-talents-representeront-pays-kazakhstan/))**  est une compétition académique nationale destinée aux lycéens pour tester et développer leurs compétences en intelligence artificielle, notamment en programmation Python et en apprentissage automatique. Elle vise à repérer les jeunes talents scientifiques et à démocratiser la maîtrise des technologies de l'IA dès le secondaire. Enfin, cette olympiade sert de phase de sélection officielle pour composer l'équipe qui représentera le pays lors de la compétition mondiale (IOAI). 
 Source : https://ioai-official.org/noai/
 
 En 2025, mon pays le Bénin 🇧🇯 a participé à la deuxième édition des Olympiades Internationales de l'Intelligence Artificielle ([OIAI](https://semecity.bj/ioai-2025-les-jeunes-talents-beninois-prets-a-representer-le-pays-en-chine/))à Beijing en Chine. Heureux de cette expérience et armés de la volonté d'"**investir dans les talents qui construiront l'avenir numérique de demain**", il s'est donné pour objectif de repartir cette année à Astana au Kazakhstan, pour la troisième édition.

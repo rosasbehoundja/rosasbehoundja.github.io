@@ -2,8 +2,6 @@ import { mkdirSync, readFileSync, readdirSync, writeFileSync } from "node:fs";
 import { dirname, resolve } from "node:path";
 import { marked } from "marked";
 import sharp from "sharp";
-import { faEnvelope, faFileArrowDown } from "@fortawesome/free-solid-svg-icons";
-import { faGithub, faLinkedinIn } from "@fortawesome/free-brands-svg-icons";
 import { escape, localized, page } from "./templates.ts";
 import type { Language } from "./templates.ts";
 import { parseFrontmatter } from "../src/content.ts";
@@ -14,13 +12,6 @@ interface Post { slug: string; kind: Kind; fr: Document; en: Document }
 const root = process.cwd();
 const siteUrl = "https://rosasbehoundja.github.io";
 const imageDimensions = new Map<string, { width: number; height: number }>();
-const profileIcons = { mail: faEnvelope, resume: faFileArrowDown, github: faGithub, linkedin: faLinkedinIn };
-
-function profileIcon(name: keyof typeof profileIcons): string {
-  const [width, height, , , paths] = profileIcons[name].icon;
-  const pathElements = (Array.isArray(paths) ? paths : [paths]).map(path => `<path fill="currentColor" d="${path}"></path>`).join("");
-  return `<svg viewBox="0 0 ${width} ${height}" aria-hidden="true" focusable="false">${pathElements}</svg>`;
-}
 function imageFiles(directory: string): string[] {
   return readdirSync(directory, { withFileTypes: true }).flatMap(entry => {
     const path = resolve(directory, entry.name);
@@ -61,7 +52,6 @@ function imageAttributes(html: string): string {
 
 function markdown(body: string, post?: Post): string {
   let html = marked.parse(body, { async: false });
-  html = html.replace(/<span data-profile-icon="(mail|resume|github|linkedin)"><\/span>/g, (_, name: keyof typeof profileIcons) => profileIcon(name));
   if (post) html = html.replace(/((?:src|href)=["'])imgs\//g, `$1/contents/${post.kind}/posts/${post.slug}/imgs/`);
   html = html.replaceAll('../../content/', '/contents/').replaceAll('../../contents/', '/contents/').replaceAll('../../assets/', '/assets/')
     .replace(/(?:\.\.\/)?article\.html\?post=([a-z0-9-]+)/g, "/pages/news/articles/$1/")
@@ -162,22 +152,8 @@ write("index.html", page({ title: "Rosas Behoundja", description: "Rosas Behound
 
 write("pages/news/index.html", page({ title: "News — Rosas Behoundja", description: "Recent activities and milestones from Rosas Behoundja.", path: "/pages/news/", active: "news", body: `<div id="news-list">${news}</div>` }));
 
-const resumeUrl = "/assets/cv/Rosas_Behoundja_Resume.pdf";
-write("pages/work.html", page({
-  title: "Résumé — Rosas Behoundja",
-  description: "View and download Rosas Behoundja's résumé.",
-  path: "/pages/work.html",
-  active: "work",
-  body: `<section id="view-work" aria-labelledby="resume-title">
-    <header class="resume-header">
-      <div>
-        <p>${localized("Consultez mon CV ci-dessous ou téléchargez-le au format PDF.", "View my résumé below or download the PDF.")}</p>
-      </div>
-    </header>
-    <iframe class="resume-viewer" src="${resumeUrl}" title="Rosas Behoundja résumé PDF" loading="lazy"></iframe>
-    <p class="resume-fallback">${localized(`Si le document ne s'affiche pas, <a href="${resumeUrl}">ouvrez le PDF</a>.`, `If the document does not appear, <a href="${resumeUrl}">open the PDF</a>.`)}</p>
-  </section>`,
-}));
+const resumeUrl = "https://drive.google.com/file/d/1PuwNCgRNbc0qbkmHqzXKQxSUImPmjPZB/view?usp=sharing";
+write("pages/work.html", `<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><meta name="robots" content="noindex"><meta http-equiv="refresh" content="0;url=${resumeUrl}"><title>CV — Rosas Behoundja</title></head><body><p><a href="${resumeUrl}">View my CV</a></p></body></html>`);
 
 const blog = (["fr", "en"] as const).map(lang => `<div class="${lang}-text" lang="${lang}">${blogPosts.map(post => {
   const meta = post[lang].meta;
@@ -197,6 +173,6 @@ for (const kind of ["blog", "news"] as const) {
 }
 write("pages/theme.html", page({ title: "Theme — Rosas Behoundja", description: "Articles by Rosas Behoundja on combinatorial optimisation, constraint programming, machine learning, research, and life.", path: "/pages/theme.html", active: "blog", body: `<h1>${localized("Thématiques", "Themes")}</h1><p><a href="/pages/blog.html">← ${localized("Retour au blog", "Back to blog")}</a></p>` }));
 
-const urls = ["/", "/pages/work.html", "/pages/blog.html", "/pages/news/", ...[...blogPosts, ...newsPosts].map(post => `/pages/${post.kind}/articles/${post.slug}/`)];
+const urls = ["/", "/pages/blog.html", "/pages/news/", ...[...blogPosts, ...newsPosts].map(post => `/pages/${post.kind}/articles/${post.slug}/`)];
 write("sitemap.xml", `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n${urls.map(path => `  <url><loc>${siteUrl}${path}</loc></url>`).join("\n")}\n</urlset>\n`);
 console.log(`Generated all pages: ${blogPosts.length} blog posts, ${newsPosts.length} news articles.`);
