@@ -1,9 +1,9 @@
 ---
-title: Reading of the week #4
+title: Lectures de la semaine n° 4
 date: 2026-09-13
 description: Articles et ressources que j'ai trouvées intéressantes cette semaine.
 preview_image: ../../assets/media/imgs/rotw/4.jpg
-preview_image_alt: Aperçu de Reading of the week #4
+preview_image_alt: Couverture illustrée de la liste de lectures de la semaine n° 4
 ---
 
 Chère personne qui consulte mon blog une fois par semaine,

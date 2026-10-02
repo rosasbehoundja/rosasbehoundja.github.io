@@ -1,9 +1,9 @@
 ---
-title: Reading of the week #5
+title: Lectures de la semaine n° 5
 date: 2026-09-20
 description: Articles et ressources que j'ai trouvées intéressantes cette semaine.
 preview_image: ../../assets/media/imgs/rotw/5.jpg
-preview_image_alt: Aperçu de Reading of the week #5
+preview_image_alt: Couverture illustrée de la liste de lectures de la semaine n° 5
 ---
 
 **Cher lecteur du dimanche,**

@@ -9,7 +9,7 @@ I am a final-year Computer Science student at the University of Abomey-Calavi in
 I am fortunate to be advised by Dr. [Vinasétan Ratheil Houndji](https://ratheilh.github.io/) for my undergraduate research. I also work as a Research Engineer at [Ai4Innov Technologies](https://www.ai4innov.com/) under the guidance of Dr. [Gilles Hacheme](https://www.gilleshacheme.com/), where I work on geospatial AI. Before that, I worked with Dr. [Jeremiah Olamijuwon](https://www.researchgate.net/profile/Jeremiah-Olamijuwon) on NLP for insurance companies at [eTihuku](https://www.etihuku.com/).
 
   </div>
-  <span class="portrait-frame"><img class="home-portrait" src="/assets/media/rosas.jpg" alt="Rosas outdoors by the water" loading="eager" fetchpriority="high"></span>
+  <span class="portrait-frame"><img class="home-portrait" src="/assets/media/rosas.jpg" alt="Rosas at Deep Learning Indaba" loading="eager" fetchpriority="high"></span>
 </header>
 
 <div class="home-body">

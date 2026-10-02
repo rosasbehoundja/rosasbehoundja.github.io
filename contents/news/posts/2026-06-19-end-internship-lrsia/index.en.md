@@ -1,16 +1,16 @@
 ---
 title: Concluding my Research Internship at LRSIA
-date: 2026-06-19
-date_display: June 2026
+date: 2026-08-15
+date_display: August 15, 2026
 breadcrumb: Conclusion
 breadcrumb_parent_url: /pages/news/articles/2026-02-16-start-internship-lrsia/
 breadcrumb_parent: Research Internship LRSIA
 image: ../../assets/media/imgs/news/end-intership.gif
 image_alt: End of internship celebration
-image_caption: Review of three months of intensive research
+image_caption: Review of six months of intensive research
 ---
 
-Previously (see the [Opening Post](/pages/news/articles/2026-02-16-start-internship-lrsia/)), I announced the launch of my research journey at the LRSIA laboratory. Three months have flown by, and it is time to look back at the results.
+Previously (see the [Opening Post](/pages/news/articles/2026-02-16-start-internship-lrsia/)), I announced the launch of my research journey at the LRSIA laboratory. Six months have flown by, and it is time to look back at the results.
 
 Under the guidance of Dr. Ratheil Houndji, the laboratory's PhD candidates, the IFRI cooperation team, and alongside my fellow interns, I had the privilege to work in an inspiring, supportive, and highly constructive environment.
 

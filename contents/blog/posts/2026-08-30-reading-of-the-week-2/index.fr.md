@@ -1,9 +1,9 @@
 ---
-title: Reading of the week #2
+title: Lectures de la semaine n° 2
 date: 2026-08-30
 description: Articles et ressources qui ont retenu mon attention cette semaine.
 preview_image: ../../assets/media/imgs/rotw/2.jpg
-preview_image_alt: Aperçu de Reading of the week #2
+preview_image_alt: Couverture illustrée de la liste de lectures de la semaine n° 2
 ---
 
 Cette semaine, je n'ai pas eu assez de lectures. Voici les quelques articles et ressources que j'ai trouvé intéressants.

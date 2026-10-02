@@ -1,6 +1,10 @@
-<!-- Format : ## année, puis ### mois abrégé (ex. janv., juil., août) pour chaque actualité (répéter le mois pour des actualités distinctes). Garder les plus récentes en premier. -->
+<!-- Format : ## année, puis ### mois abrégé ou AAAA-MM-JJ pour une actualité datée. Garder les plus récentes en premier. -->
 
 ## 2026
+
+### 2026-09-21
+
+J'ai commencé un poste d'ingénieur de recherche chez [Ai4Innov Technologies](https://www.ai4innov.com/).
 
 ### août
 
@@ -14,6 +18,10 @@ J'ai participé au [Deep Learning Indaba 2026](/pages/blog/articles/2026-08-23-d
 
 J'ai présenté le poster [GP-141](https://deeplearningindaba.com/2026/posters-2026/) sur le [MPVRP-CC](/assets/media/pdfs/DLI2026_X_MPVRP-CC.pdf) au Deep Learning Indaba 2026.
 
+### 2026-08-15
+
+J'ai terminé mon [stage de recherche](/pages/news/articles/2026-06-19-end-internship-lrsia/) au LRSIA.
+
 ### juil.
 
 Mentor [bootcamp NOAI](/pages/news/articles/2026-07-17-mentoring-noai/) Benin 2026.
@@ -21,10 +29,6 @@ Mentor [bootcamp NOAI](/pages/news/articles/2026-07-17-mentoring-noai/) Benin 20
 ### juil.
 
 Sélectionné pour le [Deep Learning Indaba](/pages/news/articles/2026-07-03-deep-learning-indaba/) 2026!
-
-### juin
-
-Fin de mon [stage de recherche](/pages/news/articles/2026-06-19-end-internship-lrsia/) au LRSIA.
 
 ### mars
 

@@ -4,7 +4,7 @@ import { existsSync, readFileSync, readdirSync, statSync } from "node:fs";
 import { resolve } from "node:path";
 
 const routes = [...readFileSync("sitemap.xml", "utf8").matchAll(/<loc>https:\/\/rosasbehoundja.github.io([^<]+)<\/loc>/g)].map(match => match[1]!);
-const codeArticle = "/pages/blog/articles/2026-08-10-minizinc-modeling/";
+const sampleArticle = "/pages/blog/articles/2026-08-23-dli-return/";
 
 test("every local link and media reference exists in the production output", () => {
   function htmlFiles(directory: string): string[] {
@@ -63,11 +63,11 @@ test("all pages retain their main content and navigation without JavaScript", as
       await expect(page.locator("#news, #beyond, .section-title")).toHaveCount(0);
     }
     if (route === "/pages/news/") {
-      await expect(page.locator("#news-list > .en-text .news-item")).toHaveCount(20);
+      await expect(page.locator("#news-list > .en-text .news-item")).toHaveCount(21);
       await expect(page.locator("main")).toContainText("first public talk");
     }
     if (route === "/pages/blog.html") {
-      await expect(page.locator(".en-text .reading-card")).toHaveCount(6);
+      await expect(page.locator('.en-text a[href="/pages/blog/articles/reading-of-the-week/"]')).toHaveCount(2);
       await expect(page.locator(".en-text .blog-entry")).toHaveCount(3);
     }
   }
@@ -79,23 +79,47 @@ test("navigation labels do not start with a slash", async ({ page }) => {
   await expect(page.locator(".nav-links")).toHaveText("homenewsblog");
 });
 
-test("blog disclosures show reading previews and the posts list", async ({ page }) => {
+test("blog links to a single reading index and keeps the posts list", async ({ page }) => {
   await page.goto("/pages/blog.html");
   const readings = page.locator(".en-text .blog-disclosure").first();
   const posts = page.locator(".en-text .blog-disclosure").nth(1);
   await expect(readings).toHaveAttribute("open", "");
   await expect(posts).not.toHaveAttribute("open", "");
-  await expect(readings.locator(".reading-card")).toHaveCount(6);
-  await expect(readings.locator(".reading-card img").first()).toHaveAttribute("alt", "27 September 2026");
+  await expect(readings.locator(".blog-entry")).toHaveCount(1);
+  await expect(readings.locator("img")).toHaveAttribute("src", /preview-.*\.jpg$/);
   await posts.locator("summary").click();
   await expect(posts).toHaveAttribute("open", "");
-  await expect(posts.locator(".blog-entry")).toHaveCount(3);
+  await expect(posts.locator(".blog-entry")).toHaveCount(2);
+  await readings.locator('a[href="/pages/blog/articles/reading-of-the-week/"]').first().click();
+  await expect(page.locator(".en-text .reading-index-list li")).toHaveCount(6);
+  await expect(page.locator(".en-text .reading-index-list a").first()).toHaveAttribute("href", "/pages/blog/articles/2026-09-27-reading-of-the-week-6/");
+  await expect(page.locator(".en-text .reading-index-list time").first()).toHaveText("September 27, 2026");
+});
+
+test("weekly readings return to their index", async ({ page }) => {
+  await page.goto("/pages/blog/articles/2026-09-27-reading-of-the-week-6/");
+  await expect(page.locator("main > .article-back")).toHaveAttribute("href", "/pages/blog/articles/reading-of-the-week/");
+  await expect(page.locator("main > .article-back")).toContainText("Back to readings");
+});
+
+test("external and document links open in a new tab while site links stay in this tab", async ({ page }) => {
+  await page.goto("/");
+  await expect(page.locator('nav a[href="https://github.com/rosasbehoundja"]')).toHaveAttribute("target", "_blank");
+  await expect(page.locator(".nav-cv")).toHaveAttribute("target", "_blank");
+  await expect(page.locator('nav a[href="/pages/news/"]')).not.toHaveAttribute("target", "_blank");
+  await page.goto("/pages/news/");
+  await expect(page.locator('a[href="/assets/media/pdfs/DLI2026_X_MPVRP-CC.pdf"]').first()).toHaveAttribute("target", "_blank");
+  await expect(page.locator('a[href="/pages/news/articles/2026-07-17-mentoring-noai/"]').first()).not.toHaveAttribute("target", "_blank");
 });
 
 test("news rows show month and year together", async ({ page }) => {
   await page.goto("/pages/news/");
-  await expect(page.locator(".en-text .news-date").first()).toHaveText("Aug, 2026");
-  await expect(page.locator(".en-text .news-date").nth(3)).toHaveText("Jul, 2026");
+  await expect(page.locator(".en-text .news-date").first()).toHaveText("Sep, 2026");
+  await expect(page.locator(".en-text .news-item").first()).toContainText("Research Engineer position at Ai4Innov Technologies");
+  await expect(page.locator(".en-text .news-date").nth(4)).toHaveText("Aug, 2026");
+  await expect(page.locator(".en-text .news-date").nth(5)).toHaveText("Jul, 2026");
+  await page.goto("/pages/news/articles/2026-06-19-end-internship-lrsia/");
+  await expect(page.locator(".en-text.page-header time, .page-header time .en-text")).toHaveText("August 15, 2026");
 });
 
 test("home portrait sits right of the introduction and stacks on mobile", async ({ page }) => {
@@ -131,29 +155,8 @@ test("English and French persist across navigation; keyboard skip link works", a
   await expect(page.locator("#blog-list > .en-text")).toBeVisible();
 });
 
-test("code buttons are anchored, copy successfully, and report clipboard failures", async ({ page, context }) => {
-  await context.grantPermissions(["clipboard-read", "clipboard-write"]);
-  await page.goto(codeArticle);
-  const pre = page.locator("article.en-text pre").first();
-  const copy = pre.getByRole("button");
-  await expect(copy).toBeVisible();
-  const blockBox = await pre.boundingBox();
-  const buttonBox = await copy.boundingBox();
-  expect(buttonBox!.y).toBeGreaterThan(blockBox!.y);
-  expect(buttonBox!.y + buttonBox!.height).toBeLessThan(blockBox!.y + blockBox!.height);
-  await copy.click();
-  await expect(copy).toHaveText("Copied!");
-  expect(await page.evaluate(() => navigator.clipboard.readText())).toBe(await pre.locator("code").textContent());
-  await page.getByRole("button", { name: "Passer en français" }).click();
-  await expect(page.locator("article.fr-text pre").first().getByRole("button")).toHaveText("Copier");
-  await page.evaluate(() => { Object.defineProperty(navigator.clipboard, "writeText", { value: () => Promise.reject(new Error("denied")) }); });
-  const frenchPre = page.locator("article.fr-text pre").first();
-  await frenchPre.getByRole("button").click();
-  await expect(frenchPre.getByRole("status")).toContainText("Copie impossible");
-});
-
 test("article return link sits above the title and not in the footer", async ({ page }) => {
-  await page.goto(codeArticle);
+  await page.goto(sampleArticle);
   const back = page.locator("main > .article-back");
   await expect(back).toHaveAttribute("href", "/pages/blog.html");
   await expect(back).toContainText("Back to articles");
@@ -166,7 +169,7 @@ test("article return link sits above the title and not in the footer", async ({ 
 test("layouts fit narrow and wide screens in both languages", async ({ page }) => {
   for (const width of [320, 390, 820, 1440]) {
     await page.setViewportSize({ width, height: 900 });
-    for (const route of ["/", "/pages/news/", "/pages/blog.html", codeArticle, "/pages/blog/articles/2026-08-23-dli-return/"]) {
+    for (const route of ["/", "/pages/news/", "/pages/blog.html", "/pages/blog/articles/reading-of-the-week/", sampleArticle]) {
       await page.goto(route);
       await page.evaluate(() => document.fonts.ready);
       for (let language = 0; language < 2; language++) {
@@ -178,8 +181,8 @@ test("layouts fit narrow and wide screens in both languages", async ({ page }) =
 });
 
 test("legacy links still reach the correct article", async ({ page }) => {
-  await page.goto("/pages/blog/post.html?post=minizinc-modeling");
-  await expect(page).toHaveURL(new RegExp(`${codeArticle}$`));
+  await page.goto("/pages/blog/post.html?post=2026-08-27-dli-return");
+  await expect(page).toHaveURL(new RegExp(`${sampleArticle}$`));
 });
 
 test("capture selected desktop/mobile layouts", async ({ page }, testInfo) => {
@@ -192,7 +195,7 @@ test("capture selected desktop/mobile layouts", async ({ page }, testInfo) => {
   await page.setViewportSize({ width: 390, height: 844 });
   await page.goto("/");
   await page.screenshot({ path: testInfo.outputPath("home-mobile.png"), fullPage: true });
-  await page.goto(codeArticle);
-  await expect(page.locator("article.en-text .copy-code").first()).toBeVisible();
+  await page.goto(sampleArticle);
+  await expect(page.locator("article.en-text")).toBeVisible();
   await page.screenshot({ path: testInfo.outputPath("article-mobile.png"), fullPage: true });
 });

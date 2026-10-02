@@ -11,6 +11,7 @@ type Document = ReturnType<typeof parseFrontmatter>;
 interface Post { slug: string; kind: Kind; fr: Document; en: Document }
 const root = process.cwd();
 const siteUrl = "https://rosasbehoundja.github.io";
+const readingIndexPath = "/pages/blog/articles/reading-of-the-week/";
 const imageDimensions = new Map<string, { width: number; height: number }>();
 function imageFiles(directory: string): string[] {
   return readdirSync(directory, { withFileTypes: true }).flatMap(entry => {
@@ -94,8 +95,9 @@ for (const post of [...blogPosts, ...newsPosts]) {
   const image = previewPath ? { url: imageUrl(previewPath, post), alt: en.meta.preview_image_alt || en.meta.image_alt || firstImage?.match(/alt="([^"]*)"/)?.[1] || title } : undefined;
   const hero = fr.meta.image || en.meta.image;
   const figure = hero ? imageAttributes(`<figure class="article-figure"><img src="${escape(imageUrl(hero, post).replace(siteUrl, ""))}" loading="eager" alt="${escape(en.meta.image_alt || fr.meta.image_alt)}"><figcaption>${localized(escape(fr.meta.image_caption), escape(en.meta.image_caption))}</figcaption></figure>`) : "";
-  const backUrl = kind === "blog" ? "/pages/blog.html" : "/pages/news/";
-  const backLabel = localized(kind === "blog" ? "Retour aux articles" : "Retour aux actualités", kind === "blog" ? "Back to articles" : "Back to news");
+  const reading = kind === "blog" && slug.includes("reading-of-the-week");
+  const backUrl = reading ? readingIndexPath : kind === "blog" ? "/pages/blog.html" : "/pages/news/";
+  const backLabel = reading ? localized("Retour aux lectures", "Back to readings") : localized(kind === "blog" ? "Retour aux articles" : "Retour aux actualités", kind === "blog" ? "Back to articles" : "Back to news");
   const body = `<a class="article-back" href="${backUrl}"><svg viewBox="0 0 28 20" aria-hidden="true"><path d="M11 3 4 10l7 7M5 10h11c5 0 8-2.5 8-7"/></svg>${backLabel}</a>
   <header class="page-header">
     ${localized(fr.meta.status === "draft" ? '<span class="blog-post-status">brouillon</span>' : "", en.meta.status === "draft" ? '<span class="blog-post-status">draft</span>' : "")}
@@ -105,7 +107,7 @@ for (const post of [...blogPosts, ...newsPosts]) {
   write(`${path}index.html`.slice(1), page({ title: `${title} — Rosas Behoundja`, description: en.meta.description || fr.meta.description || title, path, active: kind === "blog" ? "blog" : "news", article: true, date: en.meta.date, image, body }));
 }
 
-function newsEntries(raw: string, lang: Language): Array<{ date: string; year: string; month: string; body: string }> {
+function newsEntries(raw: string, lang: Language): Array<{ date: string; year: string; month: string; day?: string; body: string }> {
   const months = Array.from({ length: 12 }, (_, index) => new Intl.DateTimeFormat(lang, { month: "long", timeZone: "UTC" }).format(new Date(Date.UTC(2026, index, 1))).toLowerCase());
   const shortMonths = lang === "en"
     ? ["jan.", "feb.", "mar.", "apr.", "may", "june", "july", "aug.", "sept.", "oct.", "nov.", "dec."]
@@ -121,6 +123,11 @@ function newsEntries(raw: string, lang: Language): Array<{ date: string; year: s
     }
     const body = raw.slice(match.index! + match[0].length, matches[i + 1]?.index ?? raw.length).trim();
     if (heading.toUpperCase() === "MORE") return [{ date: heading, year, month: "", body }];
+    if (/^\d{4}-\d{2}-\d{2}$/.test(heading)) {
+      const parsed = new Date(`${heading}T00:00:00Z`);
+      if (heading.slice(0, 4) !== year || Number.isNaN(parsed.valueOf()) || parsed.toISOString().slice(0, 10) !== heading) throw new Error(`Invalid news date: ${heading} (${lang})`);
+      return [{ date: heading, year, month: heading.slice(5, 7), day: heading.slice(8, 10), body }];
+    }
     const month = months.findIndex((name, index) => name === heading.toLowerCase() || shortMonths[index] === heading.toLowerCase());
     if (!year || month === -1) throw new Error(`News entries need a ## year and a ### month name: ${heading} (${lang})`);
     return [{ date: shortMonths[month]!, year, month: String(month + 1).padStart(2, "0"), body }];
@@ -135,9 +142,10 @@ const news = (["fr", "en"] as const).map(lang => {
       more.push(`<div class="markdown-body">${markdown(entry.body)}</div>`);
       continue;
     }
-    const month = new Intl.DateTimeFormat(lang === "fr" ? "fr-FR" : "en-US", { month: "short", timeZone: "UTC" }).format(new Date(`${entry.year}-${entry.month}-01T00:00:00Z`));
+    const date = new Date(`${entry.year}-${entry.month}-${entry.day ?? "01"}T00:00:00Z`);
+    const month = new Intl.DateTimeFormat(lang === "fr" ? "fr-FR" : "en-US", { month: "short", timeZone: "UTC" }).format(date);
     const label = `${month}, ${entry.year}`;
-    items.push(`<li class="news-item"><time class="news-date" datetime="${entry.year}-${entry.month}">${escape(label)}</time><div class="news-content markdown-body">${markdown(entry.body)}</div></li>`);
+    items.push(`<li class="news-item"><time class="news-date" datetime="${entry.year}-${entry.month}${entry.day ? `-${entry.day}` : ""}">${escape(label)}</time><div class="news-content markdown-body">${markdown(entry.body)}</div></li>`);
   }
   return `<div class="${lang}-text" lang="${lang}"><ul class="news-list" role="list">${items.join("")}</ul>${more.join("")}</div>`;
 }).join("");
@@ -150,16 +158,18 @@ write("pages/news/index.html", page({ title: "News — Rosas Behoundja", descrip
 const resumeUrl = "https://drive.google.com/file/d/1PuwNCgRNbc0qbkmHqzXKQxSUImPmjPZB/view?usp=sharing";
 write("pages/work.html", `<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><meta name="robots" content="noindex"><meta http-equiv="refresh" content="0;url=${resumeUrl}"><title>CV — Rosas Behoundja</title></head><body><p><a href="${resumeUrl}">View my CV</a></p></body></html>`);
 
-const blog = (["fr", "en"] as const).map(lang => {
-  const readingPosts = blogPosts.filter(post => /reading-of-the-week/.test(post.slug));
-  const regularPosts = blogPosts.filter(post => !/reading-of-the-week/.test(post.slug));
-  const readings = readingPosts.map(post => {
-    const meta = post[lang].meta;
-    const date = new Intl.DateTimeFormat(lang === "fr" ? "fr-FR" : "en-GB", { day: "numeric", month: "long", year: "numeric", timeZone: "UTC" }).format(new Date(meta.date!));
-    const preview = meta.preview_image || post[lang === "en" ? "fr" : "en"].meta.preview_image || "/assets/media/preview.jpg";
-    const previewUrl = imageUrl(preview, post).replace(siteUrl, "");
-    return `<figure class="reading-card"><a href="/pages/blog/articles/${post.slug}/"><img src="${escape(previewUrl)}" alt="${escape(date)}" loading="lazy"><figcaption><time datetime="${meta.date}">${escape(date)}</time></figcaption></a></figure>`;
+const readingPosts = blogPosts.filter(post => /reading-of-the-week/.test(post.slug));
+const readingIndex = (["fr", "en"] as const).map(lang => {
+  const links = readingPosts.map(post => {
+    const date = new Intl.DateTimeFormat(lang === "fr" ? "fr-FR" : "en-US", { day: "numeric", month: "long", year: "numeric", timeZone: "UTC" }).format(new Date(post[lang].meta.date!));
+    return `<li><a href="/pages/blog/articles/${post.slug}/"><time datetime="${post[lang].meta.date}">${escape(date)}</time><span aria-hidden="true">↗</span></a></li>`;
   }).join("");
+  return `<div class="${lang}-text" lang="${lang}"><p>${lang === "fr" ? "Chaque semaine, j’essaie de partager mes lectures marquantes. Les sujets sont assez variés, parfois techniques." : "Each week, I try to share some of the things I’ve been reading. The topics are quite random and sometimes technical."}</p><ol class="reading-index-list">${links}</ol></div>`;
+}).join("");
+write(`${readingIndexPath.slice(1)}index.html`, page({ title: "Reading of the week — Rosas Behoundja", description: "Weekly reading lists from Rosas Behoundja.", path: readingIndexPath, active: "blog", article: true, image: { url: `${siteUrl}/assets/media/preview.jpg`, alt: "Illustration of a bird reading a book" }, body: `<a class="article-back" href="/pages/blog.html"><svg viewBox="0 0 28 20" aria-hidden="true"><path d="M11 3 4 10l7 7M5 10h11c5 0 8-2.5 8-7"/></svg>${localized("Retour au blog", "Back to blog")}</a><header class="page-header"><h1>${localized("Lectures de la semaine", "Reading of the week")}</h1></header><figure class="article-figure"><img src="/assets/media/preview.jpg" alt="Illustration of a bird reading a book"></figure>${readingIndex}` }));
+
+const blog = (["fr", "en"] as const).map(lang => {
+  const regularPosts = blogPosts.filter(post => !/reading-of-the-week/.test(post.slug));
   const entries = regularPosts.map(post => {
   const meta = post[lang].meta;
   const date = new Intl.DateTimeFormat(lang === "fr" ? "fr-FR" : "en-GB", { year: "numeric", month: "short", day: "2-digit", timeZone: "UTC" }).format(new Date(meta.date!));
@@ -169,7 +179,7 @@ const blog = (["fr", "en"] as const).map(lang => {
   const previewUrl = imageUrl(previewPath, post).replace(siteUrl, "");
   return `<article class="blog-entry"><a class="blog-thumb" href="/pages/blog/articles/${post.slug}/"><img src="${escape(previewUrl)}" alt="${escape(previewAlt)}" loading="lazy"></a><div class="blog-entry-content"><time class="blog-date" datetime="${meta.date}">${escape(date)}</time><h2 class="blog-title"><a href="/pages/blog/articles/${post.slug}/">${escape(meta.title)}</a>${meta.status === "draft" ? `<span class="blog-draft">${lang === "fr" ? "brouillon" : "draft"}</span>` : ""}</h2></div></article>`;
   }).join("");
-  return `<div class="${lang}-text" lang="${lang}"><details class="blog-disclosure" open><summary>${lang === "fr" ? "Lectures" : "Readings"}</summary><div class="blog-disclosure-content"><p>${lang === "fr" ? "Chaque semaine, j’essaie de partager mes lectures marquantes. Les sujets sont assez variés, parfois techniques." : "Each week, I try to share some of the things I’ve been reading. The topics are quite random and sometimes technical."}</p><div class="reading-gallery">${readings}</div></div></details><details class="blog-disclosure"><summary>${lang === "fr" ? "Articles" : "Posts"}</summary><div class="blog-disclosure-content">${entries}</div></details></div>`;
+  return `<div class="${lang}-text" lang="${lang}"><details class="blog-disclosure" open><summary>${lang === "fr" ? "Lectures" : "Readings"}</summary><div class="blog-disclosure-content"><article class="blog-entry"><a class="blog-thumb" href="${readingIndexPath}"><img src="/assets/media/preview.jpg" alt="${lang === "fr" ? "Illustration d’un oiseau lisant un livre" : "Illustration of a bird reading a book"}" loading="lazy"></a><div class="blog-entry-content"><h2 class="blog-title"><a href="${readingIndexPath}">${lang === "fr" ? "Lectures de la semaine" : "Reading of the week"}</a></h2><p class="blog-summary">${lang === "fr" ? "Mes listes de lecture hebdomadaires." : "My weekly reading lists."}</p></div></article></div></details><details class="blog-disclosure"><summary>${lang === "fr" ? "Articles" : "Posts"}</summary><div class="blog-disclosure-content">${entries}</div></details></div>`;
 }).join("");
 write("pages/blog.html", page({ title: "Blog — Rosas Behoundja", description: "Articles by Rosas Behoundja on combinatorial optimisation, constraint programming, machine learning, research, and life.", path: "/pages/blog.html", active: "blog", body: `<h1 class="sr-only">Blog</h1><div id="blog-list">${blog}</div>` }));
 
@@ -180,6 +190,6 @@ for (const kind of ["blog", "news"] as const) {
 }
 write("pages/theme.html", page({ title: "Theme — Rosas Behoundja", description: "Articles by Rosas Behoundja on combinatorial optimisation, constraint programming, machine learning, research, and life.", path: "/pages/theme.html", active: "blog", body: `<h1>${localized("Thématiques", "Themes")}</h1><p><a href="/pages/blog.html">← ${localized("Retour au blog", "Back to blog")}</a></p>` }));
 
-const urls = ["/", "/pages/blog.html", "/pages/news/", ...[...blogPosts, ...newsPosts].map(post => `/pages/${post.kind}/articles/${post.slug}/`)];
+const urls = ["/", "/pages/blog.html", readingIndexPath, "/pages/news/", ...[...blogPosts, ...newsPosts].map(post => `/pages/${post.kind}/articles/${post.slug}/`)];
 write("sitemap.xml", `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n${urls.map(path => `  <url><loc>${siteUrl}${path}</loc></url>`).join("\n")}\n</urlset>\n`);
 console.log(`Generated all pages: ${blogPosts.length} blog posts, ${newsPosts.length} news articles.`);

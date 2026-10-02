@@ -1,9 +1,9 @@
 ---
-title: Reading of the week #6
+title: Lectures de la semaine n° 6
 date: 2026-09-27
 description: Une semaine bien remplie, mais sans lectures à partager.
 preview_image: ../../assets/media/imgs/rotw/6.jpg
-preview_image_alt: Aperçu de Reading of the week #6
+preview_image_alt: Couverture illustrée de la liste de lectures de la semaine n° 6
 ---
 
 **Salutations, chère personne qui passe par ici le dimanche !**

@@ -50,6 +50,7 @@ export default defineConfig({
         resolve(root, "index.html"),
         resolve(root, "pages/work.html"),
         resolve(root, "pages/blog.html"),
+        resolve(root, "pages/blog/articles/reading-of-the-week/index.html"),
         resolve(root, "pages/news/index.html"),
         resolve(root, "pages/theme.html"),
         resolve(root, "pages/blog/post.html"),

@@ -1,16 +1,16 @@
 ---
 title: Fin de mon stage de recherche au LRSIA
-date: 2026-06-19
-date_display: Juin 2026
+date: 2026-08-15
+date_display: 15 août 2026
 breadcrumb: Conclusion
 breadcrumb_parent_url: /pages/news/articles/2026-02-16-start-internship-lrsia/
 breadcrumb_parent: Stage de recherche LRSIA
 image: ../../assets/media/imgs/news/end-intership.gif
-image_alt: End of internship celebration
-image_caption: Bilan de trois mois de recherche intensive
+image_alt: Célébration de fin de stage
+image_caption: Bilan de six mois de recherche intensive
 ---
 
-Précédemment (voir l'article [Début de stage](/pages/news/articles/2026-02-16-start-internship-lrsia/)), je vous avais annoncé le début de mon stage au sein du Laboratoire de Recherche en Sciences Informatiques et Applications (LRSIA). Les trois mois se sont écoulés, et il est temps de dresser un bilan de cette aventure.
+Précédemment (voir l'article [Début de stage](/pages/news/articles/2026-02-16-start-internship-lrsia/)), je vous avais annoncé le début de mon stage au sein du Laboratoire de Recherche en Sciences Informatiques et Applications (LRSIA). Six mois se sont écoulés, et il est temps de dresser un bilan de cette aventure.
 
 Sous la guidance du Dr Ratheil Houndji, des doctorants, de l'équipe de coopération de l'IFRI et grâce à la bienveillance de mes collègues stagiaires, j'ai pu évoluer au sein d'un environnement chaleureux, dynamique et particulièrement constructif.
 

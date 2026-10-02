@@ -1,10 +1,10 @@
 ---
-title: World Backup Day 2026
+title: Journée mondiale de la sauvegarde 2026
 date: 2026-03-31
 date_display: 31 mars 2026
-breadcrumb: World Backup Day 2026
+breadcrumb: Journée mondiale de la sauvegarde 2026
 image: ../../assets/media/imgs/news/world-backup-day.jpeg
-image_alt: World Backup Day
+image_alt: Illustration de la Journée mondiale de la sauvegarde
 image_caption: Molly Sanders, Pinterest (https://fr.pinterest.com/pin/187884615697058438/)
 ---
 
