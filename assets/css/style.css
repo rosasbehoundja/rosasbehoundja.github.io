@@ -44,11 +44,12 @@ section { margin-bottom: 2.5rem; }
 .skip-link:focus { transform: translateY(0); }
 .sr-only { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip-path: inset(50%); white-space: nowrap; border: 0; }
 .home-page { width: 100%; padding-top: 1rem; }
-.profile-header { display: grid; grid-template-columns: 180px minmax(0, 1fr); align-items: center; gap: clamp(2rem, 6vw, 4rem); margin: 0 0 3.5rem; }
-.portrait-frame { display: block; width: 180px; aspect-ratio: 1; overflow: hidden; border-radius: 43% 57% 54% 46% / 39% 44% 56% 61%; background: var(--surface-subtle); transform: rotate(-1.5deg); }
+.home-intro { display: grid; grid-template-columns: minmax(0, 1fr) 190px; align-items: start; gap: clamp(1.5rem, 5vw, 3rem); margin-bottom: 2rem; }
+.home-intro-copy { min-width: 0; }
+.home-intro h1 { margin: 0 0 1.1rem; font-size: clamp(1.35rem, 2.6vw, 1.65rem); }
+.home-intro h1 strong { color: var(--accent-color); }
+.portrait-frame { display: block; width: 190px; aspect-ratio: 1; overflow: hidden; border-radius: 0.55rem; background: var(--surface-subtle); }
 .markdown-body .home-portrait { width: 100%; height: 100%; object-fit: cover; object-position: center 58%; border-radius: 0; margin: 0; transform: scale(1.3); transform-origin: center 58%; }
-.profile-identity { min-width: 0; }
-.profile-identity h1 { margin: 0 0 0.55rem; font-size: clamp(2rem, 5vw, 3.1rem); line-height: 1; letter-spacing: -0.05em; white-space: nowrap; }
 .home-body { width: 100%; }
 .home-body li::marker { color: var(--accent-color); }
 .section-title { font-size: 1.05rem; margin: 0 0 1rem; letter-spacing: 0.025em; }
@@ -68,12 +69,11 @@ section { margin-bottom: 2.5rem; }
 .markdown-body figure { margin: 1.5rem 0; }
 figcaption { text-align: center; color: var(--text-muted); font-size: 0.875rem; margin-top: 0.7rem; }
 audio, video { width: 100%; max-width: 100%; }
-.news-year { margin-bottom: 1.75rem; }
-.news-year h2 { margin: 0 0 0.65rem; }
-.news-year-items { list-style: none; margin: 0; padding: 0 0 0 1rem; }
-.news-item { display: grid; grid-template-columns: 5.5rem minmax(0, 1fr); gap: 1rem; padding: 0.3rem 0; font-size: 1em; line-height: 1.65; }
+.news-list { list-style: none; margin: 0; padding: 0; }
+.news-item { display: grid; grid-template-columns: 6.5rem minmax(0, 1fr); gap: 1rem; padding: 0.65rem 0; font-size: 1em; line-height: 1.65; }
 .news-date, .blog-date, .page-header time { font: 0.8rem/1.7 var(--font-body); font-variant-numeric: tabular-nums; color: var(--text-muted); }
-.news-date { padding-top: 0.2rem; }
+.news-date { padding-top: 0.2rem; white-space: nowrap; }
+.news-content p:last-child { margin-bottom: 0; }
 .article-back { display: inline-flex; align-items: center; gap: 0.45rem; margin-bottom: 1.35rem; font: 500 0.82rem/1.4 var(--font-body); text-decoration: none; }
 .article-back svg { width: 1.45rem; height: 1.1rem; overflow: visible; fill: none; stroke: var(--accent-color); stroke-width: 1.7; stroke-linecap: round; stroke-linejoin: round; }
 .article-back:hover { color: var(--accent-color); }
@@ -90,6 +90,16 @@ audio, video { width: 100%; max-width: 100%; }
 .blog-draft, .blog-post-status { display: inline-block; font: 0.7rem/1.5 var(--font-mono); color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.04em; }
 .blog-draft { margin-left: 0.6rem; }
 .blog-post-status { margin-bottom: 0.5rem; }
+.blog-disclosure { margin-bottom: 0.8rem; border: 1px solid var(--border-color); border-radius: 0.55rem; }
+.blog-disclosure summary { cursor: pointer; padding: 0.65rem 0.9rem; font: 600 1rem var(--font-display); }
+.blog-disclosure summary:hover { color: var(--accent-color); background: var(--surface-subtle); }
+.blog-disclosure-content { padding: 0.2rem 1rem 1rem; }
+.reading-gallery { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 1rem; margin-top: 1.25rem; }
+.reading-card { min-width: 0; margin: 0; }
+.reading-card a { display: block; color: var(--text-dark); }
+.reading-card img { display: block; width: 100%; aspect-ratio: 4 / 3; object-fit: cover; border-radius: 0.4rem; }
+.reading-card figcaption { margin-top: 0.4rem; text-align: left; }
+.reading-card a:hover figcaption { color: var(--accent-color); }
 .article-figure { max-width: 550px; margin: 2rem auto; }
 .article-figure img { width: 100%; height: auto; border-radius: 0.5rem; }
 pre { max-width: 100%; overflow-x: auto; border: 1px solid var(--border-color); border-radius: 0.5rem; padding: 1rem; margin: 1.5rem 0; background: var(--surface-subtle); line-height: 1.6; }
@@ -112,7 +122,8 @@ hr { border: 0; border-top: 1px solid var(--border-color); margin: 2.5rem 0; }
 .site-footer { margin-top: 3.5rem; padding-top: 1rem; border-top: 1px solid var(--border-color); color: var(--text-muted); font-size: 0.85rem; }
 .site-footer p { margin-bottom: 0.65rem; }
 @media (max-width: 700px) {
-  .profile-header { grid-template-columns: minmax(0, 1fr); justify-items: center; gap: 1.5rem; margin-bottom: 2.75rem; text-align: center; }
+  .home-intro { grid-template-columns: minmax(0, 1fr) 150px; gap: 1.5rem; }
+  .portrait-frame { width: 150px; }
 }
 @media (max-width: 580px) {
   body { padding: 1.1rem 0.85rem; font-size: 1rem; }
@@ -125,10 +136,12 @@ hr { border: 0; border-top: 1px solid var(--border-color); margin: 2.5rem 0; }
   .nav-links a, .nav-cv { min-height: 36px; padding: 0 0.38rem; }
   .lang-switch { min-width: 34px; min-height: 34px; margin-left: 0.15rem; padding: 0.25rem; }
   .home-page { padding-top: 0; }
-  .portrait-frame { width: 150px; }
-  .profile-identity h1 { font-size: clamp(2rem, 10vw, 2.6rem); }
+  .home-intro { grid-template-columns: minmax(0, 1fr); }
+  .portrait-frame { grid-row: 1; justify-self: center; }
+  .home-intro h1 { font-size: clamp(1.35rem, 5.5vw, 1.6rem); }
+  .reading-gallery { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 0.8rem; }
   .blog-entry { grid-template-columns: 105px minmax(0, 1fr); gap: 0.75rem; padding: 0.5rem 0; }
-  .news-item { grid-template-columns: minmax(0, 1fr); gap: 0.1rem; padding: 0.4rem 0; }
+  .news-item { grid-template-columns: minmax(0, 1fr); gap: 0.1rem; padding: 0.55rem 0; }
   .gallery { grid-template-columns: minmax(0, 1fr); }
   .gallery img { height: auto; }
 }

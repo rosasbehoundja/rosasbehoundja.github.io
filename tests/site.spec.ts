@@ -66,7 +66,10 @@ test("all pages retain their main content and navigation without JavaScript", as
       await expect(page.locator("#news-list > .en-text .news-item")).toHaveCount(20);
       await expect(page.locator("main")).toContainText("first public talk");
     }
-    if (route === "/pages/blog.html") await expect(page.locator(".en-text .blog-entry")).toHaveCount(routes.filter(path => path.startsWith("/pages/blog/articles/")).length);
+    if (route === "/pages/blog.html") {
+      await expect(page.locator(".en-text .reading-card")).toHaveCount(6);
+      await expect(page.locator(".en-text .blog-entry")).toHaveCount(3);
+    }
   }
   await context.close();
 });
@@ -76,17 +79,36 @@ test("navigation labels do not start with a slash", async ({ page }) => {
   await expect(page.locator(".nav-links")).toHaveText("homenewsblog");
 });
 
-test("home portrait sits beside the introduction and stacks on mobile", async ({ page }) => {
+test("blog disclosures show reading previews and the posts list", async ({ page }) => {
+  await page.goto("/pages/blog.html");
+  const readings = page.locator(".en-text .blog-disclosure").first();
+  const posts = page.locator(".en-text .blog-disclosure").nth(1);
+  await expect(readings).toHaveAttribute("open", "");
+  await expect(posts).not.toHaveAttribute("open", "");
+  await expect(readings.locator(".reading-card")).toHaveCount(6);
+  await expect(readings.locator(".reading-card img").first()).toHaveAttribute("alt", "27 September 2026");
+  await posts.locator("summary").click();
+  await expect(posts).toHaveAttribute("open", "");
+  await expect(posts.locator(".blog-entry")).toHaveCount(3);
+});
+
+test("news rows show month and year together", async ({ page }) => {
+  await page.goto("/pages/news/");
+  await expect(page.locator(".en-text .news-date").first()).toHaveText("Aug, 2026");
+  await expect(page.locator(".en-text .news-date").nth(3)).toHaveText("Jul, 2026");
+});
+
+test("home portrait sits right of the introduction and stacks on mobile", async ({ page }) => {
   await page.setViewportSize({ width: 1280, height: 900 });
   await page.goto("/");
   const image = page.locator(".en-text .home-portrait");
   const frame = page.locator(".en-text .portrait-frame");
-  const intro = page.locator(".en-text .profile-identity");
+  const intro = page.locator(".en-text .home-intro-copy");
   await expect(image).toBeVisible();
   expect(await image.evaluate(element => (element as HTMLImageElement).naturalWidth)).toBeGreaterThan(0);
   const desktopImage = await frame.boundingBox();
   const desktopIntro = await intro.boundingBox();
-  expect(desktopIntro!.x).toBeGreaterThan(desktopImage!.x + desktopImage!.width);
+  expect(desktopImage!.x).toBeGreaterThan(desktopIntro!.x + desktopIntro!.width);
   await page.setViewportSize({ width: 320, height: 780 });
   const mobileImage = await frame.boundingBox();
   const mobileIntro = await intro.boundingBox();

@@ -128,23 +128,18 @@ function newsEntries(raw: string, lang: Language): Array<{ date: string; year: s
 }
 
 const news = (["fr", "en"] as const).map(lang => {
-  const years = new Map<string, ReturnType<typeof newsEntries>>();
+  const items: string[] = [];
   const more: string[] = [];
   for (const entry of newsEntries(source("pages/news", lang), lang)) {
     if (entry.date.toUpperCase() === "MORE") {
       more.push(`<div class="markdown-body">${markdown(entry.body)}</div>`);
       continue;
     }
-    const year = entry.year;
-    if (!years.has(year)) years.set(year, []);
-    years.get(year)!.push(entry);
+    const month = new Intl.DateTimeFormat(lang === "fr" ? "fr-FR" : "en-US", { month: "short", timeZone: "UTC" }).format(new Date(`${entry.year}-${entry.month}-01T00:00:00Z`));
+    const label = `${month}, ${entry.year}`;
+    items.push(`<li class="news-item"><time class="news-date" datetime="${entry.year}-${entry.month}">${escape(label)}</time><div class="news-content markdown-body">${markdown(entry.body)}</div></li>`);
   }
-  const groups = [...years.entries()].sort(([a], [b]) => Number(b) - Number(a)).map(([year, entries]) => {
-    const headingId = `news-${year}-${lang}`;
-    const items = entries.map(entry => `<li class="news-item"><time class="news-date" datetime="${year}-${entry.month}">${escape(entry.date)}</time><div class="news-content markdown-body">${markdown(entry.body)}</div></li>`).join("");
-    return `<section class="news-year" aria-labelledby="${headingId}"><h2 id="${headingId}">${year}</h2><ul class="news-year-items" role="list">${items}</ul></section>`;
-  }).join("");
-  return `<div class="${lang}-text" lang="${lang}">${groups}${more.join("")}</div>`;
+  return `<div class="${lang}-text" lang="${lang}"><ul class="news-list" role="list">${items.join("")}</ul>${more.join("")}</div>`;
 }).join("");
 
 write("index.html", page({ title: "Rosas Behoundja", description: "Rosas Behoundja's personal website: research, projects, and writing on combinatorial optimisation, machine learning, and responsible AI.", path: "/", active: "home", body: `
@@ -155,7 +150,17 @@ write("pages/news/index.html", page({ title: "News — Rosas Behoundja", descrip
 const resumeUrl = "https://drive.google.com/file/d/1PuwNCgRNbc0qbkmHqzXKQxSUImPmjPZB/view?usp=sharing";
 write("pages/work.html", `<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><meta name="robots" content="noindex"><meta http-equiv="refresh" content="0;url=${resumeUrl}"><title>CV — Rosas Behoundja</title></head><body><p><a href="${resumeUrl}">View my CV</a></p></body></html>`);
 
-const blog = (["fr", "en"] as const).map(lang => `<div class="${lang}-text" lang="${lang}">${blogPosts.map(post => {
+const blog = (["fr", "en"] as const).map(lang => {
+  const readingPosts = blogPosts.filter(post => /reading-of-the-week/.test(post.slug));
+  const regularPosts = blogPosts.filter(post => !/reading-of-the-week/.test(post.slug));
+  const readings = readingPosts.map(post => {
+    const meta = post[lang].meta;
+    const date = new Intl.DateTimeFormat(lang === "fr" ? "fr-FR" : "en-GB", { day: "numeric", month: "long", year: "numeric", timeZone: "UTC" }).format(new Date(meta.date!));
+    const preview = meta.preview_image || post[lang === "en" ? "fr" : "en"].meta.preview_image || "/assets/media/preview.jpg";
+    const previewUrl = imageUrl(preview, post).replace(siteUrl, "");
+    return `<figure class="reading-card"><a href="/pages/blog/articles/${post.slug}/"><img src="${escape(previewUrl)}" alt="${escape(date)}" loading="lazy"><figcaption><time datetime="${meta.date}">${escape(date)}</time></figcaption></a></figure>`;
+  }).join("");
+  const entries = regularPosts.map(post => {
   const meta = post[lang].meta;
   const date = new Intl.DateTimeFormat(lang === "fr" ? "fr-FR" : "en-GB", { year: "numeric", month: "short", day: "2-digit", timeZone: "UTC" }).format(new Date(meta.date!));
   const other = lang === "en" ? post.fr.meta : post.en.meta;
@@ -163,7 +168,9 @@ const blog = (["fr", "en"] as const).map(lang => `<div class="${lang}-text" lang
   const previewAlt = meta.preview_image_alt || other.preview_image_alt || meta.image_alt || other.image_alt || meta.title!;
   const previewUrl = imageUrl(previewPath, post).replace(siteUrl, "");
   return `<article class="blog-entry"><a class="blog-thumb" href="/pages/blog/articles/${post.slug}/"><img src="${escape(previewUrl)}" alt="${escape(previewAlt)}" loading="lazy"></a><div class="blog-entry-content"><time class="blog-date" datetime="${meta.date}">${escape(date)}</time><h2 class="blog-title"><a href="/pages/blog/articles/${post.slug}/">${escape(meta.title)}</a>${meta.status === "draft" ? `<span class="blog-draft">${lang === "fr" ? "brouillon" : "draft"}</span>` : ""}</h2></div></article>`;
-}).join("")}</div>`).join("");
+  }).join("");
+  return `<div class="${lang}-text" lang="${lang}"><details class="blog-disclosure" open><summary>${lang === "fr" ? "Lectures" : "Readings"}</summary><div class="blog-disclosure-content"><p>${lang === "fr" ? "Chaque semaine, j’essaie de partager mes lectures marquantes. Les sujets sont assez variés, parfois techniques." : "Each week, I try to share some of the things I’ve been reading. The topics are quite random and sometimes technical."}</p><div class="reading-gallery">${readings}</div></div></details><details class="blog-disclosure"><summary>${lang === "fr" ? "Articles" : "Posts"}</summary><div class="blog-disclosure-content">${entries}</div></details></div>`;
+}).join("");
 write("pages/blog.html", page({ title: "Blog — Rosas Behoundja", description: "Articles by Rosas Behoundja on combinatorial optimisation, constraint programming, machine learning, research, and life.", path: "/pages/blog.html", active: "blog", body: `<h1 class="sr-only">Blog</h1><div id="blog-list">${blog}</div>` }));
 
 // Preserve old incoming links; the client resolves historical query-string aliases.

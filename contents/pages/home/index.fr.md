@@ -1,20 +1,18 @@
 <div class="home-page">
-<header class="profile-header">
-  <span class="portrait-frame"><img class="home-portrait" src="/assets/media/rosas.jpg" alt="Rosas au bord de l’eau" loading="eager" fetchpriority="high"></span>
-  <div class="profile-identity">
+<header class="home-intro">
+  <div class="home-intro-copy">
 
-# Rosas Behoundja
-
-  </div>
-</header>
-
-<div class="home-body">
-
-Salut, camarade humain :>
+# Salut, je suis **Todè Rosas Behoundja**
 
 Je termine actuellement ma licence en informatique à l’Université d’Abomey-Calavi, au [Bénin](https://www.benin.bj/en) 🇧🇯, sous la supervision du Dr [Vinasétan Ratheil Houndji](https://ratheilh.github.io/). J’obtiendrai mon diplôme bientôt.
 
 Mes recherches actuelles portent sur la modélisation de problèmes de planification et de routage à l'aide de techniques d'optimisation combinatoire. [MPVRP-CC](https://ifri-ai-classes.github.io/MPVRP-CC/) est mon principal sujet d'étude en ce moment.
+
+  </div>
+  <span class="portrait-frame"><img class="home-portrait" src="/assets/media/rosas.jpg" alt="Rosas au bord de l’eau" loading="eager" fetchpriority="high"></span>
+</header>
+
+<div class="home-body">
 
 Pendant mon temps libre, j'aime explorer tout ce qui éveille ma curiosité.
 
