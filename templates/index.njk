@@ -3,7 +3,7 @@ layout: base.njk
 ---
 <section class="hero mt-6 section-shadow"><div class="hero-body pb-4"><div class="container is-max-desktop px-5">
   <h1 class="site-title title mb-2 is-uppercase">{{ site.name }}</h1>
-  <div class="columns mt-0 is-mobile"><div class="column is-8 pt-0 mt-0"><div class="columns mb-0 mt-0 is-multiline is-mobile"><div class="column is-12 pt-0 mt-0">{% include "socials.njk" %}</div><div class="column is-12"><h2 class="subtitle site-subtitle is-size-4 mb-1">{{ site.tagline | safe }}</h2></div></div></div><div class="column is-4"><figure class="image portrait pt-6-mobile pt-3-tablet" style="max-width:144px"><img src="{{ site.portrait }}" alt="Portrait of {{ site.name }}"></figure></div></div>
+  <div class="columns mt-0 is-mobile"><div class="column is-8 pt-0 mt-0"><div class="columns mb-0 mt-0 is-multiline is-mobile"><div class="column is-12 pt-0 mt-0">{% include "socials.njk" %}</div><div class="column is-12"><h2 class="subtitle site-subtitle is-size-4 mb-1">{{ site.tagline | safe }}</h2></div></div></div><div class="column is-4"><div class="pt-6-mobile pt-3-tablet"><figure class="image portrait profile-portrait"><img src="{{ site.portrait }}" alt="Portrait of {{ site.name }}"></figure></div></div></div>
   {% include "nav.njk" %}
 </div></div></section>
 <main id="main">
