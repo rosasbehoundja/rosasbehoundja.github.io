@@ -1,0 +1,43 @@
+[
+  {
+    "group": "Research & Open Source",
+    "items": [
+      {
+        "title": "MPVRP with changeover costs",
+        "description": "I proposed models using mixed-integer linear programming and sequence variables in constraint programming approaches for the multi-product vehicle routing problem with changeover costs (MPVRP-CC); conducted computational experiments, and analyzed results.",
+        "url": "https://uac-rrteam.github.io/MPVRP-CC/",
+        "codeUrl": "https://github.com/uac-rrteam/MPVRP-CC-modeling"
+      },
+      {
+        "title": "Learning constraint programming",
+        "description": "A curated list of resources (solvers, tutorials, courses, books, papers, etc.) to learn about constraint programming (CP) and its applications.",
+        "url": "https://github.com/rosasbehoundja/learning-constraint-programming"
+      },
+      {
+        "title": "ifri-mini-ml-lib",
+        "description": "A pedagogical machine learning library with neural network, NLP, and anomaly detection modules.",
+        "url": "https://github.com/IFRI-AI-Classes/ifri_mini_ml_lib"
+      }
+    ]
+  },
+  {
+    "group": "Applied AI",
+    "items": [
+      {
+        "title": "Automated waste sorting",
+        "description": "Computer vision and robotic controls for a waste-sorting system built with IFRI and Tekbot Robotics.",
+        "url": "https://github.com/orgs/TRC-IFRI-REPO"
+      },
+      {
+        "title": "Tech trends monitor",
+        "description": "An automated RSS monitoring system for AI coding agent news, with email digests.",
+        "url": "https://github.com/rosasbehoundja/tech-trends-monitor"
+      },
+      {
+        "title": "Automated real estate mapping",
+        "description": "An automated prospecting pipeline for a French company that maps targeted Paris streets to addresses, property parcels, company owners, and executives, then enriches the results with public LinkedIn profiles.",
+        "url": "https://github.com/rosasbehoundja/cartographie-immobiliere-automatisee"
+      }
+    ]
+  }
+]

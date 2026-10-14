@@ -1,5 +1,0 @@
-User-agent: *
-Allow: /
-
-Sitemap: https://rosasbehoundja.github.io/sitemap.xml
-

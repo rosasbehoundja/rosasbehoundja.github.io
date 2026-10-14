@@ -1,0 +1,41 @@
+<header class="hero blog-header section-shadow">
+  <div class="hero-body py-4">
+    <div class="container is-max-desktop px-5">{% include "nav.njk" %}</div>
+  </div>
+</header>
+<main id="main" class="blog-index">
+  <h1 class="is-sr-only">{% if lang == 'fr' %}Blog{% else %}Blog posts{% endif %}</h1>
+  <section class="hero section-shadow">
+    <div class="hero-body">
+      <div class="container is-max-desktop px-5">
+        {% set currentYear = "" %}
+        {% for post in blogPosts %}
+          {% set postYear = post.date | date('yyyy') %}
+          <div class="columns blog-row">
+            <div class="column is-2 blog-year-column">
+              {% if postYear != currentYear %}<p class="pub-year blog-year is-size-2">{{ postYear }}</p>{% endif %}
+            </div>
+            <div class="column is-10">
+              <article class="blog-entry">
+                <h2 class="pub-title blog-entry-title is-size-4"><a href="{{ post.url }}">{{ post.data.title }}</a></h2>
+                <p class="blog-entry-meta is-size-7 has-text-grey">
+                  <span><i class="far fa-calendar-alt fa-fw" aria-hidden="true"></i> {{ post.date | date('dd MMM yyyy') }}</span>
+                  {% if post.data.readingTime %}<span class="blog-meta-dot" aria-hidden="true">·</span><span><i class="far fa-clock fa-fw" aria-hidden="true"></i> {{ post.data.readingTime }} min read</span>{% endif %}
+                </p>
+                {% if post.data.image %}
+                  <a class="blog-preview" href="{{ post.url }}" aria-label="Read {{ post.data.title }}">
+                    <img src="{{ post.data.image }}" alt="{{ post.data.imageAlt or post.data.title }}" loading="lazy">
+                  </a>
+                {% endif %}
+                <p class="blog-entry-description is-family-secondary has-text-grey-dark">{{ post.data.description or post.data.excerpt }}</p>
+              </article>
+            </div>
+          </div>
+          {% set currentYear = postYear %}
+        {% else %}
+          <p>{{ emptyMessage }}</p>
+        {% endfor %}
+      </div>
+    </div>
+  </section>
+</main>

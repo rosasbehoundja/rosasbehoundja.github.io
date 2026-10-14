@@ -1,31 +1,17 @@
 {
-  "name": "rosasbehoundja-github-io",
+  "name": "rosasbehoundja-website",
   "private": true,
   "type": "module",
   "scripts": {
-    "dev": "node --experimental-strip-types scripts/generate-pages.ts && vite",
-    "build": "node --experimental-strip-types scripts/generate-pages.ts && tsc --noEmit && vite build",
-    "preview": "vite preview",
-    "typecheck": "tsc --noEmit",
-    "test": "playwright test"
+    "sync": "node scripts/sync-content.mjs",
+    "predev": "npm run sync",
+    "dev": "eleventy --serve --port=4173",
+    "prebuild": "node scripts/prepare-build.mjs",
+    "build": "eleventy"
   },
   "dependencies": {
-    "@fontsource/bricolage-grotesque": "^5.3.0",
-    "@fontsource/inter": "^5.3.0",
-    "@fortawesome/free-brands-svg-icons": "^7.3.1",
-    "@fortawesome/free-solid-svg-icons": "^7.3.1",
-    "katex": "^0.16.22",
-    "marked": "^16.2.1",
-    "prismjs": "^1.30.0"
-  },
-  "devDependencies": {
-    "@axe-core/playwright": "^4.13.0",
-    "@playwright/test": "^1.63.0",
-    "@types/katex": "^0.16.7",
-    "@types/node": "^24.3.0",
-    "@types/prismjs": "^1.26.5",
-    "sharp": "^0.35.4",
-    "typescript": "^5.9.2",
-    "vite": "^7.1.3"
+    "@11ty/eleventy": "3.1.6",
+    "bulma": "0.9.3",
+    "markdown-it": "^14.3.2"
   }
 }

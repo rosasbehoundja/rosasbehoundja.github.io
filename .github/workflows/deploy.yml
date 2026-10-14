@@ -23,13 +23,12 @@ jobs:
         with:
           node-version: 22
           cache: npm
+          cache-dependency-path: package-lock.json
       - run: npm ci
       - run: npm run build
-      # - run: npx playwright install --with-deps chromium
-      # - run: npm test
       - uses: actions/upload-pages-artifact@v3
         with:
-          path: dist
+          path: site
 
   deploy:
     environment:

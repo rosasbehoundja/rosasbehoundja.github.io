@@ -1,0 +1,10 @@
+---
+layout: base.njk
+title: Blog
+pageKey: posts
+permalink: /fr/posts/index.html
+lang: fr
+---
+{% set blogPosts = collections.postsFr %}
+{% set emptyMessage = "Aucun article pour le moment." %}
+{% include "blog-list.njk" %}

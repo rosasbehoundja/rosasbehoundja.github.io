@@ -1,0 +1,26 @@
+[
+  {
+    "title": "MPVRP with changeover costs",
+    "year": 2026,
+    "focus": "collab",
+    "emoji": "🧩",
+    "featured": true,
+    "summary": "Proposed mixed-integer linear programming and sequence-variable constraint programming models for MPVRP-CC; conducted computational experiments and analyzed the results.",
+    "links": [
+      { "label": "Project", "url": "https://uac-rrteam.github.io/MPVRP-CC/" },
+      { "label": "Code", "url": "https://github.com/uac-rrteam/MPVRP-CC-modeling" },
+      { "label": "Poster", "url": "/assets/media/pdfs/DLI2026_X_MPVRP-CC.pdf" }
+    ]
+  },
+  {
+    "title": "ifri-mini-ml-lib",
+    "year": 2026,
+    "focus": "architecture",
+    "emoji": "🧠",
+    "featured": true,
+    "summary": "Contributed to a pedagogical machine learning library while supervising the second-year AI undergraduate class project.",
+    "links": [
+      { "label": "Code", "url": "https://github.com/IFRI-AI-Classes/ifri_mini_ml_lib" }
+    ]
+  }
+]

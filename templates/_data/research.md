@@ -1,0 +1,7 @@
+I am a final-year computer science undergrad at <img class="inline-logo" src="/assets/media/imgs/logos/logouac.png" alt="" style="height: 1.2em;">IFRI, [University of Abomey-Calavi](https://www.uac.bj/) in [Benin](https://www.benin.bj/en).
+
+I am fortunate to be advised by Dr. [Vinasétan Ratheil Houndji](https://ratheilh.github.io/) for my undergraduate research. I also work as a Research Engineer at <img class="inline-logo" src="/assets/media/imgs/logos/logoAi4Innov.jpeg" alt="" style="height: 1.3em;">[Ai4Innov Technologies](https://www.ai4innov.com/) under the guidance of Dr. [Gilles Hacheme](https://www.gilleshacheme.com/), where I work on geospatial AI. Before that, I've interned at <img class="inline-logo" src="/assets/media/imgs/logos/lrsia-sans-fond.png" alt="" style="height: 1em;">[Ratheil Research Team, LRSIA](https://uac-rrteam.github.io/en), and I have worked with Dr. [Jeremiah Olamijuwon](https://www.researchgate.net/profile/Jeremiah-Olamijuwon) on NLP for insurance companies at <img class="inline-logo" src="/assets/media/imgs/logos/etihuku_logo.jpeg" alt="" style="height: 1.2em;">[eTihuku](https://www.etihuku.com/).
+
+Long term, I want to build intelligent systems that can **reason, optimize, and help us make better decisions about complex real-world problems**. I am especially interested in problems with real-world impact in **healthcare, the environment, and industry**.
+
+Some of my research interests include:

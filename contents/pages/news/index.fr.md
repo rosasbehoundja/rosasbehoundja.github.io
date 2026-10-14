@@ -2,6 +2,10 @@
 
 ## 2026
 
+### 2026-10-14
+
+J'ai commencé un mentorat de recherche en NLP/IA avec [le Pr David Adelani](https://dadelani.github.io/). Il s'inscrit dans le cadre de l'**Uphando Education Support Initiative (ESI)**. J'espère pouvoir suivre le rythme et en tirer le meilleur parti.
+
 ### 2026-09-21
 
 J'ai commencé un poste d'ingénieur de recherche chez [Ai4Innov Technologies](https://www.ai4innov.com/).

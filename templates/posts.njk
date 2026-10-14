@@ -1,0 +1,9 @@
+---
+layout: base.njk
+title: Blog Posts
+pageKey: posts
+permalink: /posts/index.html
+---
+{% set blogPosts = collections.posts %}
+{% set emptyMessage = "Add a Markdown post to show writing here." %}
+{% include "blog-list.njk" %}

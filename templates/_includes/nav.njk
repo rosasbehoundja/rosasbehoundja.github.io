@@ -1,0 +1,4 @@
+<div class="nav-menu-bar mt-0 mb-3"><div class="columns mb-0 mt-0 navigation-bar is-mobile"><div class="column pb-0 pt-0"><div class="tabs" style="transform:translateX(-1rem)"><ul>
+{% for link in nav %}<li {% if link.key == pageKey %}class="is-active"{% endif %}><a href="{{ link.url }}" class="navbar-item {% if link.key == pageKey %}has-text-dark has-text-weight-semibold{% else %}has-text-grey{% endif %} is-family-secondary">{{ link.label }}</a></li>{% endfor %}
+{% if pageKey %}<li style="pointer-events:none;display:flex;align-items:center"><span class="has-text-grey-lighter" style="padding:0 .5rem">|</span></li>{% for link in socials %}<li><a href="{{ link.url }}" class="button is-white" aria-label="{{ link.label }}"><i class="{{ link.icon }} has-text-grey" aria-hidden="true"></i></a></li>{% endfor %}{% endif %}
+</ul></div></div></div></div>

@@ -2,6 +2,8 @@
 title: Mon retour sur le Deep Learning Indaba 2026
 date: 2026-08-23
 description: Un retour personnel sur le Deep Learning Indaba 2026 à Lagos, entre recherche, rencontres, culture et leçons d'une semaine mémorable.
+preview_image: ../../contents/blog/posts/2026-08-23-dli-return/imgs/P1.jpeg
+preview_image_alt: Des amis au Deep Learning Indaba 2026 à Lagos
 ---
 
 <img src="../../contents/blog/posts/2026-08-23-dli-return/imgs/P1.jpeg" alt="Deep Learning Indaba 2026 à Lagos">

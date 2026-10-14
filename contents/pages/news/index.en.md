@@ -2,6 +2,10 @@
 
 ## 2026
 
+### 2026-10-14
+
+I've started a research mentorship in NLP/AI with [Prof. David Adelani](https://dadelani.github.io/). It is part of **Uphando Education Support Initiative (ESI)**. I hope to be able to keep up and make the most of it.
+
 ### 2026-09-21
 
 I started a Research Engineer position at [Ai4Innov Technologies](https://www.ai4innov.com/).
