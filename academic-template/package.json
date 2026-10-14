@@ -3,7 +3,10 @@
   "private": true,
   "type": "module",
   "scripts": {
+    "sync": "node scripts/sync-content.mjs",
+    "predev": "npm run sync",
     "dev": "eleventy --serve --port=4173",
+    "prebuild": "node scripts/prepare-build.mjs",
     "build": "eleventy"
   },
   "dependencies": {

@@ -1,7 +1,7 @@
 import markdownIt from "markdown-it";
 
 export default function (eleventyConfig) {
-  const md = markdownIt({ html: false, linkify: true });
+  const md = markdownIt({ html: true, linkify: true });
   eleventyConfig.addFilter("markdown", value => md.render(value || ""));
   eleventyConfig.addFilter("date", (value, format) => {
     const date = new Date(value);
@@ -13,8 +13,11 @@ export default function (eleventyConfig) {
   });
   eleventyConfig.addPassthroughCopy({ "src/assets": "assets" });
   eleventyConfig.addCollection("publications", collection => collection.getFilteredByGlob("src/publications/*.md").sort((a, b) => b.data.year - a.data.year));
-  eleventyConfig.addCollection("updates", collection => collection.getFilteredByGlob("src/updates/*.md").sort((a, b) => b.date - a.date));
-  eleventyConfig.addCollection("posts", collection => collection.getFilteredByGlob("src/posts/*.md").sort((a, b) => b.date - a.date));
+  eleventyConfig.addCollection("updates", collection => collection.getFilteredByGlob("src/updates/imported/*.md").sort((a, b) => (b.date - a.date) || (a.data.order - b.data.order)));
+  eleventyConfig.addCollection("posts", collection => collection.getFilteredByGlob("src/posts/imported/en/*.md").sort((a, b) => b.date - a.date));
+  eleventyConfig.addCollection("postsFr", collection => collection.getFilteredByGlob("src/posts/imported/fr/*.md").sort((a, b) => b.date - a.date));
+  eleventyConfig.addCollection("newsArticles", collection => collection.getFilteredByGlob("src/news-articles/imported/en/*.md").sort((a, b) => b.date - a.date));
+  eleventyConfig.addCollection("newsArticlesFr", collection => collection.getFilteredByGlob("src/news-articles/imported/fr/*.md").sort((a, b) => b.date - a.date));
   eleventyConfig.addCollection("talks", collection => collection.getFilteredByGlob("src/talks/*.md").sort((a, b) => b.date - a.date));
   eleventyConfig.addFilter("filterFeatured", items => items.filter(item => item.data.featured));
   eleventyConfig.addFilter("filterFocus", (items, focus) => items.filter(item => item.data.focus === focus));
