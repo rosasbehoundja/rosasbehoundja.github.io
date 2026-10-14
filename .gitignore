@@ -1,13 +1,8 @@
 node_modules/
-dist/
-.vite/
-pages/blog/articles/
-pages/news/articles/
-src/generated-content.ts
-
+src/node_modules/
+src/site/
+src/_site/
 .idea/
 .vscode/
 .codex/
 .agent/
-test-results/
-playwright-report/

@@ -1,0 +1,17 @@
+{
+  "name": "rosasbehoundja-website",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "sync": "node scripts/sync-content.mjs",
+    "predev": "npm run sync",
+    "dev": "eleventy --serve --port=4173",
+    "prebuild": "node scripts/prepare-build.mjs",
+    "build": "eleventy"
+  },
+  "dependencies": {
+    "@11ty/eleventy": "^3.1.2",
+    "bulma": "0.9.3",
+    "markdown-it": "^14.1.0"
+  }
+}
