@@ -1,0 +1,1 @@
+<div class="tabs social-links"><ul>{% for link in socials %}<li><a href="{{ link.url }}" class="button is-white" aria-label="{{ link.label }}" title="{{ link.label }}"><i class="{{ link.icon }} has-text-grey" aria-hidden="true"></i>{% if link.label == 'CV' %}<span class="ml-1 has-text-grey">CV</span>{% endif %}</a></li>{% endfor %}</ul></div>

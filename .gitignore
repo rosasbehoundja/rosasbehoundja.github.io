@@ -1,7 +1,10 @@
 node_modules/
-src/node_modules/
-src/site/
-src/_site/
+site/
+_site/
+templates/posts/imported/
+templates/news-articles/imported/
+templates/updates/imported/
+templates/assets/post-media/
 .idea/
 .vscode/
 .codex/
