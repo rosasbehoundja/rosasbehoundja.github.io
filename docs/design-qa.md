@@ -18,7 +18,7 @@
 3. The blog article initially lacked the base layout, then its body used an extra `post` class that shifted content left. Fixed both and compared `qa/comparison-article.png` with the source. Added a sample image to exercise the image slot.
 4. The research filter initially used an unused class. Updated it to the source's `is-not-active` state. Verified update selection, publication tabs, Show more, and research filtering. Navigation to talks, blog index, and post detail works. Final browser console had no errors.
 
-**Content update:** The former sample post, publications, updates, and talk were removed. The current build imports the owner's English and French blog/news articles and news timeline from `contents/`. The current article layout was checked in the in-app browser at `/posts/2026-08-23-dli-return/`.
+**Content update:** The former sample post, publications, updates, and talk were removed. The build reads the owner's English and French blog/news articles from `src/posts/` and updates from `src/updates/`. The current article layout was checked in the in-app browser at `/posts/2026-08-23-dli-return/`.
 
 **Project update (2026-10-14):** The Projects section now includes the user's MPVRP-CC description and both supplied links, the constraint programming resource list, Tech trends monitor, and Cartographie immobilière automatisée. Review Scraper and SentiMaster were removed from the Projects list. Eleventy generated 32 pages successfully; the generated homepage check found every requested project and neither removed project. The Projects section was inspected in the in-app browser at `http://localhost:4173/#projects` with the source stylesheet unchanged.
 
@@ -26,7 +26,7 @@
 
 **Deployment source update (2026-10-14):** GitHub Pages builds from the repository root and uploads `site/`. The previous root Vite source, generated bundle, duplicate media, unused template samples, and obsolete home/work Markdown pages were removed. The built homepage contains the requested Google verification tag; `robots.txt`, `.nojekyll`, and the current sitemap are in the artifact. The build generated 32 HTML pages and 32 sitemap URLs, with no missing local links or assets.
 
-**Implementation checklist for reuse by another person:** Replace the owner content in `contents/`, `templates/_data/`, and owner media before publishing.
+**Implementation checklist for reuse by another person:** Replace the owner content in `src/posts/`, `src/updates/`, `src/_data/`, and owner media before publishing.
 
 **Follow-up polish:** If the template is to work entirely offline, package the externally loaded Google Fonts, Font Awesome, Academicons, and Bulma Tooltip resources locally.
 

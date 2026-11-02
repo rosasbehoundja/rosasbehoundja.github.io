@@ -1,0 +1,16 @@
+{% set currentYear = 0 %}{% for talk in collections.talks %}
+<div class="columns is-mobile presentation-entry">
+  <div class="column is-2">{% if talk.data.year != currentYear %}<p class="pub-year is-size-2">{{ talk.data.year }}</p>{% endif %}</div>
+  <div class="column publication-copy">
+    <div class="content">
+      <h3 class="pub-title is-size-4 mb-1">{{ talk.data.title }}</h3>
+      <div class="pub-links">{% for link in talk.data.links %}<a href="{{ link.url }}" class="publication-link"><i class="{{ link.icon }} {{ link.iconColor }}" aria-hidden="true"></i><span>{{ link.label }}</span></a>{% endfor %}</div>
+      {% if talk.data.presenters %}<div class="pub-info mt-4"><div class="pub-author">{{ talk.data.presenters | safe }}</div></div>{% endif %}
+    </div>
+  </div>
+  <div class="column publication-logo-column">
+    {% if talk.data.image %}<figure class="image publication-logo"><img src="{{ talk.data.image }}" alt="{{ talk.data.imageAlt }}" loading="lazy"></figure>{% elif talk.data.emoji %}<span class="presentation-emoji" role="img" aria-label="Presentation icon">{{ talk.data.emoji }}</span>{% endif %}
+  </div>
+</div>
+{% set currentYear = talk.data.year %}
+{% else %}<p>No presentations yet.</p>{% endfor %}

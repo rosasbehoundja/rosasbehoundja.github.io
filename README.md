@@ -13,11 +13,11 @@ The development server starts at `http://localhost:4173/`. Run `npm run build` t
 
 ## Where to edit
 
-- `contents/` holds the original English and French blog and news Markdown, including the Latest timeline in `contents/pages/news/index.en.md`.
-- `templates/` holds Eleventy pages, layouts, data, and published assets. Owner details and project lists are in `templates/_data/`.
-- `scripts/sync-content.mjs` imports the Markdown into generated files beneath `templates/`. Edit `contents/` rather than those generated files.
+- `src/posts/<slug>/index.en.md` and `index.fr.md` hold English and French blog and news articles. The Reading of the week archive is in `src/posts/en/` and `src/posts/fr/`.
+- `src/updates/` holds homepage updates as dated Markdown files.
+- `src/assets/post-media/` holds article images. Owner details and project lists are in `src/_data/`.
 - `eleventy.config.js` defines the Eleventy input, collections, and output paths.
 
-Each blog Markdown file needs a one sentence `description` in its front matter. Use `preview_image` and `preview_image_alt` for its listing image.
+Each post Markdown file needs `layout: post.njk`, `title`, `date`, `lang`, `permalink`, and `articleType` in its front matter. Use `description`, `image`, and `imageAlt` for its listing.
 
 See [the content map](docs/eleventy.md) for specific files. The reference layout and stylesheet are credited in the site footer. Review the reference site's [CC BY-NC-SA 4.0 content license](https://creativecommons.org/licenses/by-nc-sa/4.0/) before reusing its materials elsewhere.

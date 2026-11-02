@@ -1,7 +1,8 @@
 import markdownIt from "markdown-it";
 
 export default function (eleventyConfig) {
-  // Imported Markdown is generated during prebuild and ignored by Git, but
+  eleventyConfig.addGlobalData("currentYear", () => new Date().getFullYear());
+  // Generated Markdown is created during prebuild and ignored by Git, but
   // Eleventy must still include it in the rendered site.
   eleventyConfig.setUseGitIgnore(false);
   const md = markdownIt({ html: true, linkify: true });
@@ -14,17 +15,16 @@ export default function (eleventyConfig) {
     if (format === "yyyy MMMM") return new Intl.DateTimeFormat("en", { year: "numeric", month: "long", timeZone: "UTC" }).format(date);
     return new Intl.DateTimeFormat("en", { month: "short", year: "numeric", timeZone: "UTC" }).format(date);
   });
-  eleventyConfig.addPassthroughCopy({ "templates/assets": "assets" });
-  eleventyConfig.addPassthroughCopy({ "templates/robots.txt": "robots.txt" });
-  eleventyConfig.addPassthroughCopy({ "templates/.nojekyll": ".nojekyll" });
-  eleventyConfig.addCollection("publications", collection => collection.getFilteredByGlob("templates/publications/*.md").sort((a, b) => b.data.year - a.data.year));
-  eleventyConfig.addCollection("updates", collection => collection.getFilteredByGlob("templates/updates/imported/*.md").sort((a, b) => (b.date - a.date) || (a.data.order - b.data.order)));
-  eleventyConfig.addCollection("posts", collection => collection.getFilteredByGlob("templates/posts/imported/en/*.md").sort((a, b) => b.date - a.date));
-  eleventyConfig.addCollection("postsFr", collection => collection.getFilteredByGlob("templates/posts/imported/fr/*.md").sort((a, b) => b.date - a.date));
-  eleventyConfig.addCollection("newsArticles", collection => collection.getFilteredByGlob("templates/news-articles/imported/en/*.md").sort((a, b) => b.date - a.date));
-  eleventyConfig.addCollection("newsArticlesFr", collection => collection.getFilteredByGlob("templates/news-articles/imported/fr/*.md").sort((a, b) => b.date - a.date));
-  eleventyConfig.addCollection("talks", collection => collection.getFilteredByGlob("templates/talks/*.md").sort((a, b) => b.date - a.date));
+  eleventyConfig.addPassthroughCopy({ "src/assets": "assets" });
+  eleventyConfig.addPassthroughCopy({ "src/robots.txt": "robots.txt" });
+  eleventyConfig.addPassthroughCopy({ "src/.nojekyll": ".nojekyll" });
+  eleventyConfig.addCollection("publications", collection => collection.getFilteredByGlob("src/publications/*.md").sort((a, b) => b.data.year - a.data.year));
+  eleventyConfig.addCollection("updates", collection => collection.getFilteredByGlob("src/updates/*.md").sort((a, b) => (b.date - a.date) || (a.data.order - b.data.order)));
+  eleventyConfig.addCollection("posts", collection => collection.getFilteredByGlob(["src/posts/*/index.en.md", "src/posts/en/reading-of-the-week.md"]).sort((a, b) => b.date - a.date));
+  eleventyConfig.addCollection("postsFr", collection => collection.getFilteredByGlob(["src/posts/*/index.fr.md", "src/posts/fr/reading-of-the-week.md"]).sort((a, b) => b.date - a.date));
+  eleventyConfig.addCollection("talks", collection => collection.getFilteredByGlob("src/talks/*.md").sort((a, b) => (b.data.year - a.data.year) || (a.data.order - b.data.order)));
   eleventyConfig.addFilter("filterFeatured", items => items.filter(item => item.data.featured));
+  eleventyConfig.addFilter("filterPublicationType", (items, type) => items.filter(item => item.data.type === type));
   eleventyConfig.addFilter("filterFocus", (items, focus) => items.filter(item => item.data.focus === focus));
   eleventyConfig.addTransform("external-links-new-tab", (content, outputPath) => {
     if (typeof outputPath !== "string" || !outputPath.endsWith(".html")) return content;
@@ -37,5 +37,5 @@ export default function (eleventyConfig) {
       return `<a${cleaned} target="_blank" rel="${[...values].join(" ")}">`;
     });
   });
-  return { dir: { input: "templates", output: "site", includes: "_includes", data: "_data" }, markdownTemplateEngine: "njk" };
+  return { dir: { input: "src", output: "site", includes: "_includes", data: "_data" }, markdownTemplateEngine: "njk" };
 }

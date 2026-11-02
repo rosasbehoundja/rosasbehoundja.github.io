@@ -1,0 +1,12 @@
+[
+  {
+    "key": "about",
+    "label": "About",
+    "url": "/#about"
+  },
+  {
+    "key": "posts",
+    "label": "Blog",
+    "url": "/posts/"
+  }
+]
