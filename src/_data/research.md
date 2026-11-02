@@ -4,5 +4,5 @@ I had a fun stint at <img class="inline-logo" src="/assets/media/imgs/logos/lrsi
 I'm also a Research Engineer at <img class="inline-logo" src="/assets/media/imgs/logos/logoAi4Innov.jpeg" alt="" style="height: 1.3em;">[Ai4Innov Technologies](https://www.ai4innov.com/) working on geospatial AI under Dr. [Gilles Hacheme](https://scholar.google.com/citations?hl=en&user=yMMUBIUAAAAJ).
 
 I'm currently a prospective M.Sc./PhD student in Computer Science or Industrial Engineering for Fall 2027.
-I'm curious about research in machine learning, combinatorial optimization and the intersection of the two on
-problems in healthcare, environment (e.g,  agriculture, climate change), and industry.
+I'm curious about research in machine learning, computer vision and combinatorial optimization with applications
+in healthcare, environment (e.g,  agriculture, climate change), and industry.

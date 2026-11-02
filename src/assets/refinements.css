@@ -1,0 +1,37 @@
+/* Site-wide reading and surface refinements. */
+html, body { background: #fff; }
+body, button, input, select, textarea { font-family: "Manrope", sans-serif; }
+body { color: #333; font-size: 1.125rem; font-weight: 500; line-height: 1.6; }
+.title, h1, h2, h3, h4, h5, h6 { font-family: "Manrope", sans-serif; }
+.section-shadow { box-shadow: none; border-top: 1px solid #f0f0f0; }
+.footer { background: #fff; border-top: 1px solid #f0f0f0; }
+.tiny-section-header { color: #777; }
+.blog-entry-title { font-weight: 700; }
+.blog-preview img { border-radius: 6px; box-shadow: none; }
+
+/* The same reading column serves English and French posts and news. */
+.post-container { width: min(100% - 3rem, 46rem); margin-inline: auto; }
+.post-head { background: #fff; border-bottom: 1px solid #ededed; padding: 4.25rem 0 2rem; }
+.post-title { color: #282828; font-size: clamp(2rem, 4vw, 2.75rem); font-weight: 700; line-height: 1.2; margin-bottom: 1rem !important; }
+.post-meta { display: flex; flex-wrap: wrap; align-items: center; gap: .3rem .55rem; color: #666; font-size: .875rem; line-height: 1.5; }
+.post-meta a { color: #555; text-decoration: underline; text-decoration-color: #bbb; text-underline-offset: 3px; }
+.post-meta a:hover { color: #3273dc; }
+.post-main { background: #fff; }
+.post-body { font-family: "Manrope", sans-serif !important; color: #333; font-size: 1.125rem; line-height: 1.75; padding: 2.5rem 0 3rem; }
+.post-body > p { font-size: inherit !important; }
+.post-body h2 { color: #292929; font-size: 1.5rem; font-weight: 700; line-height: 1.35; margin-top: 2.5em; margin-bottom: .8em; }
+.post-body h3 { color: #292929; font-size: 1.2rem; font-weight: 700; line-height: 1.4; margin-top: 2em; }
+.post-body p, .post-body ul, .post-body ol, .post-body blockquote { margin-bottom: 1.3em; }
+.post-body img { display: block; max-width: 100%; height: auto; margin: 1.75rem auto; border-radius: 4px; }
+.post-body .gallery { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 1rem; margin: 1.75rem 0; }
+.post-body .gallery img { margin: 0; }
+.post-body blockquote { border-left: 3px solid #b4c6eb; background: #f8faff; padding: 1rem 1.25rem; }
+.post-body pre { border-radius: 4px; }
+.post-return { border-top: 1px solid #ededed; padding: 1.5rem 0 3rem; font-size: 1rem; }
+@media (max-width: 768px) {
+  body { font-size: 1.0625rem; }
+  .post-container { width: min(100% - 2rem, 46rem); }
+  .post-head { padding: 2.5rem 0 1.5rem; }
+  .post-body { font-size: 1.0625rem; padding-top: 2rem; }
+  .post-body .gallery { grid-template-columns: 1fr; }
+}
