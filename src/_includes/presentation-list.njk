@@ -1,6 +1,6 @@
 {% set currentYear = 0 %}{% for talk in collections.talks %}
 <div class="columns is-mobile presentation-entry">
-  <div class="column is-2">{% if talk.data.year != currentYear %}<p class="pub-year is-size-2">{{ talk.data.year }}</p>{% endif %}</div>
+  <div class="column is-2 presentation-year-column">{% if talk.data.year != currentYear %}<p class="pub-year is-size-2">{{ talk.data.year }}</p>{% endif %}</div>
   <div class="column publication-copy">
     <div class="content">
       <h3 class="pub-title is-size-4 mb-1">{{ talk.data.title }}</h3>
