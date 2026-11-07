@@ -1,0 +1,43 @@
+---
+layout: base.njk
+title: Misc.
+pageKey: misc
+permalink: /misc/index.html
+---
+{% include "interior-header.njk" %}
+<main id="main" class="misc-page">
+  <section class="hero section-shadow"><div class="hero-body"><div class="container is-max-desktop px-5">
+    <div class="misc-section-layout misc-section-left">
+    <img class="misc-section-art" src="/assets/media/imgs/misc/projects.jpeg" alt="Cartoon robot working at a laptop" loading="lazy">
+    <div class="misc-section-content"><h2 class="tiny-section-header mb-6 mt-1" id="projects">PROJECTS</h2>
+    <div class="content is-family-secondary has-text-grey-dark project-bullets"><ul>
+      <li>Tokenization algorithms, sentiment analysis model and neural translation model for Fongbé [<a href="https://github.com/rosasbehoundja/xevi">Code</a>].</li>
+      <li>Designed a question-answering RAG system for the university administrative process [<a href="https://github.com/rosasbehoundja/IFRI-AI-Chatbot">Code</a>].</li>
+      <li>Built a smart waste-sorting robot with object detection (YOLOv5, TensorRT) and a ROS2-controlled robotic arm. 2nd prize, <a href="https://trc.tekbot.io/trc-2025/">Tekbot Robotics Challenge 2025</a> [<a href="https://github.com/TRC-IFRI-REPO">Code</a>].</li>
+      <li>Classified illegal cryptocurrency mining using website activities with an XGBoost model, F1-score: 0.973. 1st prize, <a href="https://zindi.world/zc/zdHxz3M">IndabaX Benin Hackathon 2024</a> [<a href="https://github.com/rosasbehoundja/Cryptojacking_Detection">Code</a>].</li>
+      <li>Built an RSS monitoring system that tracks news about AI coding agents and delivers email digests every 3 days using GitHub Actions [<a href="https://github.com/rosasbehoundja/tech-trends-monitor">Code</a>].</li>
+      <li>Made a curated list of resources (solvers, tutorials, courses, books, papers, etc.) to learn about constraint programming (CP) and its applications [<a href="https://github.com/rosasbehoundja/learning-constraint-programming">Source</a>].</li>
+      <li>Built a lightweight machine learning library that reimplements core algorithms from scratch for teaching [<a href="https://github.com/IFRI-AI-Classes/ifri_mini_ml_lib">Code</a>].</li>
+    </ul></div></div></div>
+  </div></div></section>
+  <section class="hero section-shadow"><div class="hero-body"><div class="container is-max-desktop px-5">
+    <div class="misc-section-layout misc-section-right">
+    <img class="misc-section-art" src="/assets/media/imgs/misc/reading.jpeg" alt="Snoopy reading a book" loading="lazy">
+    <div class="misc-section-content"><h2 class="tiny-section-header mb-6 mt-1" id="favorite-links">FAVORITE LINKS</h2>
+    {% if favoriteLinks.length %}
+    <ul class="misc-link-grid is-family-secondary">
+      {% for link in favoriteLinks %}<li><a href="{{ link.url }}">{{ link.label }}</a>{% if link.description %}<p>{{ link.description }}</p>{% endif %}</li>{% endfor %}
+    </ul>
+    {% else %}<p class="is-family-secondary has-text-grey">Links coming soon.</p>{% endif %}</div></div>
+  </div></div></section>
+  <section class="hero section-shadow"><div class="hero-body"><div class="container is-max-desktop px-5">
+    <div class="misc-section-layout misc-section-left">
+    <img class="misc-section-art" src="/assets/media/imgs/misc/quotes.jpeg" alt="Patrick Star meditating" loading="lazy">
+    <div class="misc-section-content"><h2 class="tiny-section-header mb-6 mt-1" id="quotes">QUOTES</h2>
+    {% if favoriteQuotes.length %}
+    <div class="misc-quotes is-family-secondary">
+      {% for quote in favoriteQuotes %}<blockquote><p>“{{ quote.text }}”</p>{% if quote.author or quote.sourceUrl %}<footer>{% if quote.author %}— {{ quote.author }}{% endif %}{% if quote.sourceUrl %}{% if quote.author %} · {% endif %}<a href="{{ quote.sourceUrl }}">{{ quote.sourceLabel or "Source" }}</a>{% endif %}</footer>{% endif %}</blockquote>{% endfor %}
+    </div>
+    {% else %}<p class="is-family-secondary has-text-grey">Quotes coming soon.</p>{% endif %}</div></div>
+  </div></div></section>
+</main>

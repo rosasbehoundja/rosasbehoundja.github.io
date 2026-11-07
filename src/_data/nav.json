@@ -8,5 +8,10 @@
     "key": "posts",
     "label": "Blog",
     "url": "/posts/"
+  },
+  {
+    "key": "misc",
+    "label": "Misc.",
+    "url": "/misc/"
   }
 ]
